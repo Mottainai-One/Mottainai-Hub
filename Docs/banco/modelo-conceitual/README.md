@@ -34,4 +34,4 @@ O sistema é entregue por **quatro superfícies** distintas:
 
 ---
 
-*Última atualização: 2026-08-29 · Repositório: `Mottainai-Hub-` → `Docs/banco/modelo-conteitual`*
+*Última atualização: 2026-09-04 · Repositório: `Mottainai-Hub-` → `Docs/banco/modelo-conceitual`*

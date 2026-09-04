@@ -5,7 +5,7 @@
 
 O **modelo lógico** descreve **como** o domínio conceitual foi materializado no banco. Ele detalha cada tabela, seus **atributos**, **tipos**, **chaves primárias e estrangeiras**, **restrições** (`CHECK`/`UNIQUE`), **índices**, **triggers** e **procedures**, além das regras e convenções adotadas. Serve de referência única para quem implementa, integra ou mantém o banco operacional.
 
-> A camada de *conceitos de negócio* está no **[Modelo Conceitual](../modelo-conteitual/README.md)**. Este documento foca no *detalhamento físico*.
+> A camada de *conceitos de negócio* está no **[Modelo Conceitual](../modelo-conceitual/README.md)**. Este documento foca no *detalhamento físico*.
 
 ## Organização deste guia
 
@@ -40,6 +40,8 @@ Cada tabela é documentada com o padrão abaixo:
 - **Chave estrangeira (FK):** `FK → tabela_alvo` com a ação de exclusão (`RESTRICT`/`CASCADE`/`SET NULL`).
 - **Índices:** apenas os índices-chave são citados (há também índices de apoio a FKs e performance).
 - **Triggers:** regras automatizadas disparadas em `INSERT`/`UPDATE`/`DELETE`.
+
+Para a implementação SQL correspondente, consulte a **[Documentação do Script](../script/README.md)**.
 
 ### Notação usada nas tabelas de colunas
 
@@ -77,4 +79,4 @@ Cada tabela é documentada com o padrão abaixo:
 
 ---
 
-*Última atualização: 2026-08-29 · Repositório: `Mottainai-Hub-` → `Docs/banco/model-logico`*
+*Última atualização: 2026-09-04 · Repositório: `Mottainai-Hub-` → `Docs/banco/model-logico`*
