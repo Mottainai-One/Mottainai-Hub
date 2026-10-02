@@ -34,8 +34,13 @@ Trilha de auditoria de operações sensíveis. **Tabela particionada por `operat
 | `user_id` 🔗 | `INTEGER` | `FK → app_user(user_id) ON DELETE SET NULL` |
 | `old_data` / `new_data` | `JSONB` | estados anterior/novo |
 | `operation_date` 🔑 | `TIMESTAMP` | parte da PK · coluna de partição · `def NOW()` |
+| `company_id` | `INTEGER` | tenant do contexto |
+| `store_id` | `INTEGER` | loja do contexto |
+| `client_ip` | `INET` | origem observada pelo PostgreSQL |
+| `application_name` | `VARCHAR(100)` | cliente declarado na conexão |
+| `transaction_id` | `BIGINT` | correlação forense da transação |
 
-**Preenchimento:** triggers de auditoria em `disposal`, `transfer` e `donation` (`trg_audit_*`), além de chamadas da aplicação. Particionamento gerenciado por procedures (`sp_create_future_partitions`/`sp_drop_old_partitions`).
+**Preenchimento:** triggers cobrem logística, funcionários, contas, tokens, sessões, compras, vendas e movimentações. A função sanitiza CPF e hashes antes de gravar. `mottainai_api` possui somente leitura filtrada por empresa; não pode inserir, alterar, excluir ou truncar auditoria. Particionamento é mensal.
 
 ## `system_log`
 

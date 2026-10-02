@@ -1,7 +1,7 @@
 # Modelo Lógico — Mottainai
 
-> **Banco Operacional** · PostgreSQL 15+ · v6.0 Enterprise
-> Detalhamento físico-lógico do banco de dados: schemas, tabelas, colunas, tipos, chaves, restrições, índices, triggers e a camada analítica.
+> **Banco Operacional** · PostgreSQL 15+ · versão 2026-10-02
+> Detalhamento físico-lógico de tabelas, colunas, chaves, restrições, índices, triggers, RLS e integração com o banco analítico separado.
 
 O **modelo lógico** descreve **como** o domínio conceitual foi materializado no banco. Ele detalha cada tabela, seus **atributos**, **tipos**, **chaves primárias e estrangeiras**, **restrições** (`CHECK`/`UNIQUE`), **índices**, **triggers** e **procedures**, além das regras e convenções adotadas. Serve de referência única para quem implementa, integra ou mantém o banco operacional.
 
@@ -21,8 +21,9 @@ O **modelo lógico** descreve **como** o domínio conceitual foi materializado n
 | [`07-inteligencia-motor.md`](07-inteligencia-motor.md) | Alerta, Ação Sugerida, IA, Varreduras/Telemetria do motor, Regras |
 | [`08-logistica-sustentabilidade.md`](08-logistica-sustentabilidade.md) | Transferência, Doação, Avarias/Descarte |
 | [`09-auditoria-observabilidade.md`](09-auditoria-observabilidade.md) | Auditoria, Logs, Eventos, Jobs, KPI, Históricos |
-| [`10-camada-analitica.md`](10-camada-analitica.md) | Schema `mottainai_analytics` — views e indicadores (star schema) |
+| [`10-camada-analitica.md`](10-camada-analitica.md) | Banco físico `mottainai_analytics` — modelo estrela, ingestão e indicadores |
 | [`11-enums.md`](11-enums.md) | Todos os tipos enum e seus valores |
+| [Segurança](../seguranca/01-arquitetura-de-seguranca.md) | Role da API, sessões, contexto transacional, RLS e auditoria |
 
 ## Como ler uma tabela
 

@@ -3,7 +3,7 @@
 Domínio **multitenant (SaaS)** do Mottainai. Define o locatário (empresa), suas unidades (lojas), a hierarquia de funcionários, os usuários de acesso e os endereços reutilizados em todo o sistema.
 
 ```
-subscription_plan ──< company ──< retail_store ──< employee ── 1:1 ── app_user
+subscription_plan ──< company ──< retail_store ──< employee ── 1:1 ── app_user ──< staff_session
                       │                │
                       │                └──< address
                       └──< address
@@ -101,11 +101,33 @@ Credencial de acesso de um funcionário (login e senha). Cada funcionário tem *
 |---|---|---|
 | `user_id` 🔑 | `INTEGER` identity | `PK` |
 | `employee_id` 🔗 | `INTEGER` | `NN` `UQ` `FK → employee(employee_id) ON DELETE RESTRICT` |
+| `cpf` | `CHAR(11)` | `NN` `UQ` `CHECK fn_validate_cpf`; sincronizado com funcionário |
 | `email` 🔎 | `VARCHAR(150)` | `NN` `UQ` `CHECK fn_validate_email` |
 | `password_hash` | `VARCHAR(255)` | `NN` |
+| `password_set` | `BOOLEAN` | `NN` `def TRUE`; falso durante convite inicial |
 | `last_login` | `TIMESTAMP` | |
 | `active` | `BOOLEAN` | `def TRUE` |
 | timestamps | `TIMESTAMP` | |
+
+**Segurança:** RLS permite o próprio usuário e a administração autorizada da empresa. A API não recebe a senha original e deve usar Argon2id.
+
+## `staff_session`
+
+Sessão revogável de funcionário. Um usuário pode manter sessões distintas por dispositivo.
+
+| Coluna | Tipo | Restrições |
+|---|---|---|
+| `session_id` 🔑 | `UUID` | `PK` `def gen_random_uuid()` |
+| `user_id` 🔗 | `INTEGER` | `NN` `FK → app_user(user_id) ON DELETE RESTRICT` |
+| `refresh_token_hash` | `TEXT` | `NN` `UQ`; nunca armazena o token original |
+| `refresh_expires_at` | `TIMESTAMPTZ` | `NN` posterior à criação |
+| `last_used_at` / `revoked_at` | `TIMESTAMPTZ` | controles de rotação e revogação |
+| `revoked_reason` | `VARCHAR(80)` | exige `revoked_at` preenchido |
+| `ip_address` | `INET` | origem observada |
+| `user_agent` | `VARCHAR(500)` | dispositivo cliente limitado |
+| `created_at` | `TIMESTAMPTZ` | `NN` `def CURRENT_TIMESTAMP` |
+
+**Segurança:** RLS por usuário/empresa; logout e troca de senha revogam sem excluir a evidência.
 
 ## `address`
 
