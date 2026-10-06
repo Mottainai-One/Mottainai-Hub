@@ -69,15 +69,15 @@ Para a implementação SQL correspondente, consulte a **[Documentação do Scrip
 
 > Links acionáveis para a documentação completa de cada tabela.
 
-- **02-cadastro-e-empresa.md:** `subscription_plan` · `company` · `retail_store` · `employee_role` · `employee` · `app_user` · `address`
+- **02-cadastro-e-empresa.md:** `subscription_plan` · `company` · `retail_store` · `employee_role` · `employee` · `app_user` · `staff_session` · `address`
 - **03-produto-e-compras.md:** `product_category` · `tax_profile` · `product` · `supplier` · `supplier_product` · `purchase_order` · `purchase_order_item` · `receiving` · `receiving_item`
 - **04-estoque.md:** `batch` · `inventory` · `inventory_movement` · `replenishment_pre_list` · `replenishment_pre_list_item` · `replenishment_execution` · `replenishment_execution_item`
-- **05-vendas-pdv.md:** `customer` · `customer_auth` · `pos_terminal` · `pos_shift` · `pos_cash_movement` · `sales_transaction` · `sale_item` · `sale_payment` · `fiscal_document` · `pos_cancel_request`
+- **05-vendas-pdv.md:** `customer` · `customer_auth` · `customer_consent` · `pos_terminal` · `pos_shift` · `pos_cash_movement` · `sales_transaction` · `sale_item` · `sale_payment` · `fiscal_document` · `pos_cancel_request`
 - **06-fidelidade-promocoes.md:** `customer_geofence` · `loyalty_account` · `loyalty_transaction` · `loyalty_reward` · `loyalty_redemption` · `promotion` · `promotion_item`
 - **07-inteligencia-motor.md:** `alert` · `suggested_action` · `ai_model` · `ai_prediction` · `ai_recommendation` · `ai_feedback` · `ai_execution` · `engine_scan_log` · `engine_suggestion` · `system_rule`
 - **08-logistica-sustentabilidade.md:** `transfer` · `transfer_item` · `donation` · `donation_item` · `disposal` · `disposal_item`
-- **09-auditoria-observabilidade.md:** `schema_version` · `audit_log` · `system_log` · `error_log` · `integration_log` · `job_log` · `product_history` · `supplier_history` · `product_price_history` · `event_queue` · `kpi_cache` · `query_performance` · (arquivos `*_archive`)
+- **09-auditoria-observabilidade.md:** `schema_version` · `audit_log` · `legacy_sync_record` · `system_log` · `error_log` · `integration_log` · `job_log` · `product_history` · `supplier_history` · `product_price_history` · `event_queue` · `kpi_cache` · `query_performance` · (arquivos `*_archive`)
 
 ---
 
-*Última atualização: 2026-09-04 · Repositório: `Mottainai-Hub-` → `Docs/banco/model-logico`*
+*Última atualização: 2026-10-06 · Repositório: `Mottainai-Hub` → `Docs/banco/model-logico`*
