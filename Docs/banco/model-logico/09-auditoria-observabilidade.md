@@ -40,7 +40,14 @@ Trilha de auditoria de operações sensíveis. **Tabela particionada por `operat
 | `application_name` | `VARCHAR(100)` | cliente declarado na conexão |
 | `transaction_id` | `BIGINT` | correlação forense da transação |
 
-**Preenchimento:** triggers cobrem logística, funcionários, contas, tokens, sessões, compras, vendas e movimentações. A função sanitiza CPF e hashes antes de gravar. `mottainai_api` possui somente leitura filtrada por empresa; não pode inserir, alterar, excluir ou truncar auditoria. Particionamento é mensal.
+**Preenchimento:** triggers cobrem logística, funcionários, contas, clientes, consentimentos, tokens, sessões, compras, vendas e movimentações. A função sanitiza recursivamente documentos, identificadores e hashes antes de gravar. `mottainai_api` possui somente leitura filtrada por empresa; `mottainai_customer_api` não acessa a auditoria. Nenhuma role de API pode inserir, alterar, excluir ou truncar auditoria. Particionamento é mensal.
+
+## `legacy_sync_record`
+
+Trilha idempotente da transferência entre os dois bancos físicos. Guarda
+origem, identificadores técnicos, destino, status, instante e SHA-256 do
+payload já tratado. O payload bruto não é persistido e a role do cliente não
+possui acesso.
 
 ## `system_log`
 

@@ -84,7 +84,7 @@ Fornecedor de mercadorias.
 | `address_id` 🔗 | `INTEGER` | `NN` `FK → address(…) ON DELETE RESTRICT` |
 | `trade_name` | `VARCHAR(150)` | `NN` |
 | `cnpj` | `CHAR(14)` | `NN` `UQ` `CHECK fn_validate_cnpj` |
-| `email` / `phone` | `VARCHAR` | `email` valida `fn_validate_email` |
+| `email` / `phone` | `VARCHAR` | mascarados no formato legado ou tokens SHA-256 prefixados |
 | `active` | `BOOLEAN` | `def TRUE` |
 | timestamps | `TIMESTAMP` | |
 

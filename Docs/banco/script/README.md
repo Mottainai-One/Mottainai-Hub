@@ -38,6 +38,8 @@ erro. Ele não apaga schema, banco ou dados existentes.
 | 15 | `11_product_company_tests.sql` | Testes da migration de produto |
 | 16 | `20_security_hardening.sql` | Roles, sessões, RLS, auditoria e privilégios |
 | 17 | `21_security_hardening_tests.sql` | Testes automatizados de segurança |
+| 18 | `22_sensitive_data_contract.sql` | Contrato SHA-256/BCrypt, proteção de clientes, RPA e RLS dedicado |
+| 19 | `23_sensitive_data_contract_tests.sql` | Testes do contrato de dados sensíveis |
 
 ## Garantias relevantes
 
@@ -46,6 +48,7 @@ erro. Ele não apaga schema, banco ou dados existentes.
 - propriedade ambígua de produto interrompe a migration;
 - role da API não é criada com login ou senha;
 - testes verificam privilégios, RLS, views e auditoria;
+- dados pessoais abertos são recusados e logs são sanitizados recursivamente;
 - CI instala o schema em PostgreSQL 15 limpo e reaplica migrations críticas.
 
 Veja [01-estrutura-do-script.md](01-estrutura-do-script.md) e o
