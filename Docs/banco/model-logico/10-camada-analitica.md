@@ -1,93 +1,63 @@
-# 10 — Camada Analítica
+# 10 — Banco Analítico
 
-Segmento **BI / Dashboard** do banco: um conjunto de **views** que reúnem indicadores a partir do schema operacional `mottainai`. Servem para dashboards e relatórios gerenciais sem duplicar dados em tabelas de cubo.
+O analítico é um **PostgreSQL físico separado**, chamado
+`mottainai_analytics`, com schema principal de mesmo nome. Ele não participa do
+commit de venda, estoque ou caixa e não consulta o operacional por `dblink`.
 
-A camada analítica está organizada em **dois níveis**:
+## Modelo
 
-1. **Schema `public`** — views utilitárias de estoque e uma **view materializada** de dashboard.
-2. **Schema `mottainai_analytics`** — conjunto de views de indicadores de negócio (default).
+O banco usa modelo estrela. Dimensões descrevem empresa, loja, produto,
+categoria, fornecedor, funcionário, cliente anonimizado, lote e calendário.
+Fatos preservam medidas no grão documentado.
 
-> As views analíticas operam com `search_path = mottainai_analytics, mottainai, public`.
-
-## Views utilitárias (schema `public`)
-
-| View | Papel |
+| Fato | Grão |
 |---|---|
-| `vw_expiring_products` | Produtos próximos do vencimento (FEFO) |
-| `vw_critical_stock` | Itens abaixo do mínimo (estoque crítico) |
-| `vw_stock_coverage` | Cobertura de estoque por produto/loja |
-| `vw_monthly_summary` | Resumo mensal de vendas/estoque |
-| `vw_active_customer_promotions` | Promoções ativas (app cliente mobile) |
+| `fact_sales` | Uma venda por data |
+| `fact_sale_item` | Um item de venda por data |
+| `fact_inventory_movement` | Uma movimentação de estoque por data |
+| `fact_inventory_snapshot` | Posição diária por loja, produto, lote e tipo |
+| `fact_purchase_order` | Um pedido por data |
+| `fact_receiving` | Um recebimento |
+| `fact_promotion_result` | Promoção por loja, produto e dia |
+| `fact_loss_destination` | Uma destinação de perda |
+| `fact_transfer` | Uma transferência |
+| `fact_replenishment` | Uma reposição |
+| `fact_loyalty` | Um evento de pontos |
 
-**View materializada (schema `public`):**
+As quatro primeiras tabelas são particionadas mensalmente, com partição default
+para impedir perda de carga fora da janela preparada.
 
-| View | Papel |
-|---|---|
-| `mv_dashboard_metrics` | Indicadores agregados de dashboard, pré-calculados e atualizados via `REFRESH MATERIALIZED VIEW` (com índice único por loja) |
+## Ingestão
 
-## Views de indicadores (schema `mottainai_analytics`)
+```text
+event_queue operacional
+        |
+        v
+ingestion_event -> validação -> dimensões -> fatos -> checkpoint
+        |                                      |
+        +-> etl_dead_letter                    +-> views e KPIs
+```
 
-Todas as views deste schema são **views comuns** (não materializadas), agrupadas por especialidade:
+- `event_uuid` garante idempotência;
+- checkpoint avança somente depois do commit completo;
+- payload inválido ou incompatível segue para dead letter;
+- replay conserva o UUID original;
+- IDs operacionais são correlação, não FK entre databases.
 
-### Comercial / Vendas
-| View | Indicador |
-|---|---|
-| `vw_sales_daily_kpis` | KPIs de venda diários |
-| `vw_sales_trend` | Tendência de vendas no tempo |
-| `vw_top_selling_products` | Produtos mais vendidos |
-| `vw_top_selling_categories` | Categorias de maior saída |
-| `vw_seasonality_by_weekday` | Sazonalidade por dia da semana |
-| `vw_payment_analysis` | Análise de formas de pagamento |
-| `vw_customer_purchase_behavior` | Comportamento de compra do cliente |
-| `vw_customer_purchase_history` | Histórico de compras (mobile) |
-| `vw_monthly_summary` | Histórico mensal gerencial |
+## Privacidade
 
-### Estoque / Ruptura / Vencimento
-| View | Indicador |
-|---|---|
-| `vw_inventory_turnover` | Giro e cobertura de estoque |
-| `vw_stockout_analysis` | Análise de risco de ruptura |
-| `vw_expiration_loss_forecast` | Previsão de perda por vencimento |
-| `vw_product_risk_ranking` | Ranking consolidado de risco |
-| `vw_top_loss_products` | Ranking de produtos com mais perdas |
-| `vw_replenishment_performance` | Assertividade do abastecimento |
+- `dim_customer` expõe `anonymous_key`, nunca CPF, nome, e-mail ou telefone;
+- `dim_employee` não replica CPF;
+- dashboards usam role somente leitura;
+- payload bruto de ingestão e features de modelo não são expostos à API;
+- reconciliação diária compara vendas, valores e snapshots com o operacional.
 
-### Transferências / Sustentabilidade / Valor recuperado
-| View | Indicador |
-|---|---|
-| `vw_transfer_analysis` | Análise de transferências |
-| `vw_transfer_effectiveness` | Efetividade das transferências |
-| `vw_saved_value` | Valor recuperado / perdas evitadas |
-| `vw_sustainability_dashboard` | Indicadores de sustentabilidade |
-| `vw_promotion_performance` | Efetividade das promoções |
+## Instalação
 
-### IA / Motor
-| View | Indicador |
-|---|---|
-| `vw_ai_performance` | Performance dos modelos de IA |
-| `vw_ai_recommendation_effectiveness` | Efetividade das recomendações de IA |
-| `vw_ai_action_funnel` | Funil de risco/ação da IA |
-| `vw_engine_diagnostics` | Diagnóstico do motor (varreduras) |
-| `vw_engine_suggestion_metrics` | Métricas de sugestões do motor |
+```bash
+psql -v ON_ERROR_STOP=1 \
+  -d mottainai_analytics \
+  -f database/analytics/install.sql
+```
 
-### Fidelidade / Cliente
-| View | Indicador |
-|---|---|
-| `vw_customer_loyalty_analysis` | Análise de fidelidade/cliente |
-| `vw_active_customer_promotions` | Promoções ativas (mobile) |
-
-### Gestão / Dashboard
-| View | Indicador |
-|---|---|
-| `vw_store_performance` | Performance por loja |
-| `vw_executive_dashboard` | Dashboard executivo consolidado |
-
-## Convenções da camada analítica
-
-- **Somente leitura:** nenhuma DML via views; a escrita continua no schema `mottainai`.
-- **Granularidade:** agregada por (dimensão + período) — sem linha a linha transacional.
-- **Nomes:** semânticos e alinhados ao negócio.
-
----
-
-*Próximo: [11 — Enums](11-enums.md)*
+Consulte também o [guia operacional](../operacao/README.md).

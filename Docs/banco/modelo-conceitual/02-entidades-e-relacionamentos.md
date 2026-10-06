@@ -5,7 +5,8 @@ Este documento apresenta as **entidades** do Mottainai e como elas se relacionam
 ## Diagrama de relacionamento (visão macro)
 
 ```
-PLANO ──< EMPRESA ──< LOJA ──< FUNCIONÁRIO ── 1:1 ── USUÁRIO
+PLANO ──< EMPRESA ──< LOJA ──< FUNCIONÁRIO ── 1:1 ── USUÁRIO ──< SESSÃO
+                  └──< PRODUTO
                      │          │         └── USUÁRIO ── PODE SER ── GERENTE/ESTOQUISTA/OPERADOR
                      │          └── TEM ── LOJA
                      │
@@ -50,6 +51,7 @@ AUDITORIA · LOGS · EVENTOS · JOBS · HISTÓRICOS · KPI  (camada transversal)
 | **Loja (Unidade)** | Ponto de venda/filial da empresa; gerencia seu próprio estoque |
 | **Funcionário** | Pessoa vinculada a uma loja, com papel (papel define o nível de acesso) |
 | **Usuário** | Credencial de acesso de um funcionário (login/senha) |
+| **Sessão de Funcionário** | Login por dispositivo com refresh token rotativo, expiração e revogação |
 | **Papel (Cargo)** | Perfil com nível de permissão (Operador de caixa, Estoquista, Gerente, Dono) |
 | **Endereço** | Localização reutilizada por loja, fornecedor, cliente e empresa |
 
@@ -57,7 +59,7 @@ AUDITORIA · LOGS · EVENTOS · JOBS · HISTÓRICOS · KPI  (camada transversal)
 
 | Entidade | Papel no negócio |
 |---|---|
-| **Produto (SKU)** | Item comercializado; cada produto tem quantidade na gôndola e no estoque |
+| **Produto (SKU)** | Item de uma empresa; SKU e código de barras são únicos dentro dessa empresa |
 | **Categoria de Produto** | Agrupamento (mercearia, bebidas, carnes, …) |
 | **Perfil Fiscal** | Regras tributárias (CFOP, ICMS, PIS, COFINS) do produto |
 | **Fornecedor** | Origem das mercadorias |
@@ -141,6 +143,8 @@ AUDITORIA · LOGS · EVENTOS · JOBS · HISTÓRICOS · KPI  (camada transversal)
 | Empresa → Loja | 1 : N |
 | Loja → Funcionário | 1 : N |
 | Funcionário → Usuário | 1 : 1 |
+| Usuário → Sessão | 1 : 0..N |
+| Empresa → Produto | 1 : N |
 | Produto → Lote | 1 : N |
 | Lote → Estoque-por-loja | 1 : N (por loja) |
 | Estoque-por-loja → Movimentação | 1 : N |

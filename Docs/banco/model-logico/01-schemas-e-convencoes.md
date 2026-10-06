@@ -1,15 +1,15 @@
 # 01 — Schemas e Convenções
 
-## Os dois schemas
+## Os dois bancos físicos
 
-O banco é dividido em **dois schemas** com responsabilidades claramente separadas:
+O ecossistema usa **dois bancos PostgreSQL independentes**, evitando concorrência entre OLTP e BI:
 
-| Schema | Tipo | Responsabilidade |
-|---|---|---|
-| `mottainai` | Operacional (OLTP) | Todas as **tabelas transacionais e de cadastro** do sistema |
-| `mottainai_analytics` | Analítico (OLAP) | **Views** de BI/indicadores (nenhuma tabela física de cubo; apenas views e uma view materializada) |
+| Database | Schema | Tipo | Responsabilidade |
+|---|---|---|---|
+| `mottainai_operational` | `mottainai` | Operacional (OLTP) | Cadastros e transações oficiais |
+| `mottainai_analytics` | `mottainai_analytics` | Analítico (OLAP) | Dimensões, fatos, histórico, BI e IA |
 
-O `search_path` padrão é `mottainai, public` (definido na criação do banco) e, no arquivo de views, é ajustado para `mottainai_analytics, mottainai, public` para permitir que as views referenciem o schema operacional.
+Não existem FKs, `dblink` ou commits distribuídos entre databases. A integração é assíncrona e idempotente por eventos confirmados.
 
 ## Extensões habilitadas
 
@@ -17,7 +17,7 @@ O `search_path` padrão é `mottainai, public` (definido na criação do banco) 
 |---|---|
 | `uuid-ossp` | Geração de UUIDs |
 | `pgcrypto` | Funções criptográficas (hash de senha, tokens) |
-| `btree_gin` | Índices GIN sobre tipos btree (busca composta/textual) |
+| `btree_gist` | Restrições de exclusão por intervalo de vigência de preço |
 
 ## Convenções de projeto
 
@@ -55,14 +55,15 @@ As procedures `sp_create_future_partitions()` e `sp_drop_old_partitions(months)`
 ### 5. Enums como domínios de estado
 Todos os principais fluxos (compra, venda, estoque, promoção, IA, eventos, logs) usam **tipos enum** (ver `11-enums.md`) para garantir valores válidos. Alguns estados restritos usam `CHECK` inline com `VARCHAR` (documentados nas respectivas tabelas).
 
-### 6. Segurança — Row Level Security (RLS)
-`company`, `retail_store`, `employee`, `inventory`, `sales_transaction` e `purchase_order` possuem **políticas de linha** que escopam o acesso ao **locatário (empresa)** da sessão corrente, via `fn_get_current_company_id()`. Isso reforça o isolamento multitenant no nível do banco.
+### 6. Segurança — role e Row Level Security
+`mottainai_api` é uma role sem login e sem privilégios administrativos. Políticas de linha protegem as tabelas críticas e suas filhas. Administradores acessam lojas da própria empresa; demais perfis acessam somente a loja do contexto. O contexto é validado por funções `SECURITY DEFINER`, dura uma transação e não pode ser alterado diretamente pela API.
 
 ### 7. Auditoria e rastreabilidade
-- Triggers de auditoria em `disposal`, `transfer` e `donation` gravam em `audit_log` (`INSERT`/`UPDATE`/`DELETE`).
+- Triggers de auditoria cobrem entidades sensíveis, sessões, tokens e transações operacionais.
 - Triggers de histórico em `product` gravam mudanças em `product_history`.
 - Cálculos de custo médio/preço sugerido são registrados em `product_price_history`.
-- Toda sessão carrega o contexto do usuário (`fn_set_session_context`) para preencher `user_id` nos logs.
+- Auditoria registra empresa, loja, IP, aplicação e transação, removendo CPF e hashes do JSON.
+- `fn_set_session_context` não é executável pela API; os bootstraps validados definem o contexto.
 
 ### 8. Regras de integridade e validação
 - **CPF/CNPJ:** validação por dígitos verificadores (`fn_validate_cpf`/`fn_validate_cnpj`) em `employee`, `company`, `retail_store`, `supplier` e `customer`.
@@ -70,16 +71,18 @@ Todos os principais fluxos (compra, venda, estoque, promoção, IA, eventos, log
 - **Estoque:** impedimento de estoque negativo no nível de aplicação (`fn_atomic_update_inventory`) e por `CHECK` em colunas de quantidade.
 - **Seleção de FEFO:** `fn_select_batch_fefo` escolhe o lote com menor validade, disparado pelo trigger `trg_select_batch_fefo` na criação de item de venda.
 
-## Mapa de instalção dos scripts
+## Mapa de instalação dos scripts
 
 Ordem de criação do banco (`install.sql`):
 
 ```
-00 DataBase (extensões + schemas) → 01 Enums → 02 Functions → 03 Tables →
-04 Constraints/RLS → 05 Indexes → 06 Triggers → 07 Views → 08 Seed → 09 Procedures → 10 Tests
+00 Database → 01 Enums → 02 Functions → 03 Tables → 04 Additional Tables →
+04 Security → 05 Indexes → 06 Triggers → 07 Views → 08 Procedures →
+08 Partition Fix → 09 Seed → 10 Product Company → 10 Tests →
+11 Product Tests → 20 Security Hardening → 21 Security Tests
 ```
 
-> O arquivo `install.sql` define o schema versionado de produção. O `dataLoad.sql` é um artefato **exclusivo de teste/seed idempotente** (executado 2× no CI) e **nunca** roda em produção.
+> `database/operational/install.sql` é a fonte atual de instalação. O `dataLoad.sql` legado é exclusivo de teste e nunca roda em produção.
 
 ---
 

@@ -3,7 +3,7 @@
 Domínio do **catálogo de produtos** (SKUs) e do **ciclo de compra e recebimento** (do pedido ao lote).
 
 ```
-product_category ──< product >── tax_profile
+company ──< product >── product_category / tax_profile
 supplier >──< product    (associação many-to-many: supplier_product)
 store ──< purchase_order >── supplier / employee
 purchase_order ──< purchase_order_item ──> product
@@ -43,15 +43,16 @@ Perfil tributário de um produto (parâmetros fiscais para emissão de documento
 
 ## `product` (SKU)
 
-Item comercializado. Carrega o custo médio (`avg_cost`) e o preço sugerido (`suggested_price`) recalculados automaticamente (RF16).
+Item comercializado e pertencente a uma empresa. Carrega o custo médio (`avg_cost`) e o preço sugerido (`suggested_price`) recalculados automaticamente (RF16).
 
 | Coluna | Tipo | Restrições |
 |---|---|---|
 | `product_id` 🔑 | `INTEGER` identity | `PK` |
+| `company_id` 🔗 | `INTEGER` | `NN` `FK → company(company_id) ON DELETE RESTRICT` |
 | `category_id` 🔗 | `INTEGER` | `NN` `FK → product_category(…) ON DELETE RESTRICT` |
 | `tax_profile_id` 🔗 | `INTEGER` | `NN` `FK → tax_profile(…) ON DELETE RESTRICT` |
-| `sku` 🔎 | `VARCHAR(50)` | `NN` `UQ` |
-| `barcode` 🔎 | `VARCHAR(30)` | `NN` `UQ` |
+| `sku` 🔎 | `VARCHAR(50)` | `NN` `UQ (company_id, sku)` |
+| `barcode` 🔎 | `VARCHAR(30)` | `NN` `UQ (company_id, barcode)` |
 | `ncm` ✅ | `VARCHAR(8)` | `NN` `CHECK ^\d{8}$` |
 | `cest` ✅ | `VARCHAR(7)` | `CHECK ^\d{7}$` |
 | `name` | `VARCHAR(150)` | `NN` |
@@ -67,9 +68,11 @@ Item comercializado. Carrega o custo médio (`avg_cost`) e o preço sugerido (`s
 
 **Triggers:**
 - `trg_product_generate_sku` (_BEFORE INSERT_) — gera SKU automático se vazio/duplicado.
-- `trg_product_update_sku` (_BEFORE UPDATE_) — regenera SKU se nome/categoria/marca mudarem.
+- `trg_product_update_sku` (_BEFORE UPDATE_) — regenera SKU se empresa/nome/categoria/marca mudarem.
 - `trg_soft_delete_product` (_BEFORE UPDATE OF active_) — define `active=false` + `deleted_at` na desativação.
 - `trg_product_history` (_BEFORE UPDATE_) — registra mudanças em `product_history`.
+
+**Segurança:** `product_policy` aplica RLS por `company_id`. Empresas diferentes podem usar o mesmo SKU ou código de barras sem colisão.
 
 ## `supplier`
 

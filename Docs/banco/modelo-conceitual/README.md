@@ -1,6 +1,6 @@
 # Modelo Conceitual — Mottainai
 
-> **Banco Operacional** · PostgreSQL 15+ · v6.0 Enterprise
+> **Banco Operacional** · PostgreSQL 15+ · versão 2026-10-02
 > Abstração de alto nível do domínio de negócio do Mottainai, independente de tecnologia, schemas e colunas.
 
 O **modelo conceitual** descreve **o quê** o sistema representa do ponto de vista do negócio — as **entidades**, seus **papéis** e como elas se **relacionam** — sem entrar em detalhes de implementação física (tabelas, chaves, tipos, schemas). Ele é o ponto de partida para a modelagem e o elo entre a documentação funcional (Scope Statement + Requisitos Funcionais) e o modelo lógico.
@@ -34,4 +34,4 @@ O sistema é entregue por **quatro superfícies** distintas:
 
 ---
 
-*Última atualização: 2026-09-04 · Repositório: `Mottainai-Hub-` → `Docs/banco/modelo-conceitual`*
+*Última atualização: 2026-10-02 · Repositório: `Mottainai-Hub` → `Docs/banco/modelo-conceitual`*
