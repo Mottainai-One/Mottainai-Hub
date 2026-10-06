@@ -8,6 +8,12 @@
 - bancos físicos `mottainai_operational` e `mottainai_analytics`;
 - backup validado antes de atualizar uma base existente.
 
+Em um PostgreSQL gerenciado, o usuário de migration pode ter `CREATEROLE` sem
+ser `SUPERUSER`. O instalador não tenta alterar atributos reservados; ele
+verifica que as roles de API não possuem `SUPERUSER`, `REPLICATION` ou
+`BYPASSRLS` e interrompe com uma mensagem segura se encontrar configuração
+privilegiada.
+
 ## Instalação nova
 
 Clone o repositório `Mottainai-Banco-Operacional` e execute:
@@ -38,8 +44,9 @@ Ordem recomendada para esta versão:
 3. executar os testes de produto;
 4. aplicar o hardening de segurança;
 5. executar os testes de segurança;
-6. associar o login real da API à role `mottainai_api`;
-7. publicar a API compatível com o novo contrato transacional.
+6. aplicar o contrato de dados sensíveis e seus testes;
+7. associar os logins reais às roles `mottainai_api` e `mottainai_customer_api`;
+8. publicar as APIs compatíveis com SHA-256, BCrypt e contexto transacional.
 
 ```bash
 psql -v ON_ERROR_STOP=1 -d mottainai_operational \
@@ -53,6 +60,12 @@ psql -v ON_ERROR_STOP=1 -d mottainai_operational \
 
 psql -v ON_ERROR_STOP=1 -d mottainai_operational \
   -f database/operational/21_security_hardening_tests.sql
+
+psql -v ON_ERROR_STOP=1 -d mottainai_operational \
+  -f database/operational/22_sensitive_data_contract.sql
+
+psql -v ON_ERROR_STOP=1 -d mottainai_operational \
+  -f database/operational/23_sensitive_data_contract_tests.sql
 ```
 
 Se um produto antigo estiver ligado a mais de uma empresa, a migration para
@@ -76,8 +89,10 @@ analítico.
 
 - confirmar versões em `mottainai.schema_version`;
 - confirmar que `mottainai_api` não tem `BYPASSRLS`;
+- confirmar que `mottainai_customer_api` não acessa auditoria ou integração legada;
 - testar dois tenants distintos com a role da API;
+- testar dois clientes distintos com a role exclusiva do aplicativo;
 - testar login, refresh, logout e revogação por troca de senha;
-- verificar que auditoria não contém CPF ou hashes;
+- verificar que valores abertos são recusados e auditoria aninhada é sanitizada;
 - medir poda de partição com `EXPLAIN (ANALYZE, BUFFERS)`;
 - confirmar ingestão idempotente no banco analítico.

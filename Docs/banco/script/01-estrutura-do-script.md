@@ -18,6 +18,8 @@ infraestrutura
   -> testes gerais e de produto
   -> hardening profissional
   -> testes de segurança
+  -> contrato de dados sensíveis
+  -> testes do contrato
 ```
 
 ## Migrations recentes
@@ -43,6 +45,14 @@ ativa RLS. A migration não inventa propriedade em caso de conflito.
 - auditoria por tenant, imutável e sanitizada;
 - limites de timeout e grants mínimos.
 
+### Contrato de dados sensíveis
+
+`22_sensitive_data_contract.sql` estabelece os formatos SHA-256 e BCrypt,
+converte valores abertos preexistentes, protege o módulo de clientes, cria
+`customer_consent` e `legacy_sync_record`, adiciona a role exclusiva do
+cliente e sanitiza logs JSON de forma recursiva. O RPA conserva somente
+metadados e checksum, nunca o payload pessoal bruto.
+
 ## Reaplicação
 
 As migrations recentes podem ser reaplicadas. `CREATE ... IF NOT EXISTS`,
@@ -56,6 +66,7 @@ duplicação. Reaplicar não substitui backup nem revisão do plano de migration
 | `10_tests.sql` | Tabelas obrigatórias, separação física e partições |
 | `11_product_company_tests.sql` | FK, índice, unicidades por empresa, RLS e SKU |
 | `21_security_hardening_tests.sql` | Atributos da role, parâmetros protegidos, RLS, views e auditoria imutável |
+| `23_sensitive_data_contract_tests.sql` | Formatos SHA-256/BCrypt, ausência de data exata, role do cliente, RLS e sanitização aninhada |
 
 Além da suíte estrutural, a validação de release deve testar dois tenants,
 sessão, revogação, auditoria sanitizada e tentativa de falsificação de contexto.

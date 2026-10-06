@@ -1,6 +1,6 @@
 # Bancos de Dados Mottainai
 
-> Referência oficial de arquitetura e operação · PostgreSQL 15+ · atualização 2026-10-02
+> Referência oficial de arquitetura e operação · PostgreSQL 15+ · atualização 2026-10-06
 
 O Mottainai utiliza **dois bancos PostgreSQL independentes**. Essa separação
 impede que consultas pesadas de BI concorram com vendas, estoque e operações de
@@ -8,7 +8,7 @@ caixa, além de permitir políticas próprias de acesso, retenção e escalabili
 
 | Banco | Schema principal | Responsabilidade | Pode receber escrita da API transacional? |
 |---|---|---|---|
-| `mottainai_operational` | `mottainai` | Cadastros, usuários, produtos, estoque, compras, vendas, PDV e auditoria | Sim, por meio da role `mottainai_api` |
+| `mottainai_operational` | `mottainai` | Cadastros, usuários, clientes, produtos, estoque, compras, vendas, PDV e auditoria | Sim, pelas roles restritas `mottainai_api` e `mottainai_customer_api` |
 | `mottainai_analytics` | `mottainai_analytics` | Modelo estrela, histórico, indicadores, BI, previsões e recomendações | Não; somente pipeline de ingestão |
 
 ## Regra de integração
@@ -41,6 +41,9 @@ vira ação operacional depois de passar pela API e pelas regras transacionais.
 - contexto RLS é validado e limitado à transação;
 - views operacionais executam com os privilégios do chamador;
 - auditoria é imutável para a API e remove CPF e hashes dos registros JSON;
+- dados sensíveis chegam tokenizados em SHA-256 e senhas chegam em BCrypt;
+- o aplicativo do cliente possui role e RLS próprios, isolados da equipe interna;
+- a integração legada conserva apenas metadados e checksum, nunca o payload bruto;
 - compra, movimentação, venda e auditoria usam partições mensais.
 
 ## Navegação

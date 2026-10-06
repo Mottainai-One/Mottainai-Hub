@@ -55,19 +55,19 @@ As procedures `sp_create_future_partitions()` e `sp_drop_old_partitions(months)`
 ### 5. Enums como domínios de estado
 Todos os principais fluxos (compra, venda, estoque, promoção, IA, eventos, logs) usam **tipos enum** (ver `11-enums.md`) para garantir valores válidos. Alguns estados restritos usam `CHECK` inline com `VARCHAR` (documentados nas respectivas tabelas).
 
-### 6. Segurança — role e Row Level Security
-`mottainai_api` é uma role sem login e sem privilégios administrativos. Políticas de linha protegem as tabelas críticas e suas filhas. Administradores acessam lojas da própria empresa; demais perfis acessam somente a loja do contexto. O contexto é validado por funções `SECURITY DEFINER`, dura uma transação e não pode ser alterado diretamente pela API.
+### 6. Segurança — roles e Row Level Security
+`mottainai_api` e `mottainai_customer_api` são roles sem login e sem privilégios administrativos. A primeira isola empresa/loja; a segunda isola cada cliente. Os contextos são validados por funções `SECURITY DEFINER`, duram uma transação e não podem ser alterados diretamente pela API.
 
 ### 7. Auditoria e rastreabilidade
 - Triggers de auditoria cobrem entidades sensíveis, sessões, tokens e transações operacionais.
 - Triggers de histórico em `product` gravam mudanças em `product_history`.
 - Cálculos de custo médio/preço sugerido são registrados em `product_price_history`.
-- Auditoria registra empresa, loja, IP, aplicação e transação, removendo CPF e hashes do JSON.
+- Auditoria registra empresa, loja, IP, aplicação e transação, removendo recursivamente documentos, identificadores e hashes do JSON.
 - `fn_set_session_context` não é executável pela API; os bootstraps validados definem o contexto.
 
 ### 8. Regras de integridade e validação
-- **CPF/CNPJ:** validação por dígitos verificadores (`fn_validate_cpf`/`fn_validate_cnpj`) em `employee`, `company`, `retail_store`, `supplier` e `customer`.
-- **E-mail:** validação por função `fn_validate_email`.
+- **Dados pessoais:** CPF, nome, e-mail, telefone, UID externo, endereço e documento fiscal são armazenados apenas em formatos protegidos e prefixados.
+- **Segredos:** senhas e recuperação de baixa entropia usam BCrypt; tokens aleatórios de sessão/convite usam SHA-256.
 - **Estoque:** impedimento de estoque negativo no nível de aplicação (`fn_atomic_update_inventory`) e por `CHECK` em colunas de quantidade.
 - **Seleção de FEFO:** `fn_select_batch_fefo` escolhe o lote com menor validade, disparado pelo trigger `trg_select_batch_fefo` na criação de item de venda.
 
@@ -79,7 +79,8 @@ Ordem de criação do banco (`install.sql`):
 00 Database → 01 Enums → 02 Functions → 03 Tables → 04 Additional Tables →
 04 Security → 05 Indexes → 06 Triggers → 07 Views → 08 Procedures →
 08 Partition Fix → 09 Seed → 10 Product Company → 10 Tests →
-11 Product Tests → 20 Security Hardening → 21 Security Tests
+11 Product Tests → 20 Security Hardening → 21 Security Tests →
+22 Sensitive Data Contract → 23 Sensitive Data Contract Tests
 ```
 
 > `database/operational/install.sql` é a fonte atual de instalação. O `dataLoad.sql` legado é exclusivo de teste e nunca roda em produção.

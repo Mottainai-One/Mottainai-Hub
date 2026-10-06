@@ -15,6 +15,7 @@ pela API; não substitui essas camadas.
 |---|---|---|
 | Proprietário/migrator | Instalar migrations e manter objetos | Nunca usado pela API |
 | `mottainai_api` | Role de grupo usada durante requisições | `NOLOGIN`, `NOSUPERUSER`, `NOCREATEDB`, `NOCREATEROLE`, `NOBYPASSRLS`, sem DDL |
+| `mottainai_customer_api` | Role de grupo exclusiva do aplicativo do cliente | `NOLOGIN`, `NOBYPASSRLS`, sem acesso a auditoria ou integração legada |
 | Login real da API | Autentica no PostgreSQL/Render | Deve ser membro de `mottainai_api` e usar `SET LOCAL ROLE` |
 | Pipeline analítico | Consumir eventos confirmados | Credencial própria, sem acesso administrativo ao OLTP |
 
@@ -24,6 +25,12 @@ administrador do ambiente:
 ```sql
 GRANT mottainai_api TO nome_real_do_login_da_api;
 ```
+
+O instalador aceita ambientes PostgreSQL gerenciados nos quais o migrator tem
+`CREATEROLE`, mas não `SUPERUSER`. Atributos reservados (`SUPERUSER`,
+`REPLICATION` e `BYPASSRLS`) são consultados em `pg_roles`: se estiverem
+desativados, a instalação continua; se algum estiver ativo, o processo falha
+fechado e exige correção por um administrador autorizado.
 
 ## Contexto seguro por transação
 
@@ -74,20 +81,43 @@ da view e continuam submetidas ao RLS do chamador.
 
 ## Credenciais, tokens e sessões
 
-- senha é calculada pela API com Argon2id; o banco recebe somente o hash;
-- token de recuperação/convite é persistido somente como hash;
-- refresh token é persistido somente como hash em `staff_session`;
+- senha e token de recuperação de baixa entropia são calculados pela API com BCrypt (`$2a$`, `$2b$` ou `$2y$`); o banco recebe somente o hash;
+- refresh token e convite, gerados com alta entropia, são persistidos como SHA-256 prefixado;
+- identificadores pessoais usados para busca são tokens SHA-256 prefixados, nunca o valor aberto;
 - refresh deve rotacionar o hash a cada uso;
 - logout preenche `revoked_at`, sem exclusão física;
 - troca de senha revoga todas as sessões ativas do usuário;
 - tentativa de reutilização de refresh token deve revogar a cadeia da sessão;
 - tokens e hashes nunca aparecem em resposta, log ou evento.
 
+## Contrato de dados protegidos
+
+O banco operacional segue o contrato definido com o banco legado. Dados
+compartilhados chegam pelo backend/RPA já mascarados, anonimizados ou
+tokenizados. A integração registra apenas metadados e o checksum do payload em
+`legacy_sync_record`; o payload pessoal bruto não é persistido.
+
+Para registros novos, a API usa tokens versionados como
+`CPF_SHA256_<64-hex>`, `EMAIL_SHA256_<64-hex>`, `PHONE_SHA256_<64-hex>` e
+`AUTH_SHA256_<64-hex>`. Valores legados já aprovados, como `CPF_TKN_*`,
+`EMAIL_EMP_*` e contatos mascarados, continuam aceitos durante a transição.
+SHA-256 deve ser calculado pela aplicação com segredo do ambiente para campos
+de baixa entropia. O banco valida formato e recusa dados abertos.
+
+O módulo de clientes obedece ao mesmo princípio, mesmo sem origem no legado:
+
+- nome, CPF, e-mail, telefone, UID externo e endereço são tokens protegidos;
+- data de nascimento exata não é armazenada; somente `birth_year`;
+- consentimentos são versionados e auditados em `customer_consent`;
+- a role `mottainai_customer_api` usa `fn_bootstrap_customer_context` e só
+  enxerga o próprio cliente por RLS.
+
 ## Auditoria
 
 `audit_log` registra tabela, operação, registro, usuário, empresa, loja, IP,
 aplicação cliente, transação e estados anterior/novo. Antes da gravação são
-removidos `password_hash`, hashes de token, `recovery_token_hash` e CPF.
+removidos recursivamente `password_hash`, hashes de token, documentos e dados
+pessoais, inclusive quando estiverem aninhados em JSON.
 
 A role da API possui somente leitura filtrada por empresa. Escrita, alteração,
 exclusão e truncamento são proibidos; os triggers gravam por função
@@ -112,7 +142,9 @@ O ambiente deve complementar o banco com:
 - [ ] Migration de hardening aplicada e testes aprovados.
 - [ ] Login real recebeu membership em `mottainai_api`.
 - [ ] API usa transação e `SET LOCAL ROLE` por requisição.
-- [ ] Senhas usam Argon2id e tokens usam gerador criptográfico.
+- [ ] Senhas usam BCrypt; tokens aleatórios usam gerador criptográfico e SHA-256.
+- [ ] Backends enviam somente valores compatíveis com o contrato protegido.
+- [ ] Login do aplicativo cliente recebeu membership em `mottainai_customer_api`.
 - [ ] TLS obrigatório e credenciais fora do código.
 - [ ] Backup restaurado com sucesso em ambiente isolado.
 - [ ] Alertas e retenção de auditoria configurados.

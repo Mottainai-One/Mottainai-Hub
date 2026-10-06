@@ -4,7 +4,7 @@
 
 1. iniciar transação;
 2. assumir localmente a role `mottainai_api`;
-3. localizar a conta e validar o hash Argon2id na aplicação;
+3. localizar a conta pelo token protegido e validar o hash BCrypt na aplicação;
 4. chamar `fn_bootstrap_staff_context`;
 5. criar `staff_session` com hash do refresh token;
 6. confirmar a transação;
@@ -39,7 +39,7 @@ autorização; o banco obtém essa informação do usuário autenticado.
 ## Logout e troca de senha
 
 - logout: preencher `revoked_at` e `revoked_reason='LOGOUT'`;
-- troca de senha: atualizar o hash Argon2id e revogar todas as sessões ativas;
+- troca de senha: atualizar o hash BCrypt e revogar todas as sessões ativas;
 - bloqueio administrativo: desativar `app_user` e revogar sessões;
 - não apagar fisicamente sessões, tokens usados ou auditoria.
 
@@ -53,6 +53,32 @@ autorização; o banco obtém essa informação do usuário autenticado.
 O token é de uso único (`used_at`), tem expiração e nunca é armazenado em texto
 puro. Após o primeiro cadastro de senha, a API define `password_set=true` e
 ativa usuário e funcionário na mesma transação.
+
+## Aplicativo do cliente
+
+O backend valida o token do provedor de identidade, deriva
+`AUTH_SHA256_<64-hex>` do UID e então abre uma transação com a role dedicada:
+
+```sql
+BEGIN;
+SET LOCAL ROLE mottainai_customer_api;
+SELECT mottainai.fn_bootstrap_customer_context(:protected_firebase_uid);
+SELECT * FROM mottainai.customer WHERE customer_id = :customer_id;
+COMMIT;
+```
+
+O contexto contém apenas `app.current_customer_id`. As políticas RLS limitam
+cliente, autenticação, consentimentos, geocercas e fidelidade ao próprio
+titular. A API nunca envia `customer_id` como fonte de autorização.
+
+## Tratamento antes da persistência
+
+- CPF, e-mail, telefone, nome, UID externo, endereço e documento fiscal devem
+  chegar como tokens SHA-256 prefixados ou no formato legado aprovado;
+- senhas e tokens de recuperação de baixa entropia chegam como BCrypt;
+- refresh e convites de alta entropia chegam como SHA-256;
+- a data completa de nascimento não é enviada; somente o ano;
+- o banco rejeita texto aberto por `CHECK`, não apenas por convenção.
 
 ## Respostas e logs
 
