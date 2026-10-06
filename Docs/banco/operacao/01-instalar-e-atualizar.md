@@ -8,6 +8,12 @@
 - bancos físicos `mottainai_operational` e `mottainai_analytics`;
 - backup validado antes de atualizar uma base existente.
 
+Em um PostgreSQL gerenciado, o usuário de migration pode ter `CREATEROLE` sem
+ser `SUPERUSER`. O instalador não tenta alterar atributos reservados; ele
+verifica que as roles de API não possuem `SUPERUSER`, `REPLICATION` ou
+`BYPASSRLS` e interrompe com uma mensagem segura se encontrar configuração
+privilegiada.
+
 ## Instalação nova
 
 Clone o repositório `Mottainai-Banco-Operacional` e execute:

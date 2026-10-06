@@ -26,6 +26,12 @@ administrador do ambiente:
 GRANT mottainai_api TO nome_real_do_login_da_api;
 ```
 
+O instalador aceita ambientes PostgreSQL gerenciados nos quais o migrator tem
+`CREATEROLE`, mas não `SUPERUSER`. Atributos reservados (`SUPERUSER`,
+`REPLICATION` e `BYPASSRLS`) são consultados em `pg_roles`: se estiverem
+desativados, a instalação continua; se algum estiver ativo, o processo falha
+fechado e exige correção por um administrador autorizado.
+
 ## Contexto seguro por transação
 
 O contexto contém `user_id`, `company_id` e `store_id`. Ele é obtido dos
