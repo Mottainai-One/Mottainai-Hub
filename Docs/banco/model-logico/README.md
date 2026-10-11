@@ -80,4 +80,4 @@ Para a implementação SQL correspondente, consulte a **[Documentação do Scrip
 
 ---
 
-*Última atualização: 2026-10-06 · Repositório: `Mottainai-Hub` → `Docs/banco/model-logico`*
+*Última atualização: 2026-10-11 · Repositório: `Mottainai-Hub` → `Docs/banco/model-logico`*

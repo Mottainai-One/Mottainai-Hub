@@ -101,6 +101,7 @@ Controle de execução de jobs/automações.
 | Coluna | Tipo | Restrições |
 |---|---|---|
 | `job_id` 🔑 | `BIGSERIAL` | `PK` |
+| `company_id` 🔗 | `INTEGER` | `FK → company(company_id) ON DELETE RESTRICT`; nulo apenas para registros globais legados |
 | `job_name` | `VARCHAR(100)` | `NN` |
 | `job_type` | `VARCHAR(50)` | |
 | `start_time` | `TIMESTAMP` | `NN` |
@@ -170,6 +171,11 @@ Fila de eventos assíncronos para processamento posterior.
 | `processed_at` | `TIMESTAMP` | |
 | `retry_count` | `INTEGER` | `def 0` |
 | `error_message` | `TEXT` | |
+| `company_id` | `INTEGER` | tenant do evento, quando aplicável |
+
+`fn_find_outbox_event_by_key` permite localizar uma publicação anterior pela
+chave de idempotência. As views de monitoramento não expõem jobs globais com
+`company_id IS NULL` à API.
 
 **Índices:** `idx_event_queue_status (status, priority)`, `idx_event_queue_created (created_at)`.
 

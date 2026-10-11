@@ -20,6 +20,9 @@ infraestrutura
   -> testes de segurança
   -> contrato de dados sensíveis
   -> testes do contrato
+  -> compatibilidade JPA
+  -> contrato API/RPA
+  -> testes API/RPA
 ```
 
 ## Migrations recentes
@@ -53,6 +56,14 @@ converte valores abertos preexistentes, protege o módulo de clientes, cria
 cliente e sanitiza logs JSON de forma recursiva. O RPA conserva somente
 metadados e checksum, nunca o payload pessoal bruto.
 
+### Contrato API e RPA
+
+`25_api_rpa_compatibility.sql` adiciona os campos e enums exigidos pela API,
+as dez views `vw_api_*`, funções de idempotência, pedido, recebimento e estoque,
+RLS de monitoramento e a role `mottainai_migrator`. A RPA define a empresa por
+`fn_set_legacy_migration_context`, sem receber `BYPASSRLS`; a auditoria mantém
+`user_id = NULL` quando o legado não possui usuário operacional correspondente.
+
 ## Reaplicação
 
 As migrations recentes podem ser reaplicadas. `CREATE ... IF NOT EXISTS`,
@@ -67,6 +78,7 @@ duplicação. Reaplicar não substitui backup nem revisão do plano de migration
 | `11_product_company_tests.sql` | FK, índice, unicidades por empresa, RLS e SKU |
 | `21_security_hardening_tests.sql` | Atributos da role, parâmetros protegidos, RLS, views e auditoria imutável |
 | `23_sensitive_data_contract_tests.sql` | Formatos SHA-256/BCrypt, ausência de data exata, role do cliente, RLS e sanitização aninhada |
+| `26_api_rpa_compatibility_tests.sql` | Views, funções, enums, privilégios, outbox idempotente, contexto da RPA, auditoria, pedido e recebimento |
 
 Além da suíte estrutural, a validação de release deve testar dois tenants,
 sessão, revogação, auditoria sanitizada e tentativa de falsificação de contexto.
