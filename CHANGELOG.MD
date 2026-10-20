@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-19
+
+- Adicionada a documentação funcional e técnica dos aplicativos Mobile Cliente e Mobile Operacional.
+
 ## 2026-10-02
 
 - Documentada a separação física entre banco operacional e analítico.
