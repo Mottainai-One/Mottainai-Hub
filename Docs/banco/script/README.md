@@ -38,6 +38,11 @@ erro. Ele não apaga schema, banco ou dados existentes.
 | 15 | `11_product_company_tests.sql` | Testes da migration de produto |
 | 16 | `20_security_hardening.sql` | Roles, sessões, RLS, auditoria e privilégios |
 | 17 | `21_security_hardening_tests.sql` | Testes automatizados de segurança |
+| 18 | `22_sensitive_data_contract.sql` | Contrato SHA-256/BCrypt, proteção de clientes, RPA e RLS dedicado |
+| 19 | `23_sensitive_data_contract_tests.sql` | Testes do contrato de dados sensíveis |
+| 20 | `24_jpa_compatibility.sql` | Compatibilidade aditiva de usuários e recuperação de senha |
+| 21 | `25_api_rpa_compatibility.sql` | Contrato de views/funções da API e contexto seguro da RPA |
+| 22 | `26_api_rpa_compatibility_tests.sql` | Testes estruturais, idempotência, auditoria, pedido e recebimento |
 
 ## Garantias relevantes
 
@@ -46,7 +51,12 @@ erro. Ele não apaga schema, banco ou dados existentes.
 - propriedade ambígua de produto interrompe a migration;
 - role da API não é criada com login ou senha;
 - testes verificam privilégios, RLS, views e auditoria;
+- dados pessoais abertos são recusados e logs são sanitizados recursivamente;
 - CI instala o schema em PostgreSQL 15 limpo e reaplica migrations críticas.
+
+Para atualizar uma base já instalada, execute
+`update_existing_api_rpa.sql`. O agregador aplica, em uma transação, os
+módulos de produto, segurança, dados sensíveis, JPA e compatibilidade API/RPA.
 
 Veja [01-estrutura-do-script.md](01-estrutura-do-script.md) e o
 [guia de instalação](../operacao/01-instalar-e-atualizar.md).

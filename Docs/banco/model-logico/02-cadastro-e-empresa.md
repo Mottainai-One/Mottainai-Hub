@@ -36,8 +36,8 @@ A empresa é o **locatário** do sistema SaaS e dono de uma ou mais lojas.
 | `official_name` | `VARCHAR(150)` | `NN` |
 | `trade_name` | `VARCHAR(150)` | |
 | `cnpj` | `CHAR(14)` | `NN` `UQ` `CHECK fn_validate_cnpj` |
-| `email` | `VARCHAR(150)` | `NN` `CHECK fn_validate_email` |
-| `phone` | `VARCHAR(20)` | |
+| `email` | `VARCHAR(150)` | `NN`; mascarado no formato legado ou `EMAIL_SHA256_*` |
+| `phone` | `VARCHAR(80)` | mascarado no formato legado ou `PHONE_SHA256_*` |
 | `latitude` / `longitude` | `DECIMAL(9,6)` | `CHECK` faixas globais |
 | `active` | `BOOLEAN` | `def TRUE` |
 | timestamps | `TIMESTAMP` | `created_at`, `updated_at`, `deleted_at` |
@@ -55,7 +55,7 @@ Unidade/filial da empresa; cada loja gerencia seu próprio estoque, também usad
 | `address_id` 🔗 | `INTEGER` | `NN` `FK → address(address_id) ON DELETE RESTRICT` |
 | `name` | `VARCHAR(120)` | `NN` |
 | `cnpj` | `CHAR(14)` | `NN` `UQ` `CHECK fn_validate_cnpj` |
-| `email` / `phone` | `VARCHAR` | `email` valida `fn_validate_email` |
+| `email` / `phone` | `VARCHAR` | mascarados no formato legado ou tokens SHA-256 prefixados |
 | `latitude` / `longitude` | `DECIMAL(9,6)` | `CHECK` faixas globais |
 | `active` | `BOOLEAN` | `def TRUE` |
 | timestamps | `TIMESTAMP` | `created_at`, `updated_at`, `deleted_at` |
@@ -84,14 +84,14 @@ Funcionário vinculado a uma loja e a um papel.
 | `employee_id` 🔑 | `INTEGER` identity | `PK` |
 | `store_id` 🔗 | `INTEGER` | `NN` `FK → retail_store(store_id) ON DELETE RESTRICT` |
 | `role_id` 🔗 | `INTEGER` | `NN` `FK → employee_role(role_id) ON DELETE RESTRICT` |
-| `name` | `VARCHAR(150)` | `NN` |
-| `cpf` | `CHAR(11)` | `NN` `UQ` `CHECK fn_validate_cpf` |
-| `email` / `phone` | `VARCHAR` | `email` valida `fn_validate_email` |
+| `name` | `VARCHAR(150)` | `NN`; alias legado `EMP_*` ou token `EMP_SHA256_*` |
+| `cpf` | `VARCHAR(80)` | `NN` `UQ`; `CPF_TKN_*` legado ou `CPF_SHA256_*` |
+| `email` / `phone` | `VARCHAR` | mascarados no formato legado ou tokens SHA-256 prefixados |
 | `hire_date` | `DATE` | `NN` `def CURRENT_DATE` |
 | `active` | `BOOLEAN` | `def TRUE` |
 | timestamps | `TIMESTAMP` | |
 
-**Observações:** sujeita a **RLS**. Índice único parcial sobre CPF ativo.
+**Observações:** sujeita a **RLS**. Índice único parcial sobre o token de CPF ativo; valores abertos são recusados.
 
 ## `app_user`
 
@@ -101,15 +101,15 @@ Credencial de acesso de um funcionário (login e senha). Cada funcionário tem *
 |---|---|---|
 | `user_id` 🔑 | `INTEGER` identity | `PK` |
 | `employee_id` 🔗 | `INTEGER` | `NN` `UQ` `FK → employee(employee_id) ON DELETE RESTRICT` |
-| `cpf` | `CHAR(11)` | `NN` `UQ` `CHECK fn_validate_cpf`; sincronizado com funcionário |
-| `email` 🔎 | `VARCHAR(150)` | `NN` `UQ` `CHECK fn_validate_email` |
-| `password_hash` | `VARCHAR(255)` | `NN` |
+| `cpf` | `VARCHAR(80)` | `NN` `UQ`; token sincronizado com funcionário |
+| `email` 🔎 | `VARCHAR(150)` | `NN` `UQ`; token protegido legado ou `EMAIL_SHA256_*` |
+| `password_hash` | `VARCHAR(255)` | `NN`; BCrypt `$2a$`, `$2b$` ou `$2y$` |
 | `password_set` | `BOOLEAN` | `NN` `def TRUE`; falso durante convite inicial |
 | `last_login` | `TIMESTAMP` | |
 | `active` | `BOOLEAN` | `def TRUE` |
 | timestamps | `TIMESTAMP` | |
 
-**Segurança:** RLS permite o próprio usuário e a administração autorizada da empresa. A API não recebe a senha original e deve usar Argon2id.
+**Segurança:** RLS permite o próprio usuário e a administração autorizada da empresa. A API não envia senha original; o banco exige BCrypt.
 
 ## `staff_session`
 
@@ -119,7 +119,7 @@ Sessão revogável de funcionário. Um usuário pode manter sessões distintas p
 |---|---|---|
 | `session_id` 🔑 | `UUID` | `PK` `def gen_random_uuid()` |
 | `user_id` 🔗 | `INTEGER` | `NN` `FK → app_user(user_id) ON DELETE RESTRICT` |
-| `refresh_token_hash` | `TEXT` | `NN` `UQ`; nunca armazena o token original |
+| `refresh_token_hash` | `TEXT` | `NN` `UQ`; SHA-256 hexadecimal de token aleatório, nunca o original |
 | `refresh_expires_at` | `TIMESTAMPTZ` | `NN` posterior à criação |
 | `last_used_at` / `revoked_at` | `TIMESTAMPTZ` | controles de rotação e revogação |
 | `revoked_reason` | `VARCHAR(80)` | exige `revoked_at` preenchido |
@@ -131,7 +131,7 @@ Sessão revogável de funcionário. Um usuário pode manter sessões distintas p
 
 ## `address`
 
-Endereço reutilizado por empresa/loja (via relação), fornecedor e cliente.
+Endereço reutilizado por empresa/loja e fornecedor. Cliente armazena apenas `address_token`, sem ligação ao endereço aberto.
 
 | Coluna | Tipo | Restrições |
 |---|---|---|

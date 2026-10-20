@@ -77,6 +77,21 @@ Todo evento de entrada/saída/ajuste do estoque (granularidade fina; histórico 
 
 **Observações:** particionada; gerenciamento automático de partições via procedures (`sp_create_future_partitions`/`sp_drop_old_partitions`). `idx_inventory_movement_inventory_id`.
 
+## `inventory_count_item`
+
+Linha de uma contagem física, preservada para reconciliação e auditoria.
+
+| Coluna | Tipo | Restrições |
+|---|---|---|
+| `inventory_count_item_id` 🔑 | `BIGSERIAL` | `PK` |
+| `inventory_count_id` 🔗 | `BIGINT` | `NN` `FK → inventory_count` |
+| `inventory_id` 🔗 | `INTEGER` | `NN` `FK → inventory` |
+| `system_quantity` / `counted_quantity` | `DECIMAL(12,3)` | `NN` |
+| `difference` | `DECIMAL(12,3)` | valor gerado |
+| `observation` | `TEXT` | |
+| `created_at` | `TIMESTAMPTZ` | `NN` `def CURRENT_TIMESTAMP` |
+| `deleted_at` | `TIMESTAMPTZ` | exclusão lógica esperada pela API |
+
 ## Reposição (abastecimento)
 
 ### `replenishment_pre_list`

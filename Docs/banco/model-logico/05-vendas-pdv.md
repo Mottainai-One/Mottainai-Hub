@@ -3,6 +3,7 @@
 Domínio da **frente de caixa**: cliente, terminais, turnos, movimentação de caixa, a venda em si, seus itens e pagamentos, o documento fiscal e as solicitações de cancelamento com aprovação.
 
 ```
+customer ── 1:N ── customer_consent
 customer ── 1:N ── sales_transaction  (customer_id SET NULL)
 store ──< pos_terminal ──< pos_shift ──< pos_cash_movement
 store ──< sales_transaction (particionada por sale_date)
@@ -19,13 +20,15 @@ Consumidor final. Registro **modal** — a venda pode ocorrer sem cliente identi
 | Coluna | Tipo | Restrições |
 |---|---|---|
 | `customer_id` 🔑 | `INTEGER` identity | `PK` |
-| `full_name` | `VARCHAR(150)` | `NN` |
-| `cpf` 🔎 | `CHAR(11)` | `UQ` (nullable) `CHECK NULL OU fn_validate_cpf` |
-| `email` | `VARCHAR(150)` | `CHECK fn_validate_email` |
-| `phone` | `VARCHAR(20)` | |
-| `address_id` 🔗 | `INTEGER` | `FK → address(address_id) ON DELETE SET NULL` |
-| `external_auth_uid` 🔎 | `VARCHAR(150)` | `UQ` (vínculo com provedor de login) |
-| `birth_date` | `DATE` | |
+| `full_name` | `VARCHAR(150)` | `NN`; token `CUS_SHA256_*` |
+| `cpf` 🔎 | `VARCHAR(80)` | `UQ` nullable; token `CPF_SHA256_*` |
+| `email` | `VARCHAR(150)` | token `EMAIL_SHA256_*` nullable |
+| `phone` | `VARCHAR(80)` | token `PHONE_SHA256_*` nullable |
+| `address_id` | `INTEGER` | deve permanecer nulo; cliente não referencia endereço aberto |
+| `address_token` | `VARCHAR(80)` | token `ADDR_SHA256_*` nullable |
+| `external_auth_uid` 🔎 | `VARCHAR(150)` | `UQ`; token `AUTH_SHA256_*` |
+| `birth_year` | `SMALLINT` | dado minimizado; a data exata não existe |
+| `data_protection_version` | `SMALLINT` | `NN` `def 1` |
 | `marketing_consent` | `BOOLEAN` | `NN` `def FALSE` |
 | `active` | `BOOLEAN` | `NN` `def TRUE` |
 | timestamps | `TIMESTAMP` | `created_at`, `updated_at`, `deleted_at` |
@@ -38,16 +41,32 @@ Credenciais e controle de acesso do cliente (1:1 com `customer`).
 |---|---|---|
 | `customer_auth_id` 🔑 | `INTEGER` identity | `PK` |
 | `customer_id` 🔗 | `INTEGER` | `NN` `UQ` `FK → customer(customer_id) ON DELETE CASCADE` |
-| `login_email` 🔎 | `VARCHAR(150)` | `NN` `UQ` `CHECK fn_validate_email` |
-| `password_hash` | `TEXT` | `NN` |
+| `login_email` 🔎 | `VARCHAR(150)` | `NN` `UQ`; token `EMAIL_SHA256_*` |
+| `password_hash` | `TEXT` | `NN`; BCrypt |
 | `password_changed_at` | `TIMESTAMP` | `NN` `def NOW()` |
 | `failed_attempts` ✅ | `INTEGER` | `NN` `def 0` `CHECK ≥ 0` |
 | `locked_until` | `TIMESTAMP` | bloqueio por tentativas |
-| `recovery_token_hash` / `recovery_expires_at` | `TEXT` / `TIMESTAMP` | recuperação de senha (ambos nulos ou ambos preenchidos) |
+| `recovery_token_hash` / `recovery_expires_at` | `TEXT` / `TIMESTAMP` | BCrypt e expiração; ambos nulos ou preenchidos |
 | `last_login_at` | `TIMESTAMP` | |
 | `active` | `BOOLEAN` | `NN` `def TRUE` |
 | timestamps | `TIMESTAMP` | `created_at`, `updated_at` |
 | ✅ `CHECK` | | `(recovery_token_hash IS NULL AND recovery_expires_at IS NULL) OR (recovery_token_hash IS NOT NULL AND recovery_expires_at IS NOT NULL)` |
+
+## `customer_consent`
+
+Histórico versionado de decisões do titular, sem armazenar dado pessoal aberto.
+
+| Coluna | Tipo | Restrições |
+|---|---|---|
+| `customer_consent_id` 🔑 | `BIGINT` identity | `PK` |
+| `customer_id` 🔗 | `INTEGER` | `NN` `FK → customer ON DELETE CASCADE` |
+| `consent_type` | `VARCHAR(40)` | política, marketing, geolocalização ou fidelidade |
+| `granted` | `BOOLEAN` | `NN` |
+| `policy_version` | `VARCHAR(40)` | `NN` |
+| `collection_channel` | `VARCHAR(30)` | app, web, suporte ou migração |
+| `recorded_at` / `withdrawn_at` | `TIMESTAMPTZ` | histórico de concessão ou retirada |
+
+**Segurança:** RLS limita leitura e escrita ao cliente autenticado; alterações são auditadas.
 
 ## `pos_terminal`
 
@@ -112,7 +131,7 @@ Transação comercial (o "cupom"). **Tabela particionada por `sale_date`** (PK c
 | `employee_id` 🔗 | `INTEGER` | `NN` `FK → employee(employee_id) ON DELETE RESTRICT` |
 | `shift_id` 🔗 | `INTEGER` | `NN` `FK → pos_shift(shift_id) ON DELETE RESTRICT` |
 | `customer_id` 🔗 | `INTEGER` | `FK → customer(customer_id) ON DELETE SET NULL` (opcional) |
-| `customer_document` ✅ | `VARCHAR(14)` | `CHECK NULL OU ^\d{11}(\d{3})?$` (CPF/CNPJ no cupom) |
+| `customer_document` ✅ | `VARCHAR(80)` | token `DOC_SHA256_*` nullable; nunca CPF/CNPJ aberto |
 | `sale_date` 🔑 | `TIMESTAMP` | parte da PK · coluna de partição · `def NOW()` |
 | `total_amount` ✅ | `DECIMAL(12,2)` | `NN` `def 0` `CHECK ≥ 0` |
 | `status` | `sale_status` (enum) | `NN` `def COMPLETED` |
