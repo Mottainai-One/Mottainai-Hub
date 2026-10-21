@@ -8,6 +8,7 @@ Central de documentação e arquitetura do ecossistema Mottainai.
 - [API](Docs/api/sql/sql-api-full-documentation.md)
 - [DevOps](Docs/devops/README.md)
 - [Mobile Cliente](Docs/mobile/MOBILE-CLIENTE.md)
+- Mobile Cliente: [plano atual](Docs/mobile/cliente/PLANO-MOBILE-CLIENTE.md), [demandas da API](Docs/mobile/cliente/DEMANDAS-API-CLIENTE.md) e [roteiro de testes](Docs/mobile/cliente/TESTES-ENTREGA-CLIENTE.md)
 - [Mobile Operacional](Docs/mobile/MOTTAINAI-OPERACIONAL-FUNCIONAL-E-TECNICO.md)
 - [UX](Docs/ux/00-indice-e-status-da-rubrica.pdf)
 
