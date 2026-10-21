@@ -1,48 +1,32 @@
-# Contratos necessários para concluir o app
+# Dependências para concluir o Mobile Cliente
 
-> Atualização local em 20/10/2026: veja [MOBILE-CLIENTE.md](../MOBILE-CLIENTE.md). Firebase é usado somente para autenticação e o Cliente não terá modo offline. A proposta antiga de FCM abaixo é histórica; a solução de push precisa ser redefinida. A dependência de display name Firebase foi removida do Android; falta o contrato autorizado de leitura do nome no backend. Não houve publicação desta entrega.
+> Atualizado em 21/10/2026. Esta frente altera somente Android. O contrato detalhado para a outra equipe está em [DEMANDAS-API-CLIENTE.md](DEMANDAS-API-CLIENTE.md). Prompts antigos não substituem as decisões posteriores de Isabella.
 
-Referências conferidas em 18/10/2026: API SQL `main` em `11c6d7c` e IA `main` em `ac280ae`. O app mantém Firebase Authentication, API REST/SQL e Google Maps.
+## Código Android já disponível localmente
 
-## Implementação disponível nesta entrega
+- Autenticação senha/Google e recuperação via Firebase; sincronização de perfil de negócio pela API, sem nome/telefone de negócio no Firebase.
+- Sessão vinculada ao UID e perfil SQL ativo; serviços reais exigem localização autorizada e aparelho com localização ligada.
+- Lojas próximas da posição atual, raios 5/10/15/20 km, mapa/lista e destino da unidade no Google Maps.
+- Catálogo existente com busca, filtro por loja, paginação e detalhe; ainda não é o feed geográfico definitivo.
+- Saldo/histórico por janelas mensais; Impacto usa o saldo real, sem conversão inventada em alimentos ou CO₂. Nível depende do valor oficial retornado.
+- Assistente com envio, histórico, lista de conversas, troca/nova conversa e tratamento de erros. Nenhuma resposta local é usada em conta real.
+- Imagem HTTPS aprovada no catálogo, placeholder em ausência/falha, sem token Firebase enviado ao provedor de imagens.
+- Ajuda e seleção de raio de lojas nesta sessão no Perfil. Edição básica existente depende do contrato de perfil.
+- Demonstração somente debug, identificada e isolada das consultas de conta real.
 
-- Senha/Google, recuperação de senha, cadastro em etapas, retomada do perfil SQL e associação da sessão ao UID Firebase.
-- Catálogo com busca, filtro por loja, paginação preservada e detalhes.
-- Lojas com pin/lista, rota e busca opcional em até 5 km.
-- Pontos com saldo e histórico mensal independentes; janelas com precisão de microssegundos.
-- Home com perfil/saldo da API e recuperação por seção; edição básica de perfil somente pela API SQL. Sem nome retornado, usar apresentação neutra; não sincronizar display name no Firebase.
-- Demonstração em debug preservada. Dados fictícios de impacto e respostas locais do chat não são apresentados como dados de uma conta real.
+## Falta na integração externa
 
-Esses itens ainda precisam da execução do roteiro no Android Studio e de uma API acessível. A configuração local aponta para `http://10.0.2.2:8080/`; a verificação do serviço na máquina de desenvolvimento não respondeu no limite de tempo.
+1. Feed por posição/raio, distância e desconto percentual ordenados no servidor antes da paginação. A consulta atual de promoções não recebe posição/raio.
+2. Preferência oficial de raio no cadastro/perfil, inclusive leitura após novo login. O estado atual é apenas da sessão/tela.
+3. Crédito/estorno de pontos pelo PDV e CPF, idempotência, tratamento de centavos e nível/status calculado no servidor. Regra confirmada: 1 ponto por real no total gasto; não multiplicar promoções no Android.
+4. Avisos online e em segundo plano, no mesmo raio: até três campanhas de produtos diferentes por loja/dia, elegibilidade e liberação antecipada para clientes com mais pontos. Janela/grupo prioritário e fuso precisam ser publicados. Não adicionar FCM: Firebase permanece somente autenticação.
+5. Avatar Cloudinary: upload autorizado, confirmação, referência no perfil, exclusão e limites. Não há seletor que finja persistência.
+6. Referência de fotos de produto no catálogo. Android já aceita os campos opcionais propostos `imageUrl` e `items[].imageUrl`; falta acordo/publicação pela API.
+7. Consumidor autorizado na IA e URL `MOTTAINAI_ASSISTANT_BASE_URL`. Ter o cliente HTTP pronto não comprova que o serviço aceita o token do Cliente.
+8. Leitura autorizada de nome/contato de negócio no perfil; o contrato protegido atual não permite apresentar hashes como nome.
 
-## Impacto
+## Verificação pendente
 
-Definição de produto atualizada: os pontos obtidos na compra de produtos serão usados para medir o impacto do cliente. Faltam comprovação e vínculo da compra realizada no mercado, regras de concessão de pontos, contrato de consulta, unidades, período e conversão oficial para as métricas exibidas. Não inventar equivalência entre saldo, massa de alimento recuperada ou CO₂ evitado. O cálculo pertence ao backend; o Android apresenta os resultados. A tela real ainda mostra indisponibilidade; a versão demonstrativa é identificada e o compartilhamento explicita dados fictícios. Essa definição não cria resgate de recompensas nem comprova integração de compras já funcionando.
+63 testes JVM passaram e 60 XMLs/Manifest foram analisados. Isso não substitui assembleDebug, lint, testes de UI e homologação em Android Studio/aparelho com serviços reais. Não houve push/PR desta continuação.
 
-Confirmação de escopo em 20/10/2026: pontos servem **somente ao impacto sustentável**; produtos em promoção dão mais pontos, associados à economia segundo a regra de produto. Cashback, descontos, cupons e resgates estão fora do MVP. Ainda não foi definido o multiplicador ou a fórmula dessa pontuação adicional; não implementá-los por suposição.
-
-## Avatar
-
-Faltam estratégia de armazenamento/upload aprovada, autorização, limites e referência de avatar na API. Não transformar URI local em foto persistida nem adicionar um provedor sem definir essa infraestrutura.
-
-## Chat
-
-O contrato atual da IA é `POST /chat` com somente `message` e `session_id`; campos extras são rejeitados. A identidade vem do token, não de `clientId` ou `role` enviados pelo Android.
-
-Contudo, `resolve_firebase_identity` da IA atual resolve `app_user`/funcionário por bootstrap operacional. Esse fluxo não autentica o consumidor da tabela `customer`. É necessário publicar a autorização de cliente e o escopo de acesso aos dados antes da integração real. Reutilizar o fluxo de funcionário ou preencher uma empresa arbitrária permitiria um acesso incorreto.
-
-A tela real informa indisponibilidade e preserva a navegação; somente a demonstração usa respostas locais. Isso não equivale a declarar o chat concluído.
-
-## Push e geofencing
-
-Não foi identificado um contrato de instalação/dispositivo FCM nas rotas atuais da API. A próxima entrega precisa definir/publicar associação e remoção de instalação, renovação de token, troca de usuário, preferências e payloads seguros. O armazenamento do token deve seguir a política de dados protegidos do sistema.
-
-Geofencing depende desse fluxo de notificação e da definição de elegibilidade das lojas, raio, cooldown e atualização dos registros. A busca de lojas em 5 km é um filtro de tela e não define o raio de geofencing. Cadastro de geofences existente em rotas administrativas não substitui autorização Firebase do consumidor nem processamento Android de transições.
-
-## Integração de perfil com dados protegidos
-
-A atualização Android depende da correção da API `fix/customer-profile-update`: omitir `phone` preserva seu token, em vez de apagar o telefone ao editar nome/consentimento. Somente o e-mail de acesso vem da identidade Firebase. O nome enviado após uma edição SQL confirmada pode permanecer em memória, mas não é recuperável pelo GET protegido atual. Falta uma representação de perfil autorizada no backend, sem tratar hashes como contato nem criar persistência Firebase/local para contornar a lacuna.
-
-## Revisão e publicação
-
-As branches novas são encadeadas para que cada diff tenha 1–3 commits. As PRs são abertas pelo bot após push. Revisar as bases e descrições antes de merge; a PR de frontend continua draft. PRs antigas de Home, perfil e placeholders precisam ser reconciliadas com a arquitetura atual antes de serem incorporadas, evitando regressão para contratos JWT/OSMDroid históricos.
+Não há checkout, cashback, resgate nem modo offline de negócio no Cliente. A vitrine direciona ao mercado; pontos representam fidelidade/participação e prioridade de melhores promoções.

@@ -29,6 +29,7 @@ O formulário explica que é necessário informar o nome para editar, pois o PUT
 
 ## Roteiro no Android Studio
 
+- Cadastro valida os dois dígitos verificadores do CPF e rejeita sequências repetidas antes de criar/enviar o perfil. `CpfValidatorTest` cobre formatos, zeros à esquerda e erros nos verificadores. Isso não consulta a Receita, não comprova titularidade nem substitui validação/uniquidade na API. Referência do conceito de validação CPF: [Hibernate Validator](https://docs.jboss.org/hibernate/validator/6.1/reference/en-US/html_single/#validator-defineconstraints-spec).
 - Conta com perfil SQL: testar senha e Google, fechar/reabrir o app e conferir identidade no perfil.
 - Conta Firebase sem perfil SQL: ambos os métodos abrem a conclusão do cadastro, com e-mail bloqueado e campos de senha ocultos.
 - Interromper a API depois de criar a conta Firebase; restaurar a API e repetir o envio. Deve existir somente um perfil para o UID.

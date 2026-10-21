@@ -1,10 +1,33 @@
 # Mottainai Mobile Cliente — documentação funcional e técnica
 
-> Publicação no Mottainai Hub: documentação do checkout local do Cliente; o envio deste guia não publica o código Android nem comprova homologação.
->
-> Atualização: **20/10/2026**. Este documento reúne o estado observado no código local, as decisões recentes do projeto e as pendências para entrega. **Implementado no Android não significa publicado na API nem validado ponta a ponta.** A entrega local `fix/firebase-auth-only` não foi enviada nem teve PR aberta.
+> Atualização: **21/10/2026**. Este documento reúne o estado observado no código local, as decisões recentes do projeto e as pendências para entrega. **Implementado no Android não significa publicado na API nem validado ponta a ponta.** A entrega local `fix/firebase-auth-only` não foi enviada nem teve PR aberta.
+
+> Publicação documental no Mottainai Hub; código Android, serviços e homologação não são publicados por este envio.
+
+## Decisões consolidadas em 21/10/2026
+
+Estado local mais recente: autenticação/perfil, acesso por localização, lojas compartilhadas entre Home/mapa, raios, destino Google Maps, consulta de pontos, Impacto por saldo, cliente HTTP do assistente e carregamento opcional de imagens implementados no Android. 63 testes JVM e 60 XMLs analisados; sem build APK/lint/UI. Contratos externos e homologação permanecem pendentes; o envio desta documentação não publica o código Android.
+
+- Raios **5, 10, 15 e 20 km**, padrão **5 km**, selecionados ao confirmar o endereço. A proximidade usa a posição atual do aparelho, não presume que ele esteja no endereço cadastrado.
+- Localização obrigatória para os serviços do app: recusa bloqueia esses recursos. Manter entrada, recuperação da conta e orientação para conceder permissão acessíveis; o app real bloqueia serviços sem localização, sem substituir por lista geral.
+- Avisos usam o mesmo raio das ofertas, somente para lojas parceiras Mottainai. Sem internet, não emitir aviso nem afirmar disponibilidade com dados antigos.
+- Cada loja poderá emitir **três avisos por dia, de produtos diferentes**, com funcionamento em **segundo plano**. Quota de campanhas da loja, deduplicação por destinatário e fuso precisam constar no contrato; não tratar como apenas três destinatários por dia. Respeitar permissões/restrições Android, sem garantia de entrega imediata ou após force-stop.
+- O **PDV Mottainai** comprova a compra e identifica o cliente pelo **CPF**. O crédito será de **1 ponto por real gasto**, calculado no backend, com contrato autenticado de confirmação/estorno. Falta definir centavos e base elegível. Essa fórmula substitui a hipótese anterior de bônus para produtos promocionais.
+- Pontos são de **fidelidade**: clientes com maior pontuação recebem prioritariamente comunicações de melhores promoções/lotes menores. Isso substitui a decisão anterior de pontos exclusivos para impacto. Não autoriza reserva, exclusividade no catálogo, desconto por troca de pontos ou cashback.
+- Cancelamento/devolução retira os pontos ganhos na compra. O backend precisa registrar estorno auditável e idempotente; devolução parcial e fórmula ainda exigem definição.
+- Impacto será apresentado como jornada/status de participação por fidelidade, não certificação ambiental. Faixas propostas e pesquisa estão em [Fidelidade e imagens](cliente/FIDELIDADE-E-IMAGENS.md): Semente, Broto, Planta, Árvore e Floresta. Valores são desenho inicial do programa, não medida científica; período/expiração ainda precisam de validação.
+- Cadastro mantém os campos do contrato/banco existente. Para imagens, recomenda-se piloto com **Open Food Facts**, validando cobertura por GTIN e termos antes de produção; a oferta usa a imagem do produto. Avatar **somente no Cloudinary**. A pesquisa compara Cosmos como alternativa, sem integrar dois provedores por antecipação.
+- Reutilizar o assistente de cliente da IA. Em `main` da IA (`021fdc0`), há agente consumidor RAG, mas o resolvedor de identidade Firebase examinado ainda resolve funcionário, não cliente; agente existente não significa integração Android autorizada.
+
+Verificações dirigidas de repositórios em 21/10: `main` de [API Cliente](https://github.com/Mottainai-One/Mottainai-Api-SQL-Cliente) contém apenas `LICENSE`; existem outras branches, não auditadas. Os contratos consumidos hoje estão na API SQL Operacional. Definir com a equipe onde evoluir/reutilizar esses contratos, sem duplicar serviços por suposição. No [POS](https://github.com/Mottainai-One/Mottainai-POS), o caminho de venda examinado em `main` usa `MockApiService`; o modelo de venda possui vínculo opcional de cliente, mas isso não comprova integração real com pontos. Outras branches e ambiente publicado não foram homologados.
+
+Plano inicial histórico: [plano de implementação](cliente/PLANO-IMPLEMENTACAO.md). Para execução vigente somente Android, usar [plano mobile atualizado](cliente/PLANO-MOBILE-CLIENTE.md) e [pesquisa de fidelidade/imagens](cliente/FIDELIDADE-E-IMAGENS.md). Esta consolidação substitui perguntas históricas abaixo sobre opções de raio, background, CPF e fórmula; não aplicar o bônus promocional anteriormente cogitado. Descrições de código atual não representam aceite dessas novas regras.
 
 ## Índice
+
+Escopo confirmado: esta frente cuida **somente do Android Cliente**. Backend é responsabilidade de outra pessoa; consulte o [plano mobile atualizado](cliente/PLANO-MOBILE-CLIENTE.md) e o [MD para a equipe da API](cliente/DEMANDAS-API-CLIENTE.md). Entregas backend de planos anteriores são dependências externas, não autorização para implementá-las aqui.
+
+Atualização local de 21/10: [acesso por sessão/localização](cliente/location-access.md). Main, detalhe e assistente exigem localização no uso real; Home e Lojas compartilham raio/posição, com leitura automática em primeiro plano e atualização manual. Raio 5/10/15/20 km, padrão 5. O feed de promoções geográfico e as notificações ainda não estão implementados; descrições anteriores de permissão opcional/lista geral foram substituídas por esse fluxo.
 
 1. [Objetivo e público](#1-objetivo-e-público)
 2. [Decisões e limites](#2-decisões-e-limites)
@@ -89,13 +112,13 @@ Legenda: **implementado** = caminho existente no Android; **parcial** = tela ou 
 | Catálogo e detalhe | Implementado no app | Validar autorização Firebase nas rotas do backend |
 | Feed de ofertas dos mercados próximos | Pendente de integração geográfica | Catálogo atual não recebe automaticamente a localização usada na tela de lojas |
 | Lojas, pins e rota | Implementado | Coordenadas reais e chave Maps válida |
-| Botão do detalhe abrindo Google Maps oficial | Parcial | Há abertura de rota; garantir destino da promoção, app oficial e alternativa web |
-| Busca de lojas até 5 km | Implementado | Permissão opcional e filtro geográfico na API |
+| Botão do detalhe abrindo Google Maps oficial | Implementado localmente; pendente de teste Android | Auxiliar compartilhado abre pin da unidade no app oficial ou por URL web; 7 testes JVM |
+| Busca de lojas por raio | Implementado localmente | 5/10/15/20 km e localização obrigatória; preferência ainda é estado de tela |
 | Saldo e histórico de pontos | Implementado | Titularidade e dados existentes no servidor |
 | Perfil e edição básica | Parcial | Nome não é gravado/lido no Firebase; falta leitura autorizada pela API |
 | Avatar persistido | Pendente | Serviço de arquivos e contrato de autorização |
-| Impacto real | Pendente | Origem dos dados, métricas e cálculo oficial |
-| Assistente real | Pendente | Autorização de consumidor na IA |
+| Impacto real | Saldo apresentado; status opcional | Nível/progresso calculados pela API; sem conversões ambientais |
+| Assistente real | Cliente HTTP implementado | Configuração da URL e homologação da autorização consumidor na IA |
 | Push | Pendente | Solução compatível com Firebase somente para Auth |
 | Geofencing | Pendente | Regras, permissões e eventos definidos |
 | Demonstração em debug | Implementado | Não equivale a integração nem a offline de produção |
@@ -205,7 +228,7 @@ Há DTOs e mocks legados no projeto. A existência de um arquivo antigo de login
 | Nome/e-mail exibidos | Nome neutro ou confirmado em memória após edição SQL; e-mail de acesso Firebase | Falta leitura oficial autorizada do nome; não persistir no Firebase |
 | Catálogo, lojas e pontos | API; respostas mantidas em memória | Sem banco/cache persistente offline no Cliente |
 | Avatar/fotos | Sem upload real concluído | Armazenamento de objetos a definir; referência no backend |
-| Impacto | Sem consulta real concluída | Regra e persistência a definir no servidor |
+| Impacto | Saldo de fidelidade consultado pela API | Status/progresso dependem dos campos oficiais do servidor |
 | Chat | Sem integração real do consumidor | Serviço IA autorizado; nunca conexão Android–Mongo |
 
 O arquivo de preferências de sessão é `mottainai_cliente_session.xml`. O projeto o exclui das regras explícitas de backup e transferência. Isso não significa que todo dado de qualquer SDK esteja coberto por essa regra; revisar separadamente ao adicionar armazenamento ou dependências.
@@ -268,7 +291,7 @@ Usa `sendPasswordResetEmail` no Firebase. Não depende da API SQL. A confirmaç�
 Validações observadas:
 
 - Nome: obrigatório, até 150 caracteres.
-- CPF: 11 dígitos; essa checagem local não comprova validade cadastral ou titularidade.
+- CPF: 11 dígitos e dígitos verificadores válidos; rejeita sequências repetidas. Isso não consulta situação cadastral nem comprova titularidade. Verificação oficial e vínculo com compra continuam no servidor.
 - E-mail: formato e limite de 150 caracteres.
 - Senha de nova conta: 8 a 100 caracteres, com confirmação.
 - Telefone: obrigatório no formulário atual, até 20 caracteres.
@@ -314,7 +337,7 @@ Combina saudação/perfil, saldo e seções de ofertas/lojas. As consultas não 
 - O argumento de navegação é `store_id`; a query HTTP é `storeId`.
 - Categoria fica indisponível até existir campo e contrato correspondentes.
 
-O detalhe usa o ID da oferta (`offer_id`) e deve tratar `404`, indisponibilidade e ausência de campos. O DTO atual não oferece campo de foto; usar placeholder, não URL inventada. Preço original, promocional e disponibilidade são dados do backend.
+O detalhe usa o ID da oferta (`offer_id`) e trata `404`, indisponibilidade e ausência de campos. O Android aceita a proposta de foto opcional `imageUrl` e `items[].imageUrl`, ainda dependente de publicação pela API. Usa apenas HTTPS, placeholder em ausência/falha e nunca inventa URL. Um item único pode fornecer sua foto; múltiplos itens exigem capa explícita. Preço original, promocional e disponibilidade são dados do backend.
 
 A regra esperada do feed é apresentar promoções aprovadas, ativas e vigentes, de lojas ativas e com itens disponíveis. Essa elegibilidade precisa ser garantida e testada **no servidor**; filtro visual no Android não protege o catálogo.
 
@@ -342,13 +365,13 @@ Usar coordenadas válidas do mercado; na ausência delas, usar o endereço compl
 
 Endereço e coordenadas vêm da API. Uma loja sem coordenadas continua elegível à consulta geral conforme o contrato; não deve ganhar um pin fictício. A consulta por proximidade precisa tratar explicitamente a impossibilidade de calcular distância sem coordenadas.
 
-Pin e item da lista oferecem as mesmas ações: consultar ofertas da loja e abrir rota. O código atual usa intent `geo:` com coordenadas válidas ou endereço e trata ausência de app compatível. Isso não garante, por si só, abertura especificamente no Google Maps oficial; essa adequação ainda está pendente, incluindo o fluxo pelo detalhe da promoção.
+Pin, lista e detalhe da promoção usam `MapNavigation`: abre URL Google Maps com pin da unidade, preferindo o pacote oficial e com alternativa web. Prioriza coordenadas válidas; sem elas, exige rua, número, cidade e estado, incluindo bairro/CEP disponíveis. Dados incompletos não geram pesquisa genérica da rede. Não inicia navegação automaticamente nem escolhe transporte. Sete testes JVM validam URL/endereço; app instalado/ausente e retorno à tela ainda precisam de teste Android.
 
 ### 11.2 Localização opcional
 
-O usuário escolhe buscar lojas em até **5 km**. Há explicação e solicitação de localização aproximada/precisa; recusa ou GPS desligado não bloqueiam a lista geral.
+O usuário escolhe **5/10/15/20 km**, padrão 5. Localização aproximada/precisa e serviço do aparelho ativo são obrigatórios no uso real. Sem eles, a tela central de acesso orienta a recuperação; não libera lista geral substituta.
 
-O código usa `LocationManagerCompat`, cancelamento e limite de espera de 15 segundos. A busca é cancelada ao sair da tela. Remover o filtro remove latitude, longitude e raio. Distâncias da interface são aproximações em linha reta, não distância de percurso.
+O código usa `LocationManagerCompat`, cancelamento e timeout de 15 segundos. A busca é cancelada ao sair da tela. Trocar raio reinicia páginas; Home compartilha o contexto de lojas. Distâncias são aproximações em linha reta, não percurso. Não existe remoção do filtro para consultar todas as lojas nessa tela.
 
 O envio de coordenadas ao backend acontece para atender essa consulta. Não habilitar histórico de localização ou rastreamento contínuo por consequência desse filtro.
 
@@ -411,17 +434,19 @@ Não há persistência real de avatar concluída. Faltam armazenamento aprovado,
 
 ## 14. Impacto ambiental
 
-A tela existe, mas o modo real informa indisponibilidade. A demonstração pode exibir métricas identificadas como fictícias, inclusive no texto compartilhado.
+A tela usa o mesmo saldo real da área de Pontos, com carregamento, erro, atualização e compartilhamento textual somente após consulta bem-sucedida. Demonstração identifica dados fictícios inclusive no compartilhamento.
 
-**Regra de produto confirmada:** pontos obtidos na compra de produtos serão usados somente para medir o impacto sustentável apresentado nesta área, com maior pontuação para produtos em promoção. Não existe retorno financeiro ou resgate no MVP. O fluxo esperado é **compra no mercado → comprovação e vínculo com o cliente → concessão de pontos → cálculo/atualização do impacto → consulta pelo aplicativo**. Esse fluxo ainda não está implementado de ponta a ponta.
+**Regra mais recente confirmada:** 1 ponto por real no total gasto, identificado por CPF no PDV Mottainai; devolução/cancelamento estornam pontos. Não aplicar multiplicador por produto em promoção. Pontos representam fidelidade/participação e dão prioridade de recebimento das melhores promoções. Não existe retorno financeiro nem resgate no MVP. Compra/crédito/estorno e prioridade ainda dependem da integração externa.
 
-Para concluir, definir comprovação das compras, pontos por produto/quantidade, unidades, período, fatores ambientais, versão do cálculo e contrato de consulta. Não inventar equivalência fixa entre pontos, massa de alimento recuperada e CO₂ evitado: se essas métricas forem exibidas, a conversão precisa de regra oficial e dos dados necessários. Também é preciso definir se o impacto usa lançamentos acumulados ou outro agregado, em vez de assumir que o saldo atual representa todo o histórico. O cálculo oficial pertence ao servidor; o Android apenas apresenta os resultados autorizados.
+Não converter saldo em massa de alimentos ou CO₂. Nível/progresso só são exibidos quando informados pelo servidor nos campos opcionais propostos `statusName`/`pointsToNextStatus`. Resposta legada sem esses campos mantém o saldo, com aviso de nível não informado. Faixas de participação não equivalem a certificação ambiental; nenhum nível é calculado pelo Android.
 
 ## 15. Assistente
 
-No modo real, o assistente não gera respostas locais para aparentar integração. O mecanismo demonstrativo só é criado no modo debug de demonstração.
+No modo real, o assistente usa HTTP com Firebase ID token. O mecanismo de respostas locais só é criado no modo debug de demonstração. A URL própria é configurada por `MOTTAINAI_ASSISTANT_BASE_URL`; ausência de configuração mostra estado claro, não respostas simuladas.
 
-O contrato da IA previamente inspecionado aceita `POST /chat` com `message` e `session_id`. Não é autorização para ligar o consumidor ao fluxo de funcionário: a resolução de identidade da IA observada é operacional. Antes da integração, publicar suporte explícito ao cliente, isolamento de sessão e escopo dos dados.
+Os contratos observados implementados são `POST /chat` com apenas `message`/`session_id`, `GET /chat/history/{session_id}` e `GET /chat/sessions`. Há nova conversa, consulta das anteriores, histórico e estados de erro. Respostas de outra conversa são rejeitadas; mensagens system/tool não são apresentadas. O ViewModel preserva a conversa na rotação, sem transcrição em disco. Não há reenvio automático de mensagem após falha de rede ambígua.
+
+Isso não autoriza ligar o consumidor ao fluxo de funcionário: falta homologar suporte explícito ao Cliente e isolamento das contas no serviço. Um `401` exclusivo da IA não limpa a sessão SQL; o token só é renovado conforme o limite já aplicado pelo cliente HTTP.
 
 Não enviar papel/empresa/cliente como forma de conceder permissão. Não colocar chave de LLM no Android. O histórico, se persistido pelo serviço IA, permanece acessível somente por sua API autorizada. Não adicionar histórico offline de negócio ao Cliente.
 
@@ -433,13 +458,13 @@ Ambos estão pendentes. Menções a FCM em planos antigos são históricas e **n
 
 Quando o cliente passar perto de uma loja elegível, deve poder receber um aviso sobre as ofertas disponíveis **daquela unidade**. O aviso deve respeitar autorização de notificações/localização e não ser repetido continuamente enquanto a pessoa permanece na região. Não avisar sobre uma promoção expirada, esgotada ou de outra loja como se estivesse disponível no local.
 
-O acionamento deve considerar a proximidade real do aparelho, não somente o endereço cadastrado no perfil. A regra exata de entrada/permanência, o raio, o intervalo entre avisos e o funcionamento com o app em segundo plano ainda não foram aprovados.
+O acionamento considera a posição atual do aparelho, não apenas o endereço cadastrado. O raio padrão é 5 km, com opções 5/10/15/20 km; avisos usam o raio escolhido e devem funcionar em segundo plano, somente online. Cada loja parceira pode enviar até três avisos de produtos diferentes por dia. Quota, deduplicação, elegibilidade e prioridade exigem controle no servidor; não são apenas três destinatários.
 
 ### 16.2 Implementação ainda a definir
 
 Uma alternativa discutida é detectar a proximidade no Android, consultar ofertas elegíveis pela API e emitir uma **notificação local**, sem FCM. Isso ainda não define automaticamente todos os mecanismos, permissões ou política de execução em background. Monitorar regiões não significa oferecer catálogo offline; não criar persistência de ofertas no Cliente para contornar a ausência de rede.
 
-É necessário decidir o que fazer quando não houver conexão para confirmar as ofertas. Não prometer consulta nova ou notificação de oferta vigente sem validação. Permissões negadas devem ter tratamento claro e não podem ser contornadas.
+Sem conexão não há novos avisos. Não emitir notificação de oferta vigente sem validação. Permissões negadas devem ter tratamento claro e não podem ser contornadas.
 
 Para notificações, definir canal de entrega, registro/remoção da instalação, preferências, tratamento da troca de conta e payload mínimo seguro. Uma notificação interna persistida na API não equivale a push entregue ao aparelho.
 
@@ -758,7 +783,7 @@ Descrição deve conter `O que muda`, `Por que`, `Como testar`, checklist, issue
 | Alterar consentimento apaga telefone | Versão implantada da correção de atualização parcial |
 | Nome não aparece após recarregar o perfil | O GET protegido não retorna nome; apresentação neutra é intencional até contrato autorizado |
 | Mapa vazio | Chave Maps, SDK, restrições de pacote/certificado e conectividade |
-| Sem localização, mas lista funciona | Comportamento permitido; conferir permissão/serviço somente para proximidade |
+| Sem localização, mas lista funciona | Não é o comportamento aprovado; conferir o bloqueio central e a variante debug/demonstração |
 | Lista vazia | Diferenciar ausência real de promoções elegíveis, filtro ativo e erro HTTP |
 | Pontos não batem com compras | Conferir lançamentos/regras no servidor; não corrigir saldo no Android |
 | Tela existe, mas dados são indisponíveis | Conferir se é funcionalidade pendente ou demonstração |
@@ -770,7 +795,7 @@ Coletar status HTTP, horário, versão e identificador de requisição quando di
 
 ### Documentos do repositório
 
-- [Repositório do app Cliente](https://github.com/Mottainai-One/Mottainai-Mobile-Cliente): código e apresentação do projeto.
+- [README](../../README.md): apresentação e entrada do projeto.
 - [Autenticação e retomada](cliente/authentication.md): comportamento e roteiro da implementação anterior.
 - [Catálogo e lojas](cliente/catalog.md): paginação, mapa e aceite.
 - [Contratos pendentes](cliente/remaining-contracts.md): diagnóstico histórico de integrações.
