@@ -16,7 +16,7 @@ Os estados de negócio são modelados de duas formas no banco:
 | `sale_item_status` | `SOLD`, `CANCELED`, `RETURNED` | `sale_item.status` |
 | `pos_cancel_status` | `PENDING`, `APPROVED`, `REJECTED`, `EXECUTED`, `CANCELED` | `pos_cancel_request.status` |
 | `pos_cancel_target` | `ITEM`, `SALE` | `pos_cancel_request.target_type` |
-| `promotion_status` | `DRAFT`, `PENDING_APPROVAL`, `APPROVED`, `REJECTED`, `EXPIRED` | `promotion.status` |
+| `promotion_status` | `DRAFT`, `PENDING_APPROVAL`, `APPROVED`, `REJECTED`, `EXPIRED`, `CANCELLED` | `promotion.status` |
 | `movement_type` | `IN`, `OUT`, `ADJUSTMENT`, `TRANSFER`, `DONATION`, `DISPOSAL` | `inventory_movement.movement_type` |
 | `inventory_type` | `NORMAL`, `CONSIGNED`, `QUARANTINE` | `inventory.inventory_type` |
 | `inventory_status` | `IN_PROGRESS`, `COMPLETED`, `CANCELED` | *(definido, sem uso em coluna)* |
@@ -25,7 +25,7 @@ Os estados de negócio são modelados de duas formas no banco:
 | `alert_status` | `ACTIVE`, `ANALYZING`, `RESOLVED`, `IGNORED` | `alert.status` |
 | `alert_type` | `EXPIRATION`, `CRITICAL_STOCK`, `RUPTURE`, `SLOW_MOVING`, `OVERSTOCK` | `alert.alert_type` |
 | `suggested_action_status` | `PENDING`, `APPROVED`, `REJECTED`, `EXECUTED` | `suggested_action.status`, `ai_recommendation.status` |
-| `suggested_action_type` | `PROMOTION`, `TRANSFER`, `DONATION`, `DISPOSAL`, `REORDER` | `suggested_action.action_type`, `ai_recommendation.action_type` |
+| `suggested_action_type` | `PROMOTION`, `TRANSFER`, `DONATION`, `DISPOSAL`, `REORDER`, `PURCHASE_ORDER` | `suggested_action.action_type`, `ai_recommendation.action_type` |
 | `pre_list_status` | `GENERATED`, `IN_PROGRESS`, `COMPLETED`, `CANCELED` | `replenishment_pre_list.status` |
 | `transfer_status` | `REQUESTED`, `IN_TRANSIT`, `COMPLETED`, `CANCELED` | `transfer.status` |
 | `donation_status` | `REGISTERED`, `COMPLETED`, `CANCELED` | `donation.status` |

@@ -16,6 +16,7 @@ pela API; não substitui essas camadas.
 | Proprietário/migrator | Instalar migrations e manter objetos | Nunca usado pela API |
 | `mottainai_api` | Role de grupo usada durante requisições | `NOLOGIN`, `NOSUPERUSER`, `NOCREATEDB`, `NOCREATEROLE`, `NOBYPASSRLS`, sem DDL |
 | `mottainai_customer_api` | Role de grupo exclusiva do aplicativo do cliente | `NOLOGIN`, `NOBYPASSRLS`, sem acesso a auditoria ou integração legada |
+| `mottainai_migrator` | Importar dados tratados do legado | `NOLOGIN`, `NOINHERIT`, sem DDL, acesso somente às tabelas da integração |
 | Login real da API | Autentica no PostgreSQL/Render | Deve ser membro de `mottainai_api` e usar `SET LOCAL ROLE` |
 | Pipeline analítico | Consumir eventos confirmados | Credencial própria, sem acesso administrativo ao OLTP |
 
@@ -25,6 +26,12 @@ administrador do ambiente:
 ```sql
 GRANT mottainai_api TO nome_real_do_login_da_api;
 ```
+
+O instalador aceita ambientes PostgreSQL gerenciados nos quais o migrator tem
+`CREATEROLE`, mas não `SUPERUSER`. Atributos reservados (`SUPERUSER`,
+`REPLICATION` e `BYPASSRLS`) são consultados em `pg_roles`: se estiverem
+desativados, a instalação continua; se algum estiver ativo, o processo falha
+fechado e exige correção por um administrador autorizado.
 
 ## Contexto seguro por transação
 
@@ -106,6 +113,18 @@ O módulo de clientes obedece ao mesmo princípio, mesmo sem origem no legado:
 - a role `mottainai_customer_api` usa `fn_bootstrap_customer_context` e só
   enxerga o próprio cliente por RLS.
 
+## Contexto controlado da RPA
+
+O login técnico da automação recebe apenas membership em
+`mottainai_migrator`. Em cada transação, a função
+`fn_set_legacy_migration_context(company_id)` valida a empresa, habilita a
+operação `legacy-import` e mantém RLS ativo. A role pode inserir ou atualizar
+somente endereço, papel, plano, empresa, loja, funcionário, usuário e a trilha
+de sincronização; não recebe DDL nem `BYPASSRLS`.
+
+A auditoria não inventa `user_id = 0`: importações sem conta operacional
+correspondente usam `NULL`, preservando empresa, transação e aplicação cliente.
+
 ## Auditoria
 
 `audit_log` registra tabela, operação, registro, usuário, empresa, loja, IP,
@@ -139,6 +158,7 @@ O ambiente deve complementar o banco com:
 - [ ] Senhas usam BCrypt; tokens aleatórios usam gerador criptográfico e SHA-256.
 - [ ] Backends enviam somente valores compatíveis com o contrato protegido.
 - [ ] Login do aplicativo cliente recebeu membership em `mottainai_customer_api`.
+- [ ] Login da RPA recebeu somente membership em `mottainai_migrator`.
 - [ ] TLS obrigatório e credenciais fora do código.
 - [ ] Backup restaurado com sucesso em ambiente isolado.
 - [ ] Alertas e retenção de auditoria configurados.

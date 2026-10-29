@@ -136,6 +136,10 @@ Itens (linhas) do pedido de compra.
 | `requested_quantity` ✅ | `DECIMAL(10,3)` | `NN` `CHECK > 0` |
 | `unit_price` ✅ | `DECIMAL(10,2)` | `NN` `CHECK ≥ 0` |
 | `subtotal` | `DECIMAL(12,2)` | **gerado** — `(requested_quantity * unit_price) STORED` |
+| `deleted_at` | `TIMESTAMP` | exclusão lógica usada pelas views da API |
+
+O item não possui `company_id`; as views e políticas derivam o tenant do
+pedido de compra e da loja correspondente.
 
 ## `receiving`
 

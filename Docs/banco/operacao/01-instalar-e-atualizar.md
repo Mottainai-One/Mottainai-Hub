@@ -8,6 +8,12 @@
 - bancos físicos `mottainai_operational` e `mottainai_analytics`;
 - backup validado antes de atualizar uma base existente.
 
+Em um PostgreSQL gerenciado, o usuário de migration pode ter `CREATEROLE` sem
+ser `SUPERUSER`. O instalador não tenta alterar atributos reservados; ele
+verifica que as roles de API não possuem `SUPERUSER`, `REPLICATION` ou
+`BYPASSRLS` e interrompe com uma mensagem segura se encontrar configuração
+privilegiada.
+
 ## Instalação nova
 
 Clone o repositório `Mottainai-Banco-Operacional` e execute:
@@ -31,40 +37,32 @@ uma ferramenta de migration configurada na mesma ordem.
 
 ## Atualização de base existente
 
-Ordem recomendada para esta versão:
-
-1. aplicar a migration de `product.company_id`;
-2. resolver qualquer produto com propriedade ambígua;
-3. executar os testes de produto;
-4. aplicar o hardening de segurança;
-5. executar os testes de segurança;
-6. aplicar o contrato de dados sensíveis e seus testes;
-7. associar os logins reais às roles `mottainai_api` e `mottainai_customer_api`;
-8. publicar as APIs compatíveis com SHA-256, BCrypt e contexto transacional.
+O atualizador consolidado executa os módulos de produto, segurança, dados
+sensíveis, compatibilidade JPA e contrato API/RPA na ordem segura e em uma
+única transação:
 
 ```bash
 psql -v ON_ERROR_STOP=1 -d mottainai_operational \
-  -f database/operational/10_product_company.sql
-
-psql -v ON_ERROR_STOP=1 -d mottainai_operational \
-  -f database/operational/11_product_company_tests.sql
-
-psql -v ON_ERROR_STOP=1 -d mottainai_operational \
-  -f database/operational/20_security_hardening.sql
-
-psql -v ON_ERROR_STOP=1 -d mottainai_operational \
-  -f database/operational/21_security_hardening_tests.sql
-
-psql -v ON_ERROR_STOP=1 -d mottainai_operational \
-  -f database/operational/22_sensitive_data_contract.sql
-
-psql -v ON_ERROR_STOP=1 -d mottainai_operational \
-  -f database/operational/23_sensitive_data_contract_tests.sql
+  -f database/operational/update_existing_api_rpa.sql
 ```
 
 Se um produto antigo estiver ligado a mais de uma empresa, a migration para
 sem escolher um tenant arbitrariamente. Duplique o cadastro por empresa,
 redirecione as referências operacionais e reaplique o script.
+
+Depois da atualização, execute `11_product_company_tests.sql` e
+`26_api_rpa_compatibility_tests.sql`. Associe os logins reais às roles de grupo
+fora do repositório:
+
+```sql
+GRANT mottainai_api TO login_real_da_api;
+GRANT mottainai_customer_api TO login_real_do_app_cliente;
+GRANT mottainai_migrator TO login_real_da_rpa;
+```
+
+A RPA deve iniciar uma transação, usar `SET LOCAL ROLE mottainai_migrator`,
+chamar `fn_set_legacy_migration_context(company_id)`, executar os upserts e
+encerrar o contexto antes do `COMMIT`.
 
 ## Partições mensais
 
@@ -89,4 +87,6 @@ analítico.
 - testar login, refresh, logout e revogação por troca de senha;
 - verificar que valores abertos são recusados e auditoria aninhada é sanitizada;
 - medir poda de partição com `EXPLAIN (ANALYZE, BUFFERS)`;
-- confirmar ingestão idempotente no banco analítico.
+- confirmar ingestão idempotente no banco analítico;
+- confirmar as dez views `vw_api_*` e as funções transacionais da API;
+- testar uma importação RPA com auditoria e `user_id` nulo.
