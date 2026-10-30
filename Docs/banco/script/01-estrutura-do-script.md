@@ -23,6 +23,11 @@ infraestrutura
   -> compatibilidade JPA
   -> contrato API/RPA
   -> testes API/RPA
+  -> fixture de reinstalação protegida
+  -> identidade reversível de funcionários
+  -> dados privados reversíveis de clientes
+  -> migrations do PDV
+  -> contrato isolado da API mobile
 ```
 
 ## Migrations recentes
@@ -64,6 +69,16 @@ RLS de monitoramento e a role `mottainai_migrator`. A RPA define a empresa por
 `fn_set_legacy_migration_context`, sem receber `BYPASSRLS`; a auditoria mantém
 `user_id = NULL` quando o legado não possui usuário operacional correspondente.
 
+### Dados privados e API mobile
+
+`37_reversible_customer_pii.sql` finaliza o envelope AES-256-GCM de clientes,
+troca a remoção em cascata por `ON DELETE RESTRICT`, sincroniza a exclusão
+lógica e limita a leitura interna a gestores autorizados da mesma empresa.
+
+`38_client_mobile_api.sql` publica catálogo por views com barreira de segurança
+e encapsula perfil, Firebase, login e recuperação em funções com donos técnicos
+`NOLOGIN` separados. A role mobile não recebe escrita direta nas tabelas-base.
+
 ## Reaplicação
 
 As migrations recentes podem ser reaplicadas. `CREATE ... IF NOT EXISTS`,
@@ -79,6 +94,10 @@ duplicação. Reaplicar não substitui backup nem revisão do plano de migration
 | `21_security_hardening_tests.sql` | Atributos da role, parâmetros protegidos, RLS, views e auditoria imutável |
 | `23_sensitive_data_contract_tests.sql` | Formatos SHA-256/BCrypt, ausência de data exata, role do cliente, RLS e sanitização aninhada |
 | `26_api_rpa_compatibility_tests.sql` | Views, funções, enums, privilégios, outbox idempotente, contexto da RPA, auditoria, pedido e recebimento |
+
+O mesmo arquivo também verifica o contrato final mobile: comandos das políticas
+RLS, FK restritiva, roles não privilegiadas, ausência de membership residual,
+views com `security_barrier`, assinaturas das funções e exclusão lógica.
 
 Além da suíte estrutural, a validação de release deve testar dois tenants,
 sessão, revogação, auditoria sanitizada e tentativa de falsificação de contexto.

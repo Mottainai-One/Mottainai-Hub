@@ -46,6 +46,17 @@ psql -v ON_ERROR_STOP=1 -d mottainai_operational \
   -f database/operational/update_existing_api_rpa.sql
 ```
 
+Para uma base que já contém os módulos anteriores e precisa somente do contrato
+final de dados privados do cliente e da API mobile, execute:
+
+```bash
+psql -v ON_ERROR_STOP=1 -d mottainai_operational \
+  -f database/operational/update_existing_customer_private_data.sql
+```
+
+O atualizador executa os módulos 37 e 38 em uma transação. Em caso de erro,
+nenhuma alteração parcial é confirmada.
+
 Se um produto antigo estiver ligado a mais de uma empresa, a migration para
 sem escolher um tenant arbitrariamente. Duplique o cadastro por empresa,
 redirecione as referências operacionais e reaplique o script.
@@ -58,6 +69,7 @@ fora do repositório:
 GRANT mottainai_api TO login_real_da_api;
 GRANT mottainai_customer_api TO login_real_do_app_cliente;
 GRANT mottainai_migrator TO login_real_da_rpa;
+GRANT mottainai_client_api TO login_real_do_backend_mobile;
 ```
 
 A RPA deve iniciar uma transação, usar `SET LOCAL ROLE mottainai_migrator`,
@@ -89,4 +101,7 @@ analítico.
 - medir poda de partição com `EXPLAIN (ANALYZE, BUFFERS)`;
 - confirmar ingestão idempotente no banco analítico;
 - confirmar as dez views `vw_api_*` e as funções transacionais da API;
+- confirmar as views mobile com `security_barrier` e as funções de perfil/autenticação;
+- confirmar que nenhum owner mobile ficou concedido ao usuário de migration;
+- testar desativação do cliente, exclusão lógica do envelope e bloqueio do `DELETE` físico;
 - testar uma importação RPA com auditoria e `user_id` nulo.

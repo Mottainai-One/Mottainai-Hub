@@ -1,6 +1,6 @@
 # Bancos de Dados Mottainai
 
-> Referência oficial de arquitetura e operação · PostgreSQL 15+ · atualização 2026-10-11
+> Referência oficial de arquitetura e operação · PostgreSQL 15+ · atualização 2026-10-30
 
 O Mottainai utiliza **dois bancos PostgreSQL independentes**. Essa separação
 impede que consultas pesadas de BI concorram com vendas, estoque e operações de
@@ -8,7 +8,7 @@ caixa, além de permitir políticas próprias de acesso, retenção e escalabili
 
 | Banco | Schema principal | Responsabilidade | Pode receber escrita da API transacional? |
 |---|---|---|---|
-| `mottainai_operational` | `mottainai` | Cadastros, usuários, clientes, produtos, estoque, compras, vendas, PDV e auditoria | Sim, pelas roles restritas `mottainai_api` e `mottainai_customer_api` |
+| `mottainai_operational` | `mottainai` | Cadastros, usuários, clientes, produtos, estoque, compras, vendas, PDV e auditoria | Sim, pelas roles restritas `mottainai_api`, `mottainai_customer_api` e `mottainai_client_api` |
 | `mottainai_analytics` | `mottainai_analytics` | Modelo estrela, histórico, indicadores, BI, previsões e recomendações | Não; somente pipeline de ingestão |
 
 ## Regra de integração
@@ -41,8 +41,10 @@ vira ação operacional depois de passar pela API e pelas regras transacionais.
 - contexto RLS é validado e limitado à transação;
 - views operacionais executam com os privilégios do chamador;
 - auditoria é imutável para a API e remove CPF e hashes dos registros JSON;
-- dados sensíveis chegam tokenizados em SHA-256 e senhas chegam em BCrypt;
-- o aplicativo do cliente possui role e RLS próprios, isolados da equipe interna;
+- dados de busca chegam tokenizados e senhas chegam em BCrypt;
+- dados pessoais que precisam ser recuperados usam envelope AES-256-GCM, com chave externa ao banco;
+- o aplicativo do cliente possui role, views, funções e RLS próprios, isolados da equipe interna;
+- exclusão de dados privados é lógica e a FK impede a destruição acidental do envelope cifrado;
 - a integração legada conserva apenas metadados e checksum, nunca o payload bruto;
 - a RPA usa a role restrita `mottainai_migrator`, contexto por empresa e auditoria ativa;
 - a API consome views `vw_api_*` com privilégios do chamador e funções transacionais idempotentes;

@@ -123,6 +123,7 @@ Produto participante de uma promoção, com preços e **desconto percentual calc
 | `discount_percent` | `DECIMAL(7,4)` | **gerado** — `CASE WHEN original_price>0 THEN ((original_price-promotional_price)/original_price)*100 ELSE 0 END STORED` |
 | `quantity_available` ✅ | `DECIMAL(12,3)` | `CHECK NULL OU ≥ 0` |
 | `created_at` | `TIMESTAMP` | `def NOW()` |
+| `deleted_at` | `TIMESTAMP` | exclusão lógica usada pelas APIs e views |
 | 🔎 `UQ` | | `(promotion_id, product_id)` |
 | ✅ `CHECK` | | `promotional_price ≤ original_price` |
 

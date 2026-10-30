@@ -67,6 +67,16 @@ SELECT * FROM mottainai.customer WHERE customer_id = :customer_id;
 COMMIT;
 ```
 
+O contrato final expõe ao backend mobile a role `mottainai_client_api`. Ela lê
+catálogo por views com barreira de segurança e altera perfil/autenticação apenas
+por funções especializadas. O login físico do backend deve ser membro somente
+dessa role; não deve receber as roles técnicas `*_owner`.
+
+Para dados recuperáveis, a API cifra um payload JSON com AES-256-GCM antes de
+chamar a função de criação/alteração de perfil. O banco nunca recebe a chave e
+nunca decifra o conteúdo. O nonce deve ser novo a cada cifragem e a versão da
+chave deve permitir rotação no KMS.
+
 O contexto contém apenas `app.current_customer_id`. As políticas RLS limitam
 cliente, autenticação, consentimentos, geocercas e fidelidade ao próprio
 titular. A API nunca envia `customer_id` como fonte de autorização.
@@ -89,3 +99,7 @@ Nunca retornar ou registrar:
 - CPF integral sem necessidade autorizada;
 - payload bruto de integração com dados pessoais;
 - detalhes internos de política RLS ou estrutura de privilégios.
+
+Para apagar o perfil, use a operação de exclusão lógica prevista no contrato.
+Não execute `DELETE` em `customer_private_data`: a FK usa `ON DELETE RESTRICT`
+e as roles de aplicação não possuem esse privilégio.
