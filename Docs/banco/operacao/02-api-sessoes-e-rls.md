@@ -77,7 +77,11 @@ chamar a função de criação/alteração de perfil. O banco nunca recebe a cha
 nunca decifra o conteúdo. O nonce deve ser novo a cada cifragem e a versão da
 chave deve permitir rotação no KMS.
 
-O contexto contém apenas `app.current_customer_id`. As políticas RLS limitam
+No Aiven, o contexto do cliente não usa ACL de parâmetro. A função de bootstrap
+grava `customer_id` em `api_customer_transaction_context`, associado ao PID da
+conexão e ao ID da transação. As roles das APIs não possuem acesso direto à
+tabela; `fn_get_current_customer_id()` é a única leitura autorizada. Uma linha
+de transação anterior é ignorada automaticamente. As políticas RLS limitam
 cliente, autenticação, consentimentos, geocercas e fidelidade ao próprio
 titular. A API nunca envia `customer_id` como fonte de autorização.
 

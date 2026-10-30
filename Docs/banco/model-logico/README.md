@@ -69,7 +69,7 @@ Para a implementação SQL correspondente, consulte a **[Documentação do Scrip
 
 > Links acionáveis para a documentação completa de cada tabela.
 
-- **02-cadastro-e-empresa.md:** `subscription_plan` · `company` · `retail_store` · `employee_role` · `employee` · `app_user` · `staff_session` · `address`
+- **02-cadastro-e-empresa.md:** `subscription_plan` · `company` · `retail_store` · `employee_role` · `employee` · `employee_private_data` · `app_user` · `staff_session` · `address`
 - **03-produto-e-compras.md:** `product_category` · `tax_profile` · `product` · `supplier` · `supplier_product` · `purchase_order` · `purchase_order_item` · `receiving` · `receiving_item`
 - **04-estoque.md:** `batch` · `inventory` · `inventory_movement` · `replenishment_pre_list` · `replenishment_pre_list_item` · `replenishment_execution` · `replenishment_execution_item`
 - **05-vendas-pdv.md:** `customer` · `customer_auth` · `customer_consent` · `pos_terminal` · `pos_shift` · `pos_cash_movement` · `sales_transaction` · `sale_item` · `sale_payment` · `fiscal_document` · `pos_cancel_request`

@@ -57,6 +57,25 @@ psql -v ON_ERROR_STOP=1 -d mottainai_operational \
 O atualizador executa os módulos 37 e 38 em uma transação. Em caso de erro,
 nenhuma alteração parcial é confirmada.
 
+### Migração de dados pessoais de funcionários
+
+A remoção das colunas legadas não pode ocorrer na mesma transação que prepara
+o cofre. O fluxo obrigatório é:
+
+1. aplicar `28_reversible_employee_pii.sql` e confirmar a criação de
+   `employee_private_data`;
+2. executar a RPA/backend com as chaves do secret manager para produzir os
+   envelopes AES-256-GCM e HMACs de busca;
+3. associar `firebase_uid` real às contas ativas ou mantê-las inativas enquanto
+   forem convites pendentes;
+4. validar que não existem registros `MIGRATION_PENDING`;
+5. aplicar `29_finalize_reversible_employee_pii.sql` para remover
+   `employee.name/cpf/email/phone` e `app_user.cpf/email`.
+
+O banco legado não recebe essa mudança estrutural. A RPA transforma os dados ao
+gravá-los no operacional. Um valor já mascarado ou irreversível na origem não
+se torna recuperável por ser cifrado novamente.
+
 Se um produto antigo estiver ligado a mais de uma empresa, a migration para
 sem escolher um tenant arbitrariamente. Duplique o cadastro por empresa,
 redirecione as referências operacionais e reaplique o script.
@@ -102,6 +121,9 @@ analítico.
 - confirmar ingestão idempotente no banco analítico;
 - confirmar as dez views `vw_api_*` e as funções transacionais da API;
 - confirmar as views mobile com `security_barrier` e as funções de perfil/autenticação;
-- confirmar que nenhum owner mobile ficou concedido ao usuário de migration;
+- em Aiven, confirmar que somente `avnadmin` permaneceu como membro técnico das
+  roles owner criadas pelo provedor; nenhum login de aplicação pode recebê-las;
+- confirmar que `api_customer_transaction_context` é inacessível diretamente
+  às roles das APIs e que o contexto expira ao trocar de transação;
 - testar desativação do cliente, exclusão lógica do envelope e bloqueio do `DELETE` físico;
 - testar uma importação RPA com auditoria e `user_id` nulo.

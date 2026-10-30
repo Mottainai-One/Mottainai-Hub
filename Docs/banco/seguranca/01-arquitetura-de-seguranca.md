@@ -37,6 +37,11 @@ O instalador aceita ambientes PostgreSQL gerenciados nos quais o migrator tem
 desativados, a instalação continua; se algum estiver ativo, o processo falha
 fechado e exige correção por um administrador autorizado.
 
+No Aiven, o provedor mantém nominalmente `avnadmin` como membro das roles que
+ele cria. Essa associação administrativa é aceita somente para esse principal;
+qualquer outro membro das roles `mottainai_client_*_owner` faz a migration
+falhar. O login da API recebe exclusivamente a role pública do seu contrato.
+
 ## Contexto seguro por transação
 
 O contexto contém `user_id`, `company_id` e `store_id`. Ele é obtido dos
@@ -117,6 +122,12 @@ O módulo de clientes obedece ao mesmo princípio, mesmo sem origem no legado:
 - a role `mottainai_customer_api` usa `fn_bootstrap_customer_context` e só
   enxerga o próprio cliente por RLS.
 
+O contexto RLS mobile é mantido em `api_customer_transaction_context`, não em
+um parâmetro configurável pela conexão. A chave lógica é o PID do backend e a
+linha só é válida quando `transaction_id = txid_current()`. A tabela pertence a
+uma role técnica `NOLOGIN`; as roles de aplicação não recebem privilégios
+diretos sobre ela.
+
 Quando a aplicação precisa recuperar nome, CPF, e-mail ou telefone, armazena um
 único payload `JSON_V1` em `customer_private_data`, cifrado pela aplicação com
 AES-256-GCM. O banco guarda somente ciphertext, nonce de 12 bytes, versão da
@@ -149,6 +160,12 @@ de sincronização; não recebe DDL nem `BYPASSRLS`.
 
 A auditoria não inventa `user_id = 0`: importações sem conta operacional
 correspondente usam `NULL`, preservando empresa, transação e aplicação cliente.
+
+Para funcionário, a RPA cifra separadamente nome, CPF, e-mail e telefone com
+AES-256-GCM, nonce aleatório de 12 bytes e chave versionada externa. CPF e
+e-mail recebem HMAC-SHA-256 com chave distinta para busca e unicidade. O banco
+legado permanece somente leitura e não precisa adotar as tabelas privadas do
+operacional.
 
 ## Auditoria
 

@@ -43,10 +43,12 @@ vira ação operacional depois de passar pela API e pelas regras transacionais.
 - auditoria é imutável para a API e remove CPF e hashes dos registros JSON;
 - dados de busca chegam tokenizados e senhas chegam em BCrypt;
 - dados pessoais que precisam ser recuperados usam envelope AES-256-GCM, com chave externa ao banco;
+- dados pessoais de funcionário ficam em `employee_private_data`; `employee` mantém apenas HMACs de busca e `app_user` não duplica CPF/e-mail;
 - o aplicativo do cliente possui role, views, funções e RLS próprios, isolados da equipe interna;
 - exclusão de dados privados é lógica e a FK impede a destruição acidental do envelope cifrado;
 - a integração legada conserva apenas metadados e checksum, nunca o payload bruto;
 - a RPA usa a role restrita `mottainai_migrator`, contexto por empresa e auditoria ativa;
+- a sincronização legado → operacional cifra funcionários antes da persistência e ocorre a cada 30 minutos;
 - a API consome views `vw_api_*` com privilégios do chamador e funções transacionais idempotentes;
 - compra, movimentação, venda e auditoria usam partições mensais.
 
