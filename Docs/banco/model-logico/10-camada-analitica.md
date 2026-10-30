@@ -61,3 +61,7 @@ psql -v ON_ERROR_STOP=1 \
 ```
 
 Consulte também o [guia operacional](../operacao/README.md).
+
+Para montar ou revisar o tracking, use o
+[dicionário analítico para tracking](../tracking/02-banco-analitico-para-tracking.md),
+que documenta campos, grãos, objetos derivados, ingestão e exclusões de PII.
