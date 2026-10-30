@@ -2,6 +2,15 @@
 
 > Referência oficial de arquitetura e operação · PostgreSQL 15+ · atualização 2026-10-30
 
+## Referências para o tracking centralizado
+
+- [Banco operacional para tracking](tracking/01-banco-operacional-para-tracking.md)
+- [Banco analítico para tracking](tracking/02-banco-analitico-para-tracking.md)
+
+Esses documentos definem a leitura correta das entidades físicas, privacidade,
+grão analítico e fluxo entre databases. O tracking não deve inferir campos que
+não estejam nessas referências ou nos modelos lógicos vinculados.
+
 O Mottainai utiliza **dois bancos PostgreSQL independentes**. Essa separação
 impede que consultas pesadas de BI concorram com vendas, estoque e operações de
 caixa, além de permitir políticas próprias de acesso, retenção e escalabilidade.
