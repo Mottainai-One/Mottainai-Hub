@@ -16,6 +16,10 @@ pela API; não substitui essas camadas.
 | Proprietário/migrator | Instalar migrations e manter objetos | Nunca usado pela API |
 | `mottainai_api` | Role de grupo usada durante requisições | `NOLOGIN`, `NOSUPERUSER`, `NOCREATEDB`, `NOCREATEROLE`, `NOBYPASSRLS`, sem DDL |
 | `mottainai_customer_api` | Role de grupo exclusiva do aplicativo do cliente | `NOLOGIN`, `NOBYPASSRLS`, sem acesso a auditoria ou integração legada |
+| `mottainai_client_api` | Superfície final do backend mobile | `NOLOGIN`, somente views e funções autorizadas; sem escrita direta nas tabelas de autenticação e perfil |
+| `mottainai_client_catalog_owner` | Dono técnico das views de catálogo | `NOLOGIN`, sem membership permanente no migrator |
+| `mottainai_client_profile_owner` | Dono técnico das funções de perfil | `NOLOGIN`, acesso mínimo ao cadastro e envelope privado |
+| `mottainai_client_auth_owner` | Dono técnico das funções de autenticação | `NOLOGIN`, acesso mínimo a `customer_auth` |
 | `mottainai_migrator` | Importar dados tratados do legado | `NOLOGIN`, `NOINHERIT`, sem DDL, acesso somente às tabelas da integração |
 | Login real da API | Autentica no PostgreSQL/Render | Deve ser membro de `mottainai_api` e usar `SET LOCAL ROLE` |
 | Pipeline analítico | Consumir eventos confirmados | Credencial própria, sem acesso administrativo ao OLTP |
@@ -32,6 +36,11 @@ O instalador aceita ambientes PostgreSQL gerenciados nos quais o migrator tem
 `REPLICATION` e `BYPASSRLS`) são consultados em `pg_roles`: se estiverem
 desativados, a instalação continua; se algum estiver ativo, o processo falha
 fechado e exige correção por um administrador autorizado.
+
+No Aiven, o provedor mantém nominalmente `avnadmin` como membro das roles que
+ele cria. Essa associação administrativa é aceita somente para esse principal;
+qualquer outro membro das roles `mottainai_client_*_owner` faz a migration
+falhar. O login da API recebe exclusivamente a role pública do seu contrato.
 
 ## Contexto seguro por transação
 
@@ -113,6 +122,33 @@ O módulo de clientes obedece ao mesmo princípio, mesmo sem origem no legado:
 - a role `mottainai_customer_api` usa `fn_bootstrap_customer_context` e só
   enxerga o próprio cliente por RLS.
 
+O contexto RLS mobile é mantido em `api_customer_transaction_context`, não em
+um parâmetro configurável pela conexão. A chave lógica é o PID do backend e a
+linha só é válida quando `transaction_id = txid_current()`. A tabela pertence a
+uma role técnica `NOLOGIN`; as roles de aplicação não recebem privilégios
+diretos sobre ela.
+
+Quando a aplicação precisa recuperar nome, CPF, e-mail ou telefone, armazena um
+único payload `JSON_V1` em `customer_private_data`, cifrado pela aplicação com
+AES-256-GCM. O banco guarda somente ciphertext, nonce de 12 bytes, versão da
+chave, algoritmo e metadados; a chave permanece no KMS/secret manager. Tokens
+determinísticos continuam separados e servem apenas para busca e unicidade.
+
+O envelope usa `ON DELETE RESTRICT` e `deleted_at`: desativar ou excluir
+logicamente o cliente retira o envelope das leituras normais sem destruir a
+evidência cifrada. A API interna pode ler somente quando o funcionário ativo é
+gerente/administrador e existe venda do cliente na mesma empresa. Sua única
+escrita direta é `deleted_at`; nenhuma role de API recebe `DELETE` físico.
+
+## Superfície isolada do aplicativo mobile
+
+`mottainai_client_api` não consulta tabelas-base livremente. Catálogo, lojas,
+promoções e fidelidade são publicados por views `security_barrier`. Cadastro,
+alteração de perfil, login, recuperação e troca de senha passam por funções
+`SECURITY DEFINER` com `search_path` fixo e donos técnicos `NOLOGIN` distintos.
+Os donos são separados por domínio para que uma função comprometida não herde
+acesso ao catálogo, perfil e autenticação ao mesmo tempo.
+
 ## Contexto controlado da RPA
 
 O login técnico da automação recebe apenas membership em
@@ -124,6 +160,12 @@ de sincronização; não recebe DDL nem `BYPASSRLS`.
 
 A auditoria não inventa `user_id = 0`: importações sem conta operacional
 correspondente usam `NULL`, preservando empresa, transação e aplicação cliente.
+
+Para funcionário, a RPA cifra separadamente nome, CPF, e-mail e telefone com
+AES-256-GCM, nonce aleatório de 12 bytes e chave versionada externa. CPF e
+e-mail recebem HMAC-SHA-256 com chave distinta para busca e unicidade. O banco
+legado permanece somente leitura e não precisa adotar as tabelas privadas do
+operacional.
 
 ## Auditoria
 
@@ -158,6 +200,9 @@ O ambiente deve complementar o banco com:
 - [ ] Senhas usam BCrypt; tokens aleatórios usam gerador criptográfico e SHA-256.
 - [ ] Backends enviam somente valores compatíveis com o contrato protegido.
 - [ ] Login do aplicativo cliente recebeu membership em `mottainai_customer_api`.
+- [ ] Login do backend mobile recebeu somente membership em `mottainai_client_api`.
+- [ ] Chaves AES e de lookup estão no secret manager, com versão e rotação documentadas.
+- [ ] Exclusão de cliente foi testada como `UPDATE deleted_at`, nunca `DELETE` físico.
 - [ ] Login da RPA recebeu somente membership em `mottainai_migrator`.
 - [ ] TLS obrigatório e credenciais fora do código.
 - [ ] Backup restaurado com sucesso em ambiente isolado.

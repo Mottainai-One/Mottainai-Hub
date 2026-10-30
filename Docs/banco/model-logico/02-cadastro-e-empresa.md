@@ -4,6 +4,7 @@ Domínio **multitenant (SaaS)** do Mottainai. Define o locatário (empresa), sua
 
 ```
 subscription_plan ──< company ──< retail_store ──< employee ── 1:1 ── app_user ──< staff_session
+                                                      └── 1:1 employee_private_data
                       │                │
                       │                └──< address
                       └──< address
@@ -84,14 +85,30 @@ Funcionário vinculado a uma loja e a um papel.
 | `employee_id` 🔑 | `INTEGER` identity | `PK` |
 | `store_id` 🔗 | `INTEGER` | `NN` `FK → retail_store(store_id) ON DELETE RESTRICT` |
 | `role_id` 🔗 | `INTEGER` | `NN` `FK → employee_role(role_id) ON DELETE RESTRICT` |
-| `name` | `VARCHAR(150)` | `NN`; alias legado `EMP_*` ou token `EMP_SHA256_*` |
-| `cpf` | `VARCHAR(80)` | `NN` `UQ`; `CPF_TKN_*` legado ou `CPF_SHA256_*` |
-| `email` / `phone` | `VARCHAR` | mascarados no formato legado ou tokens SHA-256 prefixados |
+| `cpf_lookup_hmac` | `BYTEA` | HMAC-SHA-256 secreto para busca/unicidade; índice único parcial |
+| `email_lookup_hmac` | `BYTEA` | HMAC-SHA-256 secreto opcional; índice único parcial |
 | `hire_date` | `DATE` | `NN` `def CURRENT_DATE` |
 | `active` | `BOOLEAN` | `def TRUE` |
 | timestamps | `TIMESTAMP` | |
 
-**Observações:** sujeita a **RLS**. Índice único parcial sobre o token de CPF ativo; valores abertos são recusados.
+**Observações:** sujeita a **RLS**. Nome, CPF, e-mail e telefone não permanecem
+nesta tabela depois da finalização; ficam cifrados em `employee_private_data`.
+
+## `employee_private_data`
+
+Cofre lógico 1:1 dos dados pessoais do funcionário, integralmente excluído da
+carga analítica.
+
+| Coluna | Tipo | Restrições |
+|---|---|---|
+| `employee_id` 🔑🔗 | `INTEGER` | `PK`, `FK → employee(employee_id) ON DELETE CASCADE` |
+| `*_ciphertext` | `BYTEA` | Ciphertext AES-256-GCM com tag para nome, CPF, e-mail e telefone |
+| `*_nonce` | `BYTEA` | 12 bytes, exclusivo por campo e cifragem |
+| `*_masked` | `VARCHAR` | Apresentação segura, nunca fonte de descriptografia |
+| `key_version` | `SMALLINT` | versão positiva da chave externa |
+| `algorithm` | `VARCHAR(20)` | somente `AES-256-GCM` |
+| `protection_state` | `VARCHAR(20)` | `MIGRATION_PENDING` ou `ENCRYPTED` |
+| `encrypted_at`, `created_at`, `updated_at` | `TIMESTAMPTZ` | auditoria do envelope |
 
 ## `app_user`
 
@@ -101,15 +118,18 @@ Credencial de acesso de um funcionário (login e senha). Cada funcionário tem *
 |---|---|---|
 | `user_id` 🔑 | `INTEGER` identity | `PK` |
 | `employee_id` 🔗 | `INTEGER` | `NN` `UQ` `FK → employee(employee_id) ON DELETE RESTRICT` |
-| `cpf` | `VARCHAR(80)` | `NN` `UQ`; token sincronizado com funcionário |
-| `email` 🔎 | `VARCHAR(150)` | `NN` `UQ`; token protegido legado ou `EMAIL_SHA256_*` |
 | `password_hash` | `VARCHAR(255)` | `NN`; BCrypt `$2a$`, `$2b$` ou `$2y$` |
+| `firebase_uid` 🔎 | `VARCHAR(128)` | `UQ`; obrigatório quando a conta está ativa |
 | `password_set` | `BOOLEAN` | `NN` `def TRUE`; falso durante convite inicial |
 | `last_login` | `TIMESTAMP` | |
 | `active` | `BOOLEAN` | `def TRUE` |
 | timestamps | `TIMESTAMP` | |
 
-**Segurança:** RLS permite o próprio usuário e a administração autorizada da empresa. A API não envia senha original; o banco exige BCrypt.
+**Segurança:** `app_user` não duplica CPF nem e-mail. A identidade pessoal vem
+do vínculo `employee_id`; autenticação externa usa `firebase_uid`. Conta sem UID
+permanece inativa como convite pendente. RLS permite o próprio usuário e a
+administração autorizada da empresa. A API não envia senha original; o banco
+exige BCrypt.
 
 ## `staff_session`
 

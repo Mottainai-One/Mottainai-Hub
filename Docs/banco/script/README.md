@@ -43,6 +43,13 @@ erro. Ele não apaga schema, banco ou dados existentes.
 | 20 | `24_jpa_compatibility.sql` | Compatibilidade aditiva de usuários e recuperação de senha |
 | 21 | `25_api_rpa_compatibility.sql` | Contrato de views/funções da API e contexto seguro da RPA |
 | 22 | `26_api_rpa_compatibility_tests.sql` | Testes estruturais, idempotência, auditoria, pedido e recebimento |
+| 23 | `27_protected_reinstall_fixture.sql` | Fixture segura para validar reaplicação sobre dados protegidos |
+| 24 | `28_reversible_employee_pii.sql` | Envelope AES-256-GCM para dados recuperáveis de funcionários |
+| 25 | `29_finalize_reversible_employee_pii.sql` | Contrato final de identidade protegida de funcionários |
+| 26 | `30_customer_private_data.sql` | Estrutura inicial do envelope privado de clientes |
+| 27–32 | `31_...sql` a `36_...sql` | Contrato incremental do PDV, idempotência, cliente e soft delete de promoções |
+| 33 | `37_reversible_customer_pii.sql` | Envelope final, exclusão lógica e acesso interno autorizado |
+| 34 | `38_client_mobile_api.sql` | Roles, views e funções isoladas do backend mobile |
 
 ## Garantias relevantes
 
@@ -57,6 +64,9 @@ erro. Ele não apaga schema, banco ou dados existentes.
 Para atualizar uma base já instalada, execute
 `update_existing_api_rpa.sql`. O agregador aplica, em uma transação, os
 módulos de produto, segurança, dados sensíveis, JPA e compatibilidade API/RPA.
+
+Para aplicar somente o contrato final de cliente/mobile sobre uma base já
+atualizada, execute `update_existing_customer_private_data.sql`.
 
 Veja [01-estrutura-do-script.md](01-estrutura-do-script.md) e o
 [guia de instalação](../operacao/01-instalar-e-atualizar.md).

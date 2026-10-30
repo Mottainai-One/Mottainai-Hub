@@ -46,6 +46,36 @@ psql -v ON_ERROR_STOP=1 -d mottainai_operational \
   -f database/operational/update_existing_api_rpa.sql
 ```
 
+Para uma base que já contém os módulos anteriores e precisa somente do contrato
+final de dados privados do cliente e da API mobile, execute:
+
+```bash
+psql -v ON_ERROR_STOP=1 -d mottainai_operational \
+  -f database/operational/update_existing_customer_private_data.sql
+```
+
+O atualizador executa os módulos 37 e 38 em uma transação. Em caso de erro,
+nenhuma alteração parcial é confirmada.
+
+### Migração de dados pessoais de funcionários
+
+A remoção das colunas legadas não pode ocorrer na mesma transação que prepara
+o cofre. O fluxo obrigatório é:
+
+1. aplicar `28_reversible_employee_pii.sql` e confirmar a criação de
+   `employee_private_data`;
+2. executar a RPA/backend com as chaves do secret manager para produzir os
+   envelopes AES-256-GCM e HMACs de busca;
+3. associar `firebase_uid` real às contas ativas ou mantê-las inativas enquanto
+   forem convites pendentes;
+4. validar que não existem registros `MIGRATION_PENDING`;
+5. aplicar `29_finalize_reversible_employee_pii.sql` para remover
+   `employee.name/cpf/email/phone` e `app_user.cpf/email`.
+
+O banco legado não recebe essa mudança estrutural. A RPA transforma os dados ao
+gravá-los no operacional. Um valor já mascarado ou irreversível na origem não
+se torna recuperável por ser cifrado novamente.
+
 Se um produto antigo estiver ligado a mais de uma empresa, a migration para
 sem escolher um tenant arbitrariamente. Duplique o cadastro por empresa,
 redirecione as referências operacionais e reaplique o script.
@@ -58,6 +88,7 @@ fora do repositório:
 GRANT mottainai_api TO login_real_da_api;
 GRANT mottainai_customer_api TO login_real_do_app_cliente;
 GRANT mottainai_migrator TO login_real_da_rpa;
+GRANT mottainai_client_api TO login_real_do_backend_mobile;
 ```
 
 A RPA deve iniciar uma transação, usar `SET LOCAL ROLE mottainai_migrator`,
@@ -89,4 +120,10 @@ analítico.
 - medir poda de partição com `EXPLAIN (ANALYZE, BUFFERS)`;
 - confirmar ingestão idempotente no banco analítico;
 - confirmar as dez views `vw_api_*` e as funções transacionais da API;
+- confirmar as views mobile com `security_barrier` e as funções de perfil/autenticação;
+- em Aiven, confirmar que somente `avnadmin` permaneceu como membro técnico das
+  roles owner criadas pelo provedor; nenhum login de aplicação pode recebê-las;
+- confirmar que `api_customer_transaction_context` é inacessível diretamente
+  às roles das APIs e que o contexto expira ao trocar de transação;
+- testar desativação do cliente, exclusão lógica do envelope e bloqueio do `DELETE` físico;
 - testar uma importação RPA com auditoria e `user_id` nulo.

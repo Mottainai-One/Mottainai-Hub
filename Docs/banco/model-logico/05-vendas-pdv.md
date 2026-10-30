@@ -4,6 +4,7 @@ Domínio da **frente de caixa**: cliente, terminais, turnos, movimentação de c
 
 ```
 customer ── 1:N ── customer_consent
+customer ── 1:0..1 ── customer_private_data
 customer ── 1:N ── sales_transaction  (customer_id SET NULL)
 store ──< pos_terminal ──< pos_shift ──< pos_cash_movement
 store ──< sales_transaction (particionada por sale_date)
@@ -32,6 +33,27 @@ Consumidor final. Registro **modal** — a venda pode ocorrer sem cliente identi
 | `marketing_consent` | `BOOLEAN` | `NN` `def FALSE` |
 | `active` | `BOOLEAN` | `NN` `def TRUE` |
 | timestamps | `TIMESTAMP` | `created_at`, `updated_at`, `deleted_at` |
+
+## `customer_private_data`
+
+Envelope opcional e recuperável dos dados pessoais autorizados. Há no máximo um
+envelope por cliente e a chave AES nunca é armazenada no PostgreSQL.
+
+| Coluna | Tipo | Restrições |
+|---|---|---|
+| `customer_id` 🔑 | `INTEGER` | `PK`, `FK → customer(customer_id) ON DELETE RESTRICT` |
+| `payload_ciphertext` | `BYTEA` | `NN`; JSON_V1 cifrado e autenticado com AES-256-GCM |
+| `payload_nonce` | `BYTEA` | `NN`, exatamente 12 bytes e único |
+| `key_version` | `SMALLINT` | `NN`, positivo; identifica a chave externa |
+| `algorithm` | `VARCHAR(20)` | `NN`, `AES-256-GCM` |
+| `payload_format` | `VARCHAR(20)` | `NN`, `JSON_V1` |
+| `encrypted_at` | `TIMESTAMPTZ` | `NN` |
+| timestamps | `TIMESTAMPTZ` | `created_at`, `updated_at`, `deleted_at` |
+
+**Segurança:** RLS forçada, ciphertext e nonce redigidos da auditoria, leitura
+mobile limitada ao próprio cliente e leitura interna limitada a
+gerente/administrador da empresa que realizou uma venda para o cliente.
+Exclusões são lógicas; as APIs não recebem privilégio `DELETE`.
 
 ## `customer_auth`
 
