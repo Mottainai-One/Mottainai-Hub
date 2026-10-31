@@ -1,513 +1,513 @@
-# MongoDB collections and indexes
+# Coleções e índices do MongoDB
 
-This catalog lists the fields declared in the AI schema. **Required** means the validator requires the field; additional fields may exist and are not listed here. Types including `null` accept a null value, but that does not make the field required.
+Este catálogo reproduz os campos declarados no schema da IA. **Obrigatório** significa que o validador exige o campo; campos adicionais podem existir e não são listados aqui. Tipos com `null` aceitam valor nulo, mas isso não significa que o campo seja obrigatório.
 
-The `strict` and `error` settings below are those declared in the repository; verify that they are applied to an instance with `python scripts/setup_mongo.py --check` in the AI project. Indexes are not foreign keys: relationships between documents depend on the application.
+As configurações `strict` e `error` abaixo são as declaradas no repositório; confirme a aplicação na instância com `python scripts/setup_mongo.py --check` no projeto da IA. Índices não são chaves estrangeiras: integridade entre documentos depende da aplicação.
 
 ## `agent_contexts`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `conversationId` | objectId | Yes |
-| `agent` | string | Yes |
-| `currentSkill` | string / null | No |
-| `state` | object | No |
-| `createdAt` | date | Yes |
-| `updatedAt` | date | Yes |
+| `_id` | objectId | Não |
+| `conversationId` | objectId | Sim |
+| `agent` | string | Sim |
+| `currentSkill` | string / null | Não |
+| `state` | object | Não |
+| `createdAt` | date | Sim |
+| `updatedAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_agent_contexts_updatedAt` | `updatedAt: -1` | No |
-| `ux_agent_contexts_conversation_agent` | `conversationId: 1`, `agent: 1` | Yes |
+| `ix_agent_contexts_updatedAt` | `updatedAt: -1` | Não |
+| `ux_agent_contexts_conversation_agent` | `conversationId: 1`, `agent: 1` | Sim |
 
 ## `agent_executions`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `conversationId` | objectId / null | No |
-| `agent` | string | Yes |
-| `skill` | string / null | No |
-| `tools` | array of string / null | No |
-| `executionFlow` | array of string / null | No |
-| `status` | enum: running, completed, error | Yes |
-| `latency` | double / null | No |
-| `startedAt` | date | Yes |
-| `finishedAt` | date / null | No |
-| `error` | object / null | No |
+| `_id` | objectId | Não |
+| `conversationId` | objectId / null | Não |
+| `agent` | string | Sim |
+| `skill` | string / null | Não |
+| `tools` | array / null de string | Não |
+| `executionFlow` | array / null de string | Não |
+| `status` | enum: running, completed, error | Sim |
+| `latency` | double / null | Não |
+| `startedAt` | date | Sim |
+| `finishedAt` | date / null | Não |
+| `error` | object / null | Não |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `agent_1_status_1` | `agent: 1`, `status: 1` | No |
-| `empresaId_1_createdAt_-1` | `empresaId: 1`, `createdAt: -1` | No |
-| `ix_agent_executions_agent_status_startedAt` | `agent: 1`, `status: 1`, `startedAt: -1` | No |
-| `ix_agent_executions_conversation_startedAt` | `conversationId: 1`, `startedAt: -1` | No |
+| `agent_1_status_1` | `agent: 1`, `status: 1` | Não |
+| `empresaId_1_createdAt_-1` | `empresaId: 1`, `createdAt: -1` | Não |
+| `ix_agent_executions_agent_status_startedAt` | `agent: 1`, `status: 1`, `startedAt: -1` | Não |
+| `ix_agent_executions_conversation_startedAt` | `conversationId: 1`, `startedAt: -1` | Não |
 
 ## `agent_fallbacks`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `sourceAgent` | string | Yes |
-| `fallbackAgent` | string | Yes |
-| `reason` | string | Yes |
-| `active` | bool | Yes |
-| `createdAt` | date | Yes |
-| `updatedAt` | date / null | No |
+| `_id` | objectId | Não |
+| `sourceAgent` | string | Sim |
+| `fallbackAgent` | string | Sim |
+| `reason` | string | Sim |
+| `active` | bool | Sim |
+| `createdAt` | date | Sim |
+| `updatedAt` | date / null | Não |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ux_agent_fallbacks_source_fallback` | `sourceAgent: 1`, `fallbackAgent: 1` | Yes |
+| `ux_agent_fallbacks_source_fallback` | `sourceAgent: 1`, `fallbackAgent: 1` | Sim |
 
 ## `agent_policies`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `agent` | string | Yes |
-| `scope` | object | Yes |
-| `canUseRag` | bool / null | No |
-| `canUseTools` | bool / null | No |
-| `canReadMemory` | bool / null | No |
-| `canWriteMemory` | bool / null | No |
-| `active` | bool | Yes |
-| `createdAt` | date | Yes |
-| `updatedAt` | date / null | No |
+| `_id` | objectId | Não |
+| `agent` | string | Sim |
+| `scope` | object | Sim |
+| `canUseRag` | bool / null | Não |
+| `canUseTools` | bool / null | Não |
+| `canReadMemory` | bool / null | Não |
+| `canWriteMemory` | bool / null | Não |
+| `active` | bool | Sim |
+| `createdAt` | date | Sim |
+| `updatedAt` | date / null | Não |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ux_agent_policies_agent` | `agent: 1` | Yes |
+| `ux_agent_policies_agent` | `agent: 1` | Sim |
 
 ## `ai_results`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `conversationId` | objectId | Yes |
-| `agent` | string | Yes |
-| `skill` | string / null | No |
-| `type` | enum: recommendation, prediction, analysis, summary | Yes |
-| `result` | object | Yes |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `conversationId` | objectId | Sim |
+| `agent` | string | Sim |
+| `skill` | string / null | Não |
+| `type` | enum: recommendation, prediction, analysis, summary | Sim |
+| `result` | object | Sim |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_ai_results_agent_type_createdAt` | `agent: 1`, `type: 1`, `createdAt: -1` | No |
-| `ix_ai_results_conversation_createdAt` | `conversationId: 1`, `createdAt: -1` | No |
+| `ix_ai_results_agent_type_createdAt` | `agent: 1`, `type: 1`, `createdAt: -1` | Não |
+| `ix_ai_results_conversation_createdAt` | `conversationId: 1`, `createdAt: -1` | Não |
 
 ## `cache_queries`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `queryHash` | string | Yes |
-| `response` | string | Yes |
-| `expiresAt` | date | Yes |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `queryHash` | string | Sim |
+| `response` | string | Sim |
+| `expiresAt` | date | Sim |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_cache_queries_expiresAt` | `expiresAt: 1` | No |
-| `ux_cache_queries_queryHash` | `queryHash: 1` | Yes |
+| `ix_cache_queries_expiresAt` | `expiresAt: 1` | Não |
+| `ux_cache_queries_queryHash` | `queryHash: 1` | Sim |
 
 ## `conversation_events`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `conversationId` | objectId | Yes |
-| `type` | enum: conversation_started, intent_detected, agent_selected, tool_called, fallback_used, response_sent, conversation_closed, error | Yes |
-| `payload` | object / null | No |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `conversationId` | objectId | Sim |
+| `type` | enum: conversation_started, intent_detected, agent_selected, tool_called, fallback_used, response_sent, conversation_closed, error | Sim |
+| `payload` | object / null | Não |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_conversation_events_conversation_createdAt` | `conversationId: 1`, `createdAt: 1` | No |
-| `ix_conversation_events_type_createdAt` | `type: 1`, `createdAt: -1` | No |
+| `ix_conversation_events_conversation_createdAt` | `conversationId: 1`, `createdAt: 1` | Não |
+| `ix_conversation_events_type_createdAt` | `type: 1`, `createdAt: -1` | Não |
 
 ## `conversations`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `sessionId` | string | Yes |
-| `empresaId` | int | Yes |
-| `usuarioId` | int | Yes |
-| `agent` | string | Yes |
-| `skill` | string / null | No |
-| `status` | string | Yes |
-| `title` | string / null | No |
-| `startedAt` | date | Yes |
-| `lastInteraction` | date / null | No |
+| `_id` | objectId | Não |
+| `sessionId` | string | Sim |
+| `empresaId` | int | Sim |
+| `usuarioId` | int | Sim |
+| `agent` | string | Sim |
+| `skill` | string / null | Não |
+| `status` | string | Sim |
+| `title` | string / null | Não |
+| `startedAt` | date | Sim |
+| `lastInteraction` | date / null | Não |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `empresaId_1_status_1` | `empresaId: 1`, `status: 1` | No |
-| `ix_conversations_empresa_usuario_lastInteraction` | `empresaId: 1`, `usuarioId: 1`, `lastInteraction: -1` | No |
-| `ix_conversations_agent_status` | `agent: 1`, `status: 1` | No |
-| `ix_conversations_empresa_usuario_startedAt` | `empresaId: 1`, `usuarioId: 1`, `startedAt: -1` | No |
-| `ix_conversations_lastInteraction` | `lastInteraction: -1` | No |
-| `ux_conversations_sessionId` | `sessionId: 1` | Yes |
+| `empresaId_1_status_1` | `empresaId: 1`, `status: 1` | Não |
+| `ix_conversations_empresa_usuario_lastInteraction` | `empresaId: 1`, `usuarioId: 1`, `lastInteraction: -1` | Não |
+| `ix_conversations_agent_status` | `agent: 1`, `status: 1` | Não |
+| `ix_conversations_empresa_usuario_startedAt` | `empresaId: 1`, `usuarioId: 1`, `startedAt: -1` | Não |
+| `ix_conversations_lastInteraction` | `lastInteraction: -1` | Não |
+| `ux_conversations_sessionId` | `sessionId: 1` | Sim |
 
 ## `embeddings_cache`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `hash` | string | Yes |
-| `embedding` | array of double | Yes |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `hash` | string | Sim |
+| `embedding` | array de double | Sim |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ux_embeddings_cache_hash` | `hash: 1` | Yes |
+| `ux_embeddings_cache_hash` | `hash: 1` | Sim |
 
 ## `feedbacks`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `messageId` | objectId | Yes |
-| `usuarioId` | int | Yes |
-| `agent` | string / null | No |
-| `rating` | enum: positive, negative, neutral | Yes |
-| `comment` | string / null | No |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `messageId` | objectId | Sim |
+| `usuarioId` | int | Sim |
+| `agent` | string / null | Não |
+| `rating` | enum: positive, negative, neutral | Sim |
+| `comment` | string / null | Não |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_feedbacks_messageId` | `messageId: 1` | No |
-| `ix_feedbacks_usuario_createdAt` | `usuarioId: 1`, `createdAt: -1` | No |
+| `ix_feedbacks_messageId` | `messageId: 1` | Não |
+| `ix_feedbacks_usuario_createdAt` | `usuarioId: 1`, `createdAt: -1` | Não |
 
 ## `intent_catalog`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `key` | string | Yes |
-| `label` | string | No |
-| `description` | string / null | No |
-| `agent` | string | Yes |
-| `skill` | string | No |
-| `examples` | array of string / null | No |
-| `confidenceThreshold` | double / null | No |
-| `active` | bool | Yes |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `key` | string | Sim |
+| `label` | string | Não |
+| `description` | string / null | Não |
+| `agent` | string | Sim |
+| `skill` | string | Não |
+| `examples` | array / null de string | Não |
+| `confidenceThreshold` | double / null | Não |
+| `active` | bool | Sim |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_intent_catalog_agent_active` | `agent: 1`, `active: 1` | No |
-| `ix_intent_catalog_skill` | `skill: 1` | No |
-| `ux_intent_catalog_key` | `key: 1` | Yes |
+| `ix_intent_catalog_agent_active` | `agent: 1`, `active: 1` | Não |
+| `ix_intent_catalog_skill` | `skill: 1` | Não |
+| `ux_intent_catalog_key` | `key: 1` | Sim |
 
 ## `memories`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `usuarioId` | int | Yes |
-| `empresaId` | int | Yes |
-| `preferences` | array of string / null | No |
-| `facts` | array of string / null | No |
-| `lastAgent` | string / null | No |
-| `lastSkill` | string / null | No |
-| `updatedAt` | date | Yes |
+| `_id` | objectId | Não |
+| `usuarioId` | int | Sim |
+| `empresaId` | int | Sim |
+| `preferences` | array / null de string | Não |
+| `facts` | array / null de string | Não |
+| `lastAgent` | string / null | Não |
+| `lastSkill` | string / null | Não |
+| `updatedAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_memories_updatedAt` | `updatedAt: -1` | No |
-| `ux_memories_empresa_usuario` | `empresaId: 1`, `usuarioId: 1` | Yes |
+| `ix_memories_updatedAt` | `updatedAt: -1` | Não |
+| `ux_memories_empresa_usuario` | `empresaId: 1`, `usuarioId: 1` | Sim |
 
 ## `messages`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `conversationId` | objectId | Yes |
-| `role` | enum: user, assistant, system, tool | Yes |
-| `content` | string | Yes |
-| `agent` | string / null | No |
-| `skill` | string / null | No |
-| `model` | string / null | No |
-| `sources` | array of object / null | No |
-| `inputTokens` | int / long / null | No |
-| `outputTokens` | int / long / null | No |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `conversationId` | objectId | Sim |
+| `role` | enum: user, assistant, system, tool | Sim |
+| `content` | string | Sim |
+| `agent` | string / null | Não |
+| `skill` | string / null | Não |
+| `model` | string / null | Não |
+| `sources` | array / null de object | Não |
+| `inputTokens` | int / long / null | Não |
+| `outputTokens` | int / long / null | Não |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_messages_agent_skill_createdAt` | `agent: 1`, `skill: 1`, `createdAt: -1` | No |
-| `ix_messages_conversation_createdAt` | `conversationId: 1`, `createdAt: 1` | No |
+| `ix_messages_agent_skill_createdAt` | `agent: 1`, `skill: 1`, `createdAt: -1` | Não |
+| `ix_messages_conversation_createdAt` | `conversationId: 1`, `createdAt: 1` | Não |
 
 ## `metrics`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `conversationId` | objectId / null | No |
-| `agent` | string | Yes |
-| `skill` | string / null | No |
-| `model` | string / null | No |
-| `inputTokens` | int / long / null | No |
-| `outputTokens` | int / long / null | No |
-| `latency` | double / null | No |
-| `estimatedCost` | double / null | No |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `conversationId` | objectId / null | Não |
+| `agent` | string | Sim |
+| `skill` | string / null | Não |
+| `model` | string / null | Não |
+| `inputTokens` | int / long / null | Não |
+| `outputTokens` | int / long / null | Não |
+| `latency` | double / null | Não |
+| `estimatedCost` | double / null | Não |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `agent_1_createdAt_-1` | `agent: 1`, `createdAt: -1` | No |
-| `createdAt_-1` | `createdAt: -1` | No |
-| `ix_metrics_empresa_createdAt` | `empresaId: 1`, `createdAt: -1` | No |
-| `ix_metrics_agent_skill_createdAt` | `agent: 1`, `skill: 1`, `createdAt: -1` | No |
-| `ix_metrics_conversation_createdAt` | `conversationId: 1`, `createdAt: -1` | No |
+| `agent_1_createdAt_-1` | `agent: 1`, `createdAt: -1` | Não |
+| `createdAt_-1` | `createdAt: -1` | Não |
+| `ix_metrics_empresa_createdAt` | `empresaId: 1`, `createdAt: -1` | Não |
+| `ix_metrics_agent_skill_createdAt` | `agent: 1`, `skill: 1`, `createdAt: -1` | Não |
+| `ix_metrics_conversation_createdAt` | `conversationId: 1`, `createdAt: -1` | Não |
 
 ## `prompt_evaluations`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `promptVersion` | string | Yes |
-| `agent` | string | Yes |
-| `skill` | string / null | No |
-| `score` | double | Yes |
-| `feedback` | string / null | No |
-| `evaluator` | string / null | No |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `promptVersion` | string | Sim |
+| `agent` | string | Sim |
+| `skill` | string / null | Não |
+| `score` | double | Sim |
+| `feedback` | string / null | Não |
+| `evaluator` | string / null | Não |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_prompt_evaluations_empresa_createdAt` | `empresaId: 1`, `createdAt: -1` | No |
-| `ix_prompt_evaluations_createdAt` | `createdAt: -1` | No |
-| `ix_prompt_evaluations_prompt_agent` | `promptVersion: 1`, `agent: 1` | No |
+| `ix_prompt_evaluations_empresa_createdAt` | `empresaId: 1`, `createdAt: -1` | Não |
+| `ix_prompt_evaluations_createdAt` | `createdAt: -1` | Não |
+| `ix_prompt_evaluations_prompt_agent` | `promptVersion: 1`, `agent: 1` | Não |
 
 ## `prompts`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `agent` | string | Yes |
-| `skill` | string / null | No |
-| `version` | string | Yes |
-| `systemPrompt` | string | Yes |
-| `temperature` | double / null | No |
-| `model` | string | Yes |
-| `active` | bool | Yes |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `agent` | string | Sim |
+| `skill` | string / null | Não |
+| `version` | string | Sim |
+| `systemPrompt` | string | Sim |
+| `temperature` | double / null | Não |
+| `model` | string | Sim |
+| `active` | bool | Sim |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_prompts_agent_skill_active` | `agent: 1`, `skill: 1`, `active: 1` | No |
-| `ux_prompts_agent_skill_version` | `agent: 1`, `skill: 1`, `version: 1` | Yes |
+| `ix_prompts_agent_skill_active` | `agent: 1`, `skill: 1`, `active: 1` | Não |
+| `ux_prompts_agent_skill_version` | `agent: 1`, `skill: 1`, `version: 1` | Sim |
 
 ## `rag_chunks`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `documentId` | objectId | Yes |
-| `chunk` | int | Yes |
-| `text` | string | Yes |
-| `embedding` | array of double / null | No |
-| `metadata` | object / null | No |
+| `_id` | objectId | Não |
+| `documentId` | objectId | Sim |
+| `chunk` | int | Sim |
+| `text` | string | Sim |
+| `embedding` | array / null de double | Não |
+| `metadata` | object / null | Não |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `documentId_1` | `documentId: 1` | No |
-| `documentId_1_chunk_1` | `documentId: 1`, `chunk: 1` | No |
-| `ux_rag_chunks_document_chunk` | `documentId: 1`, `chunk: 1` | Yes |
+| `documentId_1` | `documentId: 1` | Não |
+| `documentId_1_chunk_1` | `documentId: 1`, `chunk: 1` | Não |
+| `ux_rag_chunks_document_chunk` | `documentId: 1`, `chunk: 1` | Sim |
 
 ## `rag_documents`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `empresaId` | int | Yes |
-| `title` | string | Yes |
-| `category` | enum: MANUAL, FAQ, PROCEDIMENTO, TREINAMENTO, POLITICA | Yes |
-| `version` | string | Yes |
-| `metadata` | object / null | No |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `empresaId` | int | Sim |
+| `title` | string | Sim |
+| `category` | enum: MANUAL, FAQ, PROCEDIMENTO, TREINAMENTO, POLITICA | Sim |
+| `version` | string | Sim |
+| `metadata` | object / null | Não |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `empresaId_1` | `empresaId: 1` | No |
-| `ux_rag_documents_empresa_slug` | `empresaId: 1`, `slug: 1` | Yes |
-| `ix_rag_documents_empresa_category_createdAt` | `empresaId: 1`, `category: 1`, `createdAt: -1` | No |
-| `tx_rag_documents_title` | `title: text` | No |
-| `ux_rag_documents_empresa_title_version` | `empresaId: 1`, `title: 1`, `version: 1` | Yes |
+| `empresaId_1` | `empresaId: 1` | Não |
+| `ux_rag_documents_empresa_slug` | `empresaId: 1`, `slug: 1` | Sim |
+| `ix_rag_documents_empresa_category_createdAt` | `empresaId: 1`, `category: 1`, `createdAt: -1` | Não |
+| `tx_rag_documents_title` | `title: text` | Não |
+| `ux_rag_documents_empresa_title_version` | `empresaId: 1`, `title: 1`, `version: 1` | Sim |
 
 ## `response_explanations`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `messageId` | objectId | Yes |
-| `agent` | string | Yes |
-| `skill` | string / null | No |
-| `explanation` | string | Yes |
-| `sources` | array of string / null | No |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `messageId` | objectId | Sim |
+| `agent` | string | Sim |
+| `skill` | string / null | Não |
+| `explanation` | string | Sim |
+| `sources` | array / null de string | Não |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_response_explanations_agent_createdAt` | `agent: 1`, `createdAt: -1` | No |
-| `ux_response_explanations_messageId` | `messageId: 1` | Yes |
+| `ix_response_explanations_agent_createdAt` | `agent: 1`, `createdAt: -1` | Não |
+| `ux_response_explanations_messageId` | `messageId: 1` | Sim |
 
 ## `routing_logs`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `conversationId` | objectId | Yes |
-| `intent` | string | Yes |
-| `selectedAgent` | string | Yes |
-| `selectedSkill` | string / null | No |
-| `confidence` | double / null | No |
-| `createdAt` | date | Yes |
+| `_id` | objectId | Não |
+| `conversationId` | objectId | Sim |
+| `intent` | string | Sim |
+| `selectedAgent` | string | Sim |
+| `selectedSkill` | string / null | Não |
+| `confidence` | double / null | Não |
+| `createdAt` | date | Sim |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_routing_logs_conversation_createdAt` | `conversationId: 1`, `createdAt: -1` | No |
-| `ix_routing_logs_intent_createdAt` | `intent: 1`, `createdAt: -1` | No |
+| `ix_routing_logs_conversation_createdAt` | `conversationId: 1`, `createdAt: -1` | Não |
+| `ix_routing_logs_intent_createdAt` | `intent: 1`, `createdAt: -1` | Não |
 
 ## `skill_executions`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `empresaId` | int | Yes |
-| `usuarioId` | int | Yes |
-| `sessionId` | string | Yes |
-| `conversationId` | objectId / null | No |
-| `skill` | string | Yes |
-| `version` | string | Yes |
-| `status` | enum: success, denied, invalid_input, invalid_output, error, timeout | Yes |
-| `input` | object / null | No |
-| `output` | object / null | No |
-| `error` | object / null | No |
-| `latency` | double / null | No |
-| `startedAt` | date | Yes |
-| `finishedAt` | date / null | No |
+| `_id` | objectId | Não |
+| `empresaId` | int | Sim |
+| `usuarioId` | int | Sim |
+| `sessionId` | string | Sim |
+| `conversationId` | objectId / null | Não |
+| `skill` | string | Sim |
+| `version` | string | Sim |
+| `status` | enum: success, denied, invalid_input, invalid_output, error, timeout | Sim |
+| `input` | object / null | Não |
+| `output` | object / null | Não |
+| `error` | object / null | Não |
+| `latency` | double / null | Não |
+| `startedAt` | date | Sim |
+| `finishedAt` | date / null | Não |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_skill_executions_empresa_skill_startedAt` | `empresaId: 1`, `skill: 1`, `startedAt: -1` | No |
-| `ix_skill_executions_status` | `status: 1` | No |
+| `ix_skill_executions_empresa_skill_startedAt` | `empresaId: 1`, `skill: 1`, `startedAt: -1` | Não |
+| `ix_skill_executions_status` | `status: 1` | Não |
 
 ## `skill_registry`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `empresaId` | int | Yes |
-| `name` | string | Yes |
-| `version` | string | Yes |
-| `description` | string | Yes |
-| `owner` | string | Yes |
-| `entrypoint` | string | Yes |
-| `timeoutSeconds` | double | Yes |
-| `maxRetries` | int / null | No |
-| `scope` | enum: read_only, write_with_approval | Yes |
-| `requiredRoles` | array of string | Yes |
-| `inputSchema` | object | Yes |
-| `outputSchema` | object | Yes |
-| `tags` | array of string / null | No |
-| `active` | bool | Yes |
-| `createdAt` | date | Yes |
-| `updatedAt` | date / null | No |
+| `_id` | objectId | Não |
+| `empresaId` | int | Sim |
+| `name` | string | Sim |
+| `version` | string | Sim |
+| `description` | string | Sim |
+| `owner` | string | Sim |
+| `entrypoint` | string | Sim |
+| `timeoutSeconds` | double | Sim |
+| `maxRetries` | int / null | Não |
+| `scope` | enum: read_only, write_with_approval | Sim |
+| `requiredRoles` | array de string | Sim |
+| `inputSchema` | object | Sim |
+| `outputSchema` | object | Sim |
+| `tags` | array / null de string | Não |
+| `active` | bool | Sim |
+| `createdAt` | date | Sim |
+| `updatedAt` | date / null | Não |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ux_skill_registry_empresa_name_version` | `empresaId: 1`, `name: 1`, `version: 1` | Yes |
-| `ix_skill_registry_empresa_active` | `empresaId: 1`, `active: 1` | No |
+| `ux_skill_registry_empresa_name_version` | `empresaId: 1`, `name: 1`, `version: 1` | Sim |
+| `ix_skill_registry_empresa_active` | `empresaId: 1`, `active: 1` | Não |
 
 ## `tool_permissions`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `agent` | string | Yes |
-| `tool` | string | Yes |
-| `action` | string / null | No |
-| `canExecute` | bool | No |
-| `canRead` | bool | No |
-| `active` | bool | Yes |
-| `createdAt` | date | Yes |
-| `updatedAt` | date / null | No |
+| `_id` | objectId | Não |
+| `agent` | string | Sim |
+| `tool` | string | Sim |
+| `action` | string / null | Não |
+| `canExecute` | bool | Não |
+| `canRead` | bool | Não |
+| `active` | bool | Sim |
+| `createdAt` | date | Sim |
+| `updatedAt` | date / null | Não |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ux_tool_permissions_agent_tool` | `agent: 1`, `tool: 1` | Yes |
+| `ux_tool_permissions_agent_tool` | `agent: 1`, `tool: 1` | Sim |
 
 ## `tool_runs`
 
-Declared validation: `strict` / `error`.
+Validação declarada: `strict` / `error`.
 
-| Field | Declared type or values | Required |
+| Campo | Tipo ou valores declarados | Obrigatório |
 |---|---|---|
-| `_id` | objectId | No |
-| `conversationId` | objectId | Yes |
-| `agent` | string | Yes |
-| `skill` | string / null | No |
-| `tool` | string | Yes |
-| `input` | object / null | No |
-| `output` | object / null | No |
-| `status` | enum: running, success, error | Yes |
-| `latency` | double / null | No |
-| `error` | object / null | No |
-| `startedAt` | date | Yes |
-| `finishedAt` | date / null | No |
+| `_id` | objectId | Não |
+| `conversationId` | objectId | Sim |
+| `agent` | string | Sim |
+| `skill` | string / null | Não |
+| `tool` | string | Sim |
+| `input` | object / null | Não |
+| `output` | object / null | Não |
+| `status` | enum: running, success, error | Sim |
+| `latency` | double / null | Não |
+| `error` | object / null | Não |
+| `startedAt` | date | Sim |
+| `finishedAt` | date / null | Não |
 
-| Declared index | Keys (order) | Unique |
+| Índice declarado | Chaves (ordem) | Único |
 |---|---|---|
-| `ix_tool_runs_agent_tool_startedAt` | `agent: 1`, `tool: 1`, `startedAt: -1` | No |
-| `ix_tool_runs_conversation_startedAt` | `conversationId: 1`, `startedAt: -1` | No |
-| `ix_tool_runs_status` | `status: 1` | No |
+| `ix_tool_runs_agent_tool_startedAt` | `agent: 1`, `tool: 1`, `startedAt: -1` | Não |
+| `ix_tool_runs_conversation_startedAt` | `conversationId: 1`, `startedAt: -1` | Não |
+| `ix_tool_runs_status` | `status: 1` | Não |
