@@ -9,6 +9,8 @@ Central de documentação e arquitetura do ecossistema Mottainai. O Hub reúne g
 | Bancos de dados | [Docs/banco/README.md](Docs/banco/README.md) | Arquitetura operacional e analítica, modelo de dados e segurança. |
 | Operação dos bancos | [Docs/banco/operacao/README.md](Docs/banco/operacao/README.md) | Instalação, sessões/RLS, backup e procedimentos de limpeza e recarga. |
 | API SQL | [Documentação da API](Docs/api/sql/sql-api-full-documentation.md) | Visão técnica, autenticação e rotas documentadas. |
+| API MongoDB | [Contratos e endpoints](Docs/api/mongodb/README.md) | Conversas, métricas, memórias e curadoria RAG. |
+| API Redis | [Contratos e endpoints](Docs/api/redis/README.md) | Saúde, autenticação e notificações. |
 | Mobile Cliente | [Guia funcional e técnico](Docs/mobile/MOBILE-CLIENTE.md) | Escopo, arquitetura e estado das integrações do app cliente. |
 | Mobile Cliente — entrega | [Plano](Docs/mobile/cliente/PLANO-MOBILE-CLIENTE.md), [demandas de API](Docs/mobile/cliente/DEMANDAS-API-CLIENTE.md) e [testes](Docs/mobile/cliente/TESTES-ENTREGA-CLIENTE.md) | Contratos, dependências e roteiro de validação. |
 | Mobile Operacional | [Guia funcional e técnico](Docs/mobile/MOTTAINAI-OPERACIONAL-FUNCIONAL-E-TECNICO.md) | Fluxos de produtos, estoque, avarias, alertas e integrações. |
@@ -34,7 +36,7 @@ O banco operacional concentra dados transacionais, enquanto o analítico apoia h
 ```text
 .
 ├── Docs/
-│   ├── api/sql/                 # documentação da API SQL
+│   ├── api/                     # documentação das APIs SQL, MongoDB e Redis
 │   ├── banco/                   # modelos, segurança, operação e tracking
 │   ├── dad/react/               # documentação do front-end React
 │   ├── devops/                  # infraestrutura e entrega
