@@ -40,7 +40,14 @@ Trilha de auditoria de operações sensíveis. **Tabela particionada por `operat
 | `application_name` | `VARCHAR(100)` | cliente declarado na conexão |
 | `transaction_id` | `BIGINT` | correlação forense da transação |
 
-**Preenchimento:** triggers cobrem logística, funcionários, contas, tokens, sessões, compras, vendas e movimentações. A função sanitiza CPF e hashes antes de gravar. `mottainai_api` possui somente leitura filtrada por empresa; não pode inserir, alterar, excluir ou truncar auditoria. Particionamento é mensal.
+**Preenchimento:** triggers cobrem logística, funcionários, contas, clientes, consentimentos, tokens, sessões, compras, vendas e movimentações. A função sanitiza recursivamente documentos, identificadores e hashes antes de gravar. `mottainai_api` possui somente leitura filtrada por empresa; `mottainai_customer_api` não acessa a auditoria. Nenhuma role de API pode inserir, alterar, excluir ou truncar auditoria. Particionamento é mensal.
+
+## `legacy_sync_record`
+
+Trilha idempotente da transferência entre os dois bancos físicos. Guarda
+origem, identificadores técnicos, destino, status, instante e SHA-256 do
+payload já tratado. O payload bruto não é persistido e a role do cliente não
+possui acesso.
 
 ## `system_log`
 
@@ -94,6 +101,7 @@ Controle de execução de jobs/automações.
 | Coluna | Tipo | Restrições |
 |---|---|---|
 | `job_id` 🔑 | `BIGSERIAL` | `PK` |
+| `company_id` 🔗 | `INTEGER` | `FK → company(company_id) ON DELETE RESTRICT`; nulo apenas para registros globais legados |
 | `job_name` | `VARCHAR(100)` | `NN` |
 | `job_type` | `VARCHAR(50)` | |
 | `start_time` | `TIMESTAMP` | `NN` |
@@ -163,6 +171,11 @@ Fila de eventos assíncronos para processamento posterior.
 | `processed_at` | `TIMESTAMP` | |
 | `retry_count` | `INTEGER` | `def 0` |
 | `error_message` | `TEXT` | |
+| `company_id` | `INTEGER` | tenant do evento, quando aplicável |
+
+`fn_find_outbox_event_by_key` permite localizar uma publicação anterior pela
+chave de idempotência. As views de monitoramento não expõem jobs globais com
+`company_id IS NULL` à API.
 
 **Índices:** `idx_event_queue_status (status, priority)`, `idx_event_queue_created (created_at)`.
 

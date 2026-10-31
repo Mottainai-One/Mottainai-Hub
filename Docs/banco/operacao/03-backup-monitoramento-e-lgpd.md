@@ -33,8 +33,11 @@ podem ser dados pessoais. Aplicam-se os princípios de finalidade, necessidade,
 segurança, prevenção e prestação de contas.
 
 - analítico usa chaves anônimas e não replica CPF de cliente/funcionário;
-- auditoria remove CPF e hashes do JSON;
-- logs devem evitar payloads completos;
+- banco recusa valores pessoais abertos fora dos formatos protegidos;
+- auditoria remove recursivamente CPF, documentos, identificadores e hashes do JSON;
+- logs e `legacy_sync_record` não armazenam payloads completos da integração;
+- nome, CPF, e-mail, telefone, UID externo e endereço de cliente usam tokens SHA-256;
+- data de nascimento é minimizada para `birth_year` e consentimentos são versionados;
 - exclusão lógica preserva obrigação legal, mas não substitui anonimização;
 - solicitações de titular devem respeitar retenção fiscal e trilha de fraude;
 - acesso à auditoria deve ser restrito e registrado.

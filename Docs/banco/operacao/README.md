@@ -8,6 +8,7 @@ bancos PostgreSQL do ecossistema.
 | [01-instalar-e-atualizar.md](01-instalar-e-atualizar.md) | Instalação nova, migration e pareamento de ambiente |
 | [02-api-sessoes-e-rls.md](02-api-sessoes-e-rls.md) | Implementação de login, refresh, logout e transações da API |
 | [03-backup-monitoramento-e-lgpd.md](03-backup-monitoramento-e-lgpd.md) | Produção, incidentes, continuidade e privacidade |
+| [04-limpeza-recarga-e-finalizacao-pii.md](04-limpeza-recarga-e-finalizacao-pii.md) | Remover dataload de teste, recarregar o legado e concluir a migração AES-GCM |
 
 ## Princípios
 
