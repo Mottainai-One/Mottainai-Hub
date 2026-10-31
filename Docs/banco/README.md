@@ -1,6 +1,6 @@
 # Bancos de Dados Mottainai
 
-> Referência oficial de arquitetura e operação · PostgreSQL 15+ · atualização 2026-10-30
+> Referência de arquitetura e operação · PostgreSQL, MongoDB e Redis · atualização 2026-10-30
 
 ## Referências para o tracking centralizado
 
@@ -11,8 +11,8 @@ Esses documentos definem a leitura correta das entidades físicas, privacidade,
 grão analítico e fluxo entre databases. O tracking não deve inferir campos que
 não estejam nessas referências ou nos modelos lógicos vinculados.
 
-O Mottainai utiliza **dois bancos PostgreSQL independentes**. Essa separação
-impede que consultas pesadas de BI concorram com vendas, estoque e operações de
+Na camada relacional, o Mottainai utiliza **dois bancos PostgreSQL independentes**.
+Essa separação impede que consultas pesadas de BI concorram com vendas, estoque e operações de
 caixa, além de permitir políticas próprias de acesso, retenção e escalabilidade.
 
 | Banco | Schema principal | Responsabilidade | Pode receber escrita da API transacional? |
@@ -65,6 +65,8 @@ vira ação operacional depois de passar pela API e pelas regras transacionais.
 
 | Área | Documento inicial |
 |---|---|
+| MongoDB da IA | [Coleções, API e operação](mongodb/README.md) |
+| Redis de notificações e IA | [Estruturas, API e operação](redis/README.md) |
 | Entidades e regras de negócio | [Modelo conceitual](modelo-conceitual/README.md) |
 | Tabelas, campos e relacionamentos | [Modelo lógico](model-logico/README.md) |
 | Segurança e acesso da API | [Arquitetura de segurança](seguranca/01-arquitetura-de-seguranca.md) |
@@ -75,6 +77,9 @@ vira ação operacional depois de passar pela API e pelas regras transacionais.
 
 - [Mottainai-Banco-Operacional](https://github.com/Mottainai-One/Mottainai-Banco-Operacional)
 - [Mottainai-Hub](https://github.com/Mottainai-One/Mottainai-Hub)
+- [Mottainai-IA](https://github.com/Mottainai-One/Mottainai-IA)
+- [Mottainai-Api-NoSQL](https://github.com/Mottainai-One/Mottainai-Api-NoSQL)
+- [Mottainai-Redis-Api](https://github.com/Mottainai-One/Mottainai-Redis-Api)
 
 O código SQL executável permanece no repositório do banco. O Hub mantém a
 documentação de arquitetura e não deve ser usado como origem de migrations.
