@@ -1,46 +1,46 @@
-# Redis: API, segurança e operação
+# Redis: API, security and operations
 
-## API de notificações
+## Notification API
 
-| Método e rota | Comportamento |
+| Method and route | Behavior |
 |---|---|
-| `GET /livez` | Processo vivo; não consulta Redis. |
-| `GET /readyz` | Verifica acesso ao Redis. |
-| `GET /v1/notifications?limit=20` | Lista a caixa e o total não lido; limite entre 1 e 100. |
-| `POST /v1/notifications/{id}/read` | Marca como lida de forma idempotente; retorna 404 se não encontrada. |
+| `GET /livez` | Process liveness; does not query Redis. |
+| `GET /readyz` | Checks Redis connectivity. |
+| `GET /v1/notifications?limit=20` | Lists the inbox and unread count; limit is between 1 and 100. |
+| `POST /v1/notifications/{id}/read` | Idempotently marks a notification as read; returns 404 if not found. |
 
-A API não possui rota HTTP para criar notificações. As rotas de notificações
-exigem JWT Bearer HS256, com `exp`, `sub`, `empresa_id` e `role`. Os perfis
-aceitos são `CLIENTE`, `ESTOQUISTA`, `GERENTE` e `DONO`; empresa e usuário
-vêm do token. O segredo deve ter ao menos 32 caracteres. A configuração usa
-`REDIS_URL` e `JWT_SECRET`, além de `NOTIFICATION_STREAM_KEY`,
-`NOTIFICATION_STREAM_GROUP` e `NOTIFICATION_STREAM_RECLAIM_IDLE_MS` opcionais.
-Proteja credenciais e restrinja o acesso à rede do Redis aos serviços autorizados.
+The API has no HTTP route for creating notifications. Notification routes require
+an HS256 Bearer JWT with `exp`, `sub`, `empresa_id` and `role`. Accepted roles
+are `CLIENTE`, `ESTOQUISTA`, `GERENTE` and `DONO`; company and user are taken
+from the token. The secret must contain at least 32 characters. Configuration
+uses `REDIS_URL` and `JWT_SECRET`, plus optional `NOTIFICATION_STREAM_KEY`,
+`NOTIFICATION_STREAM_GROUP` and `NOTIFICATION_STREAM_RECLAIM_IDLE_MS`.
+Protect credentials and restrict Redis network access to authorized services.
 
-## Persistência, memória e retenção
+## Persistence, memory and retention
 
-O compose da API conecta a um Redis provisionado separadamente. Seu README
-registra um ambiente observado com AOF, `maxmemory 256mb` e `volatile-lru`;
-isso não comprova a configuração de qualquer outro ambiente. `volatile-lru`
-pode remover chaves com TTL antes do prazo em pressão de memória. O Stream não
-recebe TTL nem compactação automática pela API, portanto monitore crescimento,
-consumidores e mensagens pendentes. Uma política de retenção precisa preservar
-mensagens ainda necessárias; não execute `XTRIM`, `XDEL` ou limpeza genérica
-sem conhecer os grupos e efeitos de perda.
+The API compose configuration connects to a separately provisioned Redis. Its
+README records an observed environment with AOF, `maxmemory 256mb` and
+`volatile-lru`; this does not establish the configuration of another
+environment. Under memory pressure `volatile-lru` can evict keys with TTL before
+their expiry. The API does not assign a TTL to or automatically trim the
+Stream, so monitor growth, consumers and pending messages. A retention policy
+must preserve messages still needed; do not run `XTRIM`, `XDEL` or broad cleanup
+without understanding consumer groups and possible data loss.
 
-Monitore disponibilidade, memória, evictions, tamanho do Stream, atrasos e
-pendências do grupo. Investigue falhas persistentes antes de remover locks ou
-chaves. AOF não substitui um backup testado; a estratégia de restauração deve
-ser definida para a implantação. Dados de notificações podem conter informações
-sensíveis: evite copiar payloads para logs ou tickets.
+Monitor availability, memory, evictions, Stream size, lag and pending deliveries.
+Investigate persistent failures before removing locks or keys. AOF is not a
+substitute for a tested backup; define a restoration strategy for the actual
+deployment. Notifications may contain sensitive information: avoid copying
+payloads into logs or tickets.
 
-## Verificação
+## Verification
 
-No repositório da API, `mvn verify` executa a suíte configurada. Os testes de
-integração requerem Redis exclusivo de testes e `REDIS_TEST_HOST` (porta opcional
-`REDIS_TEST_PORT`). Não aponte testes para uma instância produtiva. Consulte
-`/readyz` para conectividade, mas esse endpoint não valida a entrega completa
-de notificações nem a retenção do Stream.
+In the API repository, `mvn verify` runs the configured test suite. Integration
+tests require a dedicated test Redis and `REDIS_TEST_HOST` (optional port:
+`REDIS_TEST_PORT`). Do not point tests at a production instance. `/readyz`
+checks connectivity but does not validate end-to-end notification delivery or
+Stream retention.
 
-**Limites da análise:** não foram consultadas a instância Redis real, suas
-políticas de memória, sua persistência efetiva ou uma entrega ponta a ponta.
+**Scope:** the actual Redis instance, memory policy, effective persistence and
+end-to-end delivery were not inspected.

@@ -1,16 +1,17 @@
-# MongoDB da camada de IA
+# MongoDB for the AI layer
 
-O MongoDB guarda conversas, mensagens, memória, execução de agentes, métricas,
-conteúdo de RAG e configurações da IA. A API Mongo oferece consultas e curadoria
-de parte dessas coleções; a IA também acessa o banco diretamente. O PostgreSQL
-continua responsável pelos dados transacionais descritos no [índice de bancos](../README.md).
+MongoDB stores conversations, messages, memory, agent executions, metrics, RAG
+content and AI configuration. The Mongo API queries and curates a subset of
+these collections; the AI layer also accesses the database directly. PostgreSQL
+remains responsible for the transactional data described in the [database index](../README.md).
 
-## Leitura recomendada
+## Reading order
 
-1. [Coleções, campos e índices](01-colecoes-e-indices.md)
-2. [API, integração e operação](02-api-integracao-e-operacao.md)
+1. [Collections, fields and indexes](01-colecoes-e-indices.md)
+2. [API, integration and operations](02-api-integracao-e-operacao.md)
 
-O catálogo reflete o schema versionado no commit `021fdc0` da IA e a API no
-commit `8b3544e`. Ele descreve o contrato versionado, não comprova a configuração
-ou os dados presentes em uma instância em execução. A referência executável de
-schema e índices é [`scripts/mongo/schema.json`](https://github.com/Mottainai-One/Mottainai-IA/blob/021fdc0/scripts/mongo/schema.json).
+The catalog reflects the schema at AI commit `021fdc0` and the API at commit
+`8b3544e`. It describes the versioned contract; it does not establish the
+configuration or contents of a running instance. The executable source of
+truth for the schema and indexes is
+[`scripts/mongo/schema.json`](https://github.com/Mottainai-One/Mottainai-IA/blob/021fdc0/scripts/mongo/schema.json).

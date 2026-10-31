@@ -65,8 +65,8 @@ vira ação operacional depois de passar pela API e pelas regras transacionais.
 
 | Área | Documento inicial |
 |---|---|
-| MongoDB da IA | [Coleções, API e operação](mongodb/README.md) |
-| Redis de notificações e IA | [Estruturas, API e operação](redis/README.md) |
+| MongoDB da IA | [Collections, API and operations](mongodb/README.md) |
+| Redis de notificações e IA | [Structures, API and operations](redis/README.md) |
 | Entidades e regras de negócio | [Modelo conceitual](modelo-conceitual/README.md) |
 | Tabelas, campos e relacionamentos | [Modelo lógico](model-logico/README.md) |
 | Segurança e acesso da API | [Arquitetura de segurança](seguranca/01-arquitetura-de-seguranca.md) |

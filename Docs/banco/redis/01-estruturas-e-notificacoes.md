@@ -1,61 +1,62 @@
-# Redis: estruturas e notificações
+# Redis: structures and notifications
 
-## Fluxo
+## Flow
 
 ```text
-Produtor autorizado -> Redis Stream -> consumer group da API Redis
-                   -> hash da notificação + inbox + contador
-Aplicativo -> API Redis autenticada -> leitura e marcação como lida
+Authorized producer -> Redis Stream -> Redis API consumer group
+                    -> notification hash + inbox + counter
+App -> authenticated Redis API -> list and mark as read
 ```
 
-O Stream padrão é `mottainai:v1:notification:stream` e o grupo padrão é
-`notification-writers`. Ambos podem ser configurados. O consumidor cria o grupo
-e o Stream se necessário, consulta até 100 registros por ciclo de um segundo e
-recupera pendentes via `XPENDING` e `XCLAIM`; a espera mínima padrão é 60.000 ms.
+The default Stream is `mottainai:v1:notification:stream` and the default group
+is `notification-writers`. Both are configurable. The consumer creates the
+group and Stream if needed, polls up to 100 records per one-second cycle, and
+recovers pending deliveries using `XPENDING` and `XCLAIM`; the default minimum
+idle time is 60,000 ms.
 
-## Contrato de entrada do Stream
+## Stream input contract
 
-| Campo | Regra |
+| Field | Rule |
 |---|---|
-| `company_id`, `user_id` | Obrigatórios; inteiros positivos. |
-| `title` | Obrigatório, não vazio, até 120 caracteres. |
-| `body` | Obrigatório, não vazio, até 1000 caracteres. |
-| `priority` | Obrigatório: 1, 2 ou 3. |
-| `id` | Opcional; até 128 caracteres e sem `:`. Ausente ou vazio gera `stream-<id-do-registro>`. |
+| `company_id`, `user_id` | Required positive integers. |
+| `title` | Required, nonempty, up to 120 characters. |
+| `body` | Required, nonempty, up to 1,000 characters. |
+| `priority` | Required: 1, 2 or 3. |
+| `id` | Optional; up to 128 characters and no `:`. If absent or blank, becomes `stream-<record-id>`. |
 
-O consumidor grava os dados e confirma com `XACK`. Mensagens inválidas são
-registradas em log e confirmadas sem gravação; nesta versão não há uma dead
-letter queue implementada. Falhas de gravação ou confirmação deixam a entrega
-pendente para nova tentativa. A confirmação não apaga a entrada do Stream.
+The consumer writes the notification and acknowledges it with `XACK`. Invalid
+messages are logged and acknowledged without being written; this version does
+not implement a dead-letter queue. Write or acknowledgement failures leave the
+delivery pending for retry. Acknowledgement does not delete the Stream entry.
 
-## Chaves de notificação
+## Notification keys
 
-| Padrão | Tipo | Finalidade |
+| Pattern | Type | Purpose |
 |---|---|---|
-| `mottainai:v1:notification:stream` | Stream | Eventos de entrada. |
-| `mottainai:v1:notification:data:{empresa}:{usuario}:{id}` | Hash | `id`, `title`, `body`, `priority`, `status`, `created_at`. |
-| `mottainai:v1:notification:inbox:{empresa}:{usuario}` | Sorted set | IDs classificados por prioridade e, no empate, por data. |
-| `mottainai:v1:notification:unread:{empresa}:{usuario}` | String numérica | Contador de notificações não lidas. |
+| `mottainai:v1:notification:stream` | Stream | Incoming events. |
+| `mottainai:v1:notification:data:{company}:{user}:{id}` | Hash | `id`, `title`, `body`, `priority`, `status`, `created_at`. |
+| `mottainai:v1:notification:inbox:{company}:{user}` | Sorted set | IDs ordered by priority and, for ties, creation time. |
+| `mottainai:v1:notification:unread:{company}:{user}` | Numeric string | Unread notification count. |
 
-O hash recebe TTL de 604.800 segundos (7 dias), sujeito à política de memória
-do servidor. Escrita e reconciliação usam Lua para executar as operações
-atomicamente. Repetir um ID enquanto o hash existe preserva conteúdo, estado e
-TTL; após expiração, esse ID pode gerar nova notificação. Sem ID explícito,
-o identificador derivado da entrada evita duplicação no reprocessamento da
-mesma entrega, mas publicações distintas geram notificações distintas.
+The hash has a TTL of 604,800 seconds (7 days), subject to the server's memory
+policy. Lua scripts perform writes and reconciliation atomically. Repeating an
+ID while its hash exists preserves its content, state and TTL; after expiration
+the same ID can create a new notification. Without an explicit ID, the ID
+derived from the Stream entry prevents duplication on redelivery of that entry,
+but separate publications create separate notifications.
 
-Listagem e marcação como lida reconciliam o índice e o contador com os hashes
-existentes, removendo referências expiradas. A leitura não renova o TTL do
-hash. A reconciliação percorre toda a caixa e seu custo cresce com o número
-de entradas indexadas. O índice e o contador são expirados conforme o maior TTL
-dos hashes ativos; se não restar nenhum, são removidos.
+Listing and marking as read reconcile the index and counter against existing
+hashes, removing expired references. Reading does not extend the hash TTL.
+Reconciliation scans the entire inbox, so its cost grows with the number of
+indexed entries. The index and counter expire according to the longest remaining
+TTL among active hashes; when none remain, both are removed.
 
-## Outros usos do Redis pela IA
+## Other AI uses of Redis
 
-O [keyspace da IA](https://github.com/Mottainai-One/Mottainai-IA/blob/021fdc0/app/cache/keyspace.py)
-define também `mottainai:v1:rate-limit:...`, `:rag:...`,
-`:alert-webhook-sent:...`, `:auth:revoked:...` e `:idempotency:...`.
-O cache RAG tem TTL configurável, padrão 300 segundos. Locks de idempotência
-podem permanecer após falha ambígua e exigem reconciliação; não trate essas
-chaves como cache descartável sem avaliar o fluxo de escrita. A presença de
-prefixos separados não comprova isolamento em instâncias diferentes.
+The [AI keyspace](https://github.com/Mottainai-One/Mottainai-IA/blob/021fdc0/app/cache/keyspace.py)
+also defines `mottainai:v1:rate-limit:...`, `:rag:...`,
+`:alert-webhook-sent:...`, `:auth:revoked:...` and `:idempotency:...`.
+The RAG cache has a configurable TTL, defaulting to 300 seconds. Idempotency
+locks can remain after an ambiguous failure and require reconciliation; do not
+treat them as disposable cache without evaluating the write flow. Separate key
+prefixes do not prove isolation in separate instances.
