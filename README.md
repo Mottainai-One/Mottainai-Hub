@@ -51,12 +51,6 @@ O banco operacional concentra dados transacionais, enquanto o analítico apoia h
 
 O diretório de documentação técnica reúne materiais adicionais. Consulte o conteúdo versionado em cada pasta para conhecer seu escopo.
 
-## Como interpretar as informações
-
-Alguns documentos descrevem branches, checkouts locais ou decisões de datas específicas. Uma tela documentada não comprova que uma integração tenha sido publicada ou homologada. Para confirmar comportamento, versões e contratos, confira a branch da aplicação ou serviço utilizado e seus arquivos de configuração e código.
-
-O Hub não requer instalação ou build para a leitura: abra os arquivos Markdown no GitHub ou em um editor e os PDFs em um leitor compatível. O histórico de alterações documentais está no [changelog](CHANGELOG.MD).
-
 ## Contribuição
 
-Atualize o guia da área afetada, indique a data e a versão ou branch analisada e diferencie o que está planejado, implementado e validado. Confira os links relativos e mantenha exemplos livres de credenciais e dados pessoais reais.
+Atualize o guia da área afetada e indique a data e a versão ou branch analisada. Confira os links relativos e mantenha exemplos livres de credenciais e dados pessoais reais.
