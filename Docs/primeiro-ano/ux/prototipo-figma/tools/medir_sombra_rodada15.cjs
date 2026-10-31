@@ -1,8 +1,0 @@
-const {chromium}=require(process.env.PLAYWRIGHT_MODULE),{pathToFileURL}=require('node:url'),path=require('node:path'),fs=require('node:fs'),assert=require('node:assert/strict');
-const out=path.resolve(__dirname,'../auditoria/rodada15'),cases=[];
-(async()=>{const b=await chromium.launch({channel:'chrome',headless:true});try{const p=await b.newPage();await p.route('https://fonts.googleapis.com/**',r=>r.abort());for(const variant of ['ativo','paralelo'])for(const width of [1440,1024,768,390]){
- await p.setViewportSize({width,height:1000});await p.goto(pathToFileURL(path.resolve(__dirname,variant==='ativo'?'../auditoria/rodada15/ativo-home.html':'../html/home.html')).href);await p.evaluate(()=>document.fonts.ready);
- const state=await p.locator('.hero-imagem').evaluate((e,args)=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e,'::after'),imgs=[...e.querySelectorAll('img')].map(x=>{const r=x.getBoundingClientRect();return{x:r.x,y:r.y,right:r.right,bottom:r.bottom}});return{...args,imgs,shadowTop:r.y+parseFloat(s.top)+parseFloat(s.marginTop),shadowHeight:parseFloat(s.height),shadowWidth:parseFloat(s.width)}},{variant,width});
- const bottom=Math.max(...state.imgs.map(r=>r.bottom));assert(Math.abs(state.shadowTop-bottom-4)<3,JSON.stringify(state));assert.equal(state.shadowHeight,32);cases.push({...state,gapBelowPhones:state.shadowTop-bottom});
- if([1440,390].includes(width))await p.screenshot({path:path.join(out,`${variant}-home-${width}.png`),fullPage:true});
- }fs.writeFileSync(path.join(out,'sombra.json'),JSON.stringify({passed:true,cases},null,2));console.log(JSON.stringify({passed:true,cases:cases.length}));}finally{await b.close()}})().catch(e=>{console.error(e);process.exitCode=1});
