@@ -6,6 +6,8 @@ Central de documentação e arquitetura do ecossistema Mottainai. O Hub reúne g
 
 | Área | Comece por | Conteúdo |
 |---|---|---|
+| Projeto Mottainai | [Documentação geral](Docs/interdisciplinar/documentacao-geral-mottainai.md) | Finalidade, ecossistema e organização das equipes. |
+| Inteligência artificial | [Documentação da IA](Docs/ia/documentacao-mottainai-ia.md) | Agentes, arquitetura, dados, segurança e integrações. |
 | Bancos de dados | [Docs/banco/README.md](Docs/banco/README.md) | Arquitetura operacional e analítica, modelo de dados e segurança. |
 | Operação dos bancos | [Docs/banco/operacao/README.md](Docs/banco/operacao/README.md) | Instalação, sessões/RLS, backup e procedimentos de limpeza e recarga. |
 | API SQL | [Documentação da API](Docs/api/sql/sql-api-full-documentation.md) | Visão técnica, autenticação e rotas documentadas. |
@@ -39,13 +41,15 @@ O banco operacional concentra dados transacionais, enquanto o analítico apoia h
 │   ├── dad/react/               # documentação do front-end React
 │   ├── devops/                  # infraestrutura e entrega
 │   ├── eqs/                     # engenharia de software
+│   ├── ia/                      # inteligência artificial e integrações
+│   ├── interdisciplinar/        # visão geral e organização do projeto
 │   ├── mobile/                  # apps e documentação do cliente
 │   └── ux/                      # materiais de pesquisa e design em PDF
 ├── CHANGELOG.MD
 └── README.md
 ```
 
-Também existem diretórios reservados para IA, documentação técnica e interdisciplinar. Consulte o conteúdo efetivamente versionado em cada pasta antes de assumir que há um guia completo.
+O diretório de documentação técnica reúne materiais adicionais. Consulte o conteúdo versionado em cada pasta para conhecer seu escopo.
 
 ## Como interpretar as informações
 

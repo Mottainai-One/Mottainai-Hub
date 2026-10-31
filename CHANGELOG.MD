@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-31
+
+- Adicionadas a documentação geral do Mottainai e a documentação funcional e técnica da camada de inteligência artificial, com acesso pelo índice principal.
+
 ## 2026-10-21
 
 - Atualizada a documentação publicada do Mobile Cliente para o estado local de 63 testes JVM e 60 XMLs analisados, sem afirmar APK homologado. Incluídos plano somente Android, demandas para a equipe da API, acesso por localização e roteiro de aceite; código Android não faz parte deste envio.
