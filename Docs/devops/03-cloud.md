@@ -1,59 +1,28 @@
-# Cloud — Infraestrutura em Nuvem
+# Cloud e serviços hospedados
 
-Parte do requisito **M2 (Cloud para hospedar o projeto)**. Este documento explica como o Mottainai **hospeda** seus serviços em infratestrutura de **nuvem**, garantindo disponibilidade sem depender de uma máquina local.
+## Inventário por estado
 
-## Princípio
+| Serviço | Uso/estado | Observação |
+|---|---|---|
+| Aiven PostgreSQL | Bancos operacional e analítico | Plano Free informado pela equipe; não presumir SLA ou capacidade produtiva |
+| Databricks Free Edition | Camadas medalhão e BI | Ambiente acadêmico, sem garantia de SLA |
+| Render | render.yaml do PR Bot declara serviço | Arquivo não prova deploy ativo ou uso como produção |
+| GitHub Actions | CI e workflows de sincronização | Secrets separados por repositório/ambiente |
+| AWS | Alvo futuro para produção | Não há hospedagem ativa confirmada; definir arquitetura/custo antes |
+| QA compartilhado | Sem servidor, domínio ou HTTPS confirmado | Compose pode ser local; acesso para toda equipe exige implantação |
 
-O projeto não deve rodar apenas na máquina de quem desenvolve, mas em **nuvem pública**, com disponibilidade, gerenciamento e escala. Para o TCC escolhemos serviços com **custo zero** (free tier) sem abrir mão de boas práticas.
+## Ambientes
 
-## Componentes de nuvem
+Local/QA usa Compose, dados sintéticos e credenciais exclusivas; não acessa produção.
 
-### 1. Banco de dados gerenciado — Aiven (PostgreSQL)
+Aiven e Databricks Free apoiam experimentação acadêmica e estão sujeitos a cotas, compute, conectividade e suspensão. Não declarar alta disponibilidade, SLA ou recuperação testada sem evidência.
 
-O banco transacional do Mottainai (`mottainai` + `mottainai_analytics`) está em **PostgreSQL gerenciado na Aiven**:
+Produção AWS requer redes, identidade, secrets, backup, observabilidade, orçamento, processo de mudança e recuperação definidos. Decisão de EKS ou alternativa deve ser ADR anterior ao deploy.
 
-- **Banco gerenciado** → backups, atualizações, monitoramento e alta disponibilidade por conta do provedor.
-- **Sem instalar/administrar o banco** → a operação de infraestrutura de dados fica simplificada.
+## Segredos
 
-### 2. Aplicação (PR Bot) — Render / AWS Free Tier
+Guardar credenciais nos mecanismos do provedor: GitHub Actions Secrets, Render, Databricks Connections/Secrets ou solução AWS aprovada. Usar identidades separadas e privilégio mínimo. Rotacionar segredo exposto. Não inserir valores em YAML, imagem, logs, URLs ou documentação.
 
-O **Mottainai PR Bot** é hospedado na nuvem:
+## Evidência de implantação
 
-- **Render** (plano free) — definido em `render.yaml` no repositório, com deploy automático a partir do Git.
-- **Decisão arquitetural documentada** de uso de **AWS Free Tier** (EC2 `t2.micro` + ECR + VPC) com custo estimado **$0/mês**, como alternativa de cloud madura.
-
-> ✅ Escolha com custo zero, ideal para o contexto acadêmico, documentada em `decisoes-arquiteturais.md`.
-
-## Config de hospedagem (render.yaml)
-
-```yaml
-services:
-  - type: web
-    name: mottainai-pr-bot
-    runtime: node
-    buildCommand: npm ci && npm run build
-    startCommand: node dist/index.js
-    envVars:
-      - key: APP_ID
-        sync: false   # segredo
-      - key: PRIVATE_KEY
-        sync: false   # segredo
-      - key: WEBHOOK_SECRET
-        sync: false   # segredo
-      - key: GEMINI_API_KEY
-        sync: false   # segredo
-```
-
-> Segredos são configurados no painel (nunca versionados).
-
-## Conexão com DevOps
-
-- **Disponibilidade** → serviços publicamente acessíveis 24/7.
-- **Infraestrutura como serviço (Iaas/PaaS)** → subir app e banco sem administrar hardware.
-- **Gerenciamento de segredos** → chaves ficam no provedor, fora do código.
-- **Observabilidade** → monitoramento e logs fornecidos pelo provedor integrados às métricas das RPAs.
-
-## Links
-
-- Config de hospedagem (Render): https://github.com/Mottainai-One/mottainai-pr-bot/blob/main/render.yaml
-- Decisões arquiteturais: [`06-automation-hub.md`](06-automation-hub.md) (seção 1.2/1.5) — ou o arquivo de decisões na raiz
+Registrar provedor/ambiente, commit, execução de deploy, URL/healthcheck, permissões, smoke test, responsável, runbook, limites/custo e rollback. Sem essa evidência, marcar como configuração, protótipo ou plano.
