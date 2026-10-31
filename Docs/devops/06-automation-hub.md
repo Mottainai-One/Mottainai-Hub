@@ -1,81 +1,41 @@
-# Automation Hub — Robôs de Operação (RPA) + Decisões Arquiteturais
+# Automação e operações de dados
 
-Documento que une a **camada de operação contínua** do Mottainai (os RPAs do **Automation Hub**) e as **decisões arquiteturais** da estratégia de DevOps.
+## Fluxos verificados
 
-> 👉 O **guia passo a passo de como construir cada robô** está em:
-> [`mottainai-automation-hub/GUIA_RPAs.md`](../../../../mottainai-automation-hub/GUIA_RPAs.md)
+O repositório Mottanai-RPA contém dois fluxos PostgreSQL principais:
 
-## O que é o Automation Hub
-
-É a **central de automações (RPAs)** do projeto. Cada robô resolve um problema específico, trabalhando sobre o banco operacional para alimentar o **BI** e a **IA**. Todos seguem o mesmo padrão: escrevem no `job_log` e podem ser agendados — o que torna a operação **observável** (pilar de DevOps).
-
-```
-┌─────────────────────────┐
-│    BANCO OPERACIONAL    │   PostgreSQL
-└────────────┬────────────┘
-             ▼
-┌─────────────────────────┐
-│  MOTTAINAI HUB (RPA)    │
-└────────────┬────────────┘
-      ┌──────┴──────┐
-      ▼             ▼
-  Data Mart     Logs/Métricas/Alertas
-      └──────┬─────┘
-             ▼
-        DASHBOARD BI (+ IA)
-```
-
-## Os 9 robôs e a atuação em DevOps
-
-| # | Robô | O que faz | Atuação em DevOps |
+| Fluxo | Origem → destino | Frequência declarada no snapshot consultado | Finalidade |
 |---|---|---|---|
-| 1 | **Data Pipeline** | ETL: extrai, valida, transforma e carrega o Data Mart | Automação / containerização / reprodutibilidade |
-| 2 | **Data Guardian** | Auditoria de qualidade e integridade dos dados | Qualidade / governança / esteira de testes de dados |
-| 3 | **Data Mart Updater** | Mantém o Data Mart atualizado (delta loading) | Agendamento / idempotência / sincronização |
-| 4 | **Performance Monitor** | Mede tempo das consultas e gera alertas | Observabilidade / métricas / otimização contínua |
-| 5 | **Backup Guardian** | Automatiza e valida backups | Resiliência / governança / recuperação |
-| 6 | **Ops Monitor** | Saúde da app, banco, containers e jobs | Monitoramento de infraestrutura / disponibilidade |
-| 7 | **Job Monitor** | Centraliza o status de todos os jobs (`job_log`) | Observabilidade / painel de automações |
-| 8 | **Metrics Consolidator** | Consolida métricas de negócio + técnicas | Visão unificada / centralização / decisão de infra |
-| 9 | **AI Data Preparation** | Prepara dados para os agentes de IA | MLOps / pipeline de dados para IA |
+| Legado → operacional | Legado → MOTTAINAI | origin/main declara */5 * * * * e reconciliação completa diária às 01:01 America/Sao_Paulo | Sincronizar dados transacionais para o operacional |
+| Operacional → analítico | MOTTAINAI → MOTTAINAI_ANALITICO | Main declara 02:00 America/Sao_Paulo; execuções observadas de 28 a 30/10 ocorreram perto de 08:00. Cron UTC corrigido está pendente na [PR RPA #13](https://github.com/Mottainai-One/Mottanai-RPA/pull/13). | Publicar lote para BI |
+| Analítico → BI | MOTTAINAI_ANALITICO → Databricks Gold/dashboard | Job Databricks previsto para 02:30 America/Sao_Paulo | Preflight → Bronze → Silver → Gold → refresh do dashboard |
 
-### Como o hub fortalece DevOps
+A carga operacional→analítico não lê o legado. O job Databricks tem uma execução separada e deve partir do lote publicado. O bundle BI configura uma execução sequencial às 02:30, com concorrência máxima 1. Manter o runbook e o estado atual desse job junto à documentação técnica do BI no workspace Databricks.
 
-| Pilar de DevOps | Robô(s) |
-|---|---|
-| Automação de processos | 1, 3, 4, 5, 6, 7, 8, 9 |
-| Containerização | 1, 6 |
-| Observabilidade / logs | 4, 6, 7 (`job_log`, `query_performance`) |
-| Monitoramento de infra | 6, 7 |
-| Agendamento de jobs | 3, 5, 7 |
-| Qualidade e governança | 2 |
-| Backup e recuperação | 5 |
-| Métricas unificadas | 8 |
-| MLOps | 9 |
+## Legado → operacional
 
-## Observabilidade: a tabela `job_log`
+O workflow .github/workflows/legacy-to-operational.yml em origin/main declara sincronização a cada cinco minutos e uma execução diária às 01:01 em America/Sao_Paulo que força reconciliação completa. A execução manual oferece dry-run e opção force_full. Há clones/branches locais com cron de 30 minutos; não usar essa cópia antiga como representação da branch principal. O cron configura a cadência, mas monitorar execuções e atraso para confirmar funcionamento operacional.
 
-O `job_log` é a **fonte única de verdade** das automações. Cada robô escreve: `job_name`, `job_type`, `start_time`, `end_time`, `duration_seconds`, `records_processed`, `success`, `details` (JSONB). O **Job Monitor** e o **Ops Monitor** leem daí para montar o painel — demonstrando observabilidade de ponta a ponta.
+Usar GitHub Secrets, SSL e concorrência controlada; logs sem segredo ou dados sensíveis. Para validar sem persistir, preferir dry-run. Execução manual real requer autorização e conferência do destino.
 
-## Decisões arquiteturais (resumo DevOps)
+## Operacional → analítico
 
-As decisões de arquitetura do projeto consideraram: custo zero (acadêmico), observabilidade, segurança e escalabilidade.
+Workflow .github/workflows/operational-to-analytics.yml declara 02:00 São Paulo e workflow_dispatch. Usa credenciais distintas para leitura e escrita, valida variáveis e publica batch.
 
-| Decisão | Escolha | Por quê |
-|---|---|---|
-| Banco de dados | PostgreSQL gerenciado (Aiven) | Backups / HA / observabilidade sem administrar |
-| Hospedagem app | Render (free) / AWS Free Tier | Disponibilidade com custo $0 |
-| Container | Docker multi-stage | Exportação enxuta e segura |
-| Orquestração | K3s (k3d, local) | Kubernetes leve, autoscaling, probes |
-| CI/CD | GitHub Actions | CI (validação) + CD (deploy dev/prod) |
-| Segredos | Env do provedor / K8s Secret | Nunca versionar credenciais |
-| Monitoramento | Automation Hub (RPAs) + job_log | Observabilidade e operação contínua |
+O contrato BI usa batch_id, cutoff, status e metadata.publication_contract. Databricks deve consumir a publicação concluída antes de rodar Bronze/Silver/Gold. Em 30/10, o RPA agendado falhou ao registrar o batch ([run #6](https://github.com/Mottainai-One/Mottanai-RPA/actions/runs/41045270487)); a correção da adaptação UUID já está na main atual. O job Databricks das 02:30 concluiu as cinco tarefas em 30/10, mas a Bronze retornou `NO_NEW_BATCH`; isso não prova atualização dos dados ([execução](https://dbc-38ac8920-cbf4.cloud.databricks.com/?o=7474654317437663#job/731348243647869/run/534219641033216)).
 
-## Conexão com DevOps
+A PR #13 muda o cron para `05:00 UTC` (02:00 em São Paulo), mantendo o job Databricks às 02:30. Até a PR ser mesclada e surgir um novo batch com cutoff do dia, considerar o fluxo automático pendente de validação ponta a ponta.
 
-O hub **não é só "subir o deploy"** — é **operar, automatizar e observar** todo o ciclo de vida da plataforma: do dado bruto ao dashboard e à IA. É a materialização prática da cultura DevOps dentro do Mottainai.
+## QA da RPA
 
-## Links
+qa.yml constrói Dockerfile.qa e roda testes com --network none, sem banco ou credencial produtiva. Isso comprova testes herméticos, não integração end-to-end. Integração requer bancos descartáveis, dados sintéticos e secrets QA.
 
-- Guia de construção: [`mottainai-automation-hub/GUIA_RPAs.md`](../../../../mottainai-automation-hub/GUIA_RPAs.md)
-- Banco operacional: https://github.com/Mottainai-One/Mottainai-Banco-Operacional
+Compose QA não ativa schedules produtivos nem executa carga contra Aiven.
+
+## Observabilidade e recuperação
+
+Acompanhar ID de execução, início/fim/duração, status/erro, batch/cutoff, contagens lidas/escritas, atraso no destino, retries, sobreposição e reconciliação. Nunca registrar valores de segredo nem payload pessoal integral.
+
+O job_log varia por contrato/versão; não presumir colunas success, start_time ou records_processed para todos os jobs.
+
+Em falha: identificar fluxo e execução; verificar status, cutoff, conexão e schema sem revelar credenciais; confirmar se houve publicação parcial; corrigir no repo proprietário; validar em QA/dry-run; reexecutar pelo mecanismo idempotente sem apagar checkpoints; reconciliar destino; registrar causa e prevenção em PR/runbook.

@@ -1,80 +1,64 @@
-# Docker — Conteinerização da Aplicação
+# Docker e ambiente de QA
 
-Parte do requisito **M3 (Docker + Kubernetes)**. Este documento explica como o Mottainai **empacota a aplicação** em um container Docker, tornando o ambiente **reproduzível** em qualquer máquina.
+## Objetivo e estado
 
-## Por que Docker?
+Docker Compose fornece ambiente reproduzível para validar integrações sem conectar QA aos bancos reais da Aiven. O Compose de referência está na pasta qa/ da branch feature/qa-api-integration do repositório Mottainai-Banco-Operacional. Nas referências locais de 31/10/2026, essa branch ainda não aparece integrada em main. A stack é local/CI; para acesso da equipe ainda faltam servidor, domínio e HTTPS.
 
-Sem containers, "na minha máquina funciona" é um problema constante. Com Docker, o **código, as dependências, as configurações e o runtime** viajam juntos em uma única imagem. Isso é base de DevOps: mesmo ambiente em dev, CI e produção.
+Não publicar PostgreSQL, MongoDB ou Redis diretamente na Internet.
 
-## O Dockerfile (Multi-stage)
+## Componentes
 
-O `mottainai-pr-bot` usa um **Dockerfile multi-stage**: constrói em uma imagem cheia (com o toolchain) e entrega em uma imagem **enxuta e segura**.
+| Arquivo | Conteúdo |
+|---|---|
+| qa/compose.yaml | PostgreSQL 15 operacional isolado, volume, rede interna e verificador SQL |
+| qa/compose.api.yaml | API Spring e Mailpit QA |
+| qa/compose.ia.yaml | PostgreSQL analítico QA, MongoDB, Redis e serviço IA |
+| qa/compose.frontend.yaml | Prévia frontend no profile preview |
+| qa/compose.*.local.yaml | Overrides locais de portas e acesso |
+| qa/verify.sql | Verificações pelo usuário restrito de aplicação |
+| qa/.env.example | Nomes de variáveis, sem credenciais reais |
 
-```dockerfile
-# Stage 1: build (imagem cheia, só para compilar)
-FROM node:20-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
+Android não roda como serviço Compose. A RPA tem teste em container sem rede e sem acesso a banco real; Compose não ativa schedule produtivo.
 
-# Stage 2: runtime (imagem enxuta, não-root)
-FROM node:20-alpine
-WORKDIR /app
-ENV NODE_ENV=production
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
-USER nodejs
-EXPOSE 3000
-CMD ["node", "dist/index.js"]
-```
+## Segurança e requisitos
 
-**Bom praticar:**
-- **Multi-stage** → imagem final pequena e sem lixo de build.
-- **Usuário não-root** → segurança: o processo não roda com privilégios.
-- **Imagem base `-alpine`** → leve e rápida de baixar.
-- **`EXPOSE 3000`** → a porta que o Service do K8s depois vai expor.
+- Docker Desktop com Compose V2.
+- Usar a branch feature/qa-api-integration de Mottainai-Banco-Operacional e clonar os projetos requeridos lado a lado, ou configurar caminhos QA_*_BUILD_CONTEXT.
+- Copiar qa/.env.example para qa/.env e preencher senhas exclusivas, fortes e diferentes.
+- Não versionar .env, reutilizar credenciais Aiven ou compartilhar segredos em logs/screenshots/PRs.
+- Usar dados sintéticos, nunca dados de produção.
+- Compose base não publica portas de banco; overrides *.local.yaml são apenas locais.
+- Volume persiste entre reinícios; remover volume apaga os dados QA.
 
-## docker-compose.yml
+## Banco operacional: iniciar e verificar
 
-Permite **subir localmente** sem precisar do Kubernertes, ótimo para desenvolvimento:
+Na raiz do clone Mottainai-Banco-Operacional, na branch de QA:
 
-```yaml
-services:
-  bot:
-    build: .
-    ports:
-      - "3000:3000"
-    env_file:
-      - .env
-    restart: unless-stopped
-```
+    Copy-Item qa/.env.example qa/.env
+    # Preencha qa/.env localmente; não compartilhe valores nem faça commit.
+    docker compose --env-file qa/.env -f qa/compose.yaml -f qa/compose.local.yaml up -d postgres
+    docker compose --env-file qa/.env -f qa/compose.yaml --profile verify run --rm verify
 
-> ⚠️ Em produção não usamos compose — usamos **Kubernetes** (K3s). O compose serve para o ambiente de dev rápido.
+Porta local opcional: 127.0.0.1:55432. Healthcheck confirma schema e role; verify testa permissões do login de aplicação. Scripts init não são reaplicados a volumes existentes; alterações seguem por migration.
 
-## Comandos úteis
+## API e IA
 
-```bash
-# Construir a imagem
-docker build -t mottainai-pr-bot:latest .
+Depois de configurar as variáveis em .env, a composição local combina:
 
-# Rodar localmente
-docker run --rm -p 3000:3000 --env-file .env mottainai-pr-bot
+    docker compose --env-file qa/.env -f qa/compose.yaml -f qa/compose.api.yaml -f qa/compose.ia.yaml -f qa/compose.local.yaml -f qa/compose.api.local.yaml -f qa/compose.ia.local.yaml up -d --build
 
-# Ver a imagem construída
-docker images
-```
+Ver nomes de variáveis, portas e perfis no [README de QA](https://github.com/Mottainai-One/Mottainai-Banco-Operacional/blob/feature/qa-api-integration/qa/README.md). Para frontend, incluir qa/compose.frontend.yaml e o override local com profile preview.
 
-## Conexão com DevOps
+Build de imagem e health/readiness validam empacotamento/inicialização, não todos os fluxos de negócio nem integração completa.
 
-- **Reprodutibilidade** → mesma imagem roda em dev, CI e produção.
-- **Imutabilidade** → o artefato de deploy é único e versionável (por tag/SHA).
-- **Segurança** → remoção de privilégios e imagem mínima reduzem a superfície de ataque.
-- **Base para orquestração** → é a imagem que o Kubernetes (K3s) vai replicar e escalar.
+## Encerrar preservando dados
 
-## Links
+Use os mesmos arquivos Compose empregados para iniciar:
 
-- Dockerfile: https://github.com/Mottainai-One/mottainai-pr-bot/blob/main/Dockerfile
-- Continue em: [`02-kubernetes.md`](02-kubernetes.md)
+    docker compose --env-file qa/.env -f qa/compose.yaml -f qa/compose.local.yaml down
+
+Não usar -v se quiser manter o volume. Remover volume é ação destrutiva, somente para ambiente descartável após conferir o alvo.
+
+## CI de containers versus QA integrado
+
+Workflows API QA container, IA QA container e Frontend QA container constroem imagens. Isso não prova que todos os serviços subiram juntos. A QA Compose integrada ainda precisa de servidor/URL para ficar acessível à equipe toda.
