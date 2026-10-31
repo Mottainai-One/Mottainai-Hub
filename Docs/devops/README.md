@@ -27,6 +27,7 @@ Este guia apresenta como a equipe planeja, implementa, valida, integra e opera m
 | BI | Databricks Free Edition executa fluxo analítico diário nas camadas medalhão e alimenta dashboards. Não é tempo real. |
 | AWS/Kubernetes | Direção futura. Não há cluster AWS de produção ou manifests Kubernetes ativos confirmados nos clones consultados. |
 | Legado → operacional | origin/main do RPA declara sincronização a cada 5 minutos e reconciliação completa diária às 01:01 America/Sao_Paulo. Um clone local de branch de trabalho ainda mostra 30 minutos; conferir sempre a branch ativa. |
+| Operacional → analítico | A configuração anterior declarou 02:00 em São Paulo, mas execuções observadas entre 28 e 30/10 ocorreram perto de 08:00; a de 30/10 falhou ao registrar o batch. A correção de cron UTC está na [PR RPA #13](https://github.com/Mottainai-One/Mottanai-RPA/pull/13), ainda não integrada. O fluxo só estará comprovado após um batch novo e correspondente execução Databricks. |
 
 Não confundir build de imagem com implantação, Compose local com QA compartilhado, plano com serviço ativo ou CI verde com aceite de negócio.
 
