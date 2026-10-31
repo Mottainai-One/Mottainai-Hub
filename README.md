@@ -10,7 +10,7 @@ Central de documentação e arquitetura do ecossistema Mottainai. O Hub reúne g
 | Inteligência artificial | [Documentação da IA](Docs/ia/documentacao-mottainai-ia.md) | Agentes, arquitetura, dados, segurança e integrações. |
 | Bancos de dados | [Docs/banco/README.md](Docs/banco/README.md) | Arquitetura operacional e analítica, modelo de dados e segurança. |
 | Operação dos bancos | [Docs/banco/operacao/README.md](Docs/banco/operacao/README.md) | Instalação, sessões/RLS, backup e procedimentos de limpeza e recarga. |
-| API SQL | [Documentação da API](Docs/api/sql/sql-api-full-documentation.md) | Visão técnica, autenticação e rotas documentadas. |
+| API SQL | [Índice da documentação](Docs/api/sql/sql-api-full-documentation.md) | Arquitetura e guias [Operacional](Docs/api/sql/sql-api-operacional.md) e [Cliente](Docs/api/sql/sql-api-cliente.md). |
 | Mobile Cliente | [Guia funcional e técnico](Docs/mobile/MOBILE-CLIENTE.md) | Escopo, arquitetura e estado das integrações do app cliente. |
 | Mobile Cliente — entrega | [Plano](Docs/mobile/cliente/PLANO-MOBILE-CLIENTE.md), [demandas de API](Docs/mobile/cliente/DEMANDAS-API-CLIENTE.md) e [testes](Docs/mobile/cliente/TESTES-ENTREGA-CLIENTE.md) | Contratos, dependências e roteiro de validação. |
 | Mobile Operacional | [Guia funcional e técnico](Docs/mobile/MOTTAINAI-OPERACIONAL-FUNCIONAL-E-TECNICO.md) | Fluxos de produtos, estoque, avarias, alertas e integrações. |

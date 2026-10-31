@@ -3,6 +3,7 @@
 ## 2026-10-31
 
 - Adicionadas a documentação geral do Mottainai e a documentação funcional e técnica da camada de inteligência artificial, com acesso pelo índice principal.
+- Separada a documentação da API SQL em visão geral e guias Operacional e Cliente, com o estado observado das branches main consultadas em 2026-10-31.
 
 ## 2026-10-21
 
