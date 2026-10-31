@@ -1,0 +1,77 @@
+{
+  "passed": true,
+  "search": [
+    {
+      "active": false,
+      "instant": true,
+      "clearRestoresSix": true,
+      "noNavigation": true
+    },
+    {
+      "active": true,
+      "instant": true,
+      "clearRestoresSix": true,
+      "noNavigation": true
+    }
+  ],
+  "logout": [
+    {
+      "file": "addresses.html",
+      "home": true
+    },
+    {
+      "file": "administrations.html",
+      "home": true
+    },
+    {
+      "file": "companies.html",
+      "home": true
+    },
+    {
+      "file": "employee-roles.html",
+      "home": true
+    },
+    {
+      "file": "employees.html",
+      "home": true
+    },
+    {
+      "file": "home-crud-page.html",
+      "home": true
+    },
+    {
+      "file": "stores.html",
+      "home": true
+    },
+    {
+      "file": "subscription-plans.html",
+      "home": true
+    },
+    {
+      "file": "user-accounts.html",
+      "home": true
+    }
+  ],
+  "contacts": [
+    {
+      "active": false,
+      "selector": "#hero .btns a[href*=\"mail.google.com\"]",
+      "newTab": true
+    },
+    {
+      "active": false,
+      "selector": "#duvidas .btns a[href*=\"mail.google.com\"]",
+      "newTab": true
+    },
+    {
+      "active": true,
+      "selector": "#hero .btns a[href*=\"mail.google.com\"]",
+      "newTab": true
+    },
+    {
+      "active": true,
+      "selector": "#duvidas .btns a[href*=\"mail.google.com\"]",
+      "newTab": true
+    }
+  ]
+}

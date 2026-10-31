@@ -1,0 +1,376 @@
+{
+  "activeFiles": {
+    "checked": 275,
+    "applicationChanges": 0,
+    "ideWorkspaceChanges": []
+  },
+  "contracts": {
+    "addresses": {
+      "passed": {
+        "el": true,
+        "jstl": true,
+        "names": true,
+        "actions": true,
+        "methods": true,
+        "hidden": true,
+        "ids": true,
+        "body": true
+      },
+      "forms": 5,
+      "inputNames": {
+        "viewport": 1,
+        "busca": 1,
+        "acao": 3,
+        "zipCode": 2,
+        "street": 2,
+        "number": 2,
+        "complement": 2,
+        "neighborhood": 2,
+        "city": 2,
+        "state": 2,
+        "id": 2
+      },
+      "actions": {
+        "${pageContext.request.contextPath}/logout": 1,
+        "${pageContext.request.contextPath}/enderecos": 4
+      },
+      "methods": {
+        "post": 4,
+        "get": 1
+      },
+      "hiddenInputs": 5,
+      "jstlTags": 100,
+      "elExpressions": 75
+    },
+    "companies": {
+      "passed": {
+        "el": true,
+        "jstl": true,
+        "names": true,
+        "actions": true,
+        "methods": true,
+        "hidden": true,
+        "ids": true,
+        "body": true
+      },
+      "forms": 5,
+      "inputNames": {
+        "viewport": 1,
+        "busca": 1,
+        "situacao": 1,
+        "acao": 3,
+        "officialName": 2,
+        "tradeName": 2,
+        "cnpj": 2,
+        "email": 2,
+        "phone": 2,
+        "active": 2,
+        "subscriptionPlanId": 2,
+        "latitude": 2,
+        "longitude": 2,
+        "id": 2
+      },
+      "actions": {
+        "${pageContext.request.contextPath}/logout": 1,
+        "${pageContext.request.contextPath}/empresas": 4
+      },
+      "methods": {
+        "post": 4,
+        "get": 1
+      },
+      "hiddenInputs": 5,
+      "jstlTags": 116,
+      "elExpressions": 99
+    },
+    "employee-roles": {
+      "passed": {
+        "el": true,
+        "jstl": true,
+        "names": true,
+        "actions": true,
+        "methods": true,
+        "hidden": true,
+        "ids": true,
+        "body": true
+      },
+      "forms": 5,
+      "inputNames": {
+        "viewport": 1,
+        "busca": 1,
+        "situacao": 1,
+        "acao": 3,
+        "name": 2,
+        "description": 2,
+        "permissionLevel": 2,
+        "active": 2,
+        "id": 2
+      },
+      "actions": {
+        "${pageContext.request.contextPath}/logout": 1,
+        "${pageContext.request.contextPath}/cargos": 4
+      },
+      "methods": {
+        "post": 4,
+        "get": 1
+      },
+      "hiddenInputs": 5,
+      "jstlTags": 82,
+      "elExpressions": 64
+    },
+    "employees": {
+      "passed": {
+        "el": true,
+        "jstl": true,
+        "names": true,
+        "actions": true,
+        "methods": true,
+        "hidden": true,
+        "ids": true,
+        "body": true
+      },
+      "forms": 5,
+      "inputNames": {
+        "viewport": 1,
+        "busca": 1,
+        "situacao": 1,
+        "acao": 3,
+        "name": 2,
+        "cpf": 2,
+        "phone": 2,
+        "email": 2,
+        "storeId": 2,
+        "roleId": 2,
+        "hireDate": 2,
+        "active": 2,
+        "id": 2
+      },
+      "actions": {
+        "${pageContext.request.contextPath}/logout": 1,
+        "${pageContext.request.contextPath}/funcionarios": 4
+      },
+      "methods": {
+        "post": 4,
+        "get": 1
+      },
+      "hiddenInputs": 5,
+      "jstlTags": 120,
+      "elExpressions": 103
+    },
+    "home-crud-page": {
+      "passed": {
+        "el": true,
+        "jstl": true,
+        "names": true,
+        "actions": true,
+        "methods": true,
+        "hidden": true,
+        "ids": true,
+        "body": true
+      },
+      "forms": 1,
+      "inputNames": {
+        "viewport": 1
+      },
+      "actions": {
+        "${pageContext.request.contextPath}/logout": 1
+      },
+      "methods": {
+        "post": 1
+      },
+      "hiddenInputs": 0,
+      "jstlTags": 17,
+      "elExpressions": 19
+    },
+    "stores": {
+      "passed": {
+        "el": true,
+        "jstl": true,
+        "names": true,
+        "actions": true,
+        "methods": true,
+        "hidden": true,
+        "ids": true,
+        "body": true
+      },
+      "forms": 5,
+      "inputNames": {
+        "viewport": 1,
+        "busca": 1,
+        "situacao": 1,
+        "acao": 3,
+        "name": 2,
+        "companyId": 2,
+        "cnpj": 2,
+        "email": 2,
+        "phone": 2,
+        "active": 2,
+        "latitude": 2,
+        "longitude": 2,
+        "addressId": 2,
+        "id": 2
+      },
+      "actions": {
+        "${pageContext.request.contextPath}/logout": 1,
+        "${pageContext.request.contextPath}/lojas": 4
+      },
+      "methods": {
+        "post": 4,
+        "get": 1
+      },
+      "hiddenInputs": 5,
+      "jstlTags": 125,
+      "elExpressions": 111
+    },
+    "subscription-plans": {
+      "passed": {
+        "el": true,
+        "jstl": true,
+        "names": true,
+        "actions": true,
+        "methods": true,
+        "hidden": true,
+        "ids": true,
+        "body": true
+      },
+      "forms": 5,
+      "inputNames": {
+        "viewport": 1,
+        "busca": 1,
+        "situacao": 1,
+        "acao": 3,
+        "name": 2,
+        "description": 2,
+        "price": 2,
+        "active": 2,
+        "storeLimit": 2,
+        "userLimit": 2,
+        "id": 2
+      },
+      "actions": {
+        "${pageContext.request.contextPath}/logout": 1,
+        "${pageContext.request.contextPath}/planos-administrativos": 4
+      },
+      "methods": {
+        "post": 4,
+        "get": 1
+      },
+      "hiddenInputs": 5,
+      "jstlTags": 104,
+      "elExpressions": 83
+    },
+    "user-accounts": {
+      "passed": {
+        "el": true,
+        "jstl": true,
+        "names": true,
+        "actions": true,
+        "methods": true,
+        "hidden": true,
+        "ids": true,
+        "body": true
+      },
+      "forms": 5,
+      "inputNames": {
+        "viewport": 1,
+        "busca": 1,
+        "situacao": 1,
+        "acao": 3,
+        "employeeId": 2,
+        "email": 2,
+        "password": 2,
+        "active": 2,
+        "id": 2
+      },
+      "actions": {
+        "${pageContext.request.contextPath}/logout": 1,
+        "${pageContext.request.contextPath}/contas": 4
+      },
+      "methods": {
+        "post": 4,
+        "get": 1
+      },
+      "hiddenInputs": 5,
+      "jstlTags": 102,
+      "elExpressions": 77
+    }
+  },
+  "resources": {
+    "broken": [],
+    "htmlCount": 12,
+    "jspCount": 12
+  },
+  "login": {
+    "markupIdentical": true,
+    "cssIdentical": true,
+    "jsIdentical": true
+  },
+  "javascript": {
+    "addresses": [
+      "../js/crud.js"
+    ],
+    "companies": [
+      "../js/crud.js"
+    ],
+    "employee-roles": [
+      "../js/crud.js"
+    ],
+    "employees": [
+      "../js/crud.js"
+    ],
+    "faq": [],
+    "home-crud-page": [
+      "../js/crud.js"
+    ],
+    "home": [
+      "../js/modais.js"
+    ],
+    "planos": [
+      "../js/planos.js"
+    ],
+    "sobre-nos": [
+      "../js/sobre-nos.js"
+    ],
+    "stores": [
+      "../js/crud.js"
+    ],
+    "subscription-plans": [
+      "../js/crud.js"
+    ],
+    "user-accounts": [
+      "../js/crud.js"
+    ]
+  },
+  "comparisonBaseline": "auditoria\\rodada5\\base-ativa.json",
+  "publicContracts": {
+    "home": {
+      "el": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true
+    },
+    "sobre-nos": {
+      "el": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true
+    },
+    "planos": {
+      "el": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true
+    }
+  },
+  "contact": {
+    "home": true,
+    "sobre-nos": true,
+    "planos": true
+  },
+  "contractsPassed": true,
+  "baselineIdentical": true,
+  "failures": [],
+  "passed": true
+}

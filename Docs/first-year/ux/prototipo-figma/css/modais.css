@@ -1,0 +1,192 @@
+/* ==========================================================================
+   MODAIS DE LOG-IN E CADASTRO (abrem só com CSS, via radios + labels)
+   ========================================================================== */
+
+label.btn {
+  cursor: pointer;
+}
+
+/* trava a rolagem da página enquanto algum modal está aberto */
+body:has(.modal > input:checked) {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  padding: 16px;
+  background: rgba(11, 31, 58, 0.55);
+  z-index: 1000;
+}
+
+/* aberto quando o radio de dentro dele está marcado */
+.modal:has(> input:checked) {
+  display: grid;
+  animation: modal-entrar 0.2s ease-out;
+}
+
+@keyframes modal-entrar {
+  from {
+    opacity: 0;
+  }
+}
+
+.modal > label {
+  position: absolute;
+  inset: 0;
+}
+
+.modal > div {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  width: min(760px, 100%);
+  height: min(580px, calc(100vh - 32px));
+  background: #f3f5fa;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* lado esquerdo (imagem) */
+.modal aside {
+  border-radius: 0 28px 28px 0;
+  overflow: hidden;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.35);
+}
+
+.modal aside img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* lado direito (formulário) */
+.modal form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 52px 36px 20px 40px;
+}
+
+.modal h2 {
+  font-size: 1.9rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.modal h2 + p {
+  font-size: 1.05rem;
+}
+
+.modal p {
+  font-size: 0.85rem;
+}
+
+.modal label:not([for]) {
+  display: grid;
+  gap: 4px;
+  font-size: 0.72rem;
+}
+
+.modal form div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.modal input[type]:not([type="radio"]) {
+  height: 38px;
+  padding: 0 12px;
+  border: 2px solid #9bb7d4;
+  border-radius: 8px;
+  background: var(--branco);
+  font: inherit;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal input:focus-visible {
+  outline: 3px solid var(--azul-primario);
+  outline-offset: 1px;
+}
+
+.modal button {
+  align-self: flex-start;
+  padding: 9px 14px;
+  border: 0;
+  border-radius: var(--radius-botao);
+  background: var(--azul-primario);
+  color: var(--branco);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.modal button:hover {
+  background-color: #1a3a5c;
+}
+
+/* botão X */
+.modal form > label:first-child {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #c9d6e6;
+  color: var(--branco);
+  cursor: pointer;
+}
+
+/* "Já tem conta? / Não tem conta?" */
+.modal form > p:last-child {
+  margin-top: auto;
+  padding-top: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.modal form > p:last-child label {
+  color: var(--laranja);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .modal > div {
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+  }
+
+  .modal aside {
+    display: none;
+  }
+
+  .modal form {
+    padding: 56px 24px 24px;
+    overflow: visible;
+  }
+
+  .modal form div {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal:has(> input:checked) {
+    animation: none;
+  }
+}

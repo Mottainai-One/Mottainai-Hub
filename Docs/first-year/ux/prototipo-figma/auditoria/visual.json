@@ -1,0 +1,1135 @@
+{
+  "pages": [
+    {
+      "name": "home",
+      "width": 1440,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": [
+        "../js/modais.js"
+      ]
+    },
+    {
+      "name": "home",
+      "width": 1024,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": [
+        "../js/modais.js"
+      ]
+    },
+    {
+      "name": "home",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": [
+        "../js/modais.js"
+      ]
+    },
+    {
+      "name": "home",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": [
+        "../js/modais.js"
+      ]
+    },
+    {
+      "name": "sobre-nos",
+      "width": 1440,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "sobre-nos",
+      "width": 1024,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "sobre-nos",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "sobre-nos",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "planos",
+      "width": 1440,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "planos",
+      "width": 1024,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "planos",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "planos",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "faq",
+      "width": 1440,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "faq",
+      "width": 1024,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "faq",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "faq",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": []
+    },
+    {
+      "name": "home-crud-page",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "home-crud-page",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "home-crud-page",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "companies",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "companies",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "companies",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "stores",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "stores",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "stores",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "employees",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "employees",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "employees",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "employee-roles",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "employee-roles",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "employee-roles",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "user-accounts",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "user-accounts",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "user-accounts",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "subscription-plans",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "subscription-plans",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "subscription-plans",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "addresses",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "addresses",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    },
+    {
+      "name": "addresses",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "fonts": [
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "unloaded"
+        }
+      ],
+      "scripts": [
+        "../js/crud.js"
+      ]
+    }
+  ],
+  "interactions": {
+    "loginCadastro": "alternância/fechamento preservados; HTML não autentica",
+    "planos": "toggle nativo por clique/teclado; 0 JS",
+    "faq": "details/summary nativo por clique/teclado; 0 JS",
+    "sobreNos": "carrossel por radios/CSS; 0 JS",
+    "crud": "7 modais de edição e modal mobile conferidos; formulários HTML inertes, sem fake CRUD"
+  },
+  "errors": [],
+  "requests": [],
+  "metrics": {
+    "home-crud-page": {
+      "sidebar": 312,
+      "header": 107.984375,
+      "title": "36px",
+      "row": 73,
+      "background": "rgb(222, 221, 219)"
+    },
+    "companies": {
+      "sidebar": 312,
+      "header": 107.984375,
+      "title": "36px",
+      "row": 73,
+      "background": "rgb(222, 221, 219)"
+    },
+    "stores": {
+      "sidebar": 312,
+      "header": 107.984375,
+      "title": "36px",
+      "row": 73,
+      "background": "rgb(222, 221, 219)"
+    },
+    "employees": {
+      "sidebar": 312,
+      "header": 107.984375,
+      "title": "36px",
+      "row": 73,
+      "background": "rgb(222, 221, 219)"
+    },
+    "employee-roles": {
+      "sidebar": 312,
+      "header": 107.984375,
+      "title": "36px",
+      "row": 73,
+      "background": "rgb(222, 221, 219)"
+    },
+    "user-accounts": {
+      "sidebar": 312,
+      "header": 107.984375,
+      "title": "36px",
+      "row": 73,
+      "background": "rgb(222, 221, 219)"
+    },
+    "subscription-plans": {
+      "sidebar": 312,
+      "header": 107.984375,
+      "title": "36px",
+      "row": 73,
+      "background": "rgb(222, 221, 219)"
+    },
+    "addresses": {
+      "sidebar": 312,
+      "header": 107.984375,
+      "title": "36px",
+      "row": 73,
+      "background": "rgb(222, 221, 219)"
+    },
+    "baseV7": {
+      "sidebar": 220,
+      "header": 72,
+      "title": "22px",
+      "row": 59,
+      "background": "rgba(0, 0, 0, 0)"
+    }
+  },
+  "passed": true
+}
