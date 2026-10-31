@@ -9,6 +9,7 @@ continua responsável pelos dados transacionais descritos no [índice de bancos]
 
 1. [Coleções, campos e índices](01-colecoes-e-indices.md)
 2. [API, integração e operação](02-api-integracao-e-operacao.md)
+3. [Contratos e endpoints da API MongoDB](../../api/mongodb/README.md)
 
 O catálogo reflete o schema versionado no commit `021fdc0` da IA e a API no
 commit `8b3544e`. Ele descreve o contrato versionado, não comprova a configuração
