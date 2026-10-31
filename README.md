@@ -5,7 +5,7 @@ Central de documentação e arquitetura do ecossistema Mottainai.
 ## Documentação principal
 
 - [Bancos de dados](Docs/banco/README.md)
-- [API](Docs/api/sql/sql-api-full-documentation.md)
+- [APIs SQL](Docs/api/sql/sql-api-full-documentation.md) — visão geral e guias Operacional e Cliente
 - [DevOps](Docs/devops/README.md)
 - [UX](Docs/ux/00-indice-e-status-da-rubrica.pdf)
 

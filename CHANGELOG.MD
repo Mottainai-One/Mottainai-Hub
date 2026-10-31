@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-31
+
+- Substituída a documentação unificada da API SQL pela visão da arquitetura dividida entre Operacional e Cliente.
+- Criados guias por serviço, com links para os repositórios de implementação e estado verificado na branch `main`.
+- Registradas as rotas de cliente ainda transitórias no SQL Operacional e a ausência de controllers de negócio na `main` do SQL Cliente.
+
 ## 2026-10-02
 
 - Documentada a separação física entre banco operacional e analítico.
