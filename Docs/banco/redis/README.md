@@ -10,6 +10,7 @@ instância real dependem da implantação.
 
 1. [Estruturas e fluxo de notificações](01-estruturas-e-notificacoes.md)
 2. [API, segurança e operação](02-api-seguranca-e-operacao.md)
+3. [Contratos e endpoints da API Redis](../../api/redis/README.md)
 
 Referências: API no commit `8631908` e IA no commit `021fdc0`. Esta documentação
 descreve código versionado, não comprova configuração em produção. Voltar ao
