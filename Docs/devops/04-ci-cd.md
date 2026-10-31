@@ -1,95 +1,54 @@
-# CI/CD — Pipelines de Integração e Implantação
+# CI/CD — validação e implantação
 
-Parte do requisito **E3 (Pipeline de implantação)**. Este documento explica os **pipelines automatizados** do Mottainai com **GitHub Actions**: a camada de **CI** (validação) e a camada de **CD** (implantação).
+## Modelo
 
-## Conceito
+GitHub Actions valida mudanças em workflows independentes por repositório. Cada projeto mantém checks e gatilhos próprios. **Não substituir, remover ou desabilitar CI existente para fazer uma PR passar.** Corrigir o workflow com falha preservando os demais checks.
 
-- **CI (Integração Contínua)** → a cada push/PR, o código é **validado automaticamente**: compila, roda testes, checa qualidade e segurança. Se falhar, o merge é bloqueado.
-- **CD (Implantação Contínua)** → após a validação, o código é **implantado automaticamente** (dev) ou com **aprovação manual** (prod).
+CI valida código; build valida empacotamento; QA integrada valida serviços juntos; CD implanta. Uma etapa não comprova a seguinte.
 
-## CI — Banco de Dados (`ci.yml`)
+## Workflows observados
 
-Pipeline com **8 jobs** de validação no `Mottainai-Banco-Operacional`:
+Nomes vistos nos clones locais em 31/10/2026; conferir branch principal para estado vigente.
 
-1. **Validação do schema** em PostgreSQL 15 limpo
-2. **Validação do dataLoad** (idempotência, 60 produtos)
-3. **Lint SQL** (tabs, newline, BEGIN/COMMIT) — padrão do projeto
-4. **Varredura de segredos** com **Gitleaks**
-5. **Lint de documentação** (markdownlint)
-6. **Checagem de `.env`** nunca commitado
-7. **Padrão SQL** (sqlfluff, bloquenante)
-8. **Boas práticas SQL** (sqlfluff completo, não bloquenante)
+| Repositório | Workflows | Função |
+|---|---|---|
+| Spring API | ci.yml, qa-container.yml | Build/teste e checks; QA constrói imagem |
+| Banco Operacional | ci.yml | Schema, dataLoad e checks SQL/documentação/segredos |
+| RPA | legacy-to-operational.yml, operational-to-analytics.yml, qa.yml | Sincronizações e teste isolado |
+| IA | ci.yml, qa-container.yml | Checks Python/testes e build de imagem |
+| Frontend | ci.yml, qa-container.yml | Build/test/lint e imagem QA |
+| Mobile | ci.yml, qa-build.yml | Build/teste/lint Android e artefato |
+| Banco Operacional, branch QA | ci.yml | Schema, dataLoad e objetos analíticos adicionados na branch de integração QA |
 
-> Os jobs rodam em **paralelo** no GitHub Actions e **falham o PR** se qualquer checagem não passar — impedindo código ruim de entrar na `main`.
+Jobs e required checks devem ser consultados no PR/workflow atual. A lista varia por repo.
 
-## CD — PR Bot (`cd.yml`)
+## Fluxo de PR
 
-Pipeline de implantação do `mottainai-pr-bot`, com **3 jobs**:
+1. CI roda em push/PR segundo o workflow.
+2. Revisores analisam semântica, segurança, impacto e evidência.
+3. Autor corrige cada falha preservando checks independentes.
+4. Conflitos resolvidos; checks reexecutados no estado atualizado.
+5. Merge depende de checks e aprovações configurados naquele repo.
+6. Deploy ocorre só se houver CD ativo.
 
-### Job 1 — Build e push da imagem
-- Builda a imagem Docker.
-- Publica no **GHCR** (GitHub Container Registry) com **tag por SHA** → facilita **rollback**.
+PRs recentes mostraram necessidade de duas aprovações. Confirmar regras e checks em Settings → Branches/Rulesets; não presumir política global.
 
-```yaml
-jobs:
-  build-push:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: docker/build-push-action@v5
-        with:
-          tags: |
-            ghcr.io/mottainai-one/mottainai-pr-bot:${{ github.sha }}
-            ghcr.io/mottainai-one/mottainai-pr-bot:latest
-          push: true
-```
+## Diagnóstico sem enfraquecer CI
 
-### Job 2 — Deploy DEV (automático)
-- Roda a cada merge na `main`.
-- Aplica `k8s/overlays/dev` com `kubectl apply -k`.
-- Aguarda o **rollout** concluir.
+- Abrir o job falho e localizar a causa nos logs.
+- Reproduzir o check afetado localmente quando aplicável.
+- Corrigir o job/código mantendo workflows e gatilhos.
+- Não apagar CI, renomear required check sem atualizar proteção, esconder erros com continue-on-error ou contornar branch protection.
+- Reexecutar checks e registrar evidência na PR.
 
-```yaml
-  deploy-dev:
-    needs: build-push
-    if: github.event_name == 'push'
-    steps:
-      - run: kubectl apply -k k8s/overlays/dev
-      - run: kubectl rollout status deployment/mottainai-pr-bot -n default
-```
+## QA, CD e secrets
 
-### Job 3 — Deploy PROD (manual + aprovação)
-- Disparado manualmente (`workflow_dispatch`).
-- Exige **aprovação** (environment protection rule).
-- Aplica `k8s/overlays/prod` (3 réplicas, imagem de produção).
+Workflows qa-container.yml constroem imagens; RPA QA roda testes isolados. Isso não significa deploy automático para QA compartilhado. Ver [Docker e QA](01-docker.md).
 
-```yaml
-  deploy-prod:
-    needs: build-push
-    if: github.event_name == 'workflow_dispatch'
-    environment: production
-    steps:
-      - run: kubectl apply -k k8s/overlays/prod
-```
+Não há CD AWS/Kubernetes confirmado nos arquivos examinados. render.yaml do PR Bot é configuração, não evidência de deploy. Documentar CD após confirmar gatilho, identidade, ambiente, aprovação e rollout.
 
-## Fluxo de entrega ponta a ponta
+Usar GitHub Secrets sem imprimir valores em logs, permissões mínimas e segredos QA separados dos de produção. Acompanhar atualizações de actions/dependências por PR.
 
-```
-[Push] → [CI valida banco+bot] → [CD build+push GHCR]
-   → [Deploy DEV automático (K3s dev)]
-   → [Aprovação manual] → [Deploy PROD (K3s prod, 3 réplicas)]
-```
+## Métricas
 
-## Conexão com DevOps
-
-- **Automação** → pipeline rodando sozinho a cada mudança.
-- **Qualidade como porta de entrada** → nada entra na `main` sem passar no CI.
-- **Deploy auditável** → tag por SHA + aprovação manual em prod (governança).
-- **Rollback fácil** → histórico de SHAs das imagens permite voltar qualquer versão.
-- **Integração com K8s** → o CD é quem aplica os manifests vistos em `02-kubernetes.md`.
-
-## Links
-
-- CI do banco: https://github.com/Mottainai-One/Mottainai-Banco-Operacional/blob/main/.github/workflows/ci.yml
-- CD do bot: https://github.com/Mottainai-One/mottainai-pr-bot/blob/main/.github/workflows/cd.yml
-- Orquestração: [`02-kubernetes.md`](02-kubernetes.md)
+Medir duração e sucesso da CI, causas recorrentes, tempo de recuperação, tempo de PR e releases. Criar baseline por projeto e separar falhas de código de falhas de infraestrutura.

@@ -1,0 +1,58 @@
+{
+  "pages": [
+    {
+      "page": "addresses",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "administrations",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "companies",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "employee-roles",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "employees",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "faq",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "home-crud-page",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "home",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "planos",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "sobre-nos",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "stores",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "subscription-plans",
+      "projectionEqualsHtml": true
+    },
+    {
+      "page": "user-accounts",
+      "projectionEqualsHtml": true
+    }
+  ],
+  "postRejected": true,
+  "passed": true
+}

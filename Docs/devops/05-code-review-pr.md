@@ -1,73 +1,46 @@
-# Code Review + PR + PR Bot
+# Code Review, Pull Requests e PR Bot
 
-Parte dos requisitos **M1 (CodeReview + PR + aprovações)** e **E2 (Template de PR)**. Este documento explica como o Mottainai automatiza o ciclo de **revisão de código**, garantindo qualidade e rastreabilidade nos Pull Requests.
+## Propósito
 
-## Por que automatizar Code Review?
+A PR registra objetivo, escopo, validação e riscos. Automação ajuda a resumir e revisar; responsabilidade técnica e aprovação continuam com pessoas autorizadas.
 
-Revisão de código é o primeiro filtro de qualidade. Automatizar o ciclo (criar PR, revisar, aprovar, mesclar) torna o fluxo **consistente, rápido e sem gargalos humanos** — um dos pilares centrais de DevOps.
+## Papel do PR Bot
 
-## O Mottainai PR Bot
+O repositório mottainai-pr-bot documenta um GitHub App que pode criar PRs, analisar diffs via Gemini, sugerir review/descrição e aplicar descrição após label configurado. Isso depende de app, webhook, permissões e configuração ativos.
 
-Um **GitHub App** que automatiza todo o ciclo de PRs da organização, usando **Probot** + IA (**Gemini**).
+O bot não substitui required checks, não resolve todos os conflitos e não garante regras uniformes entre repositórios. Auto-merge só ocorre se estiver habilitado e todas as proteções forem satisfeitas.
 
-### Funcionalidades
+## Branches e escopo
 
-1. **Auto-criação de PR** a cada push em branch não-protegida.
-2. **Review por IA (Gemini)** — gera resumo, pontos de atenção e descrição sugerida.
-3. **Aplicação da descrição** via label `ai:apply-description`.
-4. **Branch protection** com **2 approvals obrigatórios**.
-5. **Auto-merge** (squash) após **CI verde + aprovações**.
-6. **Branches protegidas**: `main, develop, front-end, dados, back-end`.
+Usar branches de tópico curtas: feature/, fix/, docs/ ou chore/. Não usar prefixo codex/ em branches compartilhadas. Uma PR deve tratar mudança coesa e apontar documentação afetada.
 
-## Branch Protection (regra de proteção)
+## Conteúdo mínimo
 
-| Regra | Valor |
+1. Objetivo, contexto e critérios de aceite.
+2. Resumo e componentes afetados.
+3. Validações e evidências.
+4. Impactos em schema, dados, segurança, custo e disponibilidade.
+5. Plano de migração/release/rollback, se necessário.
+6. Limitações e dependências conhecidas.
+
+## Revisão e merge
+
+- Todos os checks obrigatórios passam; CI nova não substitui antigas.
+- Resolver conflitos preservando intenção de main e feature; envolver responsáveis.
+- Obter aprovações/checks configurados no repositório.
+- Review do bot não conta como aprovação humana quando GitHub exige pessoas com write access.
+- Seguir política de merge sem contornar proteção.
+- Após merge, confirmar CI da branch principal e deploy, quando houver.
+
+## Revisão por risco
+
+| Mudança | Questões |
 |---|---|
-| Branches protegidas | `main, develop, front-end, dados, back-end` |
-| Aprovações obrigatórias | **2** |
-| CI obrigatório | Sim — merge bloqueado se o pipeline falhar |
-| Merge | Squash (histórico limpo) |
-| Auto-merge | Acionado pelo bot após aprovações + CI verde |
+| Banco/migration | Compatibilidade, rollback, idempotência, transação, RLS e permissões |
+| RPA/pipeline | Origem/destino, retries, cutoff, privacidade, reconciliação e concorrência |
+| API/web/mobile | Contratos, autenticação, autorização e falhas |
+| Docker/infra | Portas, secrets, recursos, healthchecks, rede e persistência |
+| CI | Preservação de workflows, menor permissão e logs seguros |
+| BI | Fórmula, grão, linhagem, zero/NULL, frescor e revisão visual |
 
-## Template de PR (E2)
-
-Todos os PRs respeitam um **template padronizado**, definido no repositório da organização (`.github`) e também gerado pelo bot:
-
-```markdown
-## O que foi feito
-<!-- resumo gerado por IA -->
-
-## Revisão
-<!-- pontos de atenção -->
-
-## Tipo de mudança
-- [ ] feat / fix / docs / refactor / test / chore
-```
-
-- Template da organização: https://github.com/Mottainai-One/.github/blob/main/pull_request_template.md
-- Geração automática no bot: https://github.com/Mottainai-One/mottainai-pr-bot/blob/main/src/github/prTemplate.ts
-
-## Fluxo do código até a main
-
-```
-[Push em branch] → [Bot cria PR]
-   → [IA faz review + descrição]
-   → [CI roda e valida]
-   → [2 aprovações humanas]
-   → [Auto-merge (squash)]
-   → [CD dispara deploy] (ver 04-ci-cd.md)
-```
-
-## Conexão com DevOps
-
-- **Automação** → PR criado e revisado por IA sem intervenção manual.
-- **Qualidade como porta de entrada** → CI + aprovações bloqueiam merge ruim.
-- **Governança** → branches protegidas e regras definidas por código.
-- **Rastreabilidade** → cada mudança tem PR com contexto gerado automaticamente.
-- **Integração com CI/CD** → o merge aciona a pipeline de deploy (E3).
-
-## Links
-
-- Repositório do bot: https://github.com/Mottainai-One/mottainai-pr-bot
-- Template da organização: https://github.com/Mottainai-One/.github/blob/main/pull_request_template.md
-- Pipeline de entrega: [`04-ci-cd.md`](04-ci-cd.md)
+Nunca colar token, senha, chave privada, .env ou segredo em issue/PR. Segredo exposto deve ser rotacionado. Mudanças de produção/acesso seguem aprovação da equipe.

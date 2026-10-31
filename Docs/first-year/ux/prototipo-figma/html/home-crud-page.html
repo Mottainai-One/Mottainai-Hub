@@ -1,0 +1,321 @@
+
+
+
+
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mottainai - Página inicial</title>
+    <link rel="stylesheet" href="../css/crud.css" />
+<link rel="stylesheet" href="../css/fontes.css">
+<link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../css/crud-ux.css" />
+<link rel="stylesheet" href="../css/crud-layout.css" />
+</head>
+<body data-preview="static" data-pagina="inicio">
+<div class="app">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar">
+        <a href="home-crud-page.html" class="sidebar-logo">
+            <img src="../assets/icons/logo-administrativo.svg" alt="Mottainai" />
+        </a>
+
+        <nav class="sidebar-nav">
+            <a href="home-crud-page.html" class="sidebar-item" data-pagina="inicio">
+                <img class="sidebar-icone" src="../assets/icons/home.svg" alt="" />
+                <span>Página inicial</span>
+            </a>
+            <a href="companies.html" class="sidebar-item" data-pagina="empresas">
+                <img class="sidebar-icone" src="../assets/icons/empresa.svg" alt="" />
+                <span>Empresas</span>
+            </a>
+            <a href="stores.html" class="sidebar-item" data-pagina="lojas">
+                <img class="sidebar-icone" src="../assets/icons/loja.svg" alt="" />
+                <span>Lojas</span>
+            </a>
+            <a href="employees.html" class="sidebar-item" data-pagina="funcionarios">
+                <img class="sidebar-icone" src="../assets/icons/cracha.svg" alt="" />
+                <span>Funcionários</span>
+            </a>
+            <a href="employee-roles.html" class="sidebar-item" data-pagina="cargos">
+                <img class="sidebar-icone" src="../assets/icons/users.svg" alt="" />
+                <span>Cargos</span>
+            </a>
+            <a href="user-accounts.html" class="sidebar-item" data-pagina="contas">
+                <img class="sidebar-icone" src="../assets/icons/user.svg" alt="" />
+                <span>Contas de usuários</span>
+            </a>
+            <a href="subscription-plans.html" class="sidebar-item" data-pagina="planos">
+                <img class="sidebar-icone" src="../assets/icons/grafico.svg" alt="" />
+                <span>Planos de assinatura</span>
+            </a>
+            <a href="addresses.html" class="sidebar-item" data-pagina="enderecos">
+                <img class="sidebar-icone" src="../assets/icons/loja_alt.svg" alt="" />
+                <span>Endereços</span>
+            </a>
+                    <a href="administrations.html" class="sidebar-item" data-pagina="administrations">
+                <img class="sidebar-icone" src="../assets/icons/user.svg" alt="" />
+                <span>Administradores</span>
+            </a>
+        </nav>
+
+        <form id="logout-form" hidden method="dialog"></form>
+        <a href="home.html" class="sidebar-sair">
+            <img class="sidebar-icone" src="../assets/icons/logout.svg" alt="" />
+            <span>Sair</span>
+        </a>
+    </aside>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header">
+        <h1 class="header-titulo">Visão geral administrativa</h1>
+        <div class="perfil-administrativo">
+            <button type="button" class="header-usuario perfil-trigger" aria-expanded="false" aria-controls="perfil-popup">
+                <span class="header-nome">Administrador</span>
+                <span class="header-avatar"><img src="../assets/icons/user.svg" alt="" /></span>
+            </button>
+            <div class="perfil-popup" id="perfil-popup" hidden aria-labelledby="perfil-titulo">
+                <strong class="perfil-titulo" id="perfil-titulo">Minha conta</strong>
+                <p class="perfil-subtitulo">Informações do perfil</p>
+                <div class="perfil-avatar"><img src="../assets/icons/perfil-usuario-figma.svg" alt="" /></div>
+                <p class="perfil-email">admin.preview@example.test</p>
+                <span class="perfil-cargo">Administrador do sistema</span>
+                <form action="home.html" method="get"><button type="submit" class="perfil-sair"><img src="../assets/icons/logout.svg" alt="" />Sair da conta</button></form>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+        <h2 class="pagina-titulo">Visão geral</h2>
+        <p class="pagina-subtitulo">
+            Acompanhe os cadastros e a situação das empresas, lojas e usuários.
+        </p>
+
+        <div class="cards-resumo">
+            <a class="card-resumo" href="companies.html">
+                <span class="card-resumo-label">Empresas ativas</span>
+                <span class="card-resumo-valor">5</span>
+                <span class="card-resumo-hint">
+          6 cadastradas &middot; 1 inativas
+        </span>
+            </a>
+            <a class="card-resumo" href="stores.html">
+                <span class="card-resumo-label">Lojas ativas</span>
+                <span class="card-resumo-valor">5</span>
+                <span class="card-resumo-hint">
+          6 cadastradas &middot; 1 inativas
+        </span>
+            </a>
+            <a class="card-resumo" href="employees.html">
+                <span class="card-resumo-label">Funcionários ativos</span>
+                <span class="card-resumo-valor">5</span>
+                <span class="card-resumo-hint">
+          6 cadastrados &middot; 1 inativos
+        </span>
+            </a>
+            <a class="card-resumo" href="user-accounts.html">
+                <span class="card-resumo-label">Contas de usuários ativas</span>
+                <span class="card-resumo-valor">5</span>
+                <span class="card-resumo-hint">
+          6 cadastradas &middot; 1 inativas
+        </span>
+            </a>
+        </div>
+
+        <div class="tabela-wrap">
+            <div class="tabela-titulo">Cadastros recentes</div>
+            <div class="tabela-subtitulo">Últimos registros adicionados ao sistema</div>
+
+            <table class="tabela">
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Tipo de cadastro</th>
+                    <th>Data</th>
+                    <th>Situação</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                        
+                            <tr>
+                                <td>
+                                    Ana Souza
+                                </td>
+
+                                <td>
+                                    Conta de usuário
+                                </td>
+
+                                <td>
+                                    07/10/2026
+                                </td>
+
+                                <td>
+                                    
+                            <span class="pill pill-ativo">
+                                Ativo
+                            </span>
+                                        
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                    Bruno Lima
+                                </td>
+
+                                <td>
+                                    Cargo
+                                </td>
+
+                                <td>
+                                    07/10/2026
+                                </td>
+
+                                <td>
+                                    
+                            <span class="pill pill-ativo">
+                                Ativo
+                            </span>
+                                        
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                    Carla Santos
+                                </td>
+
+                                <td>
+                                    Conta de usuário
+                                </td>
+
+                                <td>
+                                    07/10/2026
+                                </td>
+
+                                <td>
+                                    
+                            <span class="pill pill-ativo">
+                                Ativo
+                            </span>
+                                        
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                    Diego Rocha
+                                </td>
+
+                                <td>
+                                    Cargo
+                                </td>
+
+                                <td>
+                                    07/10/2026
+                                </td>
+
+                                <td>
+                                    
+                            <span class="pill pill-ativo">
+                                Ativo
+                            </span>
+                                        
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                    Elisa Costa
+                                </td>
+
+                                <td>
+                                    Conta de usuário
+                                </td>
+
+                                <td>
+                                    07/10/2026
+                                </td>
+
+                                <td>
+                                    
+                            <span class="pill pill-ativo">
+                                Ativo
+                            </span>
+                                        
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                    Felipe Alves
+                                </td>
+
+                                <td>
+                                    Cargo
+                                </td>
+
+                                <td>
+                                    07/10/2026
+                                </td>
+
+                                <td>
+                                    
+                            <span class="pill pill-ativo">
+                                Ativo
+                            </span>
+                                        
+                                </td>
+                            </tr>
+                        
+                    
+                </tbody>
+            </table>
+
+            <div class="paginacao">
+                <span class="paginacao-info">6 cadastros recentes · Página 1 de 3</span>
+                <div class="paginacao-controles">
+                    
+                            <button class="paginacao-btn" disabled>Anterior</button>
+                        
+
+                    
+                        
+                                <button class="paginacao-btn ativo">1</button>
+                            
+                    
+                        
+                                
+                            <a href="home-crud-page-pagina-2.html?pagina=2"
+                                   class="paginacao-btn">2</a>
+                            
+                    
+                        
+                                
+                            <a href="home-crud-page-pagina-3.html?pagina=3"
+                                   class="paginacao-btn">3</a>
+                            
+                    
+
+                    
+                            
+                            <a href="home-crud-page-pagina-2.html?pagina=2"
+                               class="paginacao-btn">Próximo</a>
+                        
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="../js/crud.js"></script>
+<script src="../js/crud-ux.js"></script>
+</body>
+</html>

@@ -1,13 +1,62 @@
 # Mottainai Hub
 
-Central de documentação e arquitetura do ecossistema Mottainai.
+Central de documentação e arquitetura do ecossistema Mottainai. O Hub reúne guias de banco, APIs, aplicativos, front-end, DevOps, engenharia de software e UX; os repositórios de cada componente mantêm suas respectivas implementações.
 
-## Documentação principal
+## Como navegar
 
-- [Bancos de dados](Docs/banco/README.md)
-- [APIs SQL](Docs/api/sql/sql-api-full-documentation.md) — visão geral e guias Operacional e Cliente
-- [DevOps](Docs/devops/README.md)
-- [UX](Docs/ux/00-indice-e-status-da-rubrica.pdf)
+| Área | Comece por | Conteúdo |
+|---|---|---|
+| Projeto Mottainai | [Documentação geral](Docs/interdisciplinar/documentacao-geral-mottainai.md) | Finalidade, ecossistema e organização das equipes. |
+| Inteligência artificial | [Documentação da IA](Docs/ia/documentacao-mottainai-ia.md) | Agentes, arquitetura, dados, segurança e integrações. |
+| Bancos de dados | [Docs/banco/README.md](Docs/banco/README.md) | Arquitetura operacional e analítica, modelo de dados e segurança. |
+| Operação dos bancos | [Docs/banco/operacao/README.md](Docs/banco/operacao/README.md) | Instalação, sessões/RLS, backup e procedimentos de limpeza e recarga. |
+| API SQL | [Índice da documentação](Docs/api/sql/sql-api-full-documentation.md) | Arquitetura e guias [Operacional](Docs/api/sql/sql-api-operacional.md) e [Cliente](Docs/api/sql/sql-api-cliente.md). |
+| Mobile Cliente | [Guia funcional e técnico](Docs/mobile/MOBILE-CLIENTE.md) | Escopo, arquitetura e estado das integrações do app cliente. |
+| Mobile Cliente — entrega | [Plano](Docs/mobile/cliente/PLANO-MOBILE-CLIENTE.md), [demandas de API](Docs/mobile/cliente/DEMANDAS-API-CLIENTE.md) e [testes](Docs/mobile/cliente/TESTES-ENTREGA-CLIENTE.md) | Contratos, dependências e roteiro de validação. |
+| Mobile Operacional | [Guia funcional e técnico](Docs/mobile/MOTTAINAI-OPERACIONAL-FUNCIONAL-E-TECNICO.md) | Fluxos de produtos, estoque, avarias, alertas e integrações. |
+| Front-end React | [Índice da documentação](Docs/dad/react/README.md) | Arquitetura, rotas, dados de demonstração, acessibilidade e qualidade. |
+| DevOps | [Docs/devops/README.md](Docs/devops/README.md) | Containers, infraestrutura, CI/CD, revisão e automação. |
+| Engenharia de software | [Docs/eqs](Docs/eqs) | Material da disciplina, incluindo documento em PDF. |
+| UX | [Índice de UX](Docs/ux/00-indice-e-status-da-rubrica.pdf) | Pesquisa, protótipos, testes e materiais de design. |
 
-O guia de banco descreve os PostgreSQL operacional e analítico, instalação,
-modelagem, segurança, integração, backup e contrato de uso pela API.
+## Papel no ecossistema
+
+```text
+Aplicativos e serviços → repositórios de implementação
+                              │
+                              └── contratos, estrutura e comportamento reais
+
+Mottainai Hub → guias de arquitetura, operação, produto e referências
+```
+
+O banco operacional concentra dados transacionais, enquanto o analítico apoia históricos e indicadores, conforme a [visão de bancos](Docs/banco/README.md). A [documentação de tracking](Docs/banco/tracking) descreve aspectos específicos das duas fontes. O SQL executável e as migrations devem ser consultados no repositório responsável pelo banco.
+
+## Estrutura
+
+```text
+.
+├── Docs/
+│   ├── api/sql/                 # documentação da API SQL
+│   ├── banco/                   # modelos, segurança, operação e tracking
+│   ├── dad/react/               # documentação do front-end React
+│   ├── devops/                  # infraestrutura e entrega
+│   ├── eqs/                     # engenharia de software
+│   ├── ia/                      # inteligência artificial e integrações
+│   ├── interdisciplinar/        # visão geral e organização do projeto
+│   ├── mobile/                  # apps e documentação do cliente
+│   └── ux/                      # materiais de pesquisa e design em PDF
+├── CHANGELOG.MD
+└── README.md
+```
+
+O diretório de documentação técnica reúne materiais adicionais. Consulte o conteúdo versionado em cada pasta para conhecer seu escopo.
+
+## Como interpretar as informações
+
+Alguns documentos descrevem branches, checkouts locais ou decisões de datas específicas. Uma tela documentada não comprova que uma integração tenha sido publicada ou homologada. Para confirmar comportamento, versões e contratos, confira a branch da aplicação ou serviço utilizado e seus arquivos de configuração e código.
+
+O Hub não requer instalação ou build para a leitura: abra os arquivos Markdown no GitHub ou em um editor e os PDFs em um leitor compatível. O histórico de alterações documentais está no [changelog](CHANGELOG.MD).
+
+## Contribuição
+
+Atualize o guia da área afetada, indique a data e a versão ou branch analisada e diferencie o que está planejado, implementado e validado. Confira os links relativos e mantenha exemplos livres de credenciais e dados pessoais reais.

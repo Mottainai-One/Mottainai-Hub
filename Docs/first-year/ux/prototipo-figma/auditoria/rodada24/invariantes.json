@@ -1,0 +1,29 @@
+{
+  "svg": [
+    {
+      "arquivo": "prototipo-figma\\prototipo-figma\\assets\\img\\mottainai-logo-completo.svg",
+      "barrasMovidas": 2,
+      "outrosElementosIntactos": true
+    },
+    {
+      "arquivo": "prototipo-figma\\prototipo-figma\\assets\\img\\mottainai-wordmark-rodape.svg",
+      "barrasMovidas": 2,
+      "outrosElementosIntactos": true
+    },
+    {
+      "arquivo": "src\\main\\resources\\static\\assets\\img\\mottainai-logo-completo.svg",
+      "barrasMovidas": 2,
+      "outrosElementosIntactos": true
+    },
+    {
+      "arquivo": "src\\main\\resources\\static\\assets\\img\\mottainai-wordmark-rodape.svg",
+      "barrasMovidas": 2,
+      "outrosElementosIntactos": true
+    }
+  ],
+  "contratosJspPreservados": [
+    "prototipo-figma\\prototipo-figma\\jsp\\planos.jsp",
+    "src\\main\\webapp\\WEB-INF\\jsp\\companies.jsp",
+    "src\\main\\webapp\\WEB-INF\\jsp\\planos.jsp"
+  ]
+}

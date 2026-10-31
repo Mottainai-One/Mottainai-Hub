@@ -10,7 +10,7 @@ PLANO ──< EMPRESA ──< LOJA ──< FUNCIONÁRIO ── 1:1 ── USUÁR
                      │          │         └── USUÁRIO ── PODE SER ── GERENTE/ESTOQUISTA/OPERADOR
                      │          └── TEM ── LOJA
                      │
-                     ├──< LOJA ──< ENDEREÇO  (e fornecedor/cliente também possuem endereço)
+                     ├──< LOJA ──< ENDEREÇO  (fornecedor também possui endereço)
                      └──< LOJA ──< INVENTÁRIO (por lote)
 
 CATEGORIA ──< PRODUTO >── PERFIL FISCAL
@@ -53,7 +53,7 @@ AUDITORIA · LOGS · EVENTOS · JOBS · HISTÓRICOS · KPI  (camada transversal)
 | **Usuário** | Credencial de acesso de um funcionário (login/senha) |
 | **Sessão de Funcionário** | Login por dispositivo com refresh token rotativo, expiração e revogação |
 | **Papel (Cargo)** | Perfil com nível de permissão (Operador de caixa, Estoquista, Gerente, Dono) |
-| **Endereço** | Localização reutilizada por loja, fornecedor, cliente e empresa |
+| **Endereço** | Localização reutilizada por loja, fornecedor e empresa; cliente usa token não reversível |
 
 ### 2. Catálogo & Fornecedores
 
