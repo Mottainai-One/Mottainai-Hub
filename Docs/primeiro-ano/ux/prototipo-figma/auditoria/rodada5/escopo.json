@@ -1,0 +1,10 @@
+{
+  "changed": [
+    "css/home.css",
+    "css/planos.css",
+    "css/publico.css",
+    "css/sobre-nos.css"
+  ],
+  "allJspHtmlAndJsUnchanged": true,
+  "newAsset": "assets/img/planos-ondinhas-contato.png"
+}

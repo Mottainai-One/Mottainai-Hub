@@ -1,0 +1,207 @@
+{
+  "passed": true,
+  "baselineChecked": 279,
+  "unchanged": 255,
+  "changed": [
+    "src/main/java/com/mottainai/crudinicial/controller/AdministrationController.java",
+    "src/main/java/com/mottainai/crudinicial/controller/AdministrationViewController.java",
+    "src/main/java/com/mottainai/crudinicial/dao/AdministrationDao.java",
+    "src/main/java/com/mottainai/crudinicial/dto/AdministrationRequestDTO.java",
+    "src/main/java/com/mottainai/crudinicial/service/AdministrationService.java",
+    "prototipo-figma/jsp/addresses.jsp",
+    "prototipo-figma/jsp/companies.jsp",
+    "prototipo-figma/jsp/employee-roles.jsp",
+    "prototipo-figma/jsp/employees.jsp",
+    "prototipo-figma/jsp/home-crud-page.jsp",
+    "prototipo-figma/jsp/home.jsp",
+    "prototipo-figma/jsp/stores.jsp",
+    "prototipo-figma/jsp/subscription-plans.jsp",
+    "prototipo-figma/jsp/user-accounts.jsp",
+    "prototipo-figma/html/addresses.html",
+    "prototipo-figma/html/companies.html",
+    "prototipo-figma/html/employee-roles.html",
+    "prototipo-figma/html/employees.html",
+    "prototipo-figma/html/home-crud-page.html",
+    "prototipo-figma/html/home.html",
+    "prototipo-figma/html/stores.html",
+    "prototipo-figma/html/subscription-plans.html",
+    "prototipo-figma/html/user-accounts.html",
+    "prototipo-figma/css/home.css"
+  ],
+  "newActive": [
+    "src/main/resources/static/assets/css/crud-ux.css",
+    "src/main/resources/static/assets/js/crud-ux.js",
+    "src/main/webapp/WEB-INF/jsp/administrations.jsp",
+    "src/test/java/com/mottainai/crudinicial/controller/AdministrationManagementTest.java",
+    "src/test/java/com/mottainai/crudinicial/service/AdministrationServiceTest.java"
+  ],
+  "contracts": {
+    "home": {
+      "el": true,
+      "jstl": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true,
+      "ids": true
+    },
+    "home-crud-page": {
+      "el": true,
+      "jstl": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true,
+      "ids": true
+    },
+    "companies": {
+      "el": true,
+      "jstl": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true,
+      "ids": true
+    },
+    "stores": {
+      "el": true,
+      "jstl": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true,
+      "ids": true
+    },
+    "employees": {
+      "el": true,
+      "jstl": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true,
+      "ids": true
+    },
+    "employee-roles": {
+      "el": true,
+      "jstl": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true,
+      "ids": true
+    },
+    "user-accounts": {
+      "el": true,
+      "jstl": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true,
+      "ids": true
+    },
+    "subscription-plans": {
+      "el": true,
+      "jstl": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true,
+      "ids": true
+    },
+    "addresses": {
+      "el": true,
+      "jstl": true,
+      "names": true,
+      "actions": true,
+      "methods": true,
+      "hidden": true,
+      "ids": true
+    }
+  },
+  "equivalence": [
+    {
+      "page": "addresses",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "administrations",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "companies",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "employee-roles",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "employees",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "faq",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "home-crud-page",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "home",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "planos",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "sobre-nos",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "stores",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "subscription-plans",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    },
+    {
+      "page": "user-accounts",
+      "html": true,
+      "jsp": true,
+      "equivalentProjection": true
+    }
+  ],
+  "otherBackendsUnchanged": true,
+  "existingActiveFrontendUnchanged": true,
+  "noDeletion": true,
+  "prototypeOnlyExceptAdministration": true,
+  "fullActiveBaselineChecked": 275,
+  "ideMetadataChanges": []
+}

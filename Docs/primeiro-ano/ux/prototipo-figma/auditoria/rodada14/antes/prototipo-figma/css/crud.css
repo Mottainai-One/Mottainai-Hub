@@ -1,0 +1,1106 @@
+/* MOTTAINAI — CSS ADMINISTRATIVO INTEGRADO
+   Origem: Style(1).css fornecido + ajustes visuais do CRUD.
+   Aplicação: somente body[data-pagina]. Não modifica a home.jsp institucional.
+   Use ESTE arquivo no lugar do Style(1).css administrativo e NÃO carregue
+   também o complemento style_CRUD_V35_FINAL.css, para evitar duplicidade.
+*/
+
+/* ===== BASE ORIGINAL, RESTRITA AO PAINEL ===== */
+
+/* ==========================================================================
+   1. VARIÁVEIS
+   ========================================================================== */
+body[data-pagina] {
+  /* Cores principais, reaproveitadas do site institucional */
+  --azul-primario: #102a43;
+  --azul-escuro: #0b1f3a;
+  --azul-item-ativo: #1b3a63;
+  --laranja-titulo: #dd7b2d;
+  --creme: #f8f5f0;
+  --branco: #ffffff;
+
+  /* Texto */
+  --texto-escuro: #181818;
+  --texto-corpo: #424842;
+  --texto-muted: #6b7280;
+
+  /* Bordas e fundos */
+  --borda-card: #e2e3df;
+  --borda-suave: #ececec;
+  --fundo-pagina: #ececec;
+  --fundo-input: #f1f2f4;
+  --fundo-sidebar: #0b1f3a;
+  --fundo-header: #0b1f3a;
+
+  /* Status */
+  --verde-ativo-bg: #d6f0dd;
+  --verde-ativo-texto: #1f7a3f;
+  --laranja-inativo-bg: #f8d9c0;
+  --laranja-inativo-texto: #8a4a12;
+
+  /* Vermelho destrutivo */
+  --vermelho: #d92d20;
+  --vermelho-hover: #b42318;
+  --vermelho-borda: #f0c2be;
+
+  /* Tipografia e formas */
+  --fonte: "DM Sans", sans-serif;
+  --radius-botao: 4px;
+  --radius-input: 6px;
+  --radius-card: 12px;
+  --radius-modal: 14px;
+  --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* Dimensões do layout */
+  --sidebar-largura: 220px;
+  --header-altura: 72px;
+}
+
+
+/* ==========================================================================
+   2. RESET BÁSICO
+   ========================================================================== */
+body[data-pagina] * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body[data-pagina] {
+  font-family: var(--fonte);
+  background-color: var(--fundo-pagina);
+  color: var(--texto-escuro);
+  line-height: 1.5;
+}
+
+
+body[data-pagina] img {
+  max-width: 100%;
+  display: block;
+}
+
+
+body[data-pagina] a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+body[data-pagina] ul {
+  list-style: none;
+}
+
+
+body[data-pagina] button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+
+body[data-pagina] input,
+body[data-pagina] select {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+
+/* ==========================================================================
+   3. LAYOUT PRINCIPAL
+   ========================================================================== */
+body[data-pagina] .app {
+  display: grid;
+  grid-template-columns: var(--sidebar-largura) 1fr;
+  grid-template-rows: var(--header-altura) 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  min-height: 100vh;
+}
+
+
+/* ==========================================================================
+   4. SIDEBAR
+   ========================================================================== */
+body[data-pagina] .sidebar {
+  grid-area: sidebar;
+  background-color: var(--fundo-sidebar);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 12px;
+}
+
+
+body[data-pagina] .sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px 22px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+
+body[data-pagina] .sidebar-logo img {
+width: 200px;
+}
+
+
+body[data-pagina] .sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  flex: 1;
+  margin-block: auto;
+  gap: 20px;
+
+}
+
+
+body[data-pagina] .sidebar-item,
+body[data-pagina] .sidebar-sair {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-input);
+  color: #cfd6e0;
+  font-size: 14px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+
+body[data-pagina] .sidebar-item:hover,
+body[data-pagina] .sidebar-sair:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+
+body[data-pagina] .sidebar-item.ativo {
+  background-color: var(--azul-item-ativo);
+  color: #fff;
+}
+
+
+body[data-pagina] .sidebar-icone {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  /* Como o ícone é <img>, não herda a cor do texto.
+     Se quiser deixar os ícones claros mesmo inativos, use o filtro abaixo.
+     Se você baixar os SVGs já na cor certa, pode remover o filtro. */
+  filter: brightness(0) invert(0.85);
+}
+
+
+body[data-pagina] .sidebar-item.ativo .sidebar-icone {
+  filter: brightness(0) invert(1);
+}
+
+
+body[data-pagina] .sidebar-sair {
+  margin-top: auto;
+}
+
+
+/* ==========================================================================
+   5. HEADER
+   ========================================================================== */
+body[data-pagina] .header {
+  grid-area: header;
+  background-color: var(--fundo-header);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  border-bottom: 1px solid #081729;
+}
+
+
+body[data-pagina] .header-titulo {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+
+body[data-pagina] .header-usuario {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+
+body[data-pagina] .header-nome {
+  color: #fff;
+}
+
+
+body[data-pagina] .header-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #8a8f98;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+
+body[data-pagina] .header-avatar img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+
+/* ==========================================================================
+   6. ÁREA PRINCIPAL E PÁGINAS
+   ========================================================================== */
+body[data-pagina] .main {
+  grid-area: main;
+  padding: 24px 28px 40px;
+  overflow-y: auto;
+}
+
+
+body[data-pagina] .pagina-titulo {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--azul-escuro);
+  margin-bottom: 6px;
+}
+
+
+body[data-pagina] .pagina-subtitulo {
+  font-size: 13px;
+  color: var(--texto-muted);
+  margin-bottom: 22px;
+}
+
+
+/* ==========================================================================
+   7. CARDS DE RESUMO (PÁGINA INICIAL)
+   ========================================================================== */
+body[data-pagina] .cards-resumo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+
+body[data-pagina] .card-resumo {
+  background-color: var(--branco);
+  border-radius: var(--radius-card);
+  padding: 16px 18px;
+  border: 1px solid var(--borda-suave);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+
+body[data-pagina] .card-resumo-label {
+  font-size: 13px;
+  color: var(--texto-muted);
+  margin-bottom: 4px;
+}
+
+
+body[data-pagina] .card-resumo-valor {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--texto-escuro);
+}
+
+
+body[data-pagina] .card-resumo-hint {
+  font-size: 12px;
+  color: var(--texto-muted);
+}
+
+
+/* ==========================================================================
+   8. TOOLBAR (BUSCA + FILTRO + BOTÃO)
+   ========================================================================== */
+body[data-pagina] .toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+
+body[data-pagina] .busca {
+  position: relative;
+  flex: 1;
+  max-width: 420px;
+}
+
+
+body[data-pagina] .busca input {
+  width: 100%;
+  height: 42px;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--borda-card);
+  background-color: var(--fundo-input);
+  padding: 0 14px 0 38px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+
+body[data-pagina] .busca input:focus {
+  border-color: var(--azul-primario);
+}
+
+
+body[data-pagina] .busca-icone {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+
+body[data-pagina] .filtro {
+  height: 42px;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--borda-card);
+  background-color: var(--fundo-input);
+  padding: 0 14px;
+  min-width: 180px;
+  outline: none;
+  cursor: pointer;
+}
+
+
+body[data-pagina] .filtro:focus {
+  border-color: var(--azul-primario);
+}
+
+
+/* Empurra o botão de cadastro para a direita da toolbar */
+body[data-pagina] .toolbar .btn-primario {
+  margin-left: auto;
+}
+
+
+/* ==========================================================================
+   9. BOTÕES
+   ========================================================================== */
+body[data-pagina] .btn {
+  height: 42px;
+  border-radius: var(--radius-botao);
+  padding: 0 18px;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+
+body[data-pagina] .btn-primario {
+  background-color: var(--azul-primario);
+  color: var(--creme);
+}
+
+
+body[data-pagina] .btn-primario:hover {
+  background-color: #1a3a5c;
+}
+
+
+body[data-pagina] .btn-secundario {
+  background-color: #fff;
+  color: var(--texto-escuro);
+  border: 1px solid var(--borda-card);
+}
+
+
+body[data-pagina] .btn-secundario:hover {
+  background-color: rgba(24, 24, 24, 0.04);
+}
+
+
+body[data-pagina] .btn-perigo {
+  background-color: var(--vermelho);
+  color: #fff;
+}
+
+
+body[data-pagina] .btn-perigo:hover {
+  background-color: var(--vermelho-hover);
+}
+
+
+/* ==========================================================================
+   10. TABELAS
+   ========================================================================== */
+body[data-pagina] .tabela-wrap {
+  background-color: var(--branco);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--borda-suave);
+  overflow: hidden;
+}
+
+
+body[data-pagina] .tabela-titulo {
+  padding: 16px 20px 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texto-escuro);
+}
+
+
+body[data-pagina] .tabela-subtitulo {
+  padding: 0 20px 14px;
+  font-size: 12px;
+  color: var(--texto-muted);
+}
+
+
+body[data-pagina] .tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+
+body[data-pagina] .tabela thead th {
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--texto-escuro);
+  border-bottom: 1px solid var(--borda-suave);
+  white-space: nowrap;
+}
+
+
+body[data-pagina] .tabela tbody td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #f0f1f3;
+  color: var(--texto-escuro);
+  vertical-align: middle;
+}
+
+
+body[data-pagina] .tabela tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* Coluna de ações com botões alinhados */
+body[data-pagina] .col-acoes {
+  display: flex;
+  gap: 6px;
+}
+
+
+/* Estado vazio da tabela (usado quando o filtro/busca não retorna nada) */
+body[data-pagina] .tabela-vazia {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--texto-muted);
+  display: none;
+}
+
+
+body[data-pagina] .tabela-vazia.ativo {
+  display: block;
+}
+
+
+/* ==========================================================================
+   11. PILLS DE SITUAÇÃO
+   ========================================================================== */
+body[data-pagina] .pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+
+body[data-pagina] .pill-ativo {
+  background-color: var(--verde-ativo-bg);
+  color: var(--verde-ativo-texto);
+}
+
+
+body[data-pagina] .pill-inativo {
+  background-color: var(--laranja-inativo-bg);
+  color: var(--laranja-inativo-texto);
+}
+
+
+/* ==========================================================================
+   12. BOTÕES DE ÍCONE (AÇÕES DA TABELA)
+   ========================================================================== */
+body[data-pagina] .icone-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-botao);
+  border: 1px solid var(--borda-card);
+  display: inline-grid;
+  place-items: center;
+  background-color: #fff;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+
+body[data-pagina] .icone-btn:hover {
+  background-color: #f5f6f8;
+}
+
+
+body[data-pagina] .icone-btn img {
+  width: 14px;
+  height: 14px;
+}
+
+
+body[data-pagina] .icone-btn-perigo {
+  border-color: var(--vermelho-borda);
+}
+
+
+body[data-pagina] .icone-btn-perigo:hover {
+  background-color: #fdf2f1;
+}
+
+
+/* ==========================================================================
+   13. PAGINAÇÃO
+   ========================================================================== */
+body[data-pagina] .paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-top: 1px solid var(--borda-suave);
+  font-size: 12px;
+  color: var(--texto-muted);
+}
+
+
+body[data-pagina] .paginacao-info {
+  color: var(--texto-muted);
+}
+
+
+body[data-pagina] .paginacao-controles {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+
+body[data-pagina] .paginacao-btn {
+  min-width: 30px;
+  height: 30px;
+  border-radius: var(--radius-botao);
+  border: 1px solid var(--borda-card);
+  background-color: #fff;
+  padding: 0 8px;
+  font-size: 12px;
+  color: var(--texto-escuro);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+
+body[data-pagina] .paginacao-btn:hover:not(:disabled) {
+  background-color: #f5f6f8;
+}
+
+
+body[data-pagina] .paginacao-btn.ativo {
+  background-color: var(--azul-primario);
+  color: #fff;
+  border-color: var(--azul-primario);
+}
+
+
+body[data-pagina] .paginacao-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ==========================================================================
+   14. MODAIS
+   ========================================================================== */
+body[data-pagina] .modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+
+body[data-pagina] .modal-overlay.aberto {
+  display: flex;
+  animation: fadeIn 0.15s ease;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+body[data-pagina] .modal {
+  background-color: #fff;
+  border-radius: var(--radius-modal);
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px 28px;
+  animation: slideUp 0.2s ease;
+}
+
+
+@keyframes slideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+body[data-pagina] .modal-pequeno {
+  max-width: 440px;
+}
+
+
+body[data-pagina] .modal-cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+
+body[data-pagina] .modal-titulo {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--texto-escuro);
+}
+
+
+body[data-pagina] .modal-fechar {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-input);
+  font-size: 18px;
+  color: var(--texto-muted);
+  transition: background-color 0.15s ease;
+}
+
+
+body[data-pagina] .modal-fechar:hover {
+  background-color: #f2f3f5;
+}
+
+
+body[data-pagina] .modal-subtitulo {
+  font-size: 12px;
+  color: var(--texto-muted);
+  margin-bottom: 20px;
+}
+
+
+body[data-pagina] .modal-corpo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 22px;
+}
+
+
+body[data-pagina] .modal-rodape {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+
+/* ==========================================================================
+   15. CAMPOS DE FORMULÁRIO
+   ========================================================================== */
+body[data-pagina] .campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+body[data-pagina] .campo-completo {
+  grid-column: 1 / -1;
+}
+
+
+body[data-pagina] .campo label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--texto-escuro);
+}
+
+
+body[data-pagina] .campo label .obrigatorio {
+  color: var(--vermelho);
+}
+
+
+body[data-pagina] .campo input,
+body[data-pagina] .campo select {
+  height: 40px;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--borda-card);
+  background-color: var(--fundo-input);
+  padding: 0 12px;
+  outline: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+
+body[data-pagina] .campo input:focus,
+body[data-pagina] .campo select:focus {
+  border-color: var(--azul-primario);
+}
+
+
+/* Estado de erro aplicado pelo app.js após validação */
+body[data-pagina] .campo.com-erro input,
+body[data-pagina] .campo.com-erro select {
+  border-color: var(--vermelho);
+  background-color: #fdf2f1;
+}
+
+
+body[data-pagina] .campo-erro {
+  font-size: 11px;
+  color: var(--vermelho);
+  min-height: 14px;
+}
+
+
+/* ==========================================================================
+   16. DETALHES (MODO LEITURA)
+   ========================================================================== */
+body[data-pagina] .detalhes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 22px;
+}
+
+
+body[data-pagina] .detalhe-label {
+  font-size: 12px;
+  color: var(--texto-muted);
+  margin-bottom: 4px;
+}
+
+
+body[data-pagina] .detalhe-valor {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texto-escuro);
+  word-break: break-word;
+}
+
+
+/* ==========================================================================
+   17. CONFIRMAÇÃO DE EXCLUSÃO
+   ========================================================================== */
+body[data-pagina] .confirmacao-titulo {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--texto-escuro);
+}
+
+
+body[data-pagina] .confirmacao-texto {
+  font-size: 13px;
+  color: var(--texto-muted);
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   18. RESPONSIVO
+   ========================================================================== */
+@media (max-width: 1024px) {
+
+  body[data-pagina] .cards-resumo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  body[data-pagina] .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main";
+  }
+
+
+  body[data-pagina] .sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px;
+    gap: 8px;
+  }
+
+
+  body[data-pagina] .sidebar-logo,
+body[data-pagina] .sidebar-sair {
+    display: none;
+  }
+
+
+  body[data-pagina] .sidebar-nav {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+
+  body[data-pagina] .sidebar-item {
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+
+  body[data-pagina] .main {
+    padding: 18px;
+  }
+
+
+  body[data-pagina] .toolbar {
+    flex-wrap: wrap;
+  }
+
+
+  body[data-pagina] .toolbar .btn-primario {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+
+  body[data-pagina] .busca {
+    max-width: 100%;
+  }
+
+
+  body[data-pagina] .tabela-wrap {
+    overflow-x: auto;
+  }
+
+
+  body[data-pagina] .modal-corpo,
+body[data-pagina] .detalhes-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  body[data-pagina] .cards-resumo {
+    grid-template-columns: 1fr;
+  }
+
+
+  body[data-pagina] .header {
+    padding: 0 16px;
+  }
+
+
+  body[data-pagina] .header-titulo {
+    font-size: 14px;
+  }
+
+
+  body[data-pagina] .modal {
+    padding: 18px;
+  }
+
+
+  body[data-pagina] .pagina-titulo {
+    font-size: 18px;
+  }
+
+}
+
+
+
+/* REgras adicionadas pela Giovanna*/
+
+/*     1º - deixar no sidebar a pagina selecionada */
+body[data-pagina] body[data-pagina="inicio"] .sidebar-item[data-pagina="inicio"],
+body[data-pagina] body[data-pagina="empresas"] .sidebar-item[data-pagina="empresas"],
+body[data-pagina] body[data-pagina="lojas"] .sidebar-item[data-pagina="lojas"],
+body[data-pagina] body[data-pagina="funcionarios"] .sidebar-item[data-pagina="funcionarios"],
+body[data-pagina] body[data-pagina="cargos"] .sidebar-item[data-pagina="cargos"],
+body[data-pagina] body[data-pagina="contas"] .sidebar-item[data-pagina="contas"],
+body[data-pagina] body[data-pagina="planos"] .sidebar-item[data-pagina="planos"],
+body[data-pagina] body[data-pagina="enderecos"] .sidebar-item[data-pagina="enderecos"] {
+  background-color: var(--azul-item-ativo); /* cor de destaque */
+  color: var(--branco);
+}
+
+
+/* 2º mudei coisas em sidebar-nav para melhorar a disposição e alinhamento */
+
+
+/* 3°º - Faze o botão "Sair" fica vermelho no hover */
+body[data-pagina] .sidebar-sair:hover,
+body[data-pagina] .sidebar-sair:hover span {
+  color: var(--vermelho);
+}
+
+body[data-pagina] .sidebar-sair:hover .sidebar-icone { 
+  filter: brightness(0) saturate(100%) invert(27%) sepia(96%) saturate(2695%) hue-rotate(349deg) brightness(91%) contrast(89%);
+}
+ /* esse aq eu pedi pra i.a fazer pq nao é simplesmente por a cor */
+/* ===== REFINAMENTO VISUAL FIGMA ===== */
+/* MOTTAINAI — CRUD administrativo V35 | referência visual Figma (capturas 26/10/2026)
+   Escopo: páginas com body[data-pagina]. Não altera a home.jsp institucional.
+   Este bloco já está integrado ao crud.css carregado pelos JSPs. */
+body[data-pagina] {
+  --crud-navy:#0b2236; --crud-navy-2:#153650; --crud-page:#e3e2e0;
+  --crud-ink:#183626; --crud-muted:#69756e; --crud-line:#e5e7e5;
+  --crud-white:#fff; --crud-red:#cc3333; --crud-green-bg:#e1eed8;
+  --crud-orange-bg:#ffe5d6;
+  background:var(--crud-page); color:var(--crud-ink);
+  font-family:Inter,Arial,Helvetica,sans-serif; font-size:13px;
+}
+body[data-pagina] *,body[data-pagina] *::before,body[data-pagina] *::after{box-sizing:border-box}
+body[data-pagina] :is(.sidebar,.barra-lateral,.menu-lateral,aside.sidebar){background:var(--crud-navy);color:#f6f8f8}
+body[data-pagina] :is(.topbar,.top-bar,.cabecalho,.header-admin,.barra-superior){background:var(--crud-navy);color:#f6f8f8}
+body[data-pagina] .sidebar-logo img{width:min(100%,225px);height:auto;max-height:54px;object-fit:contain;object-position:left center}
+body[data-pagina] :is(.sidebar,.barra-lateral,.menu-lateral) a{color:#e8eef2;text-decoration:none;border-radius:12px;transition:background .15s,color .15s}
+body[data-pagina] :is(.sidebar,.barra-lateral,.menu-lateral) a:hover{background:#173d59;color:#fff}
+body[data-pagina] :is(.sidebar,.barra-lateral,.menu-lateral) a:is(.ativo,.active,[aria-current="page"]){background:var(--crud-navy-2);color:#fff}
+body[data-pagina] :is(main,.conteudo-principal,.main-content,.area-conteudo){min-width:0}
+body[data-pagina] :is(h1,h2,h3){color:var(--crud-ink);line-height:1.3}
+body[data-pagina] h1{font-size:25px;font-weight:600}
+body[data-pagina] h2{font-size:20px;font-weight:600}
+body[data-pagina] h3{font-size:15px;font-weight:700}
+body[data-pagina] :is(.subtitulo,.descricao-pagina,.texto-secundario){color:var(--crud-muted)}
+body[data-pagina] :is(.card,.cartao,.card-resumo,.stat-card,.metric-card,.tabela-container,.tabela-card,.painel-tabela){background:#fff;border-radius:12px;border:0;box-shadow:none}
+body[data-pagina] :is(.cards-resumo,.resumo-cards,.grid-cards){display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+body[data-pagina] :is(.card-resumo,.stat-card,.metric-card){padding:18px;min-height:108px}
+body[data-pagina] :is(.card-resumo,.stat-card,.metric-card) strong{display:block;font-size:27px;line-height:1.2;color:var(--crud-ink)}
+body[data-pagina] :is(.barra-filtros,.toolbar,.filtros,.acoes-tabela){display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0 18px}
+body[data-pagina] :is(input,select,textarea){max-width:100%;border:1px solid #e0e4e2;border-radius:6px;background:#f8f9f8;color:var(--crud-ink);font:inherit;min-height:38px;padding:9px 12px;outline:none}
+body[data-pagina] :is(input,select,textarea):focus{border-color:#567b93;box-shadow:0 0 0 2px #244d6c20}
+body[data-pagina] :is(input,textarea)::placeholder{color:#89918d}
+body[data-pagina] :is(.barra-filtros,.toolbar,.filtros) input[type="search"]{min-width:230px;flex:1 1 260px;background:#d8d9d8}
+body[data-pagina] :is(.barra-filtros,.toolbar,.filtros) select{background:#d8d9d8;min-width:150px}
+body[data-pagina] :is(button,.btn,.botao){font:inherit;cursor:pointer;transition:filter .15s,background .15s}
+body[data-pagina] :is(.btn-primario,.botao-primario,.btn-primary,.btn-cadastrar,.botao-cadastrar){background:var(--crud-navy-2);color:white;border:1px solid var(--crud-navy-2);border-radius:6px;padding:10px 15px;font-weight:600}
+body[data-pagina] :is(.btn-primario,.botao-primario,.btn-primary,.btn-cadastrar,.botao-cadastrar):hover{filter:brightness(1.14)}
+body[data-pagina] :is(.btn-secundario,.botao-secundario,.btn-secondary,.btn-cancelar){background:#fff;color:var(--crud-ink);border:1px solid var(--crud-line);border-radius:6px;padding:9px 15px}
+body[data-pagina] :is(.btn-excluir,.botao-excluir,.btn-danger){background:var(--crud-red);border:1px solid var(--crud-red);color:#fff;border-radius:6px;padding:9px 15px}
+body[data-pagina] :is(.tabela-container,.tabela-card,.painel-tabela){overflow-x:auto}
+body[data-pagina] table{width:100%;border-collapse:collapse;background:#fff;color:var(--crud-ink);font-size:12px}
+body[data-pagina] thead{background:#f5f5f4}
+body[data-pagina] th{font-size:11px;font-weight:700;text-align:left;padding:14px 13px;white-space:nowrap}
+body[data-pagina] td{padding:13px;vertical-align:middle;border-top:1px solid var(--crud-line)}
+body[data-pagina] tbody tr:hover{background:#fafbfa}
+body[data-pagina] .col-acoes{display:table-cell;white-space:nowrap;text-align:center}
+body[data-pagina] .col-acoes :is(button,a){display:inline-grid;place-items:center;vertical-align:middle;margin:0 2px;min-width:26px;min-height:26px;padding:3px;border:1px solid #dce0dc;border-radius:5px;background:white;color:var(--crud-ink);text-decoration:none}
+body[data-pagina] .col-acoes :is(.excluir,.btn-excluir,.acao-excluir){color:var(--crud-red)}
+body[data-pagina] :is(.status-ativo,.situacao-ativo,.badge-ativo,.ativo-badge){display:inline-block;border-radius:99px;background:var(--crud-green-bg);color:#426331;font-size:11px;font-weight:600;padding:5px 13px;min-width:65px;text-align:center}
+body[data-pagina] :is(.status-inativo,.situacao-inativo,.badge-inativo,.inativo-badge){display:inline-block;border-radius:99px;background:var(--crud-orange-bg);color:#b95c32;font-size:11px;font-weight:600;padding:5px 13px;min-width:65px;text-align:center}
+body[data-pagina] :is(.paginacao,.pagination){display:flex;justify-content:flex-end;align-items:center;gap:6px;padding:13px 16px;background:#f7f7f6;flex-wrap:wrap}
+body[data-pagina] :is(.paginacao,.pagination) :is(a,button){min-width:30px;min-height:30px;border:1px solid var(--crud-line);background:white;border-radius:5px;color:var(--crud-ink);display:inline-grid;place-items:center;text-decoration:none;padding:4px 8px}
+body[data-pagina] :is(.paginacao,.pagination) :is(.ativo,.active,[aria-current="page"]){background:var(--crud-navy-2);color:#fff;border-color:var(--crud-navy-2)}
+body[data-pagina] .tabela-vazia{display:table-cell;text-align:center;color:var(--crud-muted);padding:22px}
+/* Modais: preserva os elementos e os formulários existentes */
+body[data-pagina] :is(.modal,.modal-overlay,.modal-fundo)[aria-hidden="false"]{visibility:visible}
+body[data-pagina] :is(.modal-conteudo,.modal-content,.modal-caixa,.modal-dialog){background:#fff;color:var(--crud-ink);border-radius:12px;box-shadow:0 16px 60px #0003;max-width:min(94vw,760px);max-height:90vh;overflow:auto}
+body[data-pagina] :is(.modal-cabecalho,.modal-header){display:flex;align-items:center;justify-content:space-between;gap:15px;padding:20px 22px 10px}
+body[data-pagina] :is(.modal-cabecalho,.modal-header) :is(h2,h3){margin:0;font-size:18px}
+body[data-pagina] :is(.modal-corpo,.modal-body){padding:14px 22px 20px}
+body[data-pagina] .modal-corpo:is(form){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}
+body[data-pagina] .modal-corpo:is(form) > :is(p,.modal-descricao,.modal-ajuda,.modal-rodape,.modal-footer,.feedback){grid-column:1/-1}
+body[data-pagina] :is(.campo,.form-group,.campo-formulario){min-width:0}
+body[data-pagina] :is(.campo,.form-group,.campo-formulario) :is(label,input,select,textarea){display:block;width:100%}
+body[data-pagina] label{font-size:12px;font-weight:600;margin-bottom:5px}
+body[data-pagina] :is(.modal-rodape,.modal-footer){display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-top:14px}
+body[data-pagina] :is(.detalhe,.detalhes-grid){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+body[data-pagina] .detalhe-item{min-width:0;overflow-wrap:anywhere}
+body[data-pagina] .detalhe-item strong{display:block;margin-top:5px}
+body[data-pagina] .feedback{padding:10px 12px;border-radius:6px;margin:8px 0}
+body[data-pagina] .feedback-sucesso{background:#e8f3e3;color:#285f36}
+body[data-pagina] .feedback-erro{background:#fff0ee;color:#ad3030}
+body[data-pagina] :is(input,select,textarea)[aria-invalid="true"]{border-color:#c73535;box-shadow:0 0 0 2px #c7353518}
+@media(max-width:1050px){body[data-pagina] :is(.cards-resumo,.resumo-cards,.grid-cards){grid-template-columns:repeat(2,minmax(0,1fr))}body[data-pagina] table{min-width:720px}}
+@media(max-width:650px){body[data-pagina] :is(.cards-resumo,.resumo-cards,.grid-cards){grid-template-columns:1fr}body[data-pagina] .modal-corpo:is(form),body[data-pagina] :is(.detalhe,.detalhes-grid){grid-template-columns:1fr}body[data-pagina] :is(.modal-cabecalho,.modal-header),body[data-pagina] :is(.modal-corpo,.modal-body){padding-left:16px;padding-right:16px}body[data-pagina] :is(.barra-filtros,.toolbar,.filtros) input[type="search"]{min-width:0;width:100%}}
+
+
+/* Ajustes de compatibilidade com as JSPs do CRUD */
+/* O reset escopado também inclui body; o título conserva a cor do header existente. */
+body[data-pagina] { margin: 0; }
+body[data-pagina] .header-titulo { color: inherit; }
+body[data-pagina] .sidebar-logo img { width: min(100%, 225px); height: auto; object-fit: contain; }
+body[data-pagina] .col-acoes { display: table-cell; white-space: nowrap; }
+body[data-pagina] .col-acoes > :is(button,a) { display: inline-grid; margin: 0 2px; }
+body[data-pagina] .tabela-vazia { display: none; }
+body[data-pagina] .tabela-vazia.ativo { display: table-cell; }
+body[data-pagina] .modal-corpo > .modal-rodape { grid-column: 1 / -1; }
+body[data-pagina] .modal-corpo > .feedback { grid-column: 1 / -1; }
+body[data-pagina] .modal-overlay.aberto { display: flex; }
+body[data-pagina] .detalhe { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+body[data-pagina] .detalhe-item { min-width: 0; overflow-wrap: anywhere; }
+body[data-pagina] .feedback { padding: 10px 12px; border-radius: 6px; }
+body[data-pagina] .feedback-sucesso { background: #e8f3e3; color: #285f36; }
+body[data-pagina] .feedback-erro { background: #fff0ee; color: #ad3030; }
+body[data-pagina] .campo input[aria-invalid="true"] { border-color: #c73535; }
+@media(max-width:650px) { body[data-pagina] .detalhe { grid-template-columns: 1fr; } }
+
+/* Rodada 2: visual V7 restaurado; somente independência de altura da navegação. */
+body[data-pagina] .sidebar { position:sticky; top:0; height:100vh; height:100dvh; min-height:0; align-self:start; overflow-y:auto; }
+body[data-pagina] .header { position:sticky; top:0; height:var(--header-altura); z-index:20; }
+body[data-pagina] .main { min-width:0; }
+/* Preview isolado: fragmento abre o mesmo modal, sem substituir o submit JSP. */
+body[data-pagina] .modal-overlay:target { display:flex; }
+body[data-preview="static"]:has(.modal-overlay:target) { overflow:hidden; }
+body[data-preview="static"] .preview-notice { position:fixed; right:12px; bottom:8px; z-index:900; padding:5px 10px; max-width:85vw; background:#fff3e4; border:1px solid #ebc49e; border-radius:5px; font-size:11px; color:#71300a; }
+body[data-preview="static"]:has(.modal-overlay:target) .preview-notice { display:none; }
+@media(max-width:650px) { body[data-pagina] .sidebar { position:relative; height:auto; max-height:100dvh; } body[data-pagina] .header { position:relative; } }

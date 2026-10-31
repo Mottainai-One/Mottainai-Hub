@@ -1,0 +1,425 @@
+{
+  "layouts": [
+    {
+      "name": "home",
+      "width": 1440,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "home",
+      "width": 1024,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "home",
+      "width": 768,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "home",
+      "width": 390,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "home-crud-page",
+      "width": 1812,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "home-crud-page",
+      "width": 768,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "home-crud-page",
+      "width": 390,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "companies",
+      "width": 1812,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "companies",
+      "width": 768,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "companies",
+      "width": 390,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "stores",
+      "width": 1812,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "stores",
+      "width": 768,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "stores",
+      "width": 390,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "employees",
+      "width": 1812,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "employees",
+      "width": 768,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "employees",
+      "width": 390,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "employee-roles",
+      "width": 1812,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "employee-roles",
+      "width": 768,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "employee-roles",
+      "width": 390,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "user-accounts",
+      "width": 1812,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "user-accounts",
+      "width": 768,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "user-accounts",
+      "width": 390,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "subscription-plans",
+      "width": 1812,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "subscription-plans",
+      "width": 768,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "subscription-plans",
+      "width": 390,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "addresses",
+      "width": 1812,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "addresses",
+      "width": 768,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "addresses",
+      "width": 390,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "administrations",
+      "width": 1812,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "administrations",
+      "width": 768,
+      "overflow": false,
+      "images": []
+    },
+    {
+      "name": "administrations",
+      "width": 390,
+      "overflow": false,
+      "images": []
+    }
+  ],
+  "profile": [
+    {
+      "name": "home-crud-page",
+      "click": true,
+      "outside": true,
+      "escape": true,
+      "sessionPreview": true,
+      "noNavigation": true
+    },
+    {
+      "name": "companies",
+      "click": true,
+      "outside": true,
+      "escape": true,
+      "sessionPreview": true,
+      "noNavigation": true
+    },
+    {
+      "name": "stores",
+      "click": true,
+      "outside": true,
+      "escape": true,
+      "sessionPreview": true,
+      "noNavigation": true
+    },
+    {
+      "name": "employees",
+      "click": true,
+      "outside": true,
+      "escape": true,
+      "sessionPreview": true,
+      "noNavigation": true
+    },
+    {
+      "name": "employee-roles",
+      "click": true,
+      "outside": true,
+      "escape": true,
+      "sessionPreview": true,
+      "noNavigation": true
+    },
+    {
+      "name": "user-accounts",
+      "click": true,
+      "outside": true,
+      "escape": true,
+      "sessionPreview": true,
+      "noNavigation": true
+    },
+    {
+      "name": "subscription-plans",
+      "click": true,
+      "outside": true,
+      "escape": true,
+      "sessionPreview": true,
+      "noNavigation": true
+    },
+    {
+      "name": "addresses",
+      "click": true,
+      "outside": true,
+      "escape": true,
+      "sessionPreview": true,
+      "noNavigation": true
+    },
+    {
+      "name": "administrations",
+      "click": true,
+      "outside": true,
+      "escape": true,
+      "sessionPreview": true,
+      "noNavigation": true
+    }
+  ],
+  "search": [
+    {
+      "name": "companies",
+      "total": 6,
+      "filtered": true,
+      "restored": true
+    },
+    {
+      "name": "stores",
+      "total": 6,
+      "filtered": true,
+      "restored": true
+    },
+    {
+      "name": "employees",
+      "total": 6,
+      "filtered": true,
+      "restored": true
+    },
+    {
+      "name": "employee-roles",
+      "total": 6,
+      "filtered": true,
+      "restored": true
+    },
+    {
+      "name": "user-accounts",
+      "total": 6,
+      "filtered": true,
+      "restored": true
+    },
+    {
+      "name": "subscription-plans",
+      "total": 6,
+      "filtered": true,
+      "restored": true
+    },
+    {
+      "name": "addresses",
+      "total": 6,
+      "filtered": true,
+      "restored": true
+    },
+    {
+      "name": "administrations",
+      "total": 2,
+      "filtered": true,
+      "restored": true
+    }
+  ],
+  "home": [
+    {
+      "width": 1440,
+      "gap": 56,
+      "orange": "rgb(221, 123, 45)",
+      "contacts": [
+        "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato%40gmail.com",
+        "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato%40gmail.com"
+      ],
+      "faq": [
+        "faq.html",
+        "faq.html"
+      ],
+      "photos": 0,
+      "wordmark": "../assets/img/mottainai-wordmark-azul.svg",
+      "footer": "../assets/img/home-logo-rodape.png",
+      "beforeGap": 76,
+      "reduction": 20
+    },
+    {
+      "width": 1024,
+      "gap": 56,
+      "orange": "rgb(221, 123, 45)",
+      "contacts": [
+        "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato%40gmail.com",
+        "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato%40gmail.com"
+      ],
+      "faq": [
+        "faq.html",
+        "faq.html"
+      ],
+      "photos": 0,
+      "wordmark": "../assets/img/mottainai-wordmark-azul.svg",
+      "footer": "../assets/img/home-logo-rodape.png",
+      "beforeGap": 76,
+      "reduction": 20
+    },
+    {
+      "width": 768,
+      "gap": 108.6875,
+      "orange": "rgb(221, 123, 45)",
+      "contacts": [
+        "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato%40gmail.com",
+        "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato%40gmail.com"
+      ],
+      "faq": [
+        "faq.html",
+        "faq.html"
+      ],
+      "photos": 0,
+      "wordmark": "../assets/img/mottainai-wordmark-azul.svg",
+      "footer": "../assets/img/home-logo-rodape.png",
+      "beforeGap": 128.6875,
+      "reduction": 20
+    },
+    {
+      "width": 390,
+      "gap": 32,
+      "orange": "rgb(221, 123, 45)",
+      "contacts": [
+        "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato%40gmail.com",
+        "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato%40gmail.com"
+      ],
+      "faq": [
+        "faq.html",
+        "faq.html"
+      ],
+      "photos": 0,
+      "wordmark": "../assets/img/mottainai-wordmark-azul.svg",
+      "footer": "../assets/img/home-logo-rodape.png",
+      "beforeGap": 44,
+      "reduction": 12
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "administration": {
+    "createModal": true,
+    "editModal": true,
+    "noPasswordValue": true,
+    "noDeletion": true
+  },
+  "http": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:8976/empresas?busca=Mercado&situacao="
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:8976/empresas?busca=Mer&situacao="
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:8976/logout"
+    }
+  ],
+  "sidebar": {
+    "before": {
+      "x": 0,
+      "y": 0,
+      "width": 220,
+      "height": 1000
+    },
+    "after": {
+      "x": 0,
+      "y": 0,
+      "width": 220,
+      "height": 1000
+    },
+    "rows": 60
+  }
+}

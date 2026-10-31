@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "active": false,
+      "name": "companies",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "closedWithoutSubmitting": true
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "closedWithoutSubmitting": true
+    }
+  ]
+}

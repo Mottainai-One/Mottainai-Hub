@@ -1,0 +1,226 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "active": false,
+      "width": 1440,
+      "year": 1,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": false,
+      "width": 1440,
+      "year": 2,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "year": 1,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "year": 2,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": false,
+      "width": 768,
+      "year": 1,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": false,
+      "width": 768,
+      "year": 2,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": false,
+      "width": 635,
+      "year": 1,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": false,
+      "width": 635,
+      "year": 2,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": false,
+      "width": 390,
+      "year": 1,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": false,
+      "width": 390,
+      "year": 2,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "year": 1,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "year": 2,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "year": 1,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "year": 2,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": true,
+      "width": 768,
+      "year": 1,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": true,
+      "width": 768,
+      "year": 2,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": true,
+      "width": 635,
+      "year": 1,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": true,
+      "width": 635,
+      "year": 2,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": true,
+      "width": 390,
+      "year": 1,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    },
+    {
+      "active": true,
+      "width": 390,
+      "year": 2,
+      "rearImageCrossesBehind": true,
+      "normalCardsAdvance": true,
+      "captionsClean": true,
+      "arrowsUnchanged": true,
+      "circular": true,
+      "independent": true
+    }
+  ],
+  "errors": []
+}

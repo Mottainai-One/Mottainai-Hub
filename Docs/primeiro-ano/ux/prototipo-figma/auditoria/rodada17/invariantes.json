@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "changed": [
+    "src/main/resources/static/assets/css/sobre-nos.css",
+    "src/main/resources/static/assets/js/sobre-nos.js",
+    "prototipo-figma/css/sobre-nos.css",
+    "prototipo-figma/js/sobre-nos.js"
+  ],
+  "jspAndHtmlUnchanged": true,
+  "backendUnchanged": true,
+  "heroUnchanged": true
+}

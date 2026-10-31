@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "variant": "ativo",
+      "manualThenAutomatic": true
+    },
+    {
+      "variant": "paralelo",
+      "manualThenAutomatic": true
+    }
+  ]
+}

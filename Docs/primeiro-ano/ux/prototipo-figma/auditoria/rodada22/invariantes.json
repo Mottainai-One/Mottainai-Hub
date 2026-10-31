@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "size": [
+    1872,
+    1488
+  ],
+  "differenceBBox": [
+    59,
+    65,
+    1821,
+    1014
+  ],
+  "monitorShellUnchanged": true
+}

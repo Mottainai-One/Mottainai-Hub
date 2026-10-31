@@ -1,0 +1,872 @@
+[
+  {
+    "path": "assets/fonts/dm-sans-0.ttf",
+    "bytes": 48280,
+    "sha256": "b0ae3e89a7d3ef2b1838bb4b1ceb0b17cc3435af061eee809d76aa623ff116e9"
+  },
+  {
+    "path": "assets/fonts/dm-sans-1.ttf",
+    "bytes": 48308,
+    "sha256": "376427b5322148d8de1e03f263bcca4935a2d60ba71d9f94f4947ab664c711ae"
+  },
+  {
+    "path": "assets/fonts/dm-sans-2.ttf",
+    "bytes": 48280,
+    "sha256": "b79a2ea7a38f33fd96a282fadb9ce97626bb0724a44d21075859f0e50239993a"
+  },
+  {
+    "path": "assets/fonts/dm-sans-3.ttf",
+    "bytes": 48200,
+    "sha256": "2a8e7f713ee79fbccdef3cef5c787aff47580299f7da60144961e7db2ec08211"
+  },
+  {
+    "path": "assets/icons/casa.png",
+    "bytes": 538833,
+    "sha256": "5dc765ce02f34c0c5874631ac95ac7bcca38040995a0ff4d4d79da3c926de8b1"
+  },
+  {
+    "path": "assets/icons/cracha.svg",
+    "bytes": 8175,
+    "sha256": "e6b1f1c775fe0e88e43698e476e7b76e792603cf85c660cdf0357ce05a6df86c"
+  },
+  {
+    "path": "assets/icons/edit.svg",
+    "bytes": 265,
+    "sha256": "9253c2d2190506626c606e05a29a80d148b48b196fe12535c4f58e117d062418"
+  },
+  {
+    "path": "assets/icons/empresa.svg",
+    "bytes": 292,
+    "sha256": "ba5f0c05f61ffc1c641a95f2b7b981e0b6b403a4758b00d00a9b93bef6e0dee7"
+  },
+  {
+    "path": "assets/icons/eye.svg",
+    "bytes": 278,
+    "sha256": "5ed47354fdee038ed1577d4bf5a1f58e9d7f31fa10df3ad45ca58626e7199137"
+  },
+  {
+    "path": "assets/icons/grafico.svg",
+    "bytes": 320,
+    "sha256": "45a45b2d35ade141c8e9642c9d1cd837355242e7d762ea8df4ab66d6b491828c"
+  },
+  {
+    "path": "assets/icons/home.svg",
+    "bytes": 249,
+    "sha256": "50b559b816462923fc1c812dbe5aaad792e7178bb122b43d45791dc4224a2560"
+  },
+  {
+    "path": "assets/icons/icone-alertas.png",
+    "bytes": 735,
+    "sha256": "598fe2cb18688c7be7c4430d908013a28fc92abe39e1f740c3d54d258ac87213"
+  },
+  {
+    "path": "assets/icons/icone-dashboard.png",
+    "bytes": 237,
+    "sha256": "dae5df3a651a42ce4d0a16c5bc1d2e3503f6052aa8089e8d492e556b32bb491e"
+  },
+  {
+    "path": "assets/icons/icone-sincronizacao.png",
+    "bytes": 668,
+    "sha256": "8f8c839a2b71486f51a4f0b3298d5b5332fcfce50c77298aac002a77b0ee8895"
+  },
+  {
+    "path": "assets/icons/icone-sugestoes.svg",
+    "bytes": 1045,
+    "sha256": "df5f57b84fd08833086094d919fdac060662af6401de5c3b64ccee30cb52b99a"
+  },
+  {
+    "path": "assets/icons/icone-validade.png",
+    "bytes": 353,
+    "sha256": "0704acdf351d51ca353f8577dda73f8132bca61468f1ba84b22c80b3084dc824"
+  },
+  {
+    "path": "assets/icons/logo.svg",
+    "bytes": 10733,
+    "sha256": "0d7ae126eb283b2973a8143fd34b55976323ff78eb827d2225c675bf47adb7d3"
+  },
+  {
+    "path": "assets/icons/logout.svg",
+    "bytes": 288,
+    "sha256": "03f5762b183581eda9857939c5c9441d28070dcdc48410f41c8b1b74334b65c7"
+  },
+  {
+    "path": "assets/icons/loja.svg",
+    "bytes": 304,
+    "sha256": "5310cf75ccc7fefd96901fc107f685b4158813b8c27b0a92e9f6bc3bcf463d3c"
+  },
+  {
+    "path": "assets/icons/loja_alt.svg",
+    "bytes": 271,
+    "sha256": "d575bf599f6500a04c6e083ef4f6599f429ce41b63d2cf209eeaa0c973e24aac"
+  },
+  {
+    "path": "assets/icons/search.svg",
+    "bytes": 248,
+    "sha256": "a85289561a446e57a92d71e836254611def3cad6d348128e2d83fb37dada484a"
+  },
+  {
+    "path": "assets/icons/trash.svg",
+    "bytes": 317,
+    "sha256": "af85a42a2dbda081b620773a55fac8736aa896df96f4b6546bb16de188c5a5e3"
+  },
+  {
+    "path": "assets/icons/user.svg",
+    "bytes": 273,
+    "sha256": "849d845c32185119667727287a4ecb9d7ce6c3958d1b3c61a11ab525a1576597"
+  },
+  {
+    "path": "assets/icons/users.svg",
+    "bytes": 342,
+    "sha256": "84d29aac0ba08327511e68ff1b20de46c8152063e20b95b7a03ea089a929d735"
+  },
+  {
+    "path": "assets/img/anatimie.png",
+    "bytes": 160459,
+    "sha256": "37f82e7d77e23ccb0fa08d5a411cd9a908a62f2a03b021db1870974066565f72"
+  },
+  {
+    "path": "assets/img/bella.png",
+    "bytes": 169195,
+    "sha256": "74df616c0178d9d479c791f7e7221fc753792a72f57f55925cb7d9e26fa7a8d0"
+  },
+  {
+    "path": "assets/img/blue-lines.svg",
+    "bytes": 146931,
+    "sha256": "e8bf536732df8f74f33d01d0cf70b56fd14541dac6b8ac0afbeaff1cadd500ef"
+  },
+  {
+    "path": "assets/img/cadastro.png",
+    "bytes": 448851,
+    "sha256": "40c37037ddd30e1a6c29650e1d4613e06cb7d4094bedd9549e3411de3b433ee3"
+  },
+  {
+    "path": "assets/img/card-alertas.jpg",
+    "bytes": 41751,
+    "sha256": "dd217bc9cef85e18c7df1beb2b2c75da54f3fcc35570f4cb551dba6a41942e0c"
+  },
+  {
+    "path": "assets/img/card-comparar.jpg",
+    "bytes": 38113,
+    "sha256": "e1cd46cfa264efa9e167ec5a43c3f63de7522fd0d92bf3767bc3bcd2cb54a7f4"
+  },
+  {
+    "path": "assets/img/card-registrar.jpg",
+    "bytes": 609763,
+    "sha256": "66aa7bfd0e8152fe767d9c30465ad96a08d664456af7a23354c0236b103d1bf5"
+  },
+  {
+    "path": "assets/img/card-validade.jpg",
+    "bytes": 309762,
+    "sha256": "37e1edd865730e9b1d61a67e3b7a85fbd32c87335889cb278db813bfb326803a"
+  },
+  {
+    "path": "assets/img/dashboard-graficos.png",
+    "bytes": 8759,
+    "sha256": "01c1259b84846c827798373d5973e6f440a792974ef693db98680ecabe0cccae"
+  },
+  {
+    "path": "assets/img/favicon.ico",
+    "bytes": 15406,
+    "sha256": "99c8092c2d50185b456b65035bdc0fdffee3f94ac1dee2f830cdc46d2b042e3b"
+  },
+  {
+    "path": "assets/img/giovanna.jpg",
+    "bytes": 1935751,
+    "sha256": "8642885885111193f9c4a4ce1f391929c699b473ab3d69b1f728b208a4746179"
+  },
+  {
+    "path": "assets/img/group-132.png",
+    "bytes": 7901,
+    "sha256": "1f6425c43495540236fbdc963e6fb90daa29a33db6ddacc741a44baf39219d58"
+  },
+  {
+    "path": "assets/img/gustavo.png",
+    "bytes": 106787,
+    "sha256": "07460764f62603150012ecefe16d08dac1802eb2d0c81c9609ab339de70224b1"
+  },
+  {
+    "path": "assets/img/home-card-comparacao.png",
+    "bytes": 203197,
+    "sha256": "5ddce9eea930c74ff991ebe930d77bee65988658f207d831bc246733e1f5e499"
+  },
+  {
+    "path": "assets/img/home-dashboard-graficos.png",
+    "bytes": 13425,
+    "sha256": "d664418d7b981407ddf2c0b45bb054c5415dfffede7471ae058548347e244d7a"
+  },
+  {
+    "path": "assets/img/home-linhas-cta.png",
+    "bytes": 227745,
+    "sha256": "b1bc828f7fff5c8dd8f6b65ed6bd91d0900d2a5779f0f66c670afc315677b01e"
+  },
+  {
+    "path": "assets/img/home-linhas-ecossistema.png",
+    "bytes": 222454,
+    "sha256": "659ae8245f2f11fa05dad3f26a68d7d095db2f504c5db458d81e33b2b6a1aaff"
+  },
+  {
+    "path": "assets/img/home-linhas-hero.png",
+    "bytes": 139822,
+    "sha256": "863953ba15d6f50f0084404bff2c99e5408fe80088c842a37253eeaa344c0bd7"
+  },
+  {
+    "path": "assets/img/home-logo-rodape.png",
+    "bytes": 2995,
+    "sha256": "ddbf2403771370545dfacb854c642f27cc948a68e840cbe3a26b221ed7108561"
+  },
+  {
+    "path": "assets/img/home-logo.png",
+    "bytes": 4353,
+    "sha256": "5495445d13731bf5997acc03f067723e89fcfce11307122090aa57543fdefce7"
+  },
+  {
+    "path": "assets/img/home-mobile-assistente.png",
+    "bytes": 92272,
+    "sha256": "a82d206026d3a8d6dbe725ac63a33dabc43ca397927951728e2ed3b18eece49f"
+  },
+  {
+    "path": "assets/img/home-mobile-ecossistema.png",
+    "bytes": 252299,
+    "sha256": "8a74212c6f65ddc905387b0aa6167b2139f1994e432803e0517b0c3ca1fe756d"
+  },
+  {
+    "path": "assets/img/home-mobile-perfil.png",
+    "bytes": 97605,
+    "sha256": "1767b4433870a54d16d12e02e4f8244e4c3c0d19822dfd162dbbe661a92c15aa"
+  },
+  {
+    "path": "assets/img/home-painel-web.png",
+    "bytes": 110969,
+    "sha256": "23bdc60cce51ac161607add21ac730e59ca9e69f4da4cc600667f346bce1ac73"
+  },
+  {
+    "path": "assets/img/home-validade-resumo.png",
+    "bytes": 5078,
+    "sha256": "89c07a92d7f1936549d7c0b3d95ff3ed8839d5ee36eae05bb0ca401eb88c3ef4"
+  },
+  {
+    "path": "assets/img/joaop.png",
+    "bytes": 140854,
+    "sha256": "f5b34e3c14aa7b089598b2b01cac2771a0f5c24cd2320c6047b35513b7dbd9ef"
+  },
+  {
+    "path": "assets/img/joaov.png",
+    "bytes": 151612,
+    "sha256": "d21a60984b5ad82d1bc207e2f48b8a782c69c2a70c6c18de48d242200d61eab5"
+  },
+  {
+    "path": "assets/img/kevin.png",
+    "bytes": 180964,
+    "sha256": "989ab3732c3c4c2f485d123d0e6d3ce206bde95eeac4ada79de178569b5a9b52"
+  },
+  {
+    "path": "assets/img/list-marked-orange.svg",
+    "bytes": 1440,
+    "sha256": "4acaa902edf374dc34872d093000a29cde9288c4a74d794039be0fa225fb86f3"
+  },
+  {
+    "path": "assets/img/list-marked.svg",
+    "bytes": 1336,
+    "sha256": "b8c468ba7e53715693848a2ca123edbcb261cd5a11319826f0685ff00353bfa6"
+  },
+  {
+    "path": "assets/img/log-in.png",
+    "bytes": 448851,
+    "sha256": "40c37037ddd30e1a6c29650e1d4613e06cb7d4094bedd9549e3411de3b433ee3"
+  },
+  {
+    "path": "assets/img/logo.png",
+    "bytes": 5139,
+    "sha256": "70566d9d1a5e8b353149844451b47516b26cc793b9162978996c1f407a795cca"
+  },
+  {
+    "path": "assets/img/logo.svg",
+    "bytes": 11014,
+    "sha256": "92e2c76b9088b3e2308ce395c661042dc7e3666628241d821b51f9910be48c58"
+  },
+  {
+    "path": "assets/img/luana.png",
+    "bytes": 144118,
+    "sha256": "ac6a8f4338ebf5408030c7b620bac61ecf573bc994b429bee205f777407da353"
+  },
+  {
+    "path": "assets/img/mascote-lontra.png",
+    "bytes": 74399,
+    "sha256": "c99cae92a39ecd4d05d89c25456db15bfabc2e2b7d1357d53d6cb924ced06089"
+  },
+  {
+    "path": "assets/img/mascote1.png",
+    "bytes": 84869,
+    "sha256": "490c03ce3b3fac497f0e93a026cc0eb1131d75fe663b781159a1a37e020fd12c"
+  },
+  {
+    "path": "assets/img/miguel.png",
+    "bytes": 120286,
+    "sha256": "04de0659a90a38cc409ed9ba79ef6f732ee10523533f0a03e3d39350ecf9be85"
+  },
+  {
+    "path": "assets/img/pedro.png",
+    "bytes": 207898,
+    "sha256": "c4f64409787caf1e08dea8db04268113bd324562cc3c89a9def806e5f28d3303"
+  },
+  {
+    "path": "assets/img/planos-duvidas.png",
+    "bytes": 53590,
+    "sha256": "e8d8e6dcdf18f79ca1f3e50ad4307c8a03cdf42a76722acc18171d5001befb4f"
+  },
+  {
+    "path": "assets/img/planos-padrao-hero.png",
+    "bytes": 113123,
+    "sha256": "0fa43f23d7c899d0fa5a8922a4727e5e0e98a27284b47d73ca79b1dc2970be00"
+  },
+  {
+    "path": "assets/img/rectangle-161.png",
+    "bytes": 663700,
+    "sha256": "9b5604f3a5191db4c636083c45b7184e4758cb48562a52ce878a8c2d106a57b7"
+  },
+  {
+    "path": "assets/img/sarah.png",
+    "bytes": 125420,
+    "sha256": "08f3b53afc567c63b10d49e9ea04903ee4a0640a3285d0db04c801d8122b8c67"
+  },
+  {
+    "path": "assets/img/shadow-planos.png",
+    "bytes": 1054058,
+    "sha256": "02569be0e0cd5ba897dfb5220e946ba54f1b560b02b23469b7cf18337d611b28"
+  },
+  {
+    "path": "assets/img/sobre-nos-hero-1.png",
+    "bytes": 1325668,
+    "sha256": "356d90691b941aad2d9f86fbfee468e725bff26ea30d97bfc39a9e7547b466fd"
+  },
+  {
+    "path": "assets/img/sobre-nos-hero-2.png",
+    "bytes": 1425126,
+    "sha256": "50294fd1702da2ff1e430f24dd108d4b1586d4d914147544a5a8965c56b7eba3"
+  },
+  {
+    "path": "assets/img/sobre-nos-hero-3.png",
+    "bytes": 1360283,
+    "sha256": "57d11134ad9ba81c99f63ecb59e0939ef73dcff7e31b2d59f1324b27da26b562"
+  },
+  {
+    "path": "assets/img/sobre-nos-hero-4.png",
+    "bytes": 1477350,
+    "sha256": "5b2cb34b440a8c833a88237b1d380659342e94aca274ce1687f915f6e460930c"
+  },
+  {
+    "path": "assets/img/story-set-plans.svg",
+    "bytes": 140262,
+    "sha256": "38104e3f516ec14352a4863185674f39fa48ddaad37b4fbaf4aae1797523772a"
+  },
+  {
+    "path": "assets/img/tutu.png",
+    "bytes": 144558,
+    "sha256": "b3d41bcba54a98ac03cd38f8f1921141b26e4a84f45cdabe305affc63b56c118"
+  },
+  {
+    "path": "auditoria/base-v7-sha256.json",
+    "bytes": 36396,
+    "sha256": "a6db41c7c0388ffc661bcf283dd5adff03834ccce9b444923d3529ad009c5c7f"
+  },
+  {
+    "path": "auditoria/capturas/addresses-1812.png",
+    "bytes": 124790,
+    "sha256": "ef9793fe7f7483cf78002fae2522fa3cefd67157bff18fb1d2083a00fc6fbbc7"
+  },
+  {
+    "path": "auditoria/capturas/addresses-editar.png",
+    "bytes": 164038,
+    "sha256": "a952b99e5db6513e57e3f419410e7eb4e09f0169e4cf1c9a18fb0b0f6294870e"
+  },
+  {
+    "path": "auditoria/capturas/cadastro-preservado.png",
+    "bytes": 482169,
+    "sha256": "7ab2419066d4c5e5b0832318dcca0f928e331c425001005d3daa07a8e11d3edc"
+  },
+  {
+    "path": "auditoria/capturas/companies-1812.png",
+    "bytes": 155589,
+    "sha256": "78fec375bc7d50e7bb8ee1f7ab4d43ca84cee9c0b01355c877a10d5ff85574d6"
+  },
+  {
+    "path": "auditoria/capturas/companies-390.png",
+    "bytes": 78295,
+    "sha256": "a45bb15c47b3fd738628dacb996f700593b14d1f2dac8f94ac65d584938053d6"
+  },
+  {
+    "path": "auditoria/capturas/companies-768.png",
+    "bytes": 39685,
+    "sha256": "d3b198cd947304edc98359387145fcd17512560409d179d42d9589ba0876d68d"
+  },
+  {
+    "path": "auditoria/capturas/companies-editar.png",
+    "bytes": 214180,
+    "sha256": "f4a716cbbac34f381249138248fee9bf01d9352134fe0fba9ff72e638fb15db7"
+  },
+  {
+    "path": "auditoria/capturas/companies-estilo-v7.png",
+    "bytes": 129051,
+    "sha256": "bbb98782c7ccd7dfcd10a641b91d7337c523e30148083a5a652432b7a8d98490"
+  },
+  {
+    "path": "auditoria/capturas/companies-modal-390.png",
+    "bytes": 49344,
+    "sha256": "71ef7f35be9e2b96642684628bef1c0b5b346ad7378d98500b4efaa47bf95030"
+  },
+  {
+    "path": "auditoria/capturas/employee-roles-1812.png",
+    "bytes": 126858,
+    "sha256": "981c5adee01641f6e92a5c68e0b0b2990c356e16b5aabdd2bacd8f0f857c5ae7"
+  },
+  {
+    "path": "auditoria/capturas/employee-roles-editar.png",
+    "bytes": 163878,
+    "sha256": "74f10b04bdeb26aa43bc8de0a7ec8b3a5a542f2d17a7da4b56663ad3dff00f57"
+  },
+  {
+    "path": "auditoria/capturas/employees-1812.png",
+    "bytes": 145447,
+    "sha256": "b15774de7413eb8286c1250905c6e0ff856ad85efd9e5fd0a14ece13a81069d9"
+  },
+  {
+    "path": "auditoria/capturas/employees-editar.png",
+    "bytes": 195916,
+    "sha256": "d9a1d4820ab3eef247d9ad7470cc272dec8dcdb33866c9c068b693b62c42797d"
+  },
+  {
+    "path": "auditoria/capturas/faq-1024.png",
+    "bytes": 304744,
+    "sha256": "fdea384055cbf47c313fd3bf2c91252767070d6992f2b0031e1cb76189a82f0b"
+  },
+  {
+    "path": "auditoria/capturas/faq-1440.png",
+    "bytes": 361092,
+    "sha256": "6bf539fbce975a15d3f0606c740494f26518517cad306a9222ff43fd3109bd0c"
+  },
+  {
+    "path": "auditoria/capturas/faq-390.png",
+    "bytes": 223822,
+    "sha256": "889f3846ba39ca659377b87e72f7b82afaea54d220a6d77cb5fe5da12ef5071c"
+  },
+  {
+    "path": "auditoria/capturas/faq-768.png",
+    "bytes": 270693,
+    "sha256": "b34867cbc59ddfe98e6f6116b43e6778b32d4b4d63edfe35811de092d25a7bfd"
+  },
+  {
+    "path": "auditoria/capturas/home-1024.png",
+    "bytes": 1763257,
+    "sha256": "938e5c7a735b614e1f66e145a8651da14fc775e69a325956f284eb642bbca680"
+  },
+  {
+    "path": "auditoria/capturas/home-1440.png",
+    "bytes": 2355559,
+    "sha256": "941968df2a3fcac1c316851f6f4db3501df4cdacc8a03cabdc26ff3ce039ba11"
+  },
+  {
+    "path": "auditoria/capturas/home-390.png",
+    "bytes": 1286826,
+    "sha256": "7e8110c8108a2bd9badad7dab951421b73633aaaa6e483a38786cb1f7cb2a59c"
+  },
+  {
+    "path": "auditoria/capturas/home-768.png",
+    "bytes": 1298140,
+    "sha256": "6cbe64a216eec38f4867263f7d9ec5073718ffbb1405d587603a891a559867f4"
+  },
+  {
+    "path": "auditoria/capturas/home-crud-page-1812.png",
+    "bytes": 119930,
+    "sha256": "f91313b0431c38441b6e6f07ce3466ebd428450f739fbf022ce0806816d9d09c"
+  },
+  {
+    "path": "auditoria/capturas/login-preservado.png",
+    "bytes": 489218,
+    "sha256": "c03f90417092194218d6b97938615ff98b577fd8361be764e5e759b4a004aee4"
+  },
+  {
+    "path": "auditoria/capturas/planos-1024.png",
+    "bytes": 574495,
+    "sha256": "58bc6daa2d4cddc96c87b7e2cb834bd31a00f6cca420a3b3d53268794aecd7ff"
+  },
+  {
+    "path": "auditoria/capturas/planos-1440.png",
+    "bytes": 782161,
+    "sha256": "4097a4d864bc8bb2d2bb42f250c49db929496aedb96353f76a6ed266a138b3f3"
+  },
+  {
+    "path": "auditoria/capturas/planos-390.png",
+    "bytes": 397295,
+    "sha256": "b739671d39088735dafdae1dbecd8ee4bd13be1c00f00f9cb3075c10ad3d542a"
+  },
+  {
+    "path": "auditoria/capturas/planos-768.png",
+    "bytes": 509214,
+    "sha256": "fbb8bf26d1b3d17996773a2dfec3c56b1f02e5194aebc1656be5a6783ccdd84c"
+  },
+  {
+    "path": "auditoria/capturas/sobre-nos-1024.png",
+    "bytes": 1677506,
+    "sha256": "6361005ff119988abe5124794bc67008d8d1b9ae32a7d2d712bef70cf5791629"
+  },
+  {
+    "path": "auditoria/capturas/sobre-nos-1440.png",
+    "bytes": 2453388,
+    "sha256": "7d65fe97ae2a893c121c8794834d88f724cb9434ce8d11093e021070bff2298b"
+  },
+  {
+    "path": "auditoria/capturas/sobre-nos-390.png",
+    "bytes": 763886,
+    "sha256": "fad27f9607609823506a02c7c1681d35d778cd0e52dc46645114d9badf6c12ed"
+  },
+  {
+    "path": "auditoria/capturas/sobre-nos-768.png",
+    "bytes": 1322825,
+    "sha256": "b7d70b4608d83043f7cde0cf71a0c07cf285a7078b13518ca8360c12ab81b826"
+  },
+  {
+    "path": "auditoria/capturas/stores-1812.png",
+    "bytes": 142780,
+    "sha256": "706260df0f224efcb76893a1d9b8b9feaab3a2c562572ce949a1e1ed782662c2"
+  },
+  {
+    "path": "auditoria/capturas/stores-editar.png",
+    "bytes": 193049,
+    "sha256": "579447dc72a3eaff6ae9928583d9856a2dea96c0ce81bc32dfba8c7ce7d8f85d"
+  },
+  {
+    "path": "auditoria/capturas/subscription-plans-1812.png",
+    "bytes": 142571,
+    "sha256": "2df85c14cb95a3d8b6cd9e46c2dce043f1cb5d91bbef06fbf2370bb163855b6e"
+  },
+  {
+    "path": "auditoria/capturas/subscription-plans-editar.png",
+    "bytes": 182567,
+    "sha256": "3c15e109bee2b2b5df2b2a726b3cb9f094506bb333595d134ec555165f9b5730"
+  },
+  {
+    "path": "auditoria/capturas/user-accounts-1812.png",
+    "bytes": 139455,
+    "sha256": "3ca86c0c43ab680bfce31f94b49c10fff4cbb28ef3d96d9e99ed08d34372cd97"
+  },
+  {
+    "path": "auditoria/capturas/user-accounts-editar.png",
+    "bytes": 170496,
+    "sha256": "5480577b67e983d3ab66367e007564a9362ccaf95aebf75b8db38d949eaf3ac1"
+  },
+  {
+    "path": "auditoria/compilacao-jsp.log",
+    "bytes": 491,
+    "sha256": "0f9ce98263928f25593c878d9959cadfdf7438c86a88638840bd30df87d9d656"
+  },
+  {
+    "path": "auditoria/font-downloads.json",
+    "bytes": 615,
+    "sha256": "013b5e8b7e7e91fd828a70fe5ef7039e38995461b3d046f92c5c23871f3ad57b"
+  },
+  {
+    "path": "auditoria/html-gerados.json",
+    "bytes": 1103,
+    "sha256": "4f97a9ce218390865c4b6bdaad9cf2ab97310c299538a13d16bbcda3e0c190fb"
+  },
+  {
+    "path": "auditoria/invariantes.json",
+    "bytes": 7671,
+    "sha256": "41f377a567b66734de8eca6bb171cd2071b28ea65888fee5bed7fed92142f281"
+  },
+  {
+    "path": "auditoria/preparado.json",
+    "bytes": 18,
+    "sha256": "9ff870c552af101fb67a898d3ccadbed8cbc9c6bb9cc6f07a05dbf8f2cba900f"
+  },
+  {
+    "path": "auditoria/preview.json",
+    "bytes": 1020,
+    "sha256": "1e4846fb2a57f9d0408df98c432786fd765297c59839e6c4e8b101276ea48fd8"
+  },
+  {
+    "path": "auditoria/visual.json",
+    "bytes": 21801,
+    "sha256": "c24a8b9b1a4f0cf417baf4a625ed55faa4588df2e6fb2f59ba94e9aaa9f7b0ea"
+  },
+  {
+    "path": "css/crud.css",
+    "bytes": 45371,
+    "sha256": "ef1873a9de22edfd99b2be06d1f8e887917c849514d1e235147ed3692dfef345"
+  },
+  {
+    "path": "css/faq.css",
+    "bytes": 1642,
+    "sha256": "c35f44369658e3ce74774c90b2081fbeb3579544753a28dc4fdc8b77a84f91b4"
+  },
+  {
+    "path": "css/fontes.css",
+    "bytes": 696,
+    "sha256": "65c9c139bea4752d5249aaa9f6ceedd7c7d9377dac23c07c2421aa53c92afb9c"
+  },
+  {
+    "path": "css/home.css",
+    "bytes": 20396,
+    "sha256": "c3a43d0ee5b47a38fd8b7774a89f87ead548d1437001e3df6918576022c7b257"
+  },
+  {
+    "path": "css/modais.css",
+    "bytes": 3651,
+    "sha256": "3834852f721ac188774f603bf5a09b78108415cce484397d9084d24e32e20167"
+  },
+  {
+    "path": "css/planos.css",
+    "bytes": 14381,
+    "sha256": "194975b9d916a8ed6c8d550de8f4460fb81d3526348a2195f3d18c759bbca3df"
+  },
+  {
+    "path": "css/publico.css",
+    "bytes": 4757,
+    "sha256": "dd0500fe4ff20b72a388bb8fb8299fe2680e2cafbf556e2a9fd2020d2aee95a7"
+  },
+  {
+    "path": "css/sobre-nos.css",
+    "bytes": 13020,
+    "sha256": "c35ef19a67c8d3bbb8823de27053b730d4fb68041891de6db61c955325aa507c"
+  },
+  {
+    "path": "html/addresses.html",
+    "bytes": 24766,
+    "sha256": "7b292767c425c840787c2a3e863edea5abe72bbb7f361b42376e7c50fa7566dc"
+  },
+  {
+    "path": "html/companies.html",
+    "bytes": 30449,
+    "sha256": "786433a80d172f5b9b5e79cfe22f85e706438fa523ce1a2380ed502c6470e40c"
+  },
+  {
+    "path": "html/employee-roles.html",
+    "bytes": 23626,
+    "sha256": "1cc03a5beb222d3a44f07eadbc9e2a51b74374bca14dca15dfe2610ca9c578c9"
+  },
+  {
+    "path": "html/employees.html",
+    "bytes": 32297,
+    "sha256": "b5e4efebacb0055862866d3d0f8d940f39114962bdfcd2b9f16ddd6910cc21a8"
+  },
+  {
+    "path": "html/faq.html",
+    "bytes": 5244,
+    "sha256": "bf848f8eb03db5e11df9643d8c62ed2ed1700873c52dae64f44e6dd91da562a4"
+  },
+  {
+    "path": "html/home-crud-page.html",
+    "bytes": 9737,
+    "sha256": "60f5a15dded78556ad400c8beeb7679a0e6744a1cfd162b92954a48ddc3f9203"
+  },
+  {
+    "path": "html/home.html",
+    "bytes": 15288,
+    "sha256": "6067088e2b9fd002e9903641219df7bcb5f6007bda74b182ae225684d61f1289"
+  },
+  {
+    "path": "html/planos.html",
+    "bytes": 7326,
+    "sha256": "861db62fc232c46518a9b0816d9d08e065ef704788531446882ff95eb85ddb61"
+  },
+  {
+    "path": "html/sobre-nos.html",
+    "bytes": 9500,
+    "sha256": "f2804bc3c33928012f19d06d982e24e2de3d1f9c436af5d712167dad2b97c03f"
+  },
+  {
+    "path": "html/stores.html",
+    "bytes": 32864,
+    "sha256": "d133437246fb0f582d3b955e3b50dbbd2046988005230e8ad8284b4b6e4dbbae"
+  },
+  {
+    "path": "html/subscription-plans.html",
+    "bytes": 27197,
+    "sha256": "91ed48e3aeb585b50d445d5ab0539b1bed89b4deefb7a113000a76e957c8bf10"
+  },
+  {
+    "path": "html/user-accounts.html",
+    "bytes": 27410,
+    "sha256": "709b89a78c1ef98e0aa94de3d75cf8f47bcd390d22681ef542ef73e73fd0196e"
+  },
+  {
+    "path": "index.html",
+    "bytes": 4911,
+    "sha256": "ce2412ecc599b8549ae6bdbf7cd44fca8bbb309c161a75a1ee84fac13afe4afe"
+  },
+  {
+    "path": "js/crud.js",
+    "bytes": 15410,
+    "sha256": "acfe5cdaf9e0518446a7823055b652ef8a67a90b3cf263c3c43e25605f99ac62"
+  },
+  {
+    "path": "js/modais.js",
+    "bytes": 432,
+    "sha256": "aa23d8be297ae4d60498d93b2afa924c94f731c6e59d164e1b346329e8f11267"
+  },
+  {
+    "path": "js/planos.js",
+    "bytes": 109,
+    "sha256": "f095059f547eb7aa4de933185c7c20fb6286ceed1048d37712baf31befaa260c"
+  },
+  {
+    "path": "jsp/addresses.jsp",
+    "bytes": 24156,
+    "sha256": "1d714b396aa008cb167657eddd1d36f4b884747fc07782e2b1f2d231981e2108"
+  },
+  {
+    "path": "jsp/companies.jsp",
+    "bytes": 27772,
+    "sha256": "9495ca3bd7d1a72a79c1b4727cdb2af21ddd07e0b59d497cdf12db856f4a3cc5"
+  },
+  {
+    "path": "jsp/employee-roles.jsp",
+    "bytes": 21812,
+    "sha256": "5b0cc5f15d5125e01c64fce7fb20577d3848d86c4c8f398226188998e60509e9"
+  },
+  {
+    "path": "jsp/employees.jsp",
+    "bytes": 28787,
+    "sha256": "38b4a2fad556703d91ba27739b3eb70a1e834dc9e64ba6582b9e17acbd2c5904"
+  },
+  {
+    "path": "jsp/faq.jsp",
+    "bytes": 5563,
+    "sha256": "7da3ff341a66fd12cd0a8260d2729c976f3c4a1e510ebd7a7dc7ad987f8f149e"
+  },
+  {
+    "path": "jsp/home-crud-page.jsp",
+    "bytes": 9134,
+    "sha256": "c8daa49eaf6f489e2cd46d1e6c75aa647741191336a42c9685cfad6655f0e0cb"
+  },
+  {
+    "path": "jsp/home.jsp",
+    "bytes": 17248,
+    "sha256": "e02747a4d6702cf94d0e7923c9ac9516b89a3bb2a0245d02c0ec5cd6cdded143"
+  },
+  {
+    "path": "jsp/planos.jsp",
+    "bytes": 7817,
+    "sha256": "a398469459e6ccfceb1fab2ca2d71d56efcbe68325c37dbba1c1240b301bd674"
+  },
+  {
+    "path": "jsp/sobre-nos.jsp",
+    "bytes": 10355,
+    "sha256": "afca8fd126d658013543b2adaf1eeb49cb1206f5916513ca2f40bfeb5533674e"
+  },
+  {
+    "path": "jsp/stores.jsp",
+    "bytes": 28593,
+    "sha256": "cba78bebbf1daaddaaf7bee3f4fbbb5774fac13486cd4c31ea02b46a0bd293c0"
+  },
+  {
+    "path": "jsp/subscription-plans.jsp",
+    "bytes": 25848,
+    "sha256": "95fc8e984cda049dbab4c62c03312f3e58b5b73124d826553ec80dbe5abd6fb4"
+  },
+  {
+    "path": "jsp/user-accounts.jsp",
+    "bytes": 23973,
+    "sha256": "bf3f463e39341a5fa8ec8393f271dbcad904f65e35bf8d540c9b47535db155d6"
+  },
+  {
+    "path": "referencias/figma/addresses.png",
+    "bytes": 118855,
+    "sha256": "c2d7b41d6845a1311566fb022a974ea984cdd837b8c4a39970aac2d162d2f37b"
+  },
+  {
+    "path": "referencias/figma/companies.png",
+    "bytes": 148304,
+    "sha256": "7b49244c6a6f343a7e127839f1ab44f31391162935868e451ebc16bb79af6b57"
+  },
+  {
+    "path": "referencias/figma/employee-roles.png",
+    "bytes": 138077,
+    "sha256": "468405edefb9de3a458e3b5ba6c30d200e2033d52738a0c568a0672720867332"
+  },
+  {
+    "path": "referencias/figma/employees.png",
+    "bytes": 136625,
+    "sha256": "3f32dc964f628f749d618ed9ced053d768f5720237fc9292dc452c4149f54db9"
+  },
+  {
+    "path": "referencias/figma/home-crud-page.png",
+    "bytes": 116452,
+    "sha256": "2d1bc1b5888041916b5079e19b31319e6351025e16aed90837b1ffa293916e4b"
+  },
+  {
+    "path": "referencias/figma/home.png",
+    "bytes": 2658033,
+    "sha256": "a32a8a1ef283d23f553dca8e874ce9af74262a35168194f1a16178c21da10ade"
+  },
+  {
+    "path": "referencias/figma/planos.png",
+    "bytes": 598396,
+    "sha256": "fc8fb37848019b168f349ebd50fb2737590f44ac9b1ad5a80d4ddef5de0f3d59"
+  },
+  {
+    "path": "referencias/figma/sobre-nos.png",
+    "bytes": 2669446,
+    "sha256": "94bc27ad184f346c48449cc42723cf924d590bfca82469b830bf21207bce1099"
+  },
+  {
+    "path": "referencias/figma/stores.png",
+    "bytes": 143241,
+    "sha256": "0fdf32436f37d2ad40ebadeb3dad1d58c4d2da735fe13381eaaad7a74c51055f"
+  },
+  {
+    "path": "referencias/figma/subscription-plans.png",
+    "bytes": 122981,
+    "sha256": "0d9eeadad9dc0362eda34d4939413f9e2405644a2d0aab3a941e2535f25dcfb5"
+  },
+  {
+    "path": "referencias/figma/user-accounts.png",
+    "bytes": 143708,
+    "sha256": "889712dfaa33fe8be3081566e910ccef8f4573f0031e3d28aeb313cce41e9f71"
+  },
+  {
+    "path": "referencias/fontes-google.css",
+    "bytes": 940,
+    "sha256": "79ee97520a9699b87686af32699e7847e0a941edab874d0f14248fbad1f25ded"
+  },
+  {
+    "path": "RELATORIO-PROTOTIPO-FIGMA.md",
+    "bytes": 36743,
+    "sha256": "ac7eb4d089cc599229fc5ca03231cbdd74791faf68ffe9574c4d483e448070bd"
+  },
+  {
+    "path": "tools/auditar.py",
+    "bytes": 6388,
+    "sha256": "e056e63e654997f702a5c3b06c3bda8d1f5e90a26943c97f72520f1e5e1d460c"
+  },
+  {
+    "path": "tools/documentar.py",
+    "bytes": 20304,
+    "sha256": "4e89b7a290fb45d4b601473214de150c1860f7271776d288166bdbc82d187413"
+  },
+  {
+    "path": "tools/gerar_html.py",
+    "bytes": 12740,
+    "sha256": "1a3a014102062c07715b22e0d6bfbbf9a60bd90f0a1946a32f28626a7258dcf2"
+  },
+  {
+    "path": "tools/preparar.py",
+    "bytes": 7637,
+    "sha256": "b8c9b892286c6ea8e1636ab7351f593a73c44327c4d06aa6a6acb6ae04a32384"
+  },
+  {
+    "path": "tools/preview.py",
+    "bytes": 1832,
+    "sha256": "fd065a13070b97fc6a7673158b6d1e9b049674ccbe476cb98817d22b5d543929"
+  },
+  {
+    "path": "tools/testar_preview.py",
+    "bytes": 1502,
+    "sha256": "85111e4c4a47795ef3e57993e2dfa66fc3213e5791207ab9918b4a692404bb13"
+  },
+  {
+    "path": "tools/testar_visual.cjs",
+    "bytes": 7802,
+    "sha256": "ecaaabbb58952f7a9502d291c611a35a9b935a61ee59657ea91089a7ffe1bef6"
+  }
+]

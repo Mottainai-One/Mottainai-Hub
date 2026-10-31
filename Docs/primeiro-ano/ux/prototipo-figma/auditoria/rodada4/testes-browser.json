@@ -1,0 +1,449 @@
+{
+  "layouts": [
+    {
+      "page": "home",
+      "width": 1440,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "home",
+      "width": 1024,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "home",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "home",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "sobre-nos",
+      "width": 1440,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "sobre-nos",
+      "width": 1024,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "sobre-nos",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "sobre-nos",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "planos",
+      "width": 1440,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "planos",
+      "width": 1024,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "planos",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "planos",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "faq",
+      "width": 1440,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "faq",
+      "width": 1024,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "faq",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "faq",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "home-crud-page",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "home-crud-page",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "home-crud-page",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "companies",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "companies",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "companies",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "stores",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "stores",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "stores",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "employees",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "employees",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "employees",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "employee-roles",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "employee-roles",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "employee-roles",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "user-accounts",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "user-accounts",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "user-accounts",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "subscription-plans",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "subscription-plans",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "subscription-plans",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "addresses",
+      "width": 1812,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "addresses",
+      "width": 768,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    },
+    {
+      "page": "addresses",
+      "width": 390,
+      "overflow": false,
+      "images": [],
+      "favicon": "../assets/img/favicon.ico"
+    }
+  ],
+  "favicon": [
+    {
+      "page": "home",
+      "html": true,
+      "jsp": true
+    },
+    {
+      "page": "sobre-nos",
+      "html": true,
+      "jsp": true
+    },
+    {
+      "page": "planos",
+      "html": true,
+      "jsp": true
+    },
+    {
+      "page": "faq",
+      "html": true,
+      "jsp": true
+    },
+    {
+      "page": "home-crud-page",
+      "html": true,
+      "jsp": true
+    },
+    {
+      "page": "companies",
+      "html": true,
+      "jsp": true
+    },
+    {
+      "page": "stores",
+      "html": true,
+      "jsp": true
+    },
+    {
+      "page": "employees",
+      "html": true,
+      "jsp": true
+    },
+    {
+      "page": "employee-roles",
+      "html": true,
+      "jsp": true
+    },
+    {
+      "page": "user-accounts",
+      "html": true,
+      "jsp": true
+    },
+    {
+      "page": "subscription-plans",
+      "html": true,
+      "jsp": true
+    },
+    {
+      "page": "addresses",
+      "html": true,
+      "jsp": true
+    }
+  ],
+  "interactions": {
+    "stats": {
+      "image": 538,
+      "text": 902
+    },
+    "cta": [
+      {
+        "w": 216,
+        "h": 54
+      },
+      {
+        "w": 216,
+        "h": 54
+      }
+    ],
+    "hover": [
+      {
+        "transform": "matrix(1, 0, 0, 1, 0, -2)",
+        "duration": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      },
+      {
+        "transform": "matrix(1, 0, 0, 1, 0, -2)",
+        "duration": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      },
+      {
+        "transform": "matrix(1, 0, 0, 1, 0, -2)",
+        "duration": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      },
+      {
+        "transform": "matrix(1, 0, 0, 1, 0, -2)",
+        "duration": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      }
+    ],
+    "loginCadastro": true,
+    "planos": {
+      "animationIntermediate": "R$ 18.298",
+      "wave": {
+        "hero": {
+          "x": 0,
+          "y": 93,
+          "w": 1440,
+          "h": 620,
+          "b": 713
+        },
+        "wave": {
+          "x": 678,
+          "y": 93,
+          "w": 762,
+          "b": 713
+        },
+        "cardsTop": 713
+      },
+      "urlUnchanged": true
+    },
+    "carrossel": {
+      "autoBeforeAndAfterManual": true,
+      "manualRightLeftDot": true,
+      "transition": {
+        "duration": "0.6s",
+        "easing": "ease"
+      },
+      "navigation": 0
+    },
+    "years": [
+      {
+        "w": 235,
+        "h": 68,
+        "whiteSpace": "nowrap"
+      },
+      {
+        "w": 235,
+        "h": 68,
+        "whiteSpace": "nowrap"
+      }
+    ],
+    "crudModals": 7,
+    "sidebar": {
+      "rows": 60,
+      "initial": {
+        "sidebarHeight": 963,
+        "sidebarY": 0,
+        "headerY": 0,
+        "docHeight": 3913,
+        "viewport": 963
+      },
+      "scrolled": {
+        "sidebarHeight": 963,
+        "sidebarY": 0,
+        "headerY": 0,
+        "docHeight": 3913,
+        "viewport": 963
+      }
+    },
+    "navigationFavicon": true
+  },
+  "errors": [],
+  "posts": [],
+  "navigation": [],
+  "passed": true
+}

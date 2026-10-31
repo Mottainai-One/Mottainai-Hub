@@ -1,0 +1,234 @@
+{
+  "home": {
+    "HEADER-0": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 93,
+      "font": "16px",
+      "background": "none"
+    },
+    "home-1": {
+      "x": 0,
+      "y": 93,
+      "width": 1440,
+      "height": 740,
+      "font": "16px",
+      "background": "none"
+    },
+    "sistema-2": {
+      "x": 0,
+      "y": 833,
+      "width": 1440,
+      "height": 586.390625,
+      "font": "16px",
+      "background": "none"
+    },
+    "H2-3": {
+      "x": 319.6875,
+      "y": 848,
+      "width": 800.625,
+      "height": 61.390625,
+      "font": "38px",
+      "background": "none"
+    },
+    "cards-sistema-4": {
+      "x": 48,
+      "y": 974.390625,
+      "width": 1344,
+      "height": 350,
+      "font": "16px",
+      "background": "none"
+    },
+    "card-5": {
+      "x": 48,
+      "y": 974.390625,
+      "width": 297,
+      "height": 350,
+      "font": "16px",
+      "background": "none"
+    },
+    "card-6": {
+      "x": 397,
+      "y": 974.390625,
+      "width": 297,
+      "height": 350,
+      "font": "16px",
+      "background": "none"
+    },
+    "card-7": {
+      "x": 746,
+      "y": 974.390625,
+      "width": 297,
+      "height": 350,
+      "font": "16px",
+      "background": "none"
+    },
+    "card-8": {
+      "x": 1095,
+      "y": 974.390625,
+      "width": 297,
+      "height": 350,
+      "font": "16px",
+      "background": "none"
+    },
+    "estatistica-9": {
+      "x": 0,
+      "y": 1419.390625,
+      "width": 1440,
+      "height": 685,
+      "font": "16px",
+      "background": "none"
+    },
+    "estatistica-foto-10": {
+      "x": 0,
+      "y": 1419.390625,
+      "width": 547.1875,
+      "height": 685,
+      "font": "16px",
+      "background": "none"
+    },
+    "estatistica-conteudo-11": {
+      "x": 547.1875,
+      "y": 1494.6875,
+      "width": 892.8125,
+      "height": 534.40625,
+      "font": "16px",
+      "background": "none"
+    },
+    "secao-linhas-decorativas-12": {
+      "x": 0,
+      "y": 2214.390625,
+      "width": 1440,
+      "height": 2607.859375,
+      "font": "16px",
+      "background": "none"
+    },
+    "funcionalidades-13": {
+      "x": 0,
+      "y": 2214.390625,
+      "width": 1440,
+      "height": 1037.796875,
+      "font": "16px",
+      "background": "none"
+    },
+    "ecossistema-14": {
+      "x": 0,
+      "y": 3252.1875,
+      "width": 1440,
+      "height": 869.5625,
+      "font": "16px",
+      "background": "none"
+    },
+    "contato-15": {
+      "x": 0,
+      "y": 4121.75,
+      "width": 1440,
+      "height": 700.5,
+      "font": "16px",
+      "background": "none"
+    },
+    "cta-final-imagem-16": {
+      "x": 682.796875,
+      "y": 4181.75,
+      "width": 709.203125,
+      "height": 540.5,
+      "font": "16px",
+      "background": "none"
+    }
+  },
+  "sobre-nos": {
+    "HEADER-0": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 93,
+      "font": "16px",
+      "background": "none"
+    },
+    "hero-carrossel-1": {
+      "x": 0,
+      "y": 93,
+      "width": 1440,
+      "height": 700,
+      "font": "16px",
+      "background": "none"
+    },
+    "primeiro-ano-2": {
+      "x": 0,
+      "y": 1005.09375,
+      "width": 235,
+      "height": 67.75,
+      "font": "35px",
+      "background": "none"
+    },
+    "segundo-ano-3": {
+      "x": 0,
+      "y": 1796.921875,
+      "width": 235,
+      "height": 111.5,
+      "font": "35px",
+      "background": "none"
+    }
+  },
+  "planos": {
+    "HEADER-0": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 93,
+      "font": "16px",
+      "background": "none"
+    },
+    "hero-1": {
+      "x": 0,
+      "y": 93,
+      "width": 1440,
+      "height": 620,
+      "font": "16px",
+      "background": "none"
+    },
+    "background-lines-2": {
+      "x": 316.8125,
+      "y": 93,
+      "width": 1123.1875,
+      "height": 846,
+      "font": "16px",
+      "background": "none"
+    },
+    "escolha-plano-3": {
+      "x": 0,
+      "y": 713,
+      "width": 1440,
+      "height": 938.234375,
+      "font": "16px",
+      "background": "none"
+    }
+  },
+  "companies": {
+    "sidebar-0": {
+      "x": 0,
+      "y": 0,
+      "width": 247.953125,
+      "height": 1000,
+      "font": "14.328px",
+      "background": "none"
+    },
+    "header-1": {
+      "x": 247.953125,
+      "y": 0,
+      "width": 1192.046875,
+      "height": 86,
+      "font": "14.328px",
+      "background": "none"
+    },
+    "main-2": {
+      "x": 247.953125,
+      "y": 86,
+      "width": 1192.046875,
+      "height": 922.328125,
+      "font": "14.328px",
+      "background": "none"
+    }
+  }
+}

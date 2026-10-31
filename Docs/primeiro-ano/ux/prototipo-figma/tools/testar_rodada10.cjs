@@ -1,0 +1,29 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{pathToFileURL}=require('node:url');
+const{chromium}=require(process.env.PLAYWRIGHT_MODULE),root=path.resolve(__dirname,'..'),dir=path.join(root,'auditoria/rodada10');
+const baseline=JSON.parse(fs.readFileSync(path.join(dir,'layout-antes.json'))),out={layouts:[],interactions:[],errors:[],passed:false};
+const uri=(name,active=false)=>pathToFileURL(active?path.join(dir,'ativo-'+name+'.html'):path.join(root,'html',name+'.html')).href;
+const geometry=()=>{let box=s=>{let e=document.querySelector(s);if(!e)return null;let r=e.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height,b:r.bottom}};return{main:box('body > main'),hero:box('.hero,.hero-carrossel'),functional:box('#funcionalidades'),featuresTitle:box('#funcionalidades > h2'),lower:box('.secao-linhas-decorativas'),eco:box('.ecossistema'),phone:box('.ecossistema-imagem'),cta:box('.cta-final'),monitor:box('.cta-final-imagem'),team:box('main > section:last-child'),teamTitle:box('#nossa-equipe'),year1:box('#primeiro-ano'),year2:box('#segundo-ano'),footer:box('body > footer')}};
+const same=(after,before,label)=>{for(const key in before){if(before[key]===null||typeof before[key]!=='object')continue;for(const prop of['x','y','w','h','b'])assert(Math.abs(after[key][prop]-before[key][prop])<1,`${label} ${key}.${prop} ${after[key][prop]} vs ${before[key][prop]}`)}};
+(async()=>{const browser=await chromium.launch({channel:'chrome',headless:true});try{
+ const p=await browser.newPage({bypassCSP:true});p.on('pageerror',e=>out.errors.push(String(e)));await p.route('https://fonts.googleapis.com/**',r=>r.abort());
+ for(const active of[false,true])for(const name of['home','sobre-nos'])for(const width of[1440,1024,768,390]){
+  await p.setViewportSize({width,height:1000});await p.goto(uri(name,active));await p.evaluate(()=>document.fonts.ready);
+  const after=await p.evaluate(geometry);const x=await p.evaluate(()=>{let images=[...document.querySelectorAll('.home-blue-lines,.about-blue-lines img')];return{overflow:document.documentElement.scrollWidth>innerWidth+2,images:[...document.images].filter(i=>!i.complete||!i.naturalWidth).length,lines:images.map(e=>{let r=e.getBoundingClientRect(),s=getComputedStyle(e);return{src:e.getAttribute('src'),x:r.x,y:r.y,w:r.width,h:r.height,naturalW:e.naturalWidth,naturalH:e.naturalHeight,pointer:s.pointerEvents,z:s.zIndex,opacity:s.opacity}}),aboutBackground:document.querySelector('.equipe-com-linhas')?getComputedStyle(document.querySelector('.equipe-com-linhas')).backgroundImage:null}});
+  assert(!x.overflow,name+' overflow '+width);assert.equal(x.images,0);assert.equal(x.lines.length,2);for(const line of x.lines){assert(line.src.includes('-blue-lines-'));assert.equal(line.pointer,'none');assert.equal(line.opacity,'1');assert(Math.abs(line.w/line.h-line.naturalW/line.naturalH)<.001);}
+  if(name==='sobre-nos')assert.equal(x.aboutBackground,'none');
+  if(!active){const old=baseline.find(b=>b.name===name&&b.width===width);same(after,old,name+' '+width);}
+  else {
+   // Desativa só o bloco novo para comparar a geometria com o CSS anterior; arquivos da aplicação não são regravados.
+   const cssPath=path.resolve(root,'../src/main/resources/static/assets/css',name+'.css');const oldCss=fs.readFileSync(cssPath,'utf8').split('/* Rodada 10')[0].replace(/url\((["']?)([^)"']+)\1\)/g,(match,q,value)=>value.startsWith('data:')||value.startsWith('http')?match:'url("'+pathToFileURL(path.resolve(path.dirname(cssPath),value)).href+'")');
+   await p.locator('link[href$="/'+name+'.css"]').evaluate(e=>e.disabled=true);await p.evaluate(css=>{const s=document.createElement('style');s.textContent=css;document.head.append(s)},oldCss+'\n.about-blue-lines{display:none}');const old=await p.evaluate(geometry);same(after,old,'ativo '+name+' '+width);
+  }
+  out.layouts.push({active,name,width,geometry:after,...x});
+  if(!active&&[1440,390].includes(width)){await p.goto(uri(name));await p.evaluate(()=>document.fonts.ready);await p.screenshot({path:path.join(dir,name+'-'+width+'.png'),fullPage:true});}
+ }
+ // As linhas não recebem eventos nem bloqueiam os elementos existentes.
+ await p.setViewportSize({width:1440,height:1000});await p.goto(uri('home'));for(const selector of['.hero-botoes a','.cta-botoes label[for="login"]']){const el=p.locator(selector).first();await el.scrollIntoViewIfNeeded();const hit=await el.evaluate(e=>{let r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))});assert(hit,selector+' bloqueado');}
+ await p.locator('.cta-botoes label[for="login"]').click();assert(await p.locator('#login').isChecked());await p.locator('#login-form label[for="cadastro"]').click();assert(await p.locator('#cadastro').isChecked());out.interactions.push('Home: botões, login e alternância Cadastro acessíveis');
+ await p.goto(uri('sobre-nos'));const initial=p.url();await p.locator('.car-dots button').last().click();assert.equal(await p.locator('.hero-carrossel').getAttribute('data-slide'),'3');assert.equal(p.url(),initial);
+ const carousel=p.locator('.bloco-ano .carrossel').first();await carousel.scrollIntoViewIfNeeded();const values=await carousel.evaluate(e=>{const old=e.scrollLeft;e.scrollLeft=600;return{old,max:e.scrollWidth-e.clientWidth}});await p.waitForTimeout(600);assert(values.max>0);assert(await carousel.evaluate(e=>e.scrollLeft)>values.old);out.interactions.push('Sobre Nós: dots do hero e carrossel da equipe preservados');
+ assert.equal(out.errors.length,0);out.passed=true;
+}finally{await browser.close();fs.writeFileSync(path.join(dir,'visual.json'),JSON.stringify(out,null,2));}console.log(JSON.stringify({passed:out.passed,layouts:out.layouts.length,interactions:out.interactions.length}));})().catch(e=>{console.error(e);process.exitCode=1});

@@ -1,0 +1,13 @@
+[
+  "src/main/resources/static/assets/css/footer.css",
+  "src/main/resources/static/assets/img/planos-padrao-hero-azul.svg",
+  "src/main/resources/static/assets/img/team-arrow-right.svg",
+  "src/main/resources/static/assets/js/sobre-nos.js",
+  "prototipo-figma/css/footer.css",
+  "prototipo-figma/assets/img/planos-padrao-hero-azul.svg",
+  "prototipo-figma/assets/img/team-arrow-right.svg",
+  "prototipo-figma/tools/ajustar_rodada14.py",
+  "prototipo-figma/tools/auditar_rodada14.py",
+  "prototipo-figma/tools/testar_links_hover_rodada14.cjs",
+  "prototipo-figma/tools/testar_rodada14.cjs"
+]

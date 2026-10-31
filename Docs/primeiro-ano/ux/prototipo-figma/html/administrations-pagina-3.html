@@ -1,0 +1,195 @@
+
+
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mottainai - Administradores</title>
+    <link rel="stylesheet" href="../css/crud.css" />
+<link rel="stylesheet" href="../css/fontes.css">
+<link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../css/crud-ux.css" />
+<link rel="stylesheet" href="../css/crud-layout.css" />
+</head>
+<body data-preview="static" data-pagina="administrations">
+<div class="app">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar">
+        <a href="home-crud-page.html" class="sidebar-logo">
+            <img src="../assets/icons/logo-administrativo.svg" alt="Mottainai" />
+        </a>
+
+        <nav class="sidebar-nav">
+            <a href="home-crud-page.html" class="sidebar-item" data-pagina="inicio">
+                <img class="sidebar-icone" src="../assets/icons/home.svg" alt="" />
+                <span>Página inicial</span>
+            </a>
+            <a href="companies.html" class="sidebar-item" data-pagina="empresas">
+                <img class="sidebar-icone" src="../assets/icons/empresa.svg" alt="" />
+                <span>Empresas</span>
+            </a>
+            <a href="stores.html" class="sidebar-item" data-pagina="lojas">
+                <img class="sidebar-icone" src="../assets/icons/loja.svg" alt="" />
+                <span>Lojas</span>
+            </a>
+            <a href="employees.html" class="sidebar-item" data-pagina="funcionarios">
+                <img class="sidebar-icone" src="../assets/icons/cracha.svg" alt="" />
+                <span>Funcionários</span>
+            </a>
+            <a href="employee-roles.html" class="sidebar-item" data-pagina="cargos">
+                <img class="sidebar-icone" src="../assets/icons/users.svg" alt="" />
+                <span>Cargos</span>
+            </a>
+            <a href="user-accounts.html" class="sidebar-item" data-pagina="contas">
+                <img class="sidebar-icone" src="../assets/icons/user.svg" alt="" />
+                <span>Contas de usuários</span>
+            </a>
+            <a href="subscription-plans.html" class="sidebar-item" data-pagina="planos">
+                <img class="sidebar-icone" src="../assets/icons/grafico.svg" alt="" />
+                <span>Planos de assinatura</span>
+            </a>
+            <a href="addresses.html" class="sidebar-item" data-pagina="enderecos">
+                <img class="sidebar-icone" src="../assets/icons/loja_alt.svg" alt="" />
+                <span>Endereços</span>
+            </a>
+                    <a href="administrations.html" class="sidebar-item" data-pagina="administrations">
+                <img class="sidebar-icone" src="../assets/icons/user.svg" alt="" />
+                <span>Administradores</span>
+            </a>
+        </nav>
+
+        <form id="logout-form" hidden method="dialog"></form>
+        <a href="home.html" class="sidebar-sair">
+            <img class="sidebar-icone" src="../assets/icons/logout.svg" alt="" />
+            <span>Sair</span>
+        </a>
+    </aside>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header">
+        <h1 class="header-titulo">Gestão de administradores</h1>
+        <div class="perfil-administrativo">
+            <button type="button" class="header-usuario perfil-trigger" aria-expanded="false" aria-controls="perfil-popup">
+                <span class="header-nome">Administrador</span>
+                <span class="header-avatar"><img src="../assets/icons/user.svg" alt="" /></span>
+            </button>
+            <div class="perfil-popup" id="perfil-popup" hidden aria-labelledby="perfil-titulo">
+                <strong class="perfil-titulo" id="perfil-titulo">Minha conta</strong>
+                <p class="perfil-subtitulo">Informações do perfil</p>
+                <div class="perfil-avatar"><img src="../assets/icons/perfil-usuario-figma.svg" alt="" /></div>
+                <p class="perfil-email">admin.preview@example.test</p>
+                <span class="perfil-cargo">Administrador do sistema</span>
+                <form action="home.html" method="get"><button type="submit" class="perfil-sair"><img src="../assets/icons/logout.svg" alt="" />Sair da conta</button></form>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <h2 class="pagina-titulo">Administradores cadastrados</h2>
+        <p class="pagina-subtitulo">Gestão de acesso administrativo. Administradores não podem ser excluídos.</p>
+        
+        
+        <form class="toolbar" method="dialog">
+            <div class="busca"><img class="busca-icone" src="../assets/icons/search.svg" alt="" /><input type="search" name="busca" value="" placeholder="Pesquisar por ID ou email..." aria-label="Pesquisar administradores" /></div>
+            <button type="submit" class="btn btn-secundario btn-pesquisar">Pesquisar</button>
+            <a href="administrations.html#modal-administration-criar" class="btn btn-primario">+ Cadastrar administrador</a>
+        </form>
+        <div class="tabela-wrap"><table class="tabela">
+            <thead><tr><th>ID</th><th>Email</th><th>Ações</th></tr></thead>
+            <tbody>
+            
+            
+                <tr><td>19</td><td>admin.preview+3@example.test</td>
+                    <td class="col-acoes"><a class="icone-btn" href="administrations.html#modal-administration-ver" title="Visualizar"><img src="../assets/icons/eye.svg" alt="Visualizar" /></a>
+                    <a class="icone-btn" href="administrations.html#modal-administration-editar" title="Editar"><img src="../assets/icons/edit.svg" alt="Editar" /></a></td></tr>
+            
+                <tr><td>20</td><td>admin.8+3@example.test</td>
+                    <td class="col-acoes"><a class="icone-btn" href="administrations.html#modal-administration-ver" title="Visualizar"><img src="../assets/icons/eye.svg" alt="Visualizar" /></a>
+                    <a class="icone-btn" href="administrations.html#modal-administration-editar" title="Editar"><img src="../assets/icons/edit.svg" alt="Editar" /></a></td></tr>
+            
+                <tr><td>21</td><td>admin.9+3@example.test</td>
+                    <td class="col-acoes"><a class="icone-btn" href="administrations.html#modal-administration-ver" title="Visualizar"><img src="../assets/icons/eye.svg" alt="Visualizar" /></a>
+                    <a class="icone-btn" href="administrations.html#modal-administration-editar" title="Editar"><img src="../assets/icons/edit.svg" alt="Editar" /></a></td></tr>
+            
+                <tr><td>22</td><td>admin.10+3@example.test</td>
+                    <td class="col-acoes"><a class="icone-btn" href="administrations.html#modal-administration-ver" title="Visualizar"><img src="../assets/icons/eye.svg" alt="Visualizar" /></a>
+                    <a class="icone-btn" href="administrations.html#modal-administration-editar" title="Editar"><img src="../assets/icons/edit.svg" alt="Editar" /></a></td></tr>
+            
+                <tr><td>23</td><td>admin.11+3@example.test</td>
+                    <td class="col-acoes"><a class="icone-btn" href="administrations.html#modal-administration-ver" title="Visualizar"><img src="../assets/icons/eye.svg" alt="Visualizar" /></a>
+                    <a class="icone-btn" href="administrations.html#modal-administration-editar" title="Editar"><img src="../assets/icons/edit.svg" alt="Editar" /></a></td></tr>
+            
+                <tr><td>24</td><td>admin.12+3@example.test</td>
+                    <td class="col-acoes"><a class="icone-btn" href="administrations.html#modal-administration-ver" title="Visualizar"><img src="../assets/icons/eye.svg" alt="Visualizar" /></a>
+                    <a class="icone-btn" href="administrations.html#modal-administration-editar" title="Editar"><img src="../assets/icons/edit.svg" alt="Editar" /></a></td></tr>
+            
+            </tbody>
+        </table>
+            <div class="paginacao">
+                <span class="paginacao-info">Página 3 de 3</span>
+                <div class="paginacao-controles">
+                    
+                            
+                            <a href="administrations-pagina-2.html?pagina=2&amp;busca="
+                               class="paginacao-btn">Anterior</a>
+                        
+
+                    
+                        
+                                
+                            <a href="administrations.html?pagina=1&amp;busca="
+                                   class="paginacao-btn">1</a>
+                            
+                    
+                        
+                                
+                            <a href="administrations-pagina-2.html?pagina=2&amp;busca="
+                                   class="paginacao-btn">2</a>
+                            
+                    
+                        
+                                <button class="paginacao-btn ativo">3</button>
+                            
+                    
+
+                    
+                            <button class="paginacao-btn" disabled>Próximo</button>
+                        
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div id="modal-administration-criar" data-administration class="modal-overlay ">
+ <div class="modal">
+    <div class="modal-cabecalho"><h2>Cadastrar administrador</h2><a class="modal-fechar" href="administrations.html" aria-label="Fechar">×</a></div>
+    <form method="dialog">
+        <div class="campo"><label for="administration-email">Email</label><input id="administration-email" type="email" name="email" maxlength="100" required value="" autocomplete="off" /></div>
+        <div class="campo"><label for="administration-password">Senha</label><input id="administration-password" type="password" name="password" maxlength="72" autocomplete="new-password" required /></div>
+        <p>Na edição, deixe a senha vazia para manter a atual. Limite de 72 bytes em UTF-8.</p>
+        <div class="modal-rodape"><a href="administrations.html" class="btn btn-secundario">Cancelar</a><button type="submit" class="btn btn-primario">Salvar</button></div>
+    </form>
+ </div>
+</div>
+<div id="modal-administration-ver" data-administration class="modal-overlay ">
+ <div class="modal"><div class="modal-cabecalho"><h2>Administrador</h2><a class="modal-fechar" href="administrations.html" aria-label="Fechar">×</a></div>
+    <p>ID: 7</p><p>Email: admin.preview@example.test</p>
+ </div>
+</div>
+<script src="../js/crud.js"></script>
+<script src="../js/crud-ux.js"></script>
+<div id="modal-administration-editar" data-administration class="modal-overlay ">
+ <div class="modal">
+    <div class="modal-cabecalho"><h2>Editar administrador</h2><a class="modal-fechar" href="administrations.html" aria-label="Fechar">×</a></div>
+    <form method="dialog">
+        <div class="campo"><label for="administration-edit-email">Email</label><input id="administration-edit-email" type="email" name="email" maxlength="100" required value="admin.preview@example.test" autocomplete="off" /></div>
+        <div class="campo"><label for="administration-edit-password">Nova senha (opcional)</label><input id="administration-edit-password" type="password" name="password" maxlength="72" autocomplete="new-password"  /></div>
+        <p>Na edição, deixe a senha vazia para manter a atual. Limite de 72 bytes em UTF-8.</p>
+        <div class="modal-rodape"><a href="administrations.html" class="btn btn-secundario">Cancelar</a><button type="submit" class="btn btn-primario">Salvar</button></div>
+    </form>
+ </div>
+</div>
+</body></html>

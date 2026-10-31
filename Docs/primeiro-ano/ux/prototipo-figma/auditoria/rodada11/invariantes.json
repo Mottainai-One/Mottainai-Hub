@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "changedExistingFiles": [
+    "src/main/webapp/WEB-INF/jsp/home.jsp",
+    "prototipo-figma/jsp/home.jsp",
+    "prototipo-figma/html/home.html"
+  ],
+  "unchangedFiles": 426,
+  "onlyDeviceImageMarkupChanged": true,
+  "cssAndJavaScriptUnchanged": true,
+  "backendUnchanged": true,
+  "htmlGeneratedFromJsp": true,
+  "figmaDeviceTransformsPreserved": true,
+  "phoneShellSamplesUnchanged": true,
+  "assets": [
+    {
+      "name": "home-mobile-profile-camila.png",
+      "size": [
+        1275,
+        1523
+      ],
+      "sha256": "1691b5252e064c55b75eb1cca1d2474bc61f91daa2d963957eddaa36aafc2a4b"
+    },
+    {
+      "name": "home-mobile-lo-conversation.png",
+      "size": [
+        1247,
+        1488
+      ],
+      "sha256": "1c5f54d2f051d74da222f6d45779a585a0fc79f121dc633d5672b001bd6d6cbe"
+    },
+    {
+      "name": "home-monitor-predictive-alerts.png",
+      "size": [
+        1872,
+        1488
+      ],
+      "sha256": "fe357cdb0a0473437214db3659721297e60f9d355bfe2980fc006e99e59a4394"
+    }
+  ]
+}

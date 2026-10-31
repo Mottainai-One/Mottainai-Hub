@@ -1,0 +1,896 @@
+{
+  "layouts": [
+    {
+      "name": "home",
+      "width": 1920,
+      "overflow": false,
+      "images": 0,
+      "highlight": {
+        "rects": 1,
+        "whiteSpace": "nowrap",
+        "text": "bom demais"
+      },
+      "footer": {
+        "x": 0,
+        "y": 4512.6875,
+        "w": 1920,
+        "h": 427,
+        "b": 4939.6875,
+        "r": 1920
+      },
+      "computer": {
+        "x": 898.796875,
+        "y": 3896.1875,
+        "w": 973.203125,
+        "h": 540.5,
+        "b": 4436.6875,
+        "r": 1872
+      },
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "home",
+      "width": 1440,
+      "overflow": false,
+      "images": 0,
+      "highlight": {
+        "rects": 1,
+        "whiteSpace": "nowrap",
+        "text": "bom demais"
+      },
+      "footer": {
+        "x": 0,
+        "y": 4512.6875,
+        "w": 1440,
+        "h": 427,
+        "b": 4939.6875,
+        "r": 1440
+      },
+      "computer": {
+        "x": 682.796875,
+        "y": 3896.1875,
+        "w": 709.203125,
+        "h": 540.5,
+        "b": 4436.6875,
+        "r": 1392
+      },
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "home",
+      "width": 1024,
+      "overflow": false,
+      "images": 0,
+      "highlight": {
+        "rects": 1,
+        "whiteSpace": "nowrap",
+        "text": "bom demais"
+      },
+      "footer": {
+        "x": 0,
+        "y": 4254.078125,
+        "w": 1024,
+        "h": 586.4375,
+        "b": 4840.515625,
+        "r": 1024
+      },
+      "computer": {
+        "x": 493.796875,
+        "y": 3780.484375,
+        "w": 500.203125,
+        "h": 397.59375,
+        "b": 4178.078125,
+        "r": 994
+      },
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "home",
+      "width": 768,
+      "overflow": false,
+      "images": 0,
+      "highlight": {
+        "rects": 1,
+        "whiteSpace": "nowrap",
+        "text": "bom demais"
+      },
+      "footer": {
+        "x": 0,
+        "y": 4443.40625,
+        "w": 768,
+        "h": 641.5625,
+        "b": 5084.96875,
+        "r": 768
+      },
+      "computer": {
+        "x": 378.59375,
+        "y": 4029.046875,
+        "w": 359.40625,
+        "h": 285.671875,
+        "b": 4314.71875,
+        "r": 738
+      },
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "home",
+      "width": 390,
+      "overflow": false,
+      "images": 0,
+      "highlight": {
+        "rects": 1,
+        "whiteSpace": "nowrap",
+        "text": "bom demais"
+      },
+      "footer": {
+        "x": 0,
+        "y": 7835.875,
+        "w": 390,
+        "h": 884.625,
+        "b": 8720.5,
+        "r": 390
+      },
+      "computer": {
+        "x": 24,
+        "y": 7520.03125,
+        "w": 342,
+        "h": 271.84375,
+        "b": 7791.875,
+        "r": 366
+      },
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "sobre-nos",
+      "width": 1920,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 2496.28125,
+        "w": 1920,
+        "h": 427,
+        "b": 2923.28125,
+        "r": 1920
+      },
+      "computer": null,
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": {
+        "x": 0,
+        "y": 93,
+        "w": 1920,
+        "h": 700,
+        "b": 793,
+        "r": 1920
+      },
+      "texts": [
+        {
+          "y": 409.0625,
+          "b": 487.25
+        },
+        {
+          "y": 512.25,
+          "b": 689
+        },
+        {
+          "y": 364.875,
+          "b": 443.0625
+        },
+        {
+          "y": 468.0625,
+          "b": 689
+        },
+        {
+          "y": 364.875,
+          "b": 443.0625
+        },
+        {
+          "y": 468.0625,
+          "b": 689
+        },
+        {
+          "y": 409.0625,
+          "b": 487.25
+        },
+        {
+          "y": 512.25,
+          "b": 689
+        }
+      ]
+    },
+    {
+      "name": "sobre-nos",
+      "width": 1440,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 2496.28125,
+        "w": 1440,
+        "h": 427,
+        "b": 2923.28125,
+        "r": 1440
+      },
+      "computer": null,
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": {
+        "x": 0,
+        "y": 93,
+        "w": 1440,
+        "h": 700,
+        "b": 793,
+        "r": 1440
+      },
+      "texts": [
+        {
+          "y": 409.0625,
+          "b": 487.25
+        },
+        {
+          "y": 512.25,
+          "b": 689
+        },
+        {
+          "y": 364.875,
+          "b": 443.0625
+        },
+        {
+          "y": 468.0625,
+          "b": 689
+        },
+        {
+          "y": 364.875,
+          "b": 443.0625
+        },
+        {
+          "y": 468.0625,
+          "b": 689
+        },
+        {
+          "y": 409.0625,
+          "b": 487.25
+        },
+        {
+          "y": 512.25,
+          "b": 689
+        }
+      ]
+    },
+    {
+      "name": "sobre-nos",
+      "width": 1024,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 2292.484375,
+        "w": 1024,
+        "h": 531.09375,
+        "b": 2823.578125,
+        "r": 1024
+      },
+      "computer": null,
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": {
+        "x": 0,
+        "y": 93,
+        "w": 1024,
+        "h": 590,
+        "b": 683,
+        "r": 1024
+      },
+      "texts": [
+        {
+          "y": 337.75,
+          "b": 404.4375
+        },
+        {
+          "y": 429.4375,
+          "b": 579
+        },
+        {
+          "y": 337.75,
+          "b": 404.4375
+        },
+        {
+          "y": 429.4375,
+          "b": 579
+        },
+        {
+          "y": 300.359375,
+          "b": 367.046875
+        },
+        {
+          "y": 392.046875,
+          "b": 579
+        },
+        {
+          "y": 375.140625,
+          "b": 441.828125
+        },
+        {
+          "y": 466.828125,
+          "b": 579
+        }
+      ]
+    },
+    {
+      "name": "sobre-nos",
+      "width": 768,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 2292.484375,
+        "w": 768,
+        "h": 576.09375,
+        "b": 2868.578125,
+        "r": 768
+      },
+      "computer": null,
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": {
+        "x": 0,
+        "y": 93,
+        "w": 768,
+        "h": 590,
+        "b": 683,
+        "r": 768
+      },
+      "texts": [
+        {
+          "y": 300.359375,
+          "b": 367.046875
+        },
+        {
+          "y": 392.046875,
+          "b": 579
+        },
+        {
+          "y": 300.359375,
+          "b": 367.046875
+        },
+        {
+          "y": 392.046875,
+          "b": 579
+        },
+        {
+          "y": 300.359375,
+          "b": 367.046875
+        },
+        {
+          "y": 392.046875,
+          "b": 579
+        },
+        {
+          "y": 337.75,
+          "b": 404.4375
+        },
+        {
+          "y": 429.4375,
+          "b": 579
+        }
+      ]
+    },
+    {
+      "name": "sobre-nos",
+      "width": 390,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 2125.578125,
+        "w": 390,
+        "h": 782.765625,
+        "b": 2908.34375,
+        "r": 390
+      },
+      "computer": null,
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": {
+        "x": 0,
+        "y": 120.390625,
+        "w": 390,
+        "h": 560,
+        "b": 680.390625,
+        "r": 390
+      },
+      "texts": [
+        {
+          "y": 295.953125,
+          "b": 345.390625
+        },
+        {
+          "y": 370.390625,
+          "b": 574.390625
+        },
+        {
+          "y": 261.953125,
+          "b": 311.390625
+        },
+        {
+          "y": 336.390625,
+          "b": 574.390625
+        },
+        {
+          "y": 227.953125,
+          "b": 277.390625
+        },
+        {
+          "y": 302.390625,
+          "b": 574.390625
+        },
+        {
+          "y": 329.953125,
+          "b": 379.390625
+        },
+        {
+          "y": 404.390625,
+          "b": 574.390625
+        }
+      ]
+    },
+    {
+      "name": "planos",
+      "width": 1920,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 2520.234375,
+        "w": 1920,
+        "h": 427,
+        "b": 2947.234375,
+        "r": 1920
+      },
+      "computer": null,
+      "wave": {
+        "x": 904,
+        "y": 93,
+        "w": 1016,
+        "h": 620,
+        "b": 713,
+        "r": 1920
+      },
+      "hero": {
+        "x": 0,
+        "y": 93,
+        "w": 1920,
+        "h": 620,
+        "b": 713,
+        "r": 1920
+      },
+      "plans": {
+        "x": 240,
+        "y": 713,
+        "w": 1440,
+        "h": 977.234375,
+        "b": 1690.234375,
+        "r": 1680
+      },
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "planos",
+      "width": 1440,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 2520.234375,
+        "w": 1440,
+        "h": 427,
+        "b": 2947.234375,
+        "r": 1440
+      },
+      "computer": null,
+      "wave": {
+        "x": 678,
+        "y": 93,
+        "w": 762,
+        "h": 620,
+        "b": 713,
+        "r": 1440
+      },
+      "hero": {
+        "x": 0,
+        "y": 93,
+        "w": 1440,
+        "h": 620,
+        "b": 713,
+        "r": 1440
+      },
+      "plans": {
+        "x": 0,
+        "y": 713,
+        "w": 1440,
+        "h": 977.234375,
+        "b": 1690.234375,
+        "r": 1440
+      },
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "planos",
+      "width": 1024,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 2530.234375,
+        "w": 1024,
+        "h": 598.5,
+        "b": 3128.734375,
+        "r": 1024
+      },
+      "computer": null,
+      "wave": {
+        "x": 482.140625,
+        "y": 93,
+        "w": 541.859375,
+        "h": 620,
+        "b": 713,
+        "r": 1024
+      },
+      "hero": {
+        "x": 0,
+        "y": 93,
+        "w": 1024,
+        "h": 620,
+        "b": 713,
+        "r": 1024
+      },
+      "plans": {
+        "x": 0,
+        "y": 713,
+        "w": 1024,
+        "h": 987.234375,
+        "b": 1700.234375,
+        "r": 1024
+      },
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "planos",
+      "width": 768,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 2840.234375,
+        "w": 768,
+        "h": 646.5,
+        "b": 3486.734375,
+        "r": 768
+      },
+      "computer": null,
+      "wave": {
+        "x": 361.609375,
+        "y": 93,
+        "w": 406.390625,
+        "h": 620,
+        "b": 713,
+        "r": 768
+      },
+      "hero": {
+        "x": 0,
+        "y": 93,
+        "w": 768,
+        "h": 620,
+        "b": 713,
+        "r": 768
+      },
+      "plans": {
+        "x": 0,
+        "y": 713,
+        "w": 768,
+        "h": 987.234375,
+        "b": 1700.234375,
+        "r": 768
+      },
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "planos",
+      "width": 390,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 4800.890625,
+        "w": 390,
+        "h": 755.75,
+        "b": 5556.640625,
+        "r": 390
+      },
+      "computer": null,
+      "wave": {
+        "x": 183.625,
+        "y": 120.390625,
+        "w": 206.375,
+        "h": 1096.84375,
+        "b": 1217.234375,
+        "r": 390
+      },
+      "hero": {
+        "x": 0,
+        "y": 120.390625,
+        "w": 390,
+        "h": 1096.84375,
+        "b": 1217.234375,
+        "r": 390
+      },
+      "plans": {
+        "x": 0,
+        "y": 1217.234375,
+        "w": 390,
+        "h": 1953.65625,
+        "b": 3170.890625,
+        "r": 390
+      },
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "faq",
+      "width": 1920,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 1892.765625,
+        "w": 1920,
+        "h": 427,
+        "b": 2319.765625,
+        "r": 1920
+      },
+      "computer": null,
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "faq",
+      "width": 1440,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 1892.765625,
+        "w": 1440,
+        "h": 427,
+        "b": 2319.765625,
+        "r": 1440
+      },
+      "computer": null,
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "faq",
+      "width": 1024,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 1878.6875,
+        "w": 1024,
+        "h": 612.796875,
+        "b": 2491.484375,
+        "r": 1024
+      },
+      "computer": null,
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "faq",
+      "width": 768,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 1864.609375,
+        "w": 768,
+        "h": 660.796875,
+        "b": 2525.40625,
+        "r": 768
+      },
+      "computer": null,
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": null,
+      "texts": []
+    },
+    {
+      "name": "faq",
+      "width": 390,
+      "overflow": false,
+      "images": 0,
+      "highlight": null,
+      "footer": {
+        "x": 0,
+        "y": 2006.09375,
+        "w": 390,
+        "h": 788.34375,
+        "b": 2794.4375,
+        "r": 390
+      },
+      "computer": null,
+      "wave": null,
+      "hero": null,
+      "plans": null,
+      "aboutHero": null,
+      "texts": []
+    }
+  ],
+  "states": [
+    {
+      "mode": "mensal",
+      "before": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(16, 42, 67)",
+        "border": "rgb(16, 42, 67)",
+        "transform": "none",
+        "transition": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      },
+      "hover": {
+        "bg": "rgb(16, 42, 67)",
+        "color": "rgb(245, 247, 250)",
+        "border": "rgb(16, 42, 67)",
+        "transform": "matrix(1, 0, 0, 1, 0, -2)",
+        "transition": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      }
+    },
+    {
+      "mode": "mensal",
+      "before": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(16, 42, 67)",
+        "border": "rgb(16, 42, 67)",
+        "transform": "none",
+        "transition": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      },
+      "hover": {
+        "bg": "rgb(16, 42, 67)",
+        "color": "rgb(245, 247, 250)",
+        "border": "rgb(16, 42, 67)",
+        "transform": "matrix(1, 0, 0, 1, 0, -2)",
+        "transition": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      }
+    },
+    {
+      "mode": "anual",
+      "before": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(221, 123, 45)",
+        "border": "rgb(221, 123, 45)",
+        "transform": "none",
+        "transition": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      },
+      "hover": {
+        "bg": "rgb(221, 123, 45)",
+        "color": "rgb(245, 247, 250)",
+        "border": "rgb(221, 123, 45)",
+        "transform": "matrix(1, 0, 0, 1, 0, -2)",
+        "transition": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      }
+    },
+    {
+      "mode": "anual",
+      "before": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(221, 123, 45)",
+        "border": "rgb(221, 123, 45)",
+        "transform": "none",
+        "transition": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      },
+      "hover": {
+        "bg": "rgb(221, 123, 45)",
+        "color": "rgb(245, 247, 250)",
+        "border": "rgb(221, 123, 45)",
+        "transform": "matrix(1, 0, 0, 1, 0, -2)",
+        "transition": "0.2s, 0.2s, 0.2s",
+        "easing": "ease, ease, ease"
+      }
+    }
+  ],
+  "passed": true,
+  "aboutShift": {
+    "before": [
+      433.0625,
+      536.25,
+      388.875,
+      492.0625,
+      388.875,
+      492.0625,
+      433.0625,
+      536.25
+    ],
+    "after": [
+      409.0625,
+      512.25,
+      364.875,
+      468.0625,
+      364.875,
+      468.0625,
+      409.0625,
+      512.25
+    ],
+    "delta": 24
+  },
+  "footerGap": {
+    "before": 56,
+    "after": 76
+  },
+  "contact": {
+    "image": "url(\"file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/assets/img/planos-ondinhas-contato.png\")",
+    "height": "12px",
+    "repeat": "no-repeat",
+    "pointer": "none"
+  }
+}

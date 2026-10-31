@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "changedExistingFiles": [
+    "src/main/resources/static/assets/css/home.css",
+    "src/main/resources/static/assets/css/sobre-nos.css",
+    "src/main/webapp/WEB-INF/jsp/home.jsp",
+    "src/main/webapp/WEB-INF/jsp/sobre-nos.jsp",
+    "prototipo-figma/jsp/home.jsp",
+    "prototipo-figma/jsp/sobre-nos.jsp",
+    "prototipo-figma/html/home.html",
+    "prototipo-figma/html/sobre-nos.html",
+    "prototipo-figma/css/home.css",
+    "prototipo-figma/css/sobre-nos.css"
+  ],
+  "unchangedFiles": 409,
+  "jspContentAndContractsPreserved": true,
+  "previousCssPreserved": true,
+  "htmlGeneratedFromJsp": true,
+  "assets": [
+    {
+      "file": "home-blue-lines-upper.svg",
+      "copiedNode": "104:27398",
+      "originalNode": "101:24179",
+      "width": "2340",
+      "height": "2262",
+      "sha256": "ab3e21c0ba3e9d32d42f532fc18bec84f3a53872c8dcd5888e7bca5752f6d201"
+    },
+    {
+      "file": "home-blue-lines-lower.svg",
+      "copiedNode": "104:27472",
+      "originalNode": "101:24143",
+      "width": "2047",
+      "height": "1717",
+      "sha256": "fa3e788d55fdac82d337c5f25eea4d365049ab625bdc5433095648703fe010b4"
+    },
+    {
+      "file": "about-blue-lines-upper.svg",
+      "copiedNode": "104:27507",
+      "originalNode": "91:9018",
+      "width": "4075",
+      "height": "4285",
+      "sha256": "c97edde5f4480e1996a28e85e7ba261e0e44dc2165da28079e422823f1b6febc"
+    },
+    {
+      "file": "about-blue-lines-lower.svg",
+      "copiedNode": "104:27544",
+      "originalNode": "91:8981",
+      "width": "3699",
+      "height": "3433",
+      "sha256": "617fd436f39dca63bffbc225f7f1285e76508eb0e1267f22d54efbad1539d1a7"
+    }
+  ]
+}

@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+   --azul-primario: #102A43;   
+    --azul-claro: #426B8C;     
+    --creme: #FDEBDD;            
+    --branco: #FBFCFD;           
+    --texto-escuro: #132736;
+    --texto-corpo: #424842;
+   --laranja: #DD7B2D;  
+   --laranja-claro: #F8B983;  
+    --cinza: #444444;
+    --borda-card: #e2e3df;
+    --azul-clarissimo: #F5F7FA;
+
+
+    --fonte: 'DM Sans', sans-serif;
+    --radius-botao: 4px;
+    --radius-card: 20px;
+    --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    font-family: "DM Sans";
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte);
+    background-color: var(--azul-clarissimo);
+    color: var(--texto-escuro);
+    line-height: 1.5;
+     margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    margin: 0px;
+    background-color: var(--branco);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: large;
+}
+
+nav div{
+    padding: 30px;
+}
+
+
+#logo{
+    width: 200px;
+}
+
+h1.hero-h1{
+    color: var(--laranja);
+    line-height: normal;
+    margin: 0px 30px;
+    font-size: 70px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.div-h1{
+    background-size: cover;
+    background-position: center;
+    background-color: var(--azul-primario);
+    height: 670px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.p-hero{
+    margin: 30px;
+    line-height: 50px;
+    color:#fefefe;
+    max-width: 750px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-size: x-large;
+}
+
+#significado{
+    background-image: url("../img/sobre-nos-hero-1.png");
+}
+#proposta{
+    background-image: url("../img/sobre-nos-hero-2.png");
+}
+#nosso-ideal{
+    background-image: url("../img/sobre-nos-hero-3.png");
+}
+#nosso-produto{
+    background-image: url("../img/sobre-nos-hero-4.png");
+}
+
+ul{
+    list-style: none;
+}
+
+
+#nossa-equipe{
+    background-color:var(--azul-primario);
+    color: var(--branco);
+    border-radius: 30px;
+    padding: 5px 5px;
+    margin: 50px 400px;
+    text-align: center;
+    font-weight: 600;
+    font-size: xx-large;
+
+}
+
+/* Parte copiada do gusta*/
+
+footer {
+    padding: 60px 8% 30px;
+    background-color: var(--branco);
+}
+
+.footer-topo {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.footer-logo img {
+    height: 28px;
+    width: auto;
+}
+
+.footer-logo p {
+    margin-top: 12px;
+    font-size: 15px;
+    color: var(--texto-corpo);
+    max-width: 200px;
+}
+
+.footer-coluna h5 {
+    font-size: 17px;
+    margin-bottom: 16px;
+}
+
+.footer-coluna ul li {
+    font-size: 15px;
+    color: var(--texto-corpo);
+    margin-bottom: 12px;
+}
+
+footer hr {
+    border: none;
+    border-top: 1px solid var(--borda-card);
+    margin-bottom: 20px;
+}
+
+.footer-base p {
+    font-size: 14px;
+    color: var(--texto-corpo);
+    text-align: center;
+}
+
+.contato-button{
+    background-color: var(--azul-primario);
+    color: var(--branco);
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: 500;
+}
+
+#pag-selecionada{
+    font-weight: 700;
+
+}  
+
+
+
+
+/* hover */
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+
+
+/* carrossel do hero */
+.car-btn{
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    background-color: var(--branco);
+    color: var(--azul-primario);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 16px;
+    box-shadow: var(--sombra-card);
+    user-select: none;
+    transition: transform .2s;
+}
+
+.car-btn:hover{
+    transform: scale(1.1);
+}
+
+.hero-carrossel{
+    --tempo: 7s;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-radio{
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+}
+
+.hero-track{
+    display: flex;
+    width: 400%;
+    animation: hero-auto calc(var(--tempo) * 4) ease-in-out infinite;
+    transition: transform .6s ease;
+}
+
+.hero-carrossel .slide{
+    position: relative;
+    flex: 0 0 25%;
+}
+
+.hero-carrossel .car-btn{
+    position: absolute;
+    bottom: 17px;
+}
+
+.hero-carrossel .prev{ left: 30px; }
+.hero-carrossel .next{ right: 30px; }
+
+.hero-carrossel .p-hero{
+    margin-bottom: 80px;
+}
+
+
+
+@keyframes hero-auto{
+    0%, 20%   { transform: translateX(0); }
+    25%, 45%  { transform: translateX(-25%); }
+    50%, 70%  { transform: translateX(-50%); }
+    75%, 95%  { transform: translateX(-75%); }
+    100%      { transform: translateX(0); }
+}
+
+/* depois do primeiro clique o autoplay para */
+.hero-radio:checked ~ .hero-track{ animation: none; }
+#hero-1:checked ~ .hero-track{ transform: translateX(0); }
+#hero-2:checked ~ .hero-track{ transform: translateX(-25%); }
+#hero-3:checked ~ .hero-track{ transform: translateX(-50%); }
+#hero-4:checked ~ .hero-track{ transform: translateX(-75%); }
+
+.car-dots{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+.car-dots label{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--branco);
+    cursor: pointer;
+    animation: dot-ativo calc(var(--tempo) * 4) infinite;
+}
+
+.car-dots label:nth-child(2){ animation-delay: calc(var(--tempo) * 1); }
+.car-dots label:nth-child(3){ animation-delay: calc(var(--tempo) * 2); }
+.car-dots label:nth-child(4){ animation-delay: calc(var(--tempo) * 3); }
+
+@keyframes dot-ativo{
+    0%, 24.9% { background: var(--laranja); border-color: var(--laranja); transform: scale(1.2); }
+    25%, 100% { background: transparent; border-color: var(--branco); transform: scale(1); }
+}
+
+.hero-radio:checked ~ .car-dots label{ animation: none; }
+
+#hero-1:checked ~ .car-dots label:nth-child(1),
+#hero-2:checked ~ .car-dots label:nth-child(2),
+#hero-3:checked ~ .car-dots label:nth-child(3),
+#hero-4:checked ~ .car-dots label:nth-child(4){
+    background: var(--laranja);
+    border-color: var(--laranja);
+    transform: scale(1.2);
+}
+
+#hero-1:focus-visible ~ .car-dots label:nth-child(1),
+#hero-2:focus-visible ~ .car-dots label:nth-child(2),
+#hero-3:focus-visible ~ .car-dots label:nth-child(3),
+#hero-4:focus-visible ~ .car-dots label:nth-child(4){
+    outline: 3px solid var(--laranja);
+    outline-offset: 3px;
+}
+
+.bloco-ano{
+    zoom: 1.15;
+    max-width: 930px;
+    margin: 0 auto 60px;
+    padding: 0;                   
+    position: relative;
+}
+
+.titulo-ano{
+    display: inline-block;
+    padding: 12px 36px;
+    margin-bottom: 24px;
+    margin-left: -100vw;          
+    padding-left: calc(100vw + 36px);
+    border-radius: 0 12px 12px 0;  
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#primeiro-ano{
+    background-color: var(--azul-claro);
+    color: var(--branco);
+}
+
+#segundo-ano{
+    background-color: var(--laranja-claro);
+    color: var(--cinza);
+}
+
+.carrossel-wrap{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.carrossel{
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    gap: 18px;
+    padding: 10px 4px 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--azul-claro) transparent;
+}
+
+
+.cartoes{
+    flex: 0 0 200px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cartoes img{
+    order: 0;
+    width: 200px;
+    height: 266px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: var(--azul-clarissimo);
+    transition: transform .25s;
+}
+
+.cartoes:hover img{
+    transform: translateY(-4px);
+}
+
+.cartoes strong{
+    order: 2;                
+    font-size: 21px;
+    font-weight: 700;
+    margin-top: 0;
+    color: var(--texto-escuro);   
+}
+
+.cartoes span{
+    order: 1;               
+    font-size: 12px;
+    line-height: 1.2;
+    margin-top: 8px;
+    color: var(--texto-escuro);
+    max-width: 200px;
+    overflow-wrap: break-word;
+}
+
+
+/* aqui embaixo */
+
+#nossa-equipe{ margin: 50px auto; max-width: 400px; }
+
+@media (max-width: 768px){
+    header{ padding: 10px 16px; }
+    nav div{ padding: 10px; }
+    #logo{ width: 120px; }
+    h1.hero-h1{ font-size: 40px; margin: 0 20px; }
+    .p-hero{ line-height: 1.6; font-size: large; margin: 20px; }
+    .hero-carrossel .p-hero{ margin-bottom: 70px; }
+    .carrossel-wrap{ padding: 0 !important; }
+    .div-h1{ height: 560px; }
+}
+@media (prefers-reduced-motion: reduce){
+    .hero-track, .car-dots label{ animation: none; transition: none; }
+    .carrossel{ scroll-behavior: auto; }
+}
+
+
+@supports selector(::scroll-button(*)){
+    .carrossel-wrap{ padding: 0 56px; }
+    .bloco-ano{ anchor-scope: --equipe; }
+    .carrossel{ anchor-name: --equipe; }
+
+    .carrossel::scroll-button(*){
+        position: fixed;
+        position-anchor: --equipe;
+        width: 44px;
+        height: 44px;
+        border: none;
+        border-radius: 50%;
+        background: var(--branco);
+        color: var(--azul-primario);
+        box-shadow: var(--sombra-card);
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .carrossel::scroll-button(left){
+        content: "\276E" / "Anterior";
+        position-area: left center;
+        margin-right: 8px;
+    }
+
+    .carrossel::scroll-button(right){
+        content: "\276F" / "Próximo";
+        position-area: right center;
+        margin-left: 8px;
+    }
+
+    .carrossel::scroll-button(*):disabled{
+        opacity: .35;
+        cursor: default;
+    }
+}
+
+/* Rodada 10 — grupos completos do Figma 104:27507 e 104:27544. */
+main > section.equipe-com-linhas { position:relative; isolation:isolate; background-image:none; --about-line-unit:max(1vw,9px); }
+.about-blue-lines { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:-1; }
+.about-blue-lines img { position:absolute; max-width:none; height:auto; pointer-events:none; opacity:1; object-fit:contain; }
+/* Origens do frame: (-512,-302) e (-1312,1062); equipe começa em y=783. */
+.about-blue-lines .about-blue-lines-upper { width:calc(var(--about-line-unit) * 282.93806); left:calc((100% - var(--about-line-unit) * 100) / 2 - var(--about-line-unit) * 35.55549); top:calc(var(--about-line-unit) * -75.34726); }
+.about-blue-lines .about-blue-lines-lower { width:calc(var(--about-line-unit) * 256.84318); left:calc((100% - var(--about-line-unit) * 100) / 2 - var(--about-line-unit) * 91.11112); top:calc(var(--about-line-unit) * 19.37497); }
+
+/* Rodada 14: controles fixos fora do track; mesmos movimentos automático/manual. */
+.hero-carrossel > .car-btn { z-index:3; bottom:17px; }
+.hero-carrossel[data-enhanced] .hero-track { animation:none; transition:transform .6s ease; }
+.hero-carrossel .car-dots button { width:12px; height:12px; padding:0; border:2px solid #426b8c; border-radius:50%; background:#426b8c; cursor:pointer; }
+.hero-carrossel .car-dots button[aria-pressed="true"] { background:#dd7b2d; border-color:#dd7b2d; transform:scale(1.2); }
+.hero-carrossel .car-btn { border:0; font:inherit; cursor:pointer; }
+.carrossel::scroll-button(*) { content:none; display:none; }
+.carrossel-wrap { position:relative; display:block; padding-inline:64px !important; }
+.team-arrow { position:absolute; top:155px; width:48px; height:48px; border:0; padding:0; background:transparent; cursor:pointer; z-index:2; }
+.team-arrow-prev { left:0; }
+.team-arrow-next { right:0; }
+.team-arrow img { display:block; width:100%; height:auto; }
+.team-arrow-prev img { transform:rotate(180deg); }
+.team-arrow[hidden] { display:none; }
+@media(max-width:767px) { .carrossel-wrap { padding-inline:56px !important; } .team-arrow { top:160px; width:44px; height:44px; } }
+
+.hero-carrossel[data-enhanced] .hero-track { animation:none; transition:transform .6s ease; }
+.hero-carrossel .car-btn { border:0; }
+
+/* Rodada 15 — hero discreto; equipe mantém círculos escuros fora das fotos. */
+.hero-carrossel > .car-btn { background:transparent; color:#fff; box-shadow:none; width:48px; height:48px; font-size:0; display:grid; place-items:center; }
+.hero-carrossel > .car-btn::before { content:""; display:block; width:12px; height:12px; border-top:3px solid currentColor; border-right:3px solid currentColor; transform:rotate(45deg); }
+.hero-carrossel > .car-btn.prev::before { transform:rotate(-135deg); }
+.hero-carrossel > .car-btn, .hero-carrossel > .car-btn:hover { background:transparent; color:#fff; transform:none; }
+.carrossel[data-moving] { scroll-snap-type:none; scroll-behavior:auto; }
+@media(prefers-reduced-motion:reduce) { .carrossel { scroll-behavior:auto; } }
+
+/* Rodada 16 — viewport recorta as bordas; somente o track se desloca. */
+.carrossel.team-viewport { display:block; overflow:hidden; scroll-snap-type:none; scroll-behavior:auto; touch-action:pan-y; }
+.team-track { position:relative; display:flex; gap:inherit; width:100%; min-width:0; transform:translate3d(0,0,0); transition:transform 800ms cubic-bezier(.4,0,.2,1); }
+.team-track .cartoes { scroll-snap-align:none; }
+.team-track img { user-select:none; -webkit-user-drag:none; }
+.team-viewport:focus-visible { outline:2px solid #dd7b2d; outline-offset:4px; }
+@media(prefers-reduced-motion:reduce) { .team-track { transition:none; } }

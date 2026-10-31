@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "active": false,
+      "width": 1440,
+      "monitorPositionAndSizeUnchanged": true
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "monitorPositionAndSizeUnchanged": true
+    },
+    {
+      "active": false,
+      "width": 768,
+      "monitorPositionAndSizeUnchanged": true
+    },
+    {
+      "active": false,
+      "width": 390,
+      "monitorPositionAndSizeUnchanged": true
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "monitorPositionAndSizeUnchanged": true
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "monitorPositionAndSizeUnchanged": true
+    },
+    {
+      "active": true,
+      "width": 768,
+      "monitorPositionAndSizeUnchanged": true
+    },
+    {
+      "active": true,
+      "width": 390,
+      "monitorPositionAndSizeUnchanged": true
+    }
+  ]
+}

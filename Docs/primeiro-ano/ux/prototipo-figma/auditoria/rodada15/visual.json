@@ -1,0 +1,3182 @@
+{
+  "passed": true,
+  "layouts": [
+    {
+      "active": false,
+      "width": 1440,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1440,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1440,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1440,
+      "name": "faq",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "name": "faq",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 768,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 768,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 768,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 768,
+      "name": "faq",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 390,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 390,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 390,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 390,
+      "name": "faq",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 768,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 768,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 768,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 390,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 390,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 390,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    }
+  ],
+  "modals": [
+    {
+      "active": false,
+      "name": "companies",
+      "id": "modal-empresa-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "companies",
+      "id": "modal-empresa-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "companies",
+      "id": "modal-empresa-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "id": "modal-loja-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "id": "modal-loja-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "id": "modal-loja-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "id": "modal-funcionario-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "id": "modal-funcionario-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "id": "modal-funcionario-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "id": "modal-cargo-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "id": "modal-cargo-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "id": "modal-cargo-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "id": "modal-conta-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "id": "modal-conta-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "id": "modal-conta-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "id": "modal-plano-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "id": "modal-plano-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "id": "modal-plano-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "id": "modal-endereco-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "id": "modal-endereco-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "id": "modal-endereco-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "id": "modal-empresa-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "id": "modal-empresa-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "id": "modal-empresa-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "id": "modal-loja-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "id": "modal-loja-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "id": "modal-loja-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "id": "modal-funcionario-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "id": "modal-funcionario-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "id": "modal-funcionario-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "id": "modal-cargo-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "id": "modal-cargo-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "id": "modal-cargo-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "id": "modal-conta-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "id": "modal-conta-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "id": "modal-conta-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "id": "modal-plano-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "id": "modal-plano-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "id": "modal-plano-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "id": "modal-endereco-criar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "id": "modal-endereco-editar",
+      "x": 410,
+      "subtitleTextX": 410
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "id": "modal-endereco-ver",
+      "x": 410,
+      "subtitleTextX": 410
+    }
+  ],
+  "profiles": [
+    {
+      "active": false,
+      "name": "companies",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": false,
+      "name": "administrations",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": false,
+      "name": "home-crud-page",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": true,
+      "name": "administrations",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    },
+    {
+      "active": true,
+      "name": "home-crud-page",
+      "w": 262,
+      "h": 329,
+      "scroll": false,
+      "overflow": "visible",
+      "sessionBinding": true,
+      "logoutPost": true
+    }
+  ],
+  "dashboard": [
+    {
+      "active": false,
+      "hrefs": [
+        "companies.html",
+        "stores.html",
+        "employees.html",
+        "user-accounts.html"
+      ]
+    },
+    {
+      "active": true,
+      "hrefs": [
+        "ativo-companies.html",
+        "ativo-stores.html",
+        "ativo-employees.html",
+        "ativo-user-accounts.html"
+      ]
+    }
+  ],
+  "footers": [
+    {
+      "active": false,
+      "width": 1440,
+      "name": "home",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 1440,
+      "name": "planos",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 1440,
+      "name": "sobre-nos",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 1440,
+      "name": "faq",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "name": "home",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "name": "planos",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "name": "sobre-nos",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "name": "faq",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 768,
+      "name": "home",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 768,
+      "name": "planos",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 768,
+      "name": "sobre-nos",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 768,
+      "name": "faq",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 390,
+      "name": "home",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 390,
+      "name": "planos",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 390,
+      "name": "sobre-nos",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "width": 390,
+      "name": "faq",
+      "logo": "../assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/html/planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "name": "home",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "name": "planos",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "name": "sobre-nos",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "name": "home",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "name": "planos",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "name": "sobre-nos",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 768,
+      "name": "home",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 768,
+      "name": "planos",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 768,
+      "name": "sobre-nos",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 390,
+      "name": "home",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 390,
+      "name": "planos",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "width": 390,
+      "name": "sobre-nos",
+      "logo": "../../../src/main/resources/static/assets/img/wordmark-mottainai.svg",
+      "links": [
+        {
+          "text": "Diferencial",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#diferencial",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Funcionalidades",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#funcionalidades",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Sistema",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-home.html#sistema",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nossa equipe",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nossa-equipe",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Nosso propósito",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#proposta",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "No que acreditamos",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-sobre-nos.html#nosso-ideal",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Condições",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#escolha-plano",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Termos de Uso",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Contato",
+          "href": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/prototipo-figma/auditoria/rodada15/ativo-planos.html#duvidas",
+          "target": "",
+          "rel": ""
+        },
+        {
+          "text": "Instagram: @mottainai.estoques",
+          "href": "https://www.instagram.com/mottainai.estoques/",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Tel Empresarial: (+55) 11 99333-2592",
+          "href": "https://wa.me/5511993332592",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "text": "Email: mottainai.contato@gmail.com",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=mottainai.contato@gmail.com",
+          "target": "_blank",
+          "rel": "noopener noreferrer"
+        }
+      ]
+    }
+  ],
+  "team": [
+    {
+      "active": false,
+      "width": 1440,
+      "year": 1,
+      "continuous": true,
+      "independent": true,
+      "extremities": true
+    },
+    {
+      "active": false,
+      "width": 1440,
+      "year": 2,
+      "continuous": true,
+      "independent": true,
+      "extremities": true
+    },
+    {
+      "active": false,
+      "width": 390,
+      "year": 1,
+      "continuous": true,
+      "independent": true,
+      "extremities": true
+    },
+    {
+      "active": false,
+      "width": 390,
+      "year": 2,
+      "continuous": true,
+      "independent": true,
+      "extremities": true
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "year": 1,
+      "continuous": true,
+      "independent": true,
+      "extremities": true
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "year": 2,
+      "continuous": true,
+      "independent": true,
+      "extremities": true
+    },
+    {
+      "active": true,
+      "width": 390,
+      "year": 1,
+      "continuous": true,
+      "independent": true,
+      "extremities": true
+    },
+    {
+      "active": true,
+      "width": 390,
+      "year": 2,
+      "continuous": true,
+      "independent": true,
+      "extremities": true
+    }
+  ],
+  "home": [
+    {
+      "active": false,
+      "width": 1440,
+      "text": "matrix(1, 0, 0, 1, 0, -120)"
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "text": "matrix(1, 0, 0, 1, 0, -120)"
+    },
+    {
+      "active": false,
+      "width": 768,
+      "text": "none"
+    },
+    {
+      "active": false,
+      "width": 390,
+      "text": "none"
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "text": "matrix(1, 0, 0, 1, 0, -120)"
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "text": "matrix(1, 0, 0, 1, 0, -120)"
+    },
+    {
+      "active": true,
+      "width": 768,
+      "text": "none"
+    },
+    {
+      "active": true,
+      "width": 390,
+      "text": "none"
+    }
+  ],
+  "plans": [
+    {
+      "active": false,
+      "width": 1440,
+      "haloCentered": true,
+      "pattern": {
+        "x": 678,
+        "y": -77,
+        "width": 762,
+        "height": 846
+      }
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "haloCentered": true,
+      "pattern": {
+        "x": 442,
+        "y": -77,
+        "width": 762,
+        "height": 846
+      }
+    },
+    {
+      "active": false,
+      "width": 768,
+      "haloCentered": true,
+      "pattern": {
+        "x": 186,
+        "y": -77,
+        "width": 762,
+        "height": 846
+      }
+    },
+    {
+      "active": false,
+      "width": 390,
+      "haloCentered": true,
+      "pattern": {
+        "x": -22,
+        "y": -49.609375,
+        "width": 762,
+        "height": 846
+      }
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "haloCentered": true,
+      "pattern": {
+        "x": 678,
+        "y": -80,
+        "width": 762,
+        "height": 846
+      }
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "haloCentered": true,
+      "pattern": {
+        "x": 442,
+        "y": -80,
+        "width": 762,
+        "height": 846
+      }
+    },
+    {
+      "active": true,
+      "width": 768,
+      "haloCentered": true,
+      "pattern": {
+        "x": 186,
+        "y": -80,
+        "width": 762,
+        "height": 846
+      }
+    },
+    {
+      "active": true,
+      "width": 390,
+      "haloCentered": true,
+      "pattern": {
+        "x": -22,
+        "y": -72.40625,
+        "width": 762,
+        "height": 846
+      }
+    }
+  ],
+  "hero": [
+    {
+      "active": false,
+      "fixed": true,
+      "transparent": true,
+      "noReload": true
+    },
+    {
+      "active": true,
+      "fixed": true,
+      "transparent": true,
+      "noReload": true
+    }
+  ],
+  "errors": []
+}

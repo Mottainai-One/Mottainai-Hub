@@ -1,0 +1,21 @@
+/* Proposta visual derivada da Landing/UI Kit; não representa regras oficiais de produto. */
+* { box-sizing: border-box; }
+body { color: #102a43; line-height: 1.6; }
+.faq-main { max-width: 1440px; margin: auto; }
+.faq-hero { padding: 100px 24px 64px; text-align: center; background: radial-gradient(ellipse at top right,#fde8d3,transparent 65%); }
+.eyebrow { margin-bottom: 14px; color: #dd7b2d; font-size: 17px; font-weight: 600; }
+.faq-hero h1 { margin: 0 0 20px; font-size: clamp(38px,5vw,64px); line-height: 1.1; }
+.faq-hero em { color: #dd7b2d; }
+.faq-hero > p { max-width: 700px; margin-left: auto; margin-right: auto; font-size: 20px; }
+.faq-hero .nota-demonstracao { margin-top: 25px; font-size: 14px; color: #6c7d8b; }
+.faq-lista { max-width: 950px; margin: 0 auto; padding: 0 24px 70px; }
+.faq-lista details { margin: 16px 0; padding: 24px 28px; border: 1px solid #e2e3df; border-radius: 14px; background: #fff; box-shadow: 0 4px 12px #102a4306; }
+.faq-lista summary { cursor: pointer; color: #102a43; font-size: 20px; font-weight: 600; }
+.faq-lista summary::marker { color: #dd7b2d; }
+.faq-lista details[open] { border-color: #efba8a; }
+.faq-lista p { margin: 18px 0 0; font-size: 17px; color: #334553; }
+.faq-rodape { padding: 50px 24px 90px; text-align: center; }
+.faq-rodape h2 { margin: 0; font-size: 34px; }
+.faq-rodape p { margin-bottom: 30px; }
+.faq-rodape a { display: inline-block; padding: 14px 28px; background: #102a43; border-radius: 6px; color: white; text-decoration: none; }
+@media(max-width:600px) { .faq-hero { padding-top: 64px; } .faq-lista details { padding: 20px; } .faq-lista summary { font-size: 18px; } }

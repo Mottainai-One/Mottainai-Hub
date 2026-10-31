@@ -1,0 +1,62 @@
+{
+  "screen": {
+    "x": 10,
+    "y": 12,
+    "w": 597,
+    "h": 326,
+    "fills": [
+      {
+        "type": "SOLID",
+        "visible": true,
+        "opacity": 1,
+        "blendMode": "NORMAL",
+        "color": {
+          "r": 0.062745101749897,
+          "g": 0.16470588743686676,
+          "b": 0.250980406999588
+        },
+        "boundVariables": {}
+      },
+      {
+        "type": "IMAGE",
+        "visible": true,
+        "opacity": 1,
+        "blendMode": "NORMAL",
+        "scaleMode": "CROP",
+        "scalingFactor": 1,
+        "filters": {
+          "exposure": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "temperature": 0,
+          "tint": 0,
+          "highlights": 0,
+          "shadows": 0
+        },
+        "imageTransform": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "imageHash": "3ab04f755fd1bdccb5ba347acbad4df8a96dff98"
+      }
+    ]
+  },
+  "monitor": {
+    "x": 720,
+    "y": 3886,
+    "w": 623.864013671875,
+    "h": 496
+  },
+  "mutatedNodeIds": [
+    "114:7745"
+  ],
+  "arrowNode": "I91:9126;1141:43644"
+}

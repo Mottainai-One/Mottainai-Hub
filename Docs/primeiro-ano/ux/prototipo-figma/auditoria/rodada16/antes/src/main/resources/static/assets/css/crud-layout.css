@@ -1,0 +1,68 @@
+/* Ajustes compartilhados da rodada 8: mantém forms, filtros e paginação no Spring. */
+body[data-pagina] { --crud-botao-azul:#173d59; }
+body[data-pagina] .main { min-width:0; padding:18px 28px 24px; }
+body[data-pagina] .pagina-subtitulo { margin-bottom:12px; }
+body[data-pagina] .toolbar { margin:10px 0 8px; gap:12px; }
+body[data-pagina] .toolbar .busca { min-width:0; }
+body[data-pagina] .toolbar .busca input { width:100%; min-width:0; height:42px; background:#f1f2f4; border:1px solid var(--borda-card); padding:0 14px 0 38px; font:inherit; }
+body[data-pagina] .toolbar .btn-pesquisar { background:#dd7b2d; color:#102a43; border:1px solid #dd7b2d; }
+body[data-pagina] .busca-status { margin:0 0 8px; font-size:11px; line-height:16px; }
+body[data-pagina] .tabela-wrap { margin-top:0; max-width:100%; overflow-x:auto; border-radius:12px; }
+body[data-pagina] .tabela th { padding:12px 20px; }
+body[data-pagina] .tabela td { padding:12px 20px; }
+body[data-pagina="administrations"] .tabela th:first-child { width:96px; }
+body[data-pagina="administrations"] .tabela th:last-child { width:132px; }
+body[data-pagina] .btn.btn-primario { background:var(--crud-botao-azul); color:#fff; border:1px solid var(--crud-botao-azul); transition:transform .2s ease,background-color .2s ease,border-color .2s ease; }
+body[data-pagina] .btn.btn-primario:hover { background:#214f70; border-color:#52718a; color:#fff; filter:none; transform:translateY(-2px); }
+body[data-pagina] .main > .feedback { margin-bottom:10px; }
+@media(min-width:651px) {
+  /* O viewport fica estável; somente conteúdo que não cabe precisa rolar. */
+  body[data-pagina] { height:100dvh; overflow:hidden; }
+  body[data-pagina] .app { height:100dvh; min-height:0; grid-template-rows:var(--header-altura) minmax(0,1fr); overflow:hidden; }
+  body[data-pagina] .header { height:var(--header-altura); min-height:0; position:relative; z-index:30; }
+  body[data-pagina] .main { height:100%; min-height:0; overflow:auto; }
+  body[data-pagina] .sidebar { position:sticky; top:0; height:100dvh; min-height:0; align-self:start; overflow:hidden; }
+  body[data-pagina] .sidebar-logo { flex-shrink:0; }
+  body[data-pagina] .sidebar-nav { flex:1; min-height:0; margin:12px 0 0; padding:0; gap:6px; justify-content:flex-start; overflow-y:auto; }
+}
+@media(max-width:650px) {
+  body[data-pagina] .main { padding:16px 18px 24px; }
+  body[data-pagina] .toolbar { row-gap:10px; }
+  body[data-pagina] .sidebar .sidebar-sair { display:flex; flex:0 0 auto; margin-top:0; }
+}
+@media(prefers-reduced-motion:reduce) {
+  body[data-pagina] .btn.btn-primario { transition:none; }
+  body[data-pagina] .btn.btn-primario:hover { transform:none; }
+}
+
+/* Seletor nativo preservado; seta recuada e texto com área própria. */
+body[data-pagina] .toolbar select.filtro { appearance:none; padding-right:40px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%23526274' stroke-width='1.6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-size:12px 8px; background-position:right 14px center; }
+body[data-pagina] .paginacao-controles { flex-wrap:wrap; }
+@media(forced-colors:active) { body[data-pagina] .toolbar select.filtro { appearance:auto; background-image:none; } }
+
+/* Rodada 15 — alinhamento comum, espaço de busca e perfil Figma 171:7734. */
+body[data-pagina] .modal-subtitulo { padding-inline:22px; }
+body[data-pagina] .busca-status { height:16px; min-height:16px; margin:0 0 8px; padding:0; }
+/* Mantém também as quebras de linha antigas no mobile, sem texto visível ou anunciado. */
+body[data-pagina] .busca-status { height:auto; }
+body[data-pagina] .busca-status::before { content:"Digite para filtrar esta página; Enter ou Pesquisar consulta o backend."; display:block; visibility:hidden; user-select:none; pointer-events:none; }
+body[data-pagina] a.card-resumo { display:flex; flex-direction:column; text-decoration:none; color:inherit; cursor:pointer; }
+body[data-pagina] a.card-resumo:focus-visible { outline:3px solid #dd7b2d; outline-offset:3px; }
+body[data-pagina] a.card-resumo:hover { box-shadow:0 3px 12px #102a431a; }
+body[data-pagina] .perfil-administrativo { position:relative; margin-left:auto; }
+body[data-pagina] .perfil-trigger { color:inherit; cursor:pointer; border:0; background:transparent; font:inherit; }
+body[data-pagina] .perfil-trigger:focus-visible { outline:2px solid #ed842c; outline-offset:3px; }
+body[data-pagina] .perfil-popup { position:absolute; top:calc(100% + 10px); right:0; width:264px; max-width:calc(100vw - 36px); min-height:330px; height:auto; max-height:none; overflow:visible; padding:19px; box-sizing:border-box; background:#fff; border:1px solid #e8eef2; border-radius:18px; box-shadow:0 10px 26px #0a213821; color:#162f43; text-align:left; z-index:40; font-family:Inter,Arial,sans-serif; }
+body[data-pagina] .perfil-popup[hidden] { display:none; }
+body[data-pagina] .perfil-popup::before { content:""; position:absolute; top:0; left:19px; right:19px; height:4px; border-radius:2px; background:#ed842c; }
+body[data-pagina] .perfil-popup .perfil-titulo { display:block; margin:0; font-size:16px; font-weight:600; line-height:20px; }
+body[data-pagina] .perfil-popup .perfil-subtitulo { margin:5px 0 0; font-size:10px; line-height:20px; color:#83939d; }
+body[data-pagina] .perfil-popup .perfil-avatar { display:grid; place-items:center; width:84px; height:84px; margin:18px auto 16px; border:1px solid #d7e3e9; border-radius:50%; background:#eaf1f4; }
+body[data-pagina] .perfil-popup .perfil-avatar img { display:block; width:48px; height:48px; }
+body[data-pagina] .perfil-popup .perfil-email { margin:0; min-height:20px; font-size:11px; font-weight:500; line-height:20px; color:#23394a; text-align:center; overflow-wrap:anywhere; }
+body[data-pagina] .perfil-popup .perfil-cargo { display:block; width:160px; max-width:100%; margin:3px auto 0; border-radius:12px; background:#f2f6f8; color:#657986; text-align:center; font-size:9px; font-weight:500; line-height:24px; }
+body[data-pagina] .perfil-popup form { margin:16px 0 0; padding:18px 0 0; border-top:1px solid #eaeff2; }
+body[data-pagina] .perfil-popup .perfil-sair { display:flex; align-items:center; justify-content:center; gap:11px; width:100%; min-height:46px; padding:10px; box-sizing:border-box; border:1px solid #fbe2df; border-radius:11px; background:#fff2f0; color:#b64141; font:600 12px/20px Inter,Arial,sans-serif; cursor:pointer; }
+body[data-pagina] .perfil-popup .perfil-sair img { width:20px; height:20px; filter:brightness(0) saturate(100%) invert(32%) sepia(60%) saturate(900%) hue-rotate(323deg); }
+body[data-pagina] .perfil-popup .perfil-sair:hover { background:#ffe6e2; color:#b64141; }
+@media(max-width:650px) { body[data-pagina] .modal-subtitulo { padding-inline:16px; } }

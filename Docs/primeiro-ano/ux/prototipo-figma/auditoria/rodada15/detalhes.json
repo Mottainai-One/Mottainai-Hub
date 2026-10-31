@@ -1,0 +1,417 @@
+{
+  "passed": true,
+  "baseline": [
+    {
+      "width": 1440,
+      "tableYBefore": 230.09375,
+      "tableYAfter": 230.09375,
+      "gapBefore": 16,
+      "gapAfter": 16
+    },
+    {
+      "width": 1440,
+      "phonesUnchanged": true,
+      "textDelta": -24
+    },
+    {
+      "width": 390,
+      "tableYBefore": 345.890625,
+      "tableYAfter": 345.890625,
+      "gapBefore": 32,
+      "gapAfter": 32
+    },
+    {
+      "width": 390,
+      "phonesUnchanged": true,
+      "textDelta": 0
+    }
+  ],
+  "mobileModals": [
+    {
+      "active": false,
+      "name": "companies",
+      "id": "modal-empresa-criar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "companies",
+      "id": "modal-empresa-editar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "companies",
+      "id": "modal-empresa-ver",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "id": "modal-loja-criar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "id": "modal-loja-editar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "id": "modal-loja-ver",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "id": "modal-funcionario-criar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "id": "modal-funcionario-editar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "id": "modal-funcionario-ver",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "id": "modal-cargo-criar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "id": "modal-cargo-editar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "id": "modal-cargo-ver",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "id": "modal-conta-criar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "id": "modal-conta-editar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "id": "modal-conta-ver",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "id": "modal-plano-criar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "id": "modal-plano-editar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "id": "modal-plano-ver",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "id": "modal-endereco-criar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "id": "modal-endereco-editar",
+      "aligned": true
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "id": "modal-endereco-ver",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "id": "modal-empresa-criar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "id": "modal-empresa-editar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "id": "modal-empresa-ver",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "id": "modal-loja-criar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "id": "modal-loja-editar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "id": "modal-loja-ver",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "id": "modal-funcionario-criar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "id": "modal-funcionario-editar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "id": "modal-funcionario-ver",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "id": "modal-cargo-criar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "id": "modal-cargo-editar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "id": "modal-cargo-ver",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "id": "modal-conta-criar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "id": "modal-conta-editar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "id": "modal-conta-ver",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "id": "modal-plano-criar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "id": "modal-plano-editar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "id": "modal-plano-ver",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "id": "modal-endereco-criar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "id": "modal-endereco-editar",
+      "aligned": true
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "id": "modal-endereco-ver",
+      "aligned": true
+    }
+  ],
+  "footers": [
+    {
+      "active": false,
+      "width": 1440,
+      "equivalent": true
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "equivalent": true
+    },
+    {
+      "active": false,
+      "width": 768,
+      "equivalent": true
+    },
+    {
+      "active": false,
+      "width": 390,
+      "equivalent": true
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "equivalent": true
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "equivalent": true
+    },
+    {
+      "active": true,
+      "width": 768,
+      "equivalent": true
+    },
+    {
+      "active": true,
+      "width": 390,
+      "equivalent": true
+    }
+  ],
+  "mobileProfiles": [
+    {
+      "active": false,
+      "name": "companies",
+      "fullyVisible": true
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "fullyVisible": true
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "fullyVisible": true
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "fullyVisible": true
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "fullyVisible": true
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "fullyVisible": true
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "fullyVisible": true
+    },
+    {
+      "active": false,
+      "name": "administrations",
+      "fullyVisible": true
+    },
+    {
+      "active": false,
+      "name": "home-crud-page",
+      "fullyVisible": true
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "fullyVisible": true
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "fullyVisible": true
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "fullyVisible": true
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "fullyVisible": true
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "fullyVisible": true
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "fullyVisible": true
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "fullyVisible": true
+    },
+    {
+      "active": true,
+      "name": "administrations",
+      "fullyVisible": true
+    },
+    {
+      "active": true,
+      "name": "home-crud-page",
+      "fullyVisible": true
+    }
+  ]
+}

@@ -1,0 +1,1350 @@
+{
+  "layouts": [
+    {
+      "active": false,
+      "name": "home-crud-page",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": false,
+      "name": "home-crud-page",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": false,
+      "name": "home-crud-page",
+      "width": 390,
+      "documentHeight": 1359,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": false,
+      "name": "companies",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "companies",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "companies",
+      "width": 390,
+      "documentHeight": 1098,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "stores",
+      "width": 390,
+      "documentHeight": 903,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "employees",
+      "width": 390,
+      "documentHeight": 1020,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "employee-roles",
+      "width": 390,
+      "documentHeight": 903,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "user-accounts",
+      "width": 390,
+      "documentHeight": 868,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "subscription-plans",
+      "width": 390,
+      "documentHeight": 1273,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": false,
+      "name": "addresses",
+      "width": 390,
+      "documentHeight": 942,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": false,
+      "name": "administrations",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": false,
+      "name": "administrations",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": false,
+      "name": "administrations",
+      "width": 390,
+      "documentHeight": 868,
+      "overflow": false,
+      "rows": 6,
+      "logo": "../assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": true,
+      "name": "home-crud-page",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": true,
+      "name": "home-crud-page",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": true,
+      "name": "home-crud-page",
+      "width": 390,
+      "documentHeight": 1334,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "companies",
+      "width": 390,
+      "documentHeight": 1033,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "stores",
+      "width": 390,
+      "documentHeight": 844,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "employees",
+      "width": 390,
+      "documentHeight": 955,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "employee-roles",
+      "width": 390,
+      "documentHeight": 844,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "user-accounts",
+      "width": 390,
+      "documentHeight": 844,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "subscription-plans",
+      "width": 390,
+      "documentHeight": 1208,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": {
+        "padding": "40px",
+        "position": "calc(100% - 14px) 50%",
+        "appearance": "none"
+      }
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": true,
+      "name": "addresses",
+      "width": 390,
+      "documentHeight": 877,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": true,
+      "name": "administrations",
+      "width": 1440,
+      "documentHeight": 900,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": true,
+      "name": "administrations",
+      "width": 1024,
+      "documentHeight": 768,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    },
+    {
+      "active": true,
+      "name": "administrations",
+      "width": 390,
+      "documentHeight": 869,
+      "overflow": false,
+      "rows": 6,
+      "logo": "file:///C:/Users/20260215-ieg/Downloads/CrudInicial%20-%20Copia/src/main/resources/static/assets/icons/logo-administrativo.svg",
+      "images": 0,
+      "logout": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px",
+        "transform": "none"
+      },
+      "filter": null
+    }
+  ],
+  "navigation": [
+    {
+      "name": "home-crud-page",
+      "pages": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "rowsPerDemoPage": 6
+    },
+    {
+      "name": "companies",
+      "pages": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "rowsPerDemoPage": 6
+    },
+    {
+      "name": "stores",
+      "pages": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "rowsPerDemoPage": 6
+    },
+    {
+      "name": "employees",
+      "pages": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "rowsPerDemoPage": 6
+    },
+    {
+      "name": "employee-roles",
+      "pages": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "rowsPerDemoPage": 6
+    },
+    {
+      "name": "user-accounts",
+      "pages": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "rowsPerDemoPage": 6
+    },
+    {
+      "name": "subscription-plans",
+      "pages": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "rowsPerDemoPage": 6
+    },
+    {
+      "name": "addresses",
+      "pages": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "rowsPerDemoPage": 6
+    },
+    {
+      "name": "administrations",
+      "pages": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "rowsPerDemoPage": 6
+    }
+  ],
+  "home": [
+    {
+      "active": false,
+      "width": 1440,
+      "bg": "rgb(11, 31, 58)",
+      "display": "flex",
+      "layout": "column",
+      "panel": {
+        "x": 340,
+        "y": 210,
+        "w": 330.421875,
+        "h": 580
+      },
+      "icon": {
+        "x": 465.203125,
+        "y": 419.8125,
+        "w": 80,
+        "h": 81.5625
+      },
+      "wordmark": {
+        "x": 410.203125,
+        "y": 521.375,
+        "w": 190,
+        "h": 58.796875
+      },
+      "images": [
+        true,
+        true
+      ]
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "bg": "rgb(11, 31, 58)",
+      "display": "flex",
+      "layout": "column",
+      "panel": {
+        "x": 132,
+        "y": 210,
+        "w": 330.421875,
+        "h": 580
+      },
+      "icon": {
+        "x": 257.203125,
+        "y": 419.8125,
+        "w": 80,
+        "h": 81.5625
+      },
+      "wordmark": {
+        "x": 202.203125,
+        "y": 521.375,
+        "w": 190,
+        "h": 58.796875
+      },
+      "images": [
+        true,
+        true
+      ]
+    },
+    {
+      "active": false,
+      "width": 768,
+      "bg": "rgb(11, 31, 58)",
+      "display": "flex",
+      "layout": "column",
+      "panel": {
+        "x": 16,
+        "y": 210,
+        "w": 320,
+        "h": 580
+      },
+      "icon": {
+        "x": 136,
+        "y": 419.8125,
+        "w": 80,
+        "h": 81.5625
+      },
+      "wordmark": {
+        "x": 81,
+        "y": 521.375,
+        "w": 190,
+        "h": 58.796875
+      },
+      "images": [
+        true,
+        true
+      ]
+    },
+    {
+      "active": false,
+      "width": 390,
+      "bg": "rgb(11, 31, 58)",
+      "display": "none",
+      "layout": "column",
+      "panel": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "icon": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "wordmark": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "images": [
+        true,
+        true
+      ]
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "bg": "rgb(11, 31, 58)",
+      "display": "flex",
+      "layout": "column",
+      "panel": {
+        "x": 340,
+        "y": 210,
+        "w": 330.421875,
+        "h": 580
+      },
+      "icon": {
+        "x": 465.203125,
+        "y": 419.8125,
+        "w": 80,
+        "h": 81.5625
+      },
+      "wordmark": {
+        "x": 410.203125,
+        "y": 521.375,
+        "w": 190,
+        "h": 58.796875
+      },
+      "images": [
+        true,
+        true
+      ]
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "bg": "rgb(11, 31, 58)",
+      "display": "flex",
+      "layout": "column",
+      "panel": {
+        "x": 132,
+        "y": 210,
+        "w": 330.421875,
+        "h": 580
+      },
+      "icon": {
+        "x": 257.203125,
+        "y": 419.8125,
+        "w": 80,
+        "h": 81.5625
+      },
+      "wordmark": {
+        "x": 202.203125,
+        "y": 521.375,
+        "w": 190,
+        "h": 58.796875
+      },
+      "images": [
+        true,
+        true
+      ]
+    },
+    {
+      "active": true,
+      "width": 768,
+      "bg": "rgb(11, 31, 58)",
+      "display": "flex",
+      "layout": "column",
+      "panel": {
+        "x": 16,
+        "y": 210,
+        "w": 320,
+        "h": 580
+      },
+      "icon": {
+        "x": 136,
+        "y": 419.8125,
+        "w": 80,
+        "h": 81.5625
+      },
+      "wordmark": {
+        "x": 81,
+        "y": 521.375,
+        "w": 190,
+        "h": 58.796875
+      },
+      "images": [
+        true,
+        true
+      ]
+    },
+    {
+      "active": true,
+      "width": 390,
+      "bg": "rgb(11, 31, 58)",
+      "display": "none",
+      "layout": "column",
+      "panel": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "icon": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "wordmark": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "images": [
+        true,
+        true
+      ]
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:8980/empresas?busca=Registro+%26+%2B&situacao=ativo"
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:8980/logout"
+    }
+  ]
+}

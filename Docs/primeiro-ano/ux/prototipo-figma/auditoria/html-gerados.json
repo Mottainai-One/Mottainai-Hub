@@ -1,0 +1,157 @@
+[
+  {
+    "jsp": "addresses.jsp",
+    "html": "addresses.html",
+    "bytes": 25287
+  },
+  {
+    "jsp": "administrations.jsp",
+    "html": "administrations.html",
+    "bytes": 11759
+  },
+  {
+    "jsp": "companies.jsp",
+    "html": "companies.html",
+    "bytes": 30831
+  },
+  {
+    "jsp": "employee-roles.jsp",
+    "html": "employee-roles.html",
+    "bytes": 24186
+  },
+  {
+    "jsp": "employees.jsp",
+    "html": "employees.html",
+    "bytes": 32631
+  },
+  {
+    "jsp": "faq.jsp",
+    "html": "faq.html",
+    "bytes": 5726
+  },
+  {
+    "jsp": "home-crud-page.jsp",
+    "html": "home-crud-page.html",
+    "bytes": 12465
+  },
+  {
+    "jsp": "home.jsp",
+    "html": "home.html",
+    "bytes": 16352
+  },
+  {
+    "jsp": "planos.jsp",
+    "html": "planos.html",
+    "bytes": 8389
+  },
+  {
+    "jsp": "sobre-nos.jsp",
+    "html": "sobre-nos.html",
+    "bytes": 10637
+  },
+  {
+    "jsp": "stores.jsp",
+    "html": "stores.html",
+    "bytes": 33177
+  },
+  {
+    "jsp": "subscription-plans.jsp",
+    "html": "subscription-plans.html",
+    "bytes": 27673
+  },
+  {
+    "jsp": "user-accounts.jsp",
+    "html": "user-accounts.html",
+    "bytes": 27873
+  },
+  {
+    "jsp": "companies.jsp",
+    "html": "companies-pagina-2.html",
+    "previewPage": 2
+  },
+  {
+    "jsp": "companies.jsp",
+    "html": "companies-pagina-3.html",
+    "previewPage": 3
+  },
+  {
+    "jsp": "stores.jsp",
+    "html": "stores-pagina-2.html",
+    "previewPage": 2
+  },
+  {
+    "jsp": "stores.jsp",
+    "html": "stores-pagina-3.html",
+    "previewPage": 3
+  },
+  {
+    "jsp": "employees.jsp",
+    "html": "employees-pagina-2.html",
+    "previewPage": 2
+  },
+  {
+    "jsp": "employees.jsp",
+    "html": "employees-pagina-3.html",
+    "previewPage": 3
+  },
+  {
+    "jsp": "employee-roles.jsp",
+    "html": "employee-roles-pagina-2.html",
+    "previewPage": 2
+  },
+  {
+    "jsp": "employee-roles.jsp",
+    "html": "employee-roles-pagina-3.html",
+    "previewPage": 3
+  },
+  {
+    "jsp": "user-accounts.jsp",
+    "html": "user-accounts-pagina-2.html",
+    "previewPage": 2
+  },
+  {
+    "jsp": "user-accounts.jsp",
+    "html": "user-accounts-pagina-3.html",
+    "previewPage": 3
+  },
+  {
+    "jsp": "subscription-plans.jsp",
+    "html": "subscription-plans-pagina-2.html",
+    "previewPage": 2
+  },
+  {
+    "jsp": "subscription-plans.jsp",
+    "html": "subscription-plans-pagina-3.html",
+    "previewPage": 3
+  },
+  {
+    "jsp": "addresses.jsp",
+    "html": "addresses-pagina-2.html",
+    "previewPage": 2
+  },
+  {
+    "jsp": "addresses.jsp",
+    "html": "addresses-pagina-3.html",
+    "previewPage": 3
+  },
+  {
+    "jsp": "administrations.jsp",
+    "html": "administrations-pagina-2.html",
+    "previewPage": 2
+  },
+  {
+    "jsp": "administrations.jsp",
+    "html": "administrations-pagina-3.html",
+    "previewPage": 3
+  },
+  {
+    "jsp": "home-crud-page.jsp",
+    "html": "home-crud-page-pagina-2.html",
+    "previewPage": 2
+  },
+  {
+    "jsp": "home-crud-page.jsp",
+    "html": "home-crud-page-pagina-3.html",
+    "previewPage": 3
+  }
+]

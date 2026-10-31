@@ -1,0 +1,344 @@
+{
+  "passed": true,
+  "layouts": [
+    {
+      "active": false,
+      "width": 1440,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1440,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1440,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 768,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 768,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 768,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 390,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 390,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": false,
+      "width": 390,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 768,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 768,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 768,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 390,
+      "name": "home",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 390,
+      "name": "planos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    },
+    {
+      "active": true,
+      "width": 390,
+      "name": "sobre-nos",
+      "overflow": false,
+      "broken": [],
+      "badge": false
+    }
+  ],
+  "plans": [
+    {
+      "active": false,
+      "width": 1440,
+      "priceAnimationIntermediate": "R$ 22.062",
+      "carousel": false
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "priceAnimationIntermediate": "R$ 22.543",
+      "carousel": true
+    },
+    {
+      "active": false,
+      "width": 768,
+      "priceAnimationIntermediate": "R$ 22.575",
+      "carousel": true
+    },
+    {
+      "active": false,
+      "width": 390,
+      "priceAnimationIntermediate": "R$ 21.298",
+      "carousel": true
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "priceAnimationIntermediate": "R$ 21.141",
+      "carousel": false
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "priceAnimationIntermediate": "R$ 21.946",
+      "carousel": true
+    },
+    {
+      "active": true,
+      "width": 768,
+      "priceAnimationIntermediate": "R$ 21.742",
+      "carousel": true
+    },
+    {
+      "active": true,
+      "width": 390,
+      "priceAnimationIntermediate": "R$ 21.094",
+      "carousel": true
+    }
+  ],
+  "hero": [
+    {
+      "active": false,
+      "manual": true,
+      "automatic": true,
+      "fixedArrows": true,
+      "noReload": true
+    },
+    {
+      "active": true,
+      "manual": true,
+      "automatic": true,
+      "fixedArrows": true,
+      "noReload": true
+    }
+  ],
+  "team": [
+    {
+      "active": false,
+      "year": 1,
+      "start": true,
+      "middle": true,
+      "end": true,
+      "independent": true,
+      "noPhotoOverlap": true
+    },
+    {
+      "active": false,
+      "year": 2,
+      "start": true,
+      "middle": true,
+      "end": true,
+      "independent": true,
+      "noPhotoOverlap": true
+    },
+    {
+      "active": true,
+      "year": 1,
+      "start": true,
+      "middle": true,
+      "end": true,
+      "independent": true,
+      "noPhotoOverlap": true
+    },
+    {
+      "active": true,
+      "year": 2,
+      "start": true,
+      "middle": true,
+      "end": true,
+      "independent": true,
+      "noPhotoOverlap": true
+    }
+  ],
+  "footers": [
+    {
+      "active": false,
+      "width": 1440,
+      "equivalent": true
+    },
+    {
+      "active": false,
+      "width": 1024,
+      "equivalent": true
+    },
+    {
+      "active": false,
+      "width": 768,
+      "equivalent": true
+    },
+    {
+      "active": false,
+      "width": 390,
+      "equivalent": true
+    },
+    {
+      "active": true,
+      "width": 1440,
+      "equivalent": true
+    },
+    {
+      "active": true,
+      "width": 1024,
+      "equivalent": true
+    },
+    {
+      "active": true,
+      "width": 768,
+      "equivalent": true
+    },
+    {
+      "active": true,
+      "width": 390,
+      "equivalent": true
+    }
+  ],
+  "errors": []
+}

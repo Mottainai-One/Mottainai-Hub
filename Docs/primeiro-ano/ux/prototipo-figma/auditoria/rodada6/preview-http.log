@@ -1,0 +1,30 @@
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/addresses.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/addresses.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/administrations.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/administrations.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/companies.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/companies.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/employee-roles.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/employee-roles.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/employees.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/employees.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/faq.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/faq.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/home-crud-page.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/home-crud-page.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/home.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/home.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/planos.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/planos.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/sobre-nos.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/sobre-nos.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/stores.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/stores.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/subscription-plans.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/subscription-plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /ver-jsp/user-accounts.jsp HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] "GET /html/user-accounts.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 11:30:10] code 405, message Preview visual: autentica��o e persist�ncia indispon�veis
+127.0.0.1 - - [27/Oct/2026 11:30:10] "POST /ver-jsp/home.jsp HTTP/1.1" 405 -
+{"passed": true, "pages": 13, "postRejected": true}
